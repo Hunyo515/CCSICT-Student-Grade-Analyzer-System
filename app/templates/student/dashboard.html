@@ -1,0 +1,134 @@
+{% extends "student/_layout.html" %}
+{% set active_page = "dashboard" %}
+{% from "_icons.html" import icon %}
+{% block title %}Dashboard{% endblock %}
+{% block page_title %}Student Dashboard{% endblock %}
+
+{% block content %}
+<div>
+  <p class="page-title" style="font-size:28px;margin:0;">Welcome, {{ student.full_name.split(' ')[0] }}!</p>
+  <div style="display:flex;align-items:center;gap:12px;margin-top:6px;">
+    <span class="cell-muted">{{ student.section }} &mdash; {{ term.semester if term }} {{ term.school_year if term }}</span>
+    <span class="badge {{ 'active' if student.status == 'ACTIVE' else 'inactive' }}">
+      {{ 'Regular' if student.status == 'ACTIVE' else student.status|title }}
+    </span>
+  </div>
+</div>
+
+<div style="display:flex;gap:20px;width:100%;">
+  <div class="stat-card-plain">
+    <span class="stat-label-caps">Overall Average</span>
+    <div class="stat-big">{{ stats.overall_average ~ '%' if stats.overall_average is not none else '—' }}</div>
+    <div class="stat-desc">
+      {% if stats.overall_average is not none and stats.overall_average >= 85 %}
+        <span class="badge green">Excellent Standing</span>
+      {% elif stats.overall_average is not none %}
+        <span class="badge brown">Keep it up</span>
+      {% else %}
+        No published grades yet
+      {% endif %}
+    </div>
+  </div>
+  <div class="stat-card-plain">
+    <span class="stat-label-caps">Subjects Enrolled</span>
+    <div class="stat-big">{{ stats.subjects_enrolled }}</div>
+    <div class="stat-desc">Full Semester Load</div>
+  </div>
+  <div class="stat-card-plain">
+    <span class="stat-label-caps">Current Standing</span>
+    <div class="stat-big">{{ '#' ~ stats.rank ~ ' of ' ~ stats.class_size if stats.rank else '—' }}</div>
+    <div class="stat-desc">
+      {% if stats.rank and stats.class_size %}
+        <span class="badge green">Top {{ ((stats.rank / stats.class_size) * 100)|round|int }}% of Class</span>
+      {% else %}
+        Ranking unavailable
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<div class="card" style="width:100%;">
+  <div style="display:flex;align-items:center;justify-content:space-between;">
+    <div>
+      <div class="card-title" style="margin:0;">My Enrolled Courses</div>
+      <div class="cell-muted" style="font-size:13px;">Select a course to view graded assessments and detailed performance analytics.</div>
+    </div>
+    <a class="btn btn-primary" href="javascript:void(0)" onclick="document.getElementById('joinCourseModal').classList.add('open')">{{ icon('plus') }} Join Course</a>
+  </div>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:20px;">
+    {% for e in enrollments %}
+    <a style="flex:1;min-width:220px;background:#fff;border:1px solid var(--sidebar-border);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:14px;text-decoration:none;color:inherit;"
+       href="{{ url_for('student.grades', assignment_id=e.assignment_id) }}">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <span class="badge brown">{{ e.subject_code }}</span>
+        <div style="width:28px;height:28px;border-radius:6px;background:var(--bg);display:flex;align-items:center;justify-content:center;">{{ icon('book') }}</div>
+      </div>
+      <div>
+        <div class="cell-strong" style="font-size:16px;">{{ e.subject_name }}</div>
+        <div class="cell-muted" style="font-size:13px;margin-top:2px;">Instructor: {{ e.teacher_name }}</div>
+      </div>
+      <hr class="sidebar-divider" style="margin:0;">
+      <div style="display:flex;align-items:center;justify-content:space-between;font-size:12px;">
+        <span class="cell-muted">{{ e.component_count }} Active Assessment{{ 's' if e.component_count != 1 }}</span>
+        <span style="color:var(--accent);font-weight:600;">View Grades &rarr;</span>
+      </div>
+    </a>
+    {% else %}
+    <div class="cell-muted">Not enrolled in any subjects this term. Use "Join Course" to enroll with a class code from your instructor.</div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="card" style="width:100%;">
+  <div style="display:flex;align-items:center;justify-content:space-between;">
+    <div class="card-title">Recent Assessments</div>
+    <a href="{{ url_for('student.grades') }}" style="color:var(--accent);font-weight:600;font-size:12px;">View All Grades &rarr;</a>
+  </div>
+  <div class="table-card" style="margin-top:16px;box-shadow:none;">
+    <table class="data-table">
+      <thead><tr><th>Subject</th><th>Assessment</th><th style="text-align:right;">Score</th><th style="text-align:right;">Date</th></tr></thead>
+      <tbody>
+        {% for r in recent %}
+        <tr>
+          <td class="cell-strong">{{ r.subject_name }}</td>
+          <td class="cell-muted">{{ r.component_name }}</td>
+          <td style="text-align:right;font-weight:700;color:{{ 'var(--success)' if (r.score / r.max_score * 100) >= 75 else 'var(--text-dark)' }};">{{ r.score|int }} / {{ r.max_score|int }}</td>
+          <td class="cell-muted" style="text-align:right;font-size:13px;">{{ r.updated_at.strftime('%b %d, %Y') if r.updated_at else '' }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="4" class="cell-muted" style="text-align:center;padding:32px;">No assessments recorded yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Join Course Modal -->
+<div class="modal-overlay {{ 'open' if join_error }}" id="joinCourseModal">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3 class="modal-title">Join a Course</h3>
+      <button class="modal-close" onclick="document.getElementById('joinCourseModal').classList.remove('open')">{{ icon('x-circle') }}</button>
+    </div>
+    <p class="cell-muted" style="margin:-8px 0 0;font-size:13px;">
+      Enter the alphanumeric code provided by your instructor to instantly enroll and track your grades.
+    </p>
+    <form method="POST" action="{{ url_for('student.join_course') }}">
+      <div class="modal-body">
+        <div class="field-group">
+          <label class="field-label">Enter Class Code</label>
+          <input class="field-input {{ 'field-input-error' if join_error }}" name="code" placeholder="e.g. X7K2QP"
+                 value="{{ submitted_code or '' }}" maxlength="10" autocomplete="off" style="text-transform:uppercase;">
+          {% if join_error %}
+          <p style="color:var(--danger);font-size:12px;margin:4px 0 0;">{{ join_error }}</p>
+          {% endif %}
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-cancel-plain" onclick="document.getElementById('joinCourseModal').classList.remove('open')">Cancel</button>
+        <button type="submit" class="btn btn-primary">Join</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

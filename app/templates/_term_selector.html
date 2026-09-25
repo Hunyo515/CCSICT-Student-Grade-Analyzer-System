@@ -1,0 +1,46 @@
+{% from "_icons.html" import icon %}
+{% if term %}
+<div class="term-wrap">
+  <button type="button" class="term-pill" onclick="document.getElementById('termDropdown').classList.toggle('open'); event.stopPropagation();">
+    <span>{{ term.school_year }} &middot; {{ term.semester }}</span>
+    {{ icon('chevron-down') }}
+  </button>
+  <div class="term-dropdown" id="termDropdown">
+    <div class="term-dropdown-header">Academic Terms</div>
+    <div class="term-list">
+      {% for t in nav_all_terms %}
+      <div class="term-row">
+        <div>
+          <div class="term-row-label">{{ t.school_year }} &middot; {{ t.semester }}</div>
+          {% if t.state == 'active' %}
+            <span class="badge active" style="font-size:10px;">Active Term</span>
+          {% elif t.state == 'upcoming' %}
+            <span class="badge upcoming" style="font-size:10px;">Upcoming</span>
+          {% else %}
+            <span class="badge completed" style="font-size:10px;">Completed</span>
+          {% endif %}
+        </div>
+        {% if current_user.role == 'admin' and t.state != 'active' %}
+        <form method="POST" action="{{ url_for('admin.activate_term', term_id=t.term_id) }}">
+          <button type="submit" class="term-set-active">Set Active</button>
+        </form>
+        {% endif %}
+      </div>
+      {% else %}
+      <div class="notif-empty">No academic terms configured yet.</div>
+      {% endfor %}
+    </div>
+    {% if current_user.role == 'admin' %}
+    <a class="term-manage-link" href="{{ url_for('admin.settings') }}">Manage terms &rarr;</a>
+    {% else %}
+    <div class="term-footnote">Contact your administrator to change the active term.</div>
+    {% endif %}
+  </div>
+</div>
+<script>
+document.addEventListener('click', function(e) {
+  var dd = document.getElementById('termDropdown');
+  if (dd && !dd.contains(e.target) && !e.target.closest('.term-pill')) dd.classList.remove('open');
+});
+</script>
+{% endif %}

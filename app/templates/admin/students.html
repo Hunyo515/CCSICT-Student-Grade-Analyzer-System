@@ -1,0 +1,288 @@
+{% extends "admin/_layout.html" %}
+{% set active_page = "students" %}
+{% from "_icons.html" import icon %}
+{% block title %}Students{% endblock %}
+{% block page_title %}Students Registry{% endblock %}
+
+{% block content %}
+<div class="action-bar">
+  <form class="search-box search-box-outline" method="GET" action="{{ url_for('admin.students') }}">
+    <input type="hidden" name="year_level" value="{{ year_level }}">
+    <input type="hidden" name="section" value="{{ section }}">
+    <input type="hidden" name="program" value="{{ program }}">
+    {{ icon('search') }}
+    <input type="text" name="q" value="{{ q }}" placeholder="Search by name, ID, or program...">
+  </form>
+  <form class="filters" method="GET" action="{{ url_for('admin.students') }}">
+    <input type="hidden" name="q" value="{{ q }}">
+    <select class="filter-select" name="year_level" onchange="this.form.submit()">
+      <option value="">Year Level</option>
+      {% for yl in year_levels %}
+      <option value="{{ yl }}" {{ 'selected' if yl == year_level }}>{{ yl }}</option>
+      {% endfor %}
+    </select>
+    <select class="filter-select" name="section" onchange="this.form.submit()">
+      <option value="">Section</option>
+      {% for sec in sections %}
+      <option value="{{ sec }}" {{ 'selected' if sec == section }}>{{ sec }}</option>
+      {% endfor %}
+    </select>
+    <select class="filter-select" name="program" onchange="this.form.submit()">
+      <option value="">Program</option>
+      {% for p in programs %}
+      <option value="{{ p }}" {{ 'selected' if p == program }}>{{ p }}</option>
+      {% endfor %}
+    </select>
+  </form>
+  <a class="btn btn-outline" href="{{ url_for('admin.assign_student_to_section') }}">
+    {{ icon('link') }} Assign to Section
+  </a>
+  <button class="btn btn-primary" onclick="document.getElementById('addStudentModal').classList.add('open')">
+    {{ icon('plus') }} Add Student
+  </button>
+</div>
+
+<div class="table-card">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th style="width:120px;">ID Number</th>
+        <th>Full Name</th>
+        <th style="width:200px;">Program</th>
+        <th style="width:100px;">Year Level</th>
+        <th style="width:90px;">Section</th>
+        <th style="width:70px;">Sex</th>
+        <th style="width:90px;">Type</th>
+        <th style="width:150px;">Contact Number</th>
+        <th style="width:90px;">Status</th>
+        <th style="width:80px;text-align:center;">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for s in students %}
+      <tr>
+        <td class="cell-strong">{{ s.id_number }}</td>
+        <td>{{ s.full_name }}</td>
+        <td class="cell-muted">{{ s.program }}</td>
+        <td class="cell-muted">{{ s.year_level }}</td>
+        <td class="cell-muted">{{ s.section }}</td>
+        <td class="cell-muted">{{ s.sex|title if s.sex else '—' }}</td>
+        <td><span class="chip" style="{{ 'background:var(--danger-light);color:var(--danger);' if s.enrollment_type == 'IRREGULAR' }}">{{ s.enrollment_type|title if s.enrollment_type else 'Regular' }}</span></td>
+        <td class="cell-muted">{{ s.contact_number or '—' }}</td>
+        <td><span class="badge {{ 'active' if s.status == 'ACTIVE' else 'inactive' }}">{{ s.status|title }}</span></td>
+        <td>
+          <div class="row-actions" style="justify-content:center;">
+            <button class="icon-btn" title="Edit"
+              onclick='openEditStudent({{ s.student_id }}, {{ s.full_name|tojson }}, {{ s.program|tojson }}, {{ s.year_level|tojson }}, {{ s.section|tojson }}, {{ (s.contact_number or "")|tojson }}, {{ s.status|tojson }}, {{ (s.sex or "")|tojson }}, {{ (s.enrollment_type or "REGULAR")|tojson }})'>
+              {{ icon('edit') }}
+            </button>
+            <form method="POST" action="{{ url_for('admin.delete_student', student_id=s.student_id) }}"
+                  onsubmit="return confirm('Delete this student record?');">
+              <button class="icon-btn danger" title="Delete" type="submit">{{ icon('trash') }}</button>
+            </form>
+          </div>
+        </td>
+      </tr>
+      {% else %}
+      <tr><td colspan="10" class="cell-muted" style="text-align:center;padding:32px;">No students found.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<div class="pagination-bar">
+  <div class="pagination-info">Showing page {{ page }} of {{ total_pages }} &middot; {{ total }} students</div>
+  <div class="pagination-controls">
+    <a class="page-link {{ 'disabled' if page <= 1 }}" style="padding:0 12px;"
+       href="{{ url_for('admin.students', q=q, year_level=year_level, section=section, program=program, page=page-1) }}">Prev</a>
+    {% for p in range(1, total_pages + 1) %}
+      {% if p == page %}
+        <span class="page-link active">{{ p }}</span>
+      {% elif p == 1 or p == total_pages or (p >= page - 1 and p <= page + 1) %}
+        <a class="page-link" href="{{ url_for('admin.students', q=q, year_level=year_level, section=section, program=program, page=p) }}">{{ p }}</a>
+      {% elif p == 2 or p == total_pages - 1 %}
+        <span class="page-link disabled">...</span>
+      {% endif %}
+    {% endfor %}
+    <a class="page-link {{ 'disabled' if page >= total_pages }}" style="padding:0 12px;"
+       href="{{ url_for('admin.students', q=q, year_level=year_level, section=section, program=program, page=page+1) }}">Next</a>
+  </div>
+</div>
+
+<!-- Add Student Modal -->
+<div class="modal-overlay" id="addStudentModal">
+  <div class="modal-card" style="max-width:600px;">
+    <div class="modal-header">
+      <h3 class="modal-title">Add Student</h3>
+      <button class="modal-close" onclick="document.getElementById('addStudentModal').classList.remove('open')">{{ icon('x-circle') }}</button>
+    </div>
+    <form method="POST" action="{{ url_for('admin.add_student') }}">
+      <div class="modal-body">
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">First Name</label>
+            <input class="field-input" name="first_name" placeholder="Enter first name" required>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Last Name</label>
+            <input class="field-input" name="last_name" placeholder="Enter last name" required>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">ID Number</label>
+            <input class="field-input" name="id_number" placeholder="e.g. CCT-26-0001" required>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Year Level</label>
+            <select class="field-input" name="year_level" required>
+              <option value="" disabled selected>Select year level</option>
+              <option>1st Year</option>
+              <option>2nd Year</option>
+              <option>3rd Year</option>
+              <option>4th Year</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Section</label>
+            <input class="field-input" name="section" placeholder="e.g. BSCS 1A" required>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Program</label>
+            <input class="field-input" name="program" placeholder="e.g. BS Computer Science" required>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Sex</label>
+            <select class="field-input" name="sex">
+              <option value="">Prefer not to say</option>
+              <option value="MALE">Male</option>
+              <option value="FEMALE">Female</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Email Address</label>
+            <input class="field-input" name="email" type="email" placeholder="Enter email address (e.g. name@cct.edu.ph)">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Contact Number</label>
+            <input class="field-input" name="contact_number" placeholder="+63 9xx xxx xxxx">
+          </div>
+          <div class="field-group">
+            <label class="field-label">Enrollment Type</label>
+            <select class="field-input" name="enrollment_type">
+              <option value="REGULAR">Regular</option>
+              <option value="IRREGULAR">Irregular</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Temporary Password</label>
+          <input class="field-input" name="password" placeholder="default: changeme123">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" onclick="document.getElementById('addStudentModal').classList.remove('open')">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Student</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Edit Student Modal -->
+<div class="modal-overlay" id="editStudentModal">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3 class="modal-title">Edit Student</h3>
+      <button class="modal-close" onclick="document.getElementById('editStudentModal').classList.remove('open')">{{ icon('x-circle') }}</button>
+    </div>
+    <form method="POST" id="editStudentForm">
+      <div class="modal-body">
+        <div class="field-group">
+          <label class="field-label">Full Name</label>
+          <input class="field-input" name="full_name" id="editStudentName" required>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Program</label>
+          <input class="field-input" name="program" id="editStudentProgram" required>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Year Level</label>
+            <select class="field-input" name="year_level" id="editStudentYearLevel">
+              <option>1st Year</option>
+              <option>2nd Year</option>
+              <option>3rd Year</option>
+              <option>4th Year</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Section</label>
+            <input class="field-input" name="section" id="editStudentSection" required>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Contact Number</label>
+            <input class="field-input" name="contact_number" id="editStudentContact">
+          </div>
+          <div class="field-group">
+            <label class="field-label">Status</label>
+            <select class="field-input" name="status" id="editStudentStatus">
+              <option value="ACTIVE">Active</option>
+              <option value="INACTIVE">Inactive</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Sex</label>
+            <select class="field-input" name="sex" id="editStudentSex">
+              <option value="">Not specified</option>
+              <option value="MALE">Male</option>
+              <option value="FEMALE">Female</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Enrollment Type</label>
+            <select class="field-input" name="enrollment_type" id="editStudentType">
+              <option value="REGULAR">Regular</option>
+              <option value="IRREGULAR">Irregular</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Reset Password (leave blank to keep current)</label>
+          <input class="field-input" type="password" name="new_password" id="editStudentPassword" placeholder="••••••••" autocomplete="new-password">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" onclick="document.getElementById('editStudentModal').classList.remove('open')">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+function openEditStudent(id, name, program, yearLevel, section, contact, status, sex, enrollmentType) {
+  document.getElementById('editStudentForm').action = "/admin/students/" + id + "/edit";
+  document.getElementById('editStudentName').value = name;
+  document.getElementById('editStudentProgram').value = program;
+  document.getElementById('editStudentYearLevel').value = yearLevel;
+  document.getElementById('editStudentSection').value = section;
+  document.getElementById('editStudentContact').value = contact;
+  document.getElementById('editStudentStatus').value = status;
+  document.getElementById('editStudentSex').value = sex || '';
+  document.getElementById('editStudentType').value = enrollmentType || 'REGULAR';
+  document.getElementById('editStudentModal').classList.add('open');
+}
+</script>
+{% endblock %}

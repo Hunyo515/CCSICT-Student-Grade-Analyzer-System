@@ -1,0 +1,66 @@
+{% extends "faculty/_layout.html" %}
+{% set active_page = "top_performers" %}
+{% from "_icons.html" import icon %}
+{% block title %}Top Performers{% endblock %}
+{% block page_title %}Top Performing Students{% endblock %}
+
+{% block content %}
+{% if not assignment %}
+<div class="card"><p class="cell-muted">You have no subjects assigned this term yet.</p></div>
+{% else %}
+
+<div class="card" style="width:100%;display:flex;align-items:center;justify-content:space-between;flex-direction:row;">
+  <div style="display:flex;align-items:center;gap:16px;">
+    <span class="cell-strong">Filter Leaders by Subject:</span>
+    <form method="GET" action="{{ url_for('faculty.top_performers') }}">
+      <select class="filter-select" name="assignment_id" onchange="this.form.submit()">
+        {% for a in assignments %}
+        <option value="{{ a.assignment_id }}" {{ 'selected' if a.assignment_id == assignment.assignment_id }}>
+          {{ a.subject_name }} ({{ a.section }})
+        </option>
+        {% endfor %}
+      </select>
+    </form>
+  </div>
+  <span class="cell-muted" style="font-size:13px;">Showing students ranked by weighted overall grade</span>
+</div>
+
+<div class="card" style="width:100%;">
+  <div class="card-title">Honor Roll &amp; Academic Leaders</div>
+  <hr class="sidebar-divider" style="margin:16px 0;">
+
+  <table class="data-table" style="width:100%;">
+    <thead>
+      <tr>
+        <th style="width:60px;">Rank</th>
+        <th>Student Name</th>
+        <th style="width:140px;">Cumulative Score</th>
+        <th style="width:120px;">Letter Grade</th>
+        <th style="width:100px;text-align:right;">Award</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for r in ranked %}
+      <tr>
+        <td class="rank-badge">#{{ r.rank }}</td>
+        <td class="cell-strong">{{ r.full_name }}</td>
+        <td class="cell-strong" style="color:var(--accent);">{{ r.weighted_total }}%</td>
+        <td><span class="badge {{ r.letter_class }}">{{ r.letter }}</span></td>
+        <td style="text-align:right;">
+          {% if r.rank <= 3 %}
+          <span class="{{ 'trophy-gold' if r.rank == 1 else ('trophy-silver' if r.rank == 2 else 'trophy-bronze') }}">
+            {{ icon('trophy', 'stat-icon-sm') }}
+          </span>
+          {% else %}
+          <span class="cell-muted">-</span>
+          {% endif %}
+        </td>
+      </tr>
+      {% else %}
+      <tr><td colspan="5" class="cell-muted" style="text-align:center;padding:32px;">No students enrolled yet.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+{% endblock %}

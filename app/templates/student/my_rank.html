@@ -1,0 +1,46 @@
+{% extends "student/_layout.html" %}
+{% set active_page = "my_rank" %}
+{% from "_icons.html" import icon %}
+{% block title %}My Rank{% endblock %}
+{% block page_title %}Performance Standings{% endblock %}
+
+{% block content %}
+<div class="card" style="width:100%;display:flex;flex-direction:column;align-items:center;gap:16px;padding:32px;">
+  <div style="width:100px;height:100px;border-radius:50px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Lexend',sans-serif;font-weight:800;font-size:36px;">
+    {{ '#' ~ my_entry.rank if my_entry else '—' }}
+  </div>
+  <div style="text-align:center;">
+    <div style="font-family:'Lexend',sans-serif;font-weight:700;font-size:22px;">
+      {% if my_entry %}Rank #{{ my_entry.rank }} out of {{ class_size }} students{% else %}Ranking unavailable{% endif %}
+    </div>
+    <div class="cell-muted" style="margin-top:4px;">CCSICT Department &middot; Class of {{ student.section }}</div>
+  </div>
+  {% if my_entry %}
+  <div class="chip" style="font-size:13px;padding:6px 16px;">Overall Average: {{ my_entry.average }}%</div>
+  {% endif %}
+</div>
+
+<div class="card" style="width:100%;">
+  <div class="card-title">Class Leaderboard</div>
+  <hr class="sidebar-divider" style="margin:16px 0;">
+  <div class="table-card" style="box-shadow:none;">
+    <table class="data-table">
+      <thead><tr><th style="width:80px;">Rank</th><th>Student Name</th><th style="width:180px;text-align:right;">Average Grade</th></tr></thead>
+      <tbody>
+        {% for r in leaderboard %}
+        <tr style="{{ 'background:var(--accent-light);border-left:4px solid var(--accent);' if r.student_id == student.student_id }}">
+          <td class="cell-strong" style="color:var(--accent);">#{{ r.rank }}</td>
+          <td>
+            <span class="cell-strong">{{ r.full_name }}</span>
+            {% if r.student_id == student.student_id %}<span class="chip" style="background:var(--accent);color:#fff;border-radius:100px;margin-left:8px;">You</span>{% endif %}
+          </td>
+          <td class="cell-strong" style="text-align:right;">{{ r.average }}%</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="3" class="cell-muted" style="text-align:center;padding:32px;">No published grades yet for your class.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

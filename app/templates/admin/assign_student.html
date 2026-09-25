@@ -1,0 +1,88 @@
+{% extends "admin/_layout.html" %}
+{% set active_page = "students" %}
+{% from "_icons.html" import icon %}
+{% block title %}Assign Student to Section{% endblock %}
+{% block page_title %}Assign Student to Section{% endblock %}
+
+{% block content %}
+<a class="btn-back" href="{{ url_for('admin.students') }}">{{ icon('arrow-left') }} Back to Students</a>
+<div class="card" style="max-width:640px;">
+  <div class="card-title">Manual Subject Allocation</div>
+  <div class="card-subtitle">Manually register a student into a specific class roster and record list.</div>
+
+  <form method="POST" style="margin-top:20px;display:flex;flex-direction:column;gap:16px;">
+    <div class="field-group">
+      <label class="field-label">Student Look-up / Search</label>
+      <select class="field-input" name="student_id" id="studentSelect" required>
+        <option value="" disabled selected>Select a student&hellip;</option>
+        {% for s in students %}
+        <option value="{{ s.student_id }}">{{ s.id_number }} &middot; {{ s.full_name }} &middot; {{ s.program }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Academic Term</label>
+      <select class="field-input" name="term_id" id="termSelect" required>
+        {% for t in terms %}
+        <option value="{{ t.term_id }}" {{ 'selected' if term and t.term_id == term.term_id }}>{{ t.school_year }} &middot; {{ t.semester }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Subject</label>
+      <select class="field-input" name="subject_id" id="subjectSelect" required>
+        <option value="" disabled selected>Select a subject&hellip;</option>
+        {% for subj in subjects %}
+        <option value="{{ subj.subject_id }}">{{ subj.subject_code }} - {{ subj.subject_name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Section Allocation</label>
+      <select class="field-input" name="assignment_id" id="assignmentSelect" required>
+        <option value="" disabled selected>Select a subject and term first&hellip;</option>
+        {% for a in assignments %}
+        <option value="{{ a.assignment_id }}" data-subject="{{ a.subject_id }}" data-term="{{ a.term_id }}" style="display:none;">
+          {{ a.section }} - {{ a.teacher_name }}
+        </option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="info-banner">
+      {{ icon('alert') }}
+      <p>Use this for late enrollees, transferees, or admin corrections. Students can also self-enroll using a class code.</p>
+    </div>
+
+    <div style="display:flex;gap:12px;justify-content:flex-end;">
+      <a class="btn btn-outline" href="{{ url_for('admin.students') }}">Cancel</a>
+      <button type="submit" class="btn btn-primary">Assign Student</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+function filterSections() {
+  var subjectId = document.getElementById('subjectSelect').value;
+  var termId = document.getElementById('termSelect').value;
+  var select = document.getElementById('assignmentSelect');
+  var options = select.querySelectorAll('option[data-subject]');
+  var anyVisible = false;
+  options.forEach(function(opt) {
+    var match = opt.getAttribute('data-subject') === subjectId && opt.getAttribute('data-term') === termId;
+    opt.style.display = match ? '' : 'none';
+    if (match) anyVisible = true;
+  });
+  select.value = '';
+  select.options[0].textContent = anyVisible ? 'Select a section allocation…' : 'No sections offered for this subject/term';
+}
+document.getElementById('subjectSelect').addEventListener('change', filterSections);
+document.getElementById('termSelect').addEventListener('change', filterSections);
+filterSections();
+</script>
+{% endblock %}

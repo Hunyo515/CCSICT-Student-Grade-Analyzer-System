@@ -1,0 +1,79 @@
+{% extends "faculty/_layout.html" %}
+{% set active_page = "grade_entry" %}
+{% from "_icons.html" import icon %}
+{% block title %}Grade Registry{% endblock %}
+{% block page_title %}Grade Registry{% endblock %}
+{% block header_extra %}
+{% if assignments %}
+<form method="GET" action="{{ url_for('faculty.grade_registry') }}">
+  <select class="filter-select" name="assignment_id" onchange="this.form.submit()">
+    {% for a in assignments %}
+    <option value="{{ a.assignment_id }}" {{ 'selected' if assignment and a.assignment_id == assignment.assignment_id }}>
+      {{ a.section }}
+    </option>
+    {% endfor %}
+  </select>
+</form>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<a class="btn-back" href="{{ url_for('faculty.grade_entry') }}">{{ icon('arrow-left') }} Back to Grade Entry</a>
+{% if not assignment %}
+<div class="card"><p class="cell-muted">You have no subjects assigned this term yet.</p></div>
+{% else %}
+
+<div style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+  <div>
+    <div class="page-title" style="font-size:20px;">{{ assignment.subject_name }} &middot; {{ assignment.section }}</div>
+    <div class="cell-muted" style="font-size:13px;">Showing finalized grades for {{ term.semester if term }}, {{ term.school_year if term }}</div>
+  </div>
+  <a class="btn btn-primary" href="{{ url_for('faculty.grade_export', assignment_id=assignment.assignment_id) }}">
+    {{ icon('download') }} Export CSV
+  </a>
+</div>
+
+<div class="table-card" style="margin-top:20px;width:100%;">
+  <div style="overflow-x:auto;">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th style="width:120px;">Student ID</th>
+          <th>Full Name</th>
+          {% for c in components %}
+          <th style="width:80px;text-align:center;">{{ c.component_name }}</th>
+          {% endfor %}
+          <th style="width:100px;">Final Grade</th>
+          <th style="width:100px;">Remarks</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in rows %}
+        <tr>
+          <td class="cell-strong">{{ r.id_number }}</td>
+          <td>{{ r.full_name }}</td>
+          {% for c in components %}
+          {% set existing = r.scores.get(c.component_id) %}
+          <td style="text-align:center;" class="cell-muted">{{ existing[0] if existing and existing[0] is not none else '—' }}</td>
+          {% endfor %}
+          <td class="cell-strong">{{ r.weighted_total }}</td>
+          <td>
+            {% if r.passing %}
+            <span class="badge active">Pass</span>
+            {% else %}
+            <span class="badge inactive">Fail</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% else %}
+        <tr><td colspan="{{ 4 + components|length }}" class="cell-muted" style="text-align:center;padding:32px;">No students enrolled yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="pagination-bar" style="width:100%;">
+  <div class="pagination-info">Showing {{ rows|length }} of {{ rows|length }} students</div>
+</div>
+{% endif %}
+{% endblock %}

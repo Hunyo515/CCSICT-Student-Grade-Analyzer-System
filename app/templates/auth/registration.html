@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account — Student Grade Analyzer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+</head>
+<body class="auth-body role-student">
+{% from "_icons.html" import icon %}
+<img class="auth-wave" src="{{ url_for('static', filename='img/wave-decor.png') }}" alt="">
+
+<div class="login-wrap" style="width:820px;max-width:94vw;">
+  <a class="login-back" href="{{ url_for('auth.login', role='student') }}">{{ icon('arrow-left') }} Back</a>
+  <img class="login-logo" src="{{ url_for('static', filename='img/logo.png') }}" alt="CCSICT logo">
+  <h1 class="login-title">Create Your Account</h1>
+  <p class="login-subtitle">Fill in your details to register</p>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+      <div class="auth-flash {{ category }}">{{ message }}</div>
+    {% endfor %}
+  {% endwith %}
+
+  <form class="login-form" method="POST" action="{{ url_for('auth.register') }}">
+    <div style="display:flex;gap:20px;width:100%;">
+      <div class="login-field" style="flex:1;">
+        <label for="first_name">First Name</label>
+        <input type="text" id="first_name" name="first_name" value="{{ form.first_name or '' }}" placeholder="Enter first name" required>
+      </div>
+      <div class="login-field" style="flex:1;">
+        <label for="last_name">Last Name</label>
+        <input type="text" id="last_name" name="last_name" value="{{ form.last_name or '' }}" placeholder="Enter last name" required>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:20px;width:100%;">
+      <div class="login-field" style="flex:1;">
+        <label for="id_number">LRN / Student ID</label>
+        <input type="text" id="id_number" name="id_number" value="{{ form.id_number or '' }}" placeholder="e.g. CCT-26-0001" required>
+      </div>
+      <div class="login-field" style="flex:1;">
+        <label for="year_level">Year Level</label>
+        <select id="year_level" name="year_level" required>
+          <option value="">Select year level</option>
+          <option {{ 'selected' if form.year_level == '1st Year' }}>1st Year</option>
+          <option {{ 'selected' if form.year_level == '2nd Year' }}>2nd Year</option>
+          <option {{ 'selected' if form.year_level == '3rd Year' }}>3rd Year</option>
+          <option {{ 'selected' if form.year_level == '4th Year' }}>4th Year</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:20px;width:100%;">
+      <div class="login-field" style="flex:1;">
+        <label for="section">Section</label>
+        <input type="text" id="section" name="section" value="{{ form.section or '' }}" placeholder="e.g. BSCS 1A" required>
+      </div>
+      <div class="login-field" style="flex:1;">
+        <label for="program">Program</label>
+        <input type="text" id="program" name="program" value="{{ form.program or '' }}" placeholder="e.g. BS Computer Science" required>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:20px;width:100%;">
+      <div class="login-field" style="flex:1;">
+        <label for="sex">Sex</label>
+        <select id="sex" name="sex">
+          <option value="">Prefer not to say</option>
+          <option value="MALE" {{ 'selected' if form.sex == 'MALE' }}>Male</option>
+          <option value="FEMALE" {{ 'selected' if form.sex == 'FEMALE' }}>Female</option>
+        </select>
+      </div>
+      <div class="login-field" style="flex:1;">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" value="{{ form.email or '' }}" placeholder="Enter email address (e.g. name@cct.edu.ph)" required>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:20px;width:100%;">
+      <div class="login-field" style="flex:1;">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter password (min. 8 characters)" required minlength="8">
+      </div>
+      <div class="login-field" style="flex:1;">
+        <label for="confirm_password">Confirm Password</label>
+        <input type="password" id="confirm_password" name="confirm_password" placeholder="Re-enter password" required minlength="8">
+      </div>
+    </div>
+
+    <button type="submit" class="login-submit">Register</button>
+  </form>
+
+  <p style="margin-top:8px;color:#1DBBCE;font-size:15px;font-weight:600;">
+    Already have an account?
+    <a href="{{ url_for('auth.login', role='student') }}" style="text-decoration:underline;">Login</a>
+  </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CCSICT Grade Analyzer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+</head>
+<body class="auth-body">
+{% from "_icons.html" import icon %}
+<img class="auth-wave" src="{{ url_for('static', filename='img/wave-decor.png') }}" alt="">
+
+<div class="flash-stack" style="position:fixed;top:16px;right:16px;">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+      <div class="flash {{ category }}" style="padding:10px 16px;border-radius:8px;background:#fff;margin-bottom:8px;">{{ message }}</div>
+    {% endfor %}
+  {% endwith %}
+</div>
+
+<div class="role-select-wrap">
+  <img class="role-logo" src="{{ url_for('static', filename='img/logo.png') }}" alt="CCSICT logo">
+  <h1 class="role-title">CCSICT Grade Analyzer</h1>
+  <p class="role-subtitle">PLEASE SELECT YOUR ROLE TO CONTINUE</p>
+
+  <div class="role-cards">
+    <a class="role-card role-card--admin" href="{{ url_for('auth.login', role='admin') }}">
+      <div class="role-card-icon">
+        <img src="{{ url_for('static', filename='img/icon-binders.png') }}" alt="Admin">
+      </div>
+      <span class="role-card-label">Admin</span>
+    </a>
+    <a class="role-card role-card--faculty" href="{{ url_for('auth.login', role='faculty') }}">
+      <div class="role-card-icon">
+        <img src="{{ url_for('static', filename='img/icon-document.png') }}" alt="Faculty">
+      </div>
+      <span class="role-card-label">Faculty Portal</span>
+    </a>
+    <a class="role-card role-card--student" href="{{ url_for('auth.login', role='student') }}">
+      <div class="role-card-icon">
+        <img src="{{ url_for('static', filename='img/icon-id-card.png') }}" alt="Student">
+      </div>
+      <span class="role-card-label">Student Portal</span>
+    </a>
+  </div>
+</div>
+</body>
+</html>

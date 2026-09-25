@@ -1,0 +1,110 @@
+{% extends "faculty/_layout.html" %}
+{% set active_page = "grade_entry" %}
+{% from "_icons.html" import icon %}
+{% block title %}Section Detail{% endblock %}
+{% block page_title %}Section Detail{% endblock %}
+{% block header_extra %}
+{% if assignments %}
+<form method="GET" action="{{ url_for('faculty.section_detail') }}">
+  <select class="filter-select" name="assignment_id" onchange="this.form.submit()">
+    {% for a in assignments %}
+    <option value="{{ a.assignment_id }}" {{ 'selected' if assignment and a.assignment_id == assignment.assignment_id }}>
+      {{ a.subject_name }} ({{ a.section }})
+    </option>
+    {% endfor %}
+  </select>
+</form>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<a class="btn-back" href="{{ url_for('faculty.grade_entry') }}">{{ icon('arrow-left') }} Back to Grade Entry</a>
+{% if not assignment %}
+<div class="card"><p class="cell-muted">You have no subjects assigned this term yet.</p></div>
+{% else %}
+
+<div class="welcome-banner">
+  <div>
+    <h2>{{ assignment.subject_name }} ({{ assignment.section }})</h2>
+    <p>{{ term.semester if term }} {{ term.school_year if term }} &middot; College of Computer Studies and Information and Communications Technology</p>
+  </div>
+</div>
+
+<div style="display:flex;gap:20px;width:100%;align-items:stretch;">
+  <div class="stat-card-plain">
+    <div class="stat-label-caps">Class Enrollment Code</div>
+    <div style="display:flex;gap:16px;align-items:center;">
+      <div class="join-code-box">{{ join_code }}</div>
+      <form method="POST" action="{{ url_for('faculty.section_detail_regenerate') }}" style="margin:0;" onsubmit="return confirm('Generate a new code? The old code will stop working immediately.');">
+        <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
+        <button type="submit" class="icon-btn" title="Regenerate code">{{ icon('link') }}</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="stat-card-plain">
+    <div class="stat-label-caps">Enrollment Link Status</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;">
+      <div style="display:flex;gap:8px;align-items:center;">
+        {% if enrollment_open %}
+        <span class="badge active" style="letter-spacing:0.5px;">OPEN</span>
+        <span class="cell-muted" style="font-size:13px;">Students can self-enroll</span>
+        {% else %}
+        <span class="badge inactive" style="letter-spacing:0.5px;">CLOSED</span>
+        <span class="cell-muted" style="font-size:13px;">Self-enrollment is disabled</span>
+        {% endif %}
+      </div>
+      <form method="POST" action="{{ url_for('faculty.section_detail_toggle') }}" style="margin:0;">
+        <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
+        <label class="toggle-switch">
+          <input type="checkbox" {{ 'checked' if enrollment_open }} onclick="this.form.requestSubmit()">
+          <span class="toggle-slider"></span>
+        </label>
+      </form>
+    </div>
+  </div>
+
+  <div class="stat-card-plain">
+    <div class="stat-label-caps">Roster Settings</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;">
+      <a class="btn btn-outline btn-sm" href="{{ url_for('faculty.grade_entry', assignment_id=assignment.assignment_id) }}">
+        {{ icon('edit') }} Go to Grade Entry
+      </a>
+      <span class="cell-strong" style="font-size:14px;">Students: <span style="color:var(--accent);">{{ enrolled_count }} Enrolled</span></span>
+    </div>
+  </div>
+</div>
+
+<div class="card" style="width:100%;">
+  <div style="display:flex;align-items:center;justify-content:space-between;">
+    <div class="card-title" style="margin:0;">Roster Preview</div>
+    <span class="cell-muted" style="font-size:13px;">Showing first {{ roster|length }} of {{ enrolled_count }} students enrolled</span>
+  </div>
+  <hr class="sidebar-divider" style="margin:16px 0;">
+  <table class="data-table" style="width:100%;">
+    <thead>
+      <tr>
+        <th>Student ID</th>
+        <th>Full Name</th>
+        <th>Program</th>
+        <th>Year Level</th>
+        <th style="text-align:right;">Date Enrolled</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for r in roster %}
+      <tr>
+        <td class="cell-strong">{{ r.id_number }}</td>
+        <td>{{ r.full_name }}</td>
+        <td class="cell-muted">{{ r.program }}</td>
+        <td class="cell-muted">{{ r.year_level }}</td>
+        <td class="cell-muted" style="text-align:right;">{{ r.created_at.strftime('%b %d, %Y') if r.created_at else '' }}</td>
+      </tr>
+      {% else %}
+      <tr><td colspan="5" class="cell-muted" style="text-align:center;padding:32px;">No students enrolled yet.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+{% endblock %}

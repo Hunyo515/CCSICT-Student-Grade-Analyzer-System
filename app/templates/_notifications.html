@@ -1,0 +1,38 @@
+{% from "_icons.html" import icon %}
+<div class="notif-wrap">
+  <button type="button" class="notif-bell" onclick="document.getElementById('notifDropdown').classList.toggle('open'); event.stopPropagation();">
+    {{ icon('bell') }}
+    {% if nav_unread_count and nav_unread_count > 0 %}
+    <span class="notif-badge">{{ nav_unread_count if nav_unread_count < 10 else '9+' }}</span>
+    {% endif %}
+  </button>
+  <div class="notif-dropdown" id="notifDropdown">
+    <div class="notif-dropdown-header">
+      <span>Notifications</span>
+      {% if nav_unread_count and nav_unread_count > 0 %}
+      <form method="POST" action="{{ url_for('notifications.mark_all_read') }}">
+        <button type="submit" class="notif-mark-all">Mark all read</button>
+      </form>
+      {% endif %}
+    </div>
+    <div class="notif-list">
+      {% for n in nav_notifications %}
+      <form method="POST" action="{{ url_for('notifications.mark_read', notification_id=n.notification_id) }}">
+        {% if n.link %}<input type="hidden" name="link" value="{{ n.link }}">{% endif %}
+        <button type="submit" class="notif-item {{ 'unread' if n.is_read == 'N' }}">
+          {% if n.is_read == 'N' %}<span class="notif-dot"></span>{% endif %}
+          <span class="notif-message">{{ n.message }}</span>
+        </button>
+      </form>
+      {% else %}
+      <div class="notif-empty">You're all caught up.</div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<script>
+document.addEventListener('click', function(e) {
+  var dd = document.getElementById('notifDropdown');
+  if (dd && !dd.contains(e.target)) dd.classList.remove('open');
+});
+</script>

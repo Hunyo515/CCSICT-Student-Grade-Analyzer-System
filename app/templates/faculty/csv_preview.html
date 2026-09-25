@@ -1,0 +1,71 @@
+{% extends "faculty/_layout.html" %}
+{% set active_page = "grade_entry" %}
+{% from "_icons.html" import icon %}
+{% block title %}CSV Import Preview{% endblock %}
+{% block page_title %}CSV Import Preview{% endblock %}
+
+{% block content %}
+<a class="btn-back" href="{{ url_for('faculty.grade_entry') }}">{{ icon('arrow-left') }} Back to Grade Entry</a>
+<div class="card" style="width:100%;">
+  <div class="card-title">{{ assignment.subject_name }} — {{ assignment.section }}</div>
+  <div class="card-subtitle">
+    {{ valid_rows|length }} row{{ 's' if valid_rows|length != 1 }} ready to import
+    {% if invalid_rows %} &middot; {{ invalid_rows|length }} row{{ 's' if invalid_rows|length != 1 }} skipped{% endif %}
+  </div>
+
+  {% if invalid_rows %}
+  <div style="margin-top:20px;">
+    <div style="display:flex;align-items:center;gap:8px;color:var(--danger);font-weight:600;font-size:14px;margin-bottom:8px;">
+      {{ icon('alert') }} Rows that will be skipped
+    </div>
+    <div class="table-card">
+      <table class="data-table">
+        <thead><tr><th>ID Number</th><th>Component</th><th>Score</th><th>Issue</th></tr></thead>
+        <tbody>
+          {% for r in invalid_rows %}
+          <tr class="csv-row-error">
+            <td>{{ r.id_number }}</td>
+            <td>{{ r.component_name }}</td>
+            <td>{{ r.score }}</td>
+            <td class="cell-strong" style="color:var(--danger);">{{ r.error }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if valid_rows %}
+  <div style="margin-top:20px;">
+    <div style="font-weight:600;font-size:14px;margin-bottom:8px;">Rows ready to import</div>
+    <div class="table-card">
+      <table class="data-table">
+        <thead><tr><th>ID Number</th><th>Full Name</th><th>Component</th><th>Score</th></tr></thead>
+        <tbody>
+          {% for r in valid_rows %}
+          <tr>
+            <td class="cell-strong">{{ r.id_number }}</td>
+            <td>{{ r.full_name }}</td>
+            <td>{{ r.component_name }}</td>
+            <td>{{ r.score }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  {% endif %}
+
+  <div style="display:flex;gap:12px;justify-content:flex-end;margin-top:24px;">
+    <form method="POST" action="{{ url_for('faculty.csv_cancel') }}">
+      <button type="submit" class="btn btn-outline">Cancel</button>
+    </form>
+    <form method="POST" action="{{ url_for('faculty.csv_confirm') }}">
+      <button type="submit" class="btn btn-primary" {{ 'disabled' if not valid_rows }}>
+        Confirm Import ({{ valid_rows|length }})
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}

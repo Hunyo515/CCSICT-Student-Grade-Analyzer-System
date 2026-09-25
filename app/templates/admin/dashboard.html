@@ -1,0 +1,50 @@
+{% extends "admin/_layout.html" %}
+{% set active_page = "dashboard" %}
+{% from "_icons.html" import icon %}
+{% block title %}Dashboard{% endblock %}
+{% block page_title %}Dashboard Overview{% endblock %}
+
+{% block content %}
+<div class="stat-grid" style="grid-template-columns: repeat(3, 1fr);">
+  <a class="stat-card" href="{{ url_for('admin.students') }}">
+    <div class="stat-icon">{{ icon('graduation') }}</div>
+    <div>
+      <div class="stat-value">{{ "{:,}".format(stats.total_students) }}</div>
+      <div class="stat-label">Total Students</div>
+    </div>
+  </a>
+  <a class="stat-card" href="{{ url_for('admin.teachers') }}">
+    <div class="stat-icon">{{ icon('presentation') }}</div>
+    <div>
+      <div class="stat-value">{{ "{:,}".format(stats.total_teachers) }}</div>
+      <div class="stat-label">Total Teachers</div>
+    </div>
+  </a>
+  <a class="stat-card" href="{{ url_for('admin.subjects') }}">
+    <div class="stat-icon">{{ icon('circle-x') }}</div>
+    <div>
+      <div class="stat-value">{{ "{:,}".format(stats.total_subjects) }}</div>
+      <div class="stat-label">Total Subjects</div>
+    </div>
+  </a>
+</div>
+
+<div class="card">
+  <div class="card-title">Recent Activity</div>
+  <div class="card-subtitle">Live log of system alterations and updates</div>
+  <hr class="sidebar-divider" style="margin-top:16px;">
+  <div class="activity-list">
+    {% for item in recent_activity %}
+    <div class="activity-item">
+      <span class="activity-dot"></span>
+      <div>
+        <div class="activity-text">{{ item.message }}</div>
+        <div class="activity-time">{{ item.created_at.strftime('%b %d, %Y %I:%M %p') if item.created_at else '' }}</div>
+      </div>
+    </div>
+    {% else %}
+    <div class="activity-item"><div class="activity-text">No activity recorded yet.</div></div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

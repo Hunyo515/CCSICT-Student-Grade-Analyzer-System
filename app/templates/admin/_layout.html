@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}CCSICT Grade Analyzer{% endblock %} — Admin Console</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+{% from "_icons.html" import icon %}
+
+<div class="flash-stack">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+      <div class="flash {{ category }}">{{ message }}</div>
+    {% endfor %}
+  {% endwith %}
+</div>
+
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <script>
+      (function () {
+        if (localStorage.getItem('sidebarCollapsed') === 'true') {
+          document.getElementById('sidebar').classList.add('collapsed');
+        }
+      })();
+    </script>
+    <button type="button" class="sidebar-toggle-btn" id="sidebarToggleBtn" onclick="toggleSidebar()" title="Collapse sidebar" aria-label="Toggle sidebar">
+      {{ icon('chevron-left') }}
+    </button>
+    <div class="sidebar-top">
+      <div class="sidebar-header">
+        <div class="brand">
+          <img class="brand-logo" src="{{ url_for('static', filename='img/logo.png') }}" alt="CCSICT logo">
+          <div>
+            <div class="brand-text-title">CCSICT Grade Analyzer</div>
+            <div class="brand-text-sub">CCSICT</div>
+          </div>
+        </div>
+        <div class="role-badge">
+          <span class="role-dot"></span>
+          <span class="role-badge-text">Admin Console</span>
+        </div>
+      </div>
+      <nav class="nav-menu">
+        <a class="nav-item {{ 'active' if active_page == 'dashboard' }}" href="{{ url_for('admin.dashboard') }}" title="Dashboard">
+          {{ icon('dashboard') }} <span class="nav-label">Dashboard</span>
+        </a>
+        <a class="nav-item {{ 'active' if active_page == 'subjects' }}" href="{{ url_for('admin.subjects') }}" title="Subjects">
+          {{ icon('book') }} <span class="nav-label">Subjects</span>
+        </a>
+        <a class="nav-item {{ 'active' if active_page == 'teachers' }}" href="{{ url_for('admin.teachers') }}" title="Teachers">
+          {{ icon('briefcase') }} <span class="nav-label">Teachers</span>
+        </a>
+        <a class="nav-item {{ 'active' if active_page == 'students' }}" href="{{ url_for('admin.students') }}" title="Students">
+          {{ icon('users') }} <span class="nav-label">Students</span>
+        </a>
+        <a class="nav-item {{ 'active' if active_page == 'analytics' }}" href="{{ url_for('admin.analytics') }}" title="Analytics">
+          {{ icon('chart') }} <span class="nav-label">Analytics</span>
+        </a>
+        <a class="nav-item {{ 'active' if active_page == 'settings' }}" href="{{ url_for('admin.settings') }}" title="Settings">
+          {{ icon('settings') }} <span class="nav-label">Settings</span>
+        </a>
+      </nav>
+    </div>
+    <div class="sidebar-bottom">
+      <hr class="sidebar-divider">
+      <a class="nav-logout" href="{{ url_for('auth.logout') }}" title="Logout">{{ icon('logout') }} <span class="nav-logout-label">Logout</span></a>
+    </div>
+  </aside>
+
+  <div class="main-content">
+    <div class="top-bar">
+      <div class="title-area">
+        <h1 class="page-title">{% block page_title %}{% endblock %}</h1>
+        {% block header_extra %}
+        {% include "_term_selector.html" %}
+        {% endblock %}
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;">
+        {% include "_notifications.html" %}
+        <div class="user-profile">
+          <span class="user-name">{{ current_user.full_name }}</span>
+          <span class="user-badge">System Admin</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-body">
+      {% block content %}{% endblock %}
+    </div>
+  </div>
+</div>
+
+{% block extra_scripts %}{% endblock %}
+<script>
+  function toggleSidebar() {
+    var sidebar = document.getElementById('sidebar');
+    var btn = document.getElementById('sidebarToggleBtn');
+    var collapsed = sidebar.classList.toggle('collapsed');
+    localStorage.setItem('sidebarCollapsed', collapsed ? 'true' : 'false');
+    btn.title = collapsed ? 'Expand sidebar' : 'Collapse sidebar';
+  }
+  (function () {
+    var btn = document.getElementById('sidebarToggleBtn');
+    var sidebar = document.getElementById('sidebar');
+    if (btn && sidebar && sidebar.classList.contains('collapsed')) {
+      btn.title = 'Expand sidebar';
+    }
+  })();
+</script>
+</body>
+</html>
