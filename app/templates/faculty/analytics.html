@@ -1,0 +1,27 @@
+{% extends "faculty/_layout.html" %}
+{% set active_page = "analytics" %}
+{% from "_insight_ui.html" import metric, bar, empty, distribution, readiness, publication %}
+{% block title %}Analytics{% endblock %}
+{% block page_title %}Analytics{% endblock %}
+{% block content %}
+<div class="insights">
+
+
+{% if sections %}<form class="insight-filter" method="GET"><label for="class-filter">Class section</label><select id="class-filter" name="assignment_id">{% for s in sections %}<option value="{{ s.assignment_id }}" {{ 'selected' if selected and selected.assignment_id == s.assignment_id }}>{{ s.subject_code }} · {{ s.subject_name }} · {{ s.section }}</option>{% endfor %}</select><button class="insight-action" type="submit">Apply</button></form>{% endif %}
+{% if selected %}
+{% if selected.status != 'PUBLISHED' %}<p class="insight-note">Working results · This class is {{ selected.status|replace('_',' ')|lower }}. These analytics are visible to you; students see results only after publication.</p>{% endif %}
+{% if not selected.weighting_valid %}<p class="insight-note">Final outcomes are unavailable until the grade weights are valid. <a class="insight-link" href="{{ url_for('faculty.grade_weighting', assignment_id=selected.assignment_id) }}">Review weighting →</a></p>{% endif %}
+<div class="insight-metrics">
+{{ metric('Complete results', report.complete ~ ' / ' ~ report.enrollments, 'Complete / enrolled', 'accent') }}
+{{ metric('Class median', report.median ~ '%' if report.median is not none else '—', 'Complete results only') }}
+{{ metric('Below 75%', report.below, 'Complete results for follow-up', 'attention') }}
+{{ metric('Score entry coverage', report.coverage ~ '%' if report.coverage is not none else '—', report.recorded ~ ' of ' ~ report.expected ~ ' required scores') }}
+</div>
+<div class="insight-grid"><article class="insight-panel"><div class="insight-panel-head"><div><h2>Assessment averages</h2></div><span class="insight-tag">0–100%</span></div><p class="insight-description">Recorded scores only · Reference: 75%</p><div class="insight-scroll">{% for c in selected.components %}{{ bar(c.component_name, c.mean, c.recorded ~ ' / ' ~ c.expected ~ ' recorded · ' ~ c.effective_weight ~ '% of final grade', target=true, tone='amber' if c.mean is not none and c.mean < 75 else 'teal') }}{% else %}{{ empty('No assessments configured', 'Set up grade components to begin assessment-level analysis.') }}{% endfor %}</div></article>{{ distribution(report, 'Working grades' if selected.status != 'PUBLISHED' else 'Published results') }}</div>
+<article class="insight-panel"><div class="insight-panel-head"><div><h2>Review these records</h2></div><a class="insight-link" href="{{ url_for('faculty.grade_entry', assignment_id=selected.assignment_id) }}">Open grade entry →</a></div><p class="insight-description">Incomplete records and results below 75%.</p><div class="insight-table-wrap" tabindex="0" role="region" aria-label="Scrollable report table"><table class="insight-table"><thead><tr><th>Student</th><th class="num">Weighted result</th><th class="num">Missing required scores</th><th>Review reason</th></tr></thead><tbody>
+{% for p in selected.people|sort(attribute='complete') if not p.complete or p.total < 75 %}<tr><td><strong>{{ p.full_name }}</strong></td><td class="num">{{ p.total ~ '%' if p.total is not none else '—' }}</td><td class="num">{{ p.missing }}</td><td><span class="insight-status review">{{ 'Check weights' if not selected.weighting_valid else ('Incomplete record' if not p.complete else 'Below reference') }}</span></td></tr>{% else %}<tr><td colspan="4">{{ 'All complete results are at or above 75%.' if report.enrollments else 'No students enrolled in this class.' }}</td></tr>{% endfor %}</tbody></table></div></article>
+{% else %}{{ empty('No classes available', 'Your administrator can assign a subject and section for this term.') }}{% endif %}
+
+
+</div>
+{% endblock %}

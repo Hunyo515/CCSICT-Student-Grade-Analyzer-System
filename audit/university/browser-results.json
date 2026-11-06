@@ -1,0 +1,14 @@
+{
+  "checks": [
+    "1440px current-term 4th Year subject checkboxes, selection count, and responsive layout",
+    "1440px All-term filter persists across screens",
+    "1440px generated faculty credentials and university student input formats",
+    "375px current-term 4th Year subject checkboxes, selection count, and responsive layout",
+    "375px All-term filter persists across screens",
+    "375px generated faculty credentials and university student input formats",
+    "320px current-term 4th Year subject checkboxes, selection count, and responsive layout",
+    "320px All-term filter persists across screens",
+    "320px generated faculty credentials and university student input formats"
+  ],
+  "errors": []
+}

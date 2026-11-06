@@ -1,0 +1,24 @@
+{% extends 'student/_layout.html' %}{% set active_page='dashboard' %}{% from 'srs/ui.html' import metric,bar,state,empty %}{% block title %}Student Dashboard{% endblock %}{% block page_title %}Your academic overview{% endblock %}{% block content %}<div class="srs-intro"><div><span class="section-kicker">STUDENT DASHBOARD</span><h2>A clear view of your progress.</h2><p>Grades appear when your teacher publishes the class.</p></div><a class="btn btn-primary" href="{{ url_for('university.enlistme') }}">EnlistMe</a></div><div class="stat-grid">{{ metric('Overall average',report.average|string+'%' if report.average is not none else none,'Unit-weighted · published subjects','chart') }}{{ metric('Subjects enrolled',enrollments|length,'Selected term','book') }}{{ metric('Class rank',report.rank,'Among '+report.cohort|string+' ranked classmates','award') }}{{ metric('Published subjects',report.published,report.units|string+' units included','check') }}</div>
+{% set published=enrollments|selectattr('status','equalto','PUBLISHED')|list|length %}
+{% set count=enrollments|length %}
+<div class="student-insights"><section class="panel"><h2>Grade publication</h2>
+<div class="publication-ring" style="--published:{{ 100*published/count if count else 0 }}%"><strong>{{ published }} / {{ count }}</strong></div>
+<p><b>{{ published }}</b> published · <b>{{ count-published }}</b> awaiting publication</p></section>
+<section class="panel"><h2>Performance by subject</h2><p class="footnote">Published percentage · passing mark 75%</p>
+{% for item in report.own|sort(attribute='student.result.total',reverse=true) %}<div class="subject-chart-row"><div><strong>{{ item.classroom.subject_code }}</strong> · {{ item.classroom.subject_name }}</div><div class="subject-chart-track"><i style="width:{{ item.student.result.total }}%"></i></div><b>{{ '%.2f'|format(item.student.result.total) }}%</b></div>{% else %}<p>No published grades for this period.</p>{% endfor %}</section></div>
+<div class="dashboard-analysis">
+<section class="panel activity-trend"><h2>Activity scores over time</h2><p class="footnote">Each date shows points earned divided by possible points for recorded activities in the selected subject.</p>
+{% if trends %}<label>Subject <select id="trend-subject">{% for series in trends %}<option value="{{ loop.index0 }}">{{ series.label }}</option>{% endfor %}</select></label>
+{% for series in trends %}<div class="trend-series" {% if not loop.first %}hidden{% endif %}>
+{% set first=series.points[0].date %}{% set last=series.points[-1].date %}
+<svg class="trend-plot" viewBox="0 0 480 132" role="img" aria-label="Recorded activity percentages for {{ series.label }}" data-first="{{ first }}" data-last="{{ last }}">
+{% for value in [0,50,100] %}<text x="0" y="{{ 116-value }}">{{ value }}%</text><line x1="40" x2="468" y1="{{ 112-value }}" y2="{{ 112-value }}"/>{% endfor %}
+<polyline/>{% for point in series.points %}<circle data-date="{{ point.date }}" data-value="{{ point.value }}" cy="{{ 112-point.value }}" r="4"><title>{{ point.date }} · {{ point.value }}%</title></circle>{% endfor %}</svg>
+<div class="trend-dates"><span>{{ first }}</span>{% if first!=last %}<span>{{ last }}</span>{% endif %}</div>
+<details><summary>View scores by date</summary>{% for point in series.points %}<p>{{ point.date }} · {{ '%.2f'|format(point.value) }}%</p>{% endfor %}</details></div>{% endfor %}
+{% else %}<p>No dated activity scores have been published for this period.</p>{% endif %}</section>
+<section class="panel"><h2>Subject load by units</h2><p class="footnote">Share of your {{ enrollments|sum(attribute='units') }} enrolled units. Units determine each subject’s weight in the overall average.</p>
+{% set units=enrollments|sum(attribute='units') %}{% for e in enrollments|sort(attribute='units',reverse=true) %}<div class="analysis-row"><div>{{ e.subject_code }} · {{ e.subject_name }} <b>{{ e.units }} units</b></div><div class="analysis-track"><i style="width:{{ 100*e.units/units if units else 0 }}%"></i></div></div>{% else %}<p>No enrolled subjects for this period.</p>{% endfor %}</section>
+<section class="panel"><h2>Score coverage by subject</h2><p class="footnote">Recorded and missing activity scores in published subjects. A recorded zero counts as recorded.</p>
+{% for item in report.own %}{% set r=item.student.result %}<div class="analysis-row"><div>{{ item.classroom.subject_code }} · {{ item.classroom.subject_name }}</div><div class="analysis-track coverage"><i style="width:{{ 100*r.recorded/r.expected if r.expected else 0 }}%"></i></div><small>{{ r.recorded }} recorded · {{ r.missing }} missing</small></div>{% else %}<p>Coverage appears when a subject grade is published.</p>{% endfor %}</section></div>
+{% endblock %}{% block extra_scripts %}<script src="{{ url_for('static',filename='js/student-dashboard.js') }}" defer></script>{% endblock %}

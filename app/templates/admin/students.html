@@ -1,0 +1,239 @@
+{% extends "admin/_directory_layout.html" %}
+{% set active_page = "students" %}
+{% from "_icons.html" import icon %}
+{% block title %}Students{% endblock %}
+{% block page_title %}Students{% endblock %}
+
+{% block content %}
+<div class="button-row directory-tabs">{% for value,label in [('','All'),('yes','Enrolled'),('no','Not enrolled')] %}<a class="btn {{ 'btn-primary' if request.args.get('enrolled','')==value else 'btn-secondary' }}" href="{{ url_for('admin.students',enrolled=value,q=q,program=program,section=section,year_level=year_level) }}">{{ label }} <small>{{ tab_counts[value] }}</small></a>{% endfor %}</div><div class="action-bar">
+  <form class="search-box search-box-outline" method="GET" action="{{ url_for('admin.students') }}">
+    {% for k in ['sort','limit','enrolled','term_filter'] if request.args.get(k) %}<input type="hidden" name="{{ k }}" value="{{ request.args[k] }}">{% endfor %}<input type="hidden" name="year_level" value="{{ year_level }}">
+    <input type="hidden" name="section" value="{{ section }}">
+    <input type="hidden" name="program" value="{{ program }}">
+    {{ icon('search') }}
+    <input type="text" name="q" value="{{ q }}" placeholder="Search by name, ID, or program...">
+  </form>
+  <form class="filters" method="GET" action="{{ url_for('admin.students') }}">
+    <input type="hidden" name="enrolled" value="{{ request.args.get('enrolled','') }}"><input type="hidden" name="q" value="{{ q }}">
+    <select class="filter-select" name="year_level" onchange="this.form.submit()">
+      <option value="">Year Level</option>
+      {% for yl in year_levels %}
+      <option value="{{ yl }}" {{ 'selected' if yl == year_level }}>{{ yl }}</option>
+      {% endfor %}
+    </select>
+    <select class="filter-select" name="section" onchange="this.form.submit()">
+      <option value="">Section</option>
+      {% for sec in sections %}
+      <option value="{{ sec }}" {{ 'selected' if sec == section }}>{{ sec }}</option>
+      {% endfor %}
+    </select>
+    <select class="filter-select" name="program" onchange="this.form.submit()">
+      <option value="">Program</option>
+      {% for p in programs %}
+      <option value="{{ p }}" {{ 'selected' if p == program }}>{{ p }}</option>
+      {% endfor %}
+    </select>
+  </form>
+
+  <a class="btn btn-secondary" onclick="const u=new URL(this.href);u.searchParams.set('selected',[...document.querySelectorAll('.directory-check:checked')].map(x=>x.value).join(','));this.href=u.href" href="{{ url_for('admin.students',**dict(request.args,export='csv')) }}">Export CSV</a><button class="btn btn-primary" onclick="document.getElementById('addStudentModal').classList.add('open')">
+    {{ icon('plus') }} Add Student
+  </button>
+</div>
+
+<div class="table-card">
+  <table class="data-table">
+<thead><tr><th><input type="checkbox" aria-label="Select all shown" onchange="document.querySelectorAll('.directory-check').forEach(box=>box.checked=this.checked)"></th><th><a href="{{ url_for('admin.students',**dict(request.args,sort='id',page=1)) }}">Student ID ↕</a></th><th><a href="{{ url_for('admin.students',**dict(request.args,sort='name',page=1)) }}">Name ↕</a></th><th>Program</th><th>Year level</th><th>Section</th><th>Status</th></tr></thead><tbody>{% for s in students %}<tr><td><input class="directory-check" type="checkbox" value="{{ s.student_id }}" aria-label="Select {{ s.full_name }}"></td><td>{{ s.id_number }}</td><td><a class="directory-name" href="{{ url_for('admin.student_detail',student_id=s.student_id) }}">{% if s.photo_url %}<img src="{{ s.photo_url }}" alt="">{% else %}<i>{{ s.full_name.split()[0][:1] }}{{ s.full_name.split()[-1][:1] }}</i>{% endif %}{{ s.full_name }}</a></td><td>{{ s.program }}</td><td>{{ s.standing_year }}</td><td>{{ s.section }}</td><td><span class="chip {{ 'good' if s.enrolled else 'pending' }}">{{ 'Enrolled' if s.enrolled else 'Not enrolled' }}</span></td></tr>{% else %}<tr><td colspan="7">No students found.</td></tr>{% endfor %}</tbody>  </table>
+</div>
+
+<div class="pagination-bar">
+  <div class="pagination-info">Showing page {{ page }} of {{ total_pages }} &middot; {{ total }} students</div>
+  <form method="get">{% for k,v in request.args.items() if k not in ('page','limit') %}<input type="hidden" name="{{ k }}" value="{{ v }}">{% endfor %}<label>Rows per page <select name="limit" onchange="this.form.submit()">{% for n in [10,25,50,100] %}<option {{ 'selected' if request.args.get('limit',25,type=int)==n }}>{{ n }}</option>{% endfor %}</select></label></form><div class="pagination-controls">
+    <a class="page-link {{ 'disabled' if page <= 1 }}" style="padding:0 12px;"
+       href="{{ url_for('admin.students', q=q, year_level=year_level, section=section, program=program,limit=request.args.get('limit',25),sort=request.args.get('sort','name'),enrolled=request.args.get('enrolled',''), page=page-1) }}">Prev</a>
+    {% for p in range(1, total_pages + 1) %}
+      {% if p == page %}
+        <span class="page-link active">{{ p }}</span>
+      {% elif p == 1 or p == total_pages or (p >= page - 1 and p <= page + 1) %}
+        <a class="page-link" href="{{ url_for('admin.students', q=q, year_level=year_level, section=section, program=program,limit=request.args.get('limit',25),sort=request.args.get('sort','name'),enrolled=request.args.get('enrolled',''), page=p) }}">{{ p }}</a>
+      {% elif p == 2 or p == total_pages - 1 %}
+        <span class="page-link disabled">...</span>
+      {% endif %}
+    {% endfor %}
+    <a class="page-link {{ 'disabled' if page >= total_pages }}" style="padding:0 12px;"
+       href="{{ url_for('admin.students', q=q, year_level=year_level, section=section, program=program,limit=request.args.get('limit',25),sort=request.args.get('sort','name'),enrolled=request.args.get('enrolled',''), page=page+1) }}">Next</a>
+  </div>
+</div>
+
+<!-- Add Student Modal -->
+<div class="modal-overlay" id="addStudentModal">
+  <div class="modal-card" style="max-width:600px;">
+    <div class="modal-header">
+      <h3 class="modal-title">Add Student</h3>
+      <button class="modal-close" onclick="document.getElementById('addStudentModal').classList.remove('open')">{{ icon('x-circle') }}</button>
+    </div>
+    <form method="POST" action="{{ url_for('admin.add_student') }}">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <div class="modal-body">
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">First Name</label>
+            <input class="field-input" name="first_name" maxlength="50" placeholder="Enter first name" required>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Last Name</label>
+            <input class="field-input" name="last_name" placeholder="Enter last name" required>
+          </div>
+        </div>
+        <div class="field-group"><label class="field-label">Middle name (optional)</label><input class="field-input" name="middle_name" maxlength="50"></div><div class="field-row"><div class="field-group"><label class="field-label">ID Number</label>
+            <input class="field-input" name="id_number" placeholder="e.g. 23-2762" required>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Year Level</label>
+            <select class="field-input" name="year_level" required>
+              <option value="" disabled selected>Select year level</option>
+              <option>1st Year</option>
+              <option>2nd Year</option>
+              <option>3rd Year</option>
+              <option>4th Year</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Section</label>
+            <input class="field-input" name="section" placeholder="e.g. BSCS 1-1" required>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Program</label>
+            <select class="field-input" name="program" required><option value="">Choose program</option>{% for code,name in curriculum_programs.items() %}<option value="{{ code }}">{{ code }} · {{ name }}</option>{% endfor %}</select>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Sex</label>
+            <select class="field-input" name="sex">
+              <option value="">Prefer not to say</option>
+              <option value="MALE">Male</option>
+              <option value="FEMALE">Female</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Email Address</label>
+            <input class="field-input" name="email" type="email" required placeholder="alexis.s.balmores@isu.edu.ph">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Contact Number</label>
+            <input class="field-input" name="contact_number" placeholder="09999999999">
+          </div>
+          <div class="field-group">
+            <label class="field-label">Enrollment Type</label>
+            <select class="field-input" name="enrollment_type">
+              <option value="REGULAR">Regular</option>
+              <option value="IRREGULAR">Irregular</option>
+            </select>
+          </div>
+        </div>
+<p class="cell-muted">The student ID is the login username. A temporary password will be generated when you save.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" onclick="document.getElementById('addStudentModal').classList.remove('open')">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Student</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Edit Student Modal -->
+<div class="modal-overlay" id="editStudentModal">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3 class="modal-title">Edit Student</h3>
+      <button class="modal-close" onclick="document.getElementById('editStudentModal').classList.remove('open')">{{ icon('x-circle') }}</button>
+    </div>
+    <form method="POST" id="editStudentForm">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <div class="modal-body">
+<p class="cell-muted">Verify each name against the student's record. Legacy full names are not split automatically.</p><div class="field-group"><label class="field-label">First name</label><input class="field-input" name="first_name" id="editStudentFirst" required></div><div class="field-group"><label class="field-label">Middle name (optional)</label><input class="field-input" name="middle_name" id="editStudentMiddle"></div><div class="field-group"><label class="field-label">Last name</label><input class="field-input" name="last_name" id="editStudentLast" required></div><div class="field-group"><label class="field-label">Student ID / username</label><input class="field-input" name="id_number" id="editStudentId" required placeholder="23-2762"></div><div class="field-group"><label class="field-label">Institutional email</label><input class="field-input" name="email" id="editStudentEmail" type="email" required></div>        <div class="field-group">
+          <label class="field-label">Program</label>
+          <select class="field-input" name="program" id="editStudentProgram" required><option value="">Choose program</option>{% for code,name in curriculum_programs.items() %}<option value="{{ code }}">{{ code }} · {{ name }}</option>{% endfor %}</select>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Year Level</label>
+            <select class="field-input" name="year_level" id="editStudentYearLevel">
+              <option>1st Year</option>
+              <option>2nd Year</option>
+              <option>3rd Year</option>
+              <option>4th Year</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Section</label>
+            <input class="field-input" name="section" id="editStudentSection" required>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Contact Number</label>
+            <input class="field-input" name="contact_number" id="editStudentContact">
+          </div>
+          <div class="field-group">
+            <label class="field-label">Status</label>
+            <select class="field-input" name="status" id="editStudentStatus">
+              <option value="ACTIVE">Active</option>
+              <option value="INACTIVE">Inactive</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Sex</label>
+            <select class="field-input" name="sex" id="editStudentSex">
+              <option value="">Not specified</option>
+              <option value="MALE">Male</option>
+              <option value="FEMALE">Female</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Enrollment Type</label>
+            <select class="field-input" name="enrollment_type" id="editStudentType">
+              <option value="REGULAR">Regular</option>
+              <option value="IRREGULAR">Irregular</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" onclick="document.getElementById('editStudentModal').classList.remove('open')">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+function openEditStudent(id, name, program, yearLevel, section, contact, status, sex, enrollmentType, email, first, middle, last, identifier) {
+  document.getElementById('editStudentForm').action = "/admin/students/" + id + "/edit";
+  document.getElementById('editStudentFirst').value=first;
+  document.getElementById('editStudentMiddle').value=middle;
+  document.getElementById('editStudentLast').value=last;
+  document.getElementById('editStudentId').value=identifier;
+  document.getElementById('editStudentEmail').value = email || '';
+  const programAliases = {{ program_aliases|tojson }};
+  const code = Object.keys(programAliases).find(key => programAliases[key].some(alias => alias.toLowerCase() === program.trim().toLowerCase()));
+  document.getElementById('editStudentProgram').value = code || '';
+  document.getElementById('editStudentYearLevel').value = yearLevel;
+  document.getElementById('editStudentSection').value = section;
+  document.getElementById('editStudentContact').value = contact;
+  document.getElementById('editStudentStatus').value = status;
+  document.getElementById('editStudentSex').value = sex || '';
+  document.getElementById('editStudentType').value = enrollmentType || 'REGULAR';
+  document.getElementById('editStudentModal').classList.add('open');
+}
+</script>
+{% endblock %}

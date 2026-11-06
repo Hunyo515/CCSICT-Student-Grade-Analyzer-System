@@ -1,0 +1,27 @@
+{% extends "admin/_layout.html" %}
+{% set active_page = "dashboard" %}
+{% from "_insight_ui.html" import metric, bar, empty, distribution, readiness, publication, class_sizes, history_chart %}
+{% block title %}Dashboard{% endblock %}
+{% block page_title %}Dashboard{% endblock %}
+{% block content %}
+<div class="insights"><div class="insight-toolbar"><a class="insight-link" href="{{ url_for('admin.analytics') }}">Analytics →</a></div>
+
+
+<div class="insight-metrics">
+{{ metric('Enrolled students', report.students, 'Current term', 'accent') }}
+{{ metric('Class sections', report.sections, report.enrollments ~ ' subject enrollments') }}
+{{ metric('Score entry coverage', report.coverage ~ '%' if report.coverage is not none else '—', report.recorded ~ ' of ' ~ report.expected ~ ' required scores') }}
+{{ metric('Scores awaiting entry', report.missing, 'Missing or invalid scores', 'attention') }}
+</div>
+<div class="insight-grid wide">{{ readiness(sections, 'admin') }}{{ publication(report) }}</div>
+<div class="insight-grid"><article class="insight-panel"><h2>Students by program</h2><p class="insight-description">Unique students enrolled this term</p>{% for row in program_counts %}{{ bar(row.label, row.value, maximum=([1, program_counts|map(attribute='value')|max]|max), suffix='') }}{% else %}{{ empty('No enrollments yet', '') }}{% endfor %}</article>{{ distribution(report) }}</div>
+<article class="insight-panel"><div class="insight-panel-head"><div><h2>Classes to follow up</h2></div><a class="insight-link" href="{{ url_for('admin.teachers') }}">Faculty directory →</a></div><p class="insight-description">Unpublished or incomplete classes.</p>
+<div class="insight-table-wrap" tabindex="0" role="region" aria-label="Scrollable report table"><table class="insight-table"><thead><tr><th>Class / section</th><th>Publication</th><th class="num">Enrollments</th><th class="num">Missing scores</th><th>Next step</th></tr></thead><tbody>
+{% for s in sections if s.status != 'PUBLISHED' or s.complete < s.students or not s.weighting_valid %}<tr><td><strong>{{ s.subject_code }} · {{ s.section }}</strong><small>{{ s.subject_name }}</small></td><td><span class="insight-status {{ 'published' if s.status == 'PUBLISHED' }}">{{ s.status|replace('_',' ')|title }}</span></td><td class="num">{{ s.students }}</td><td class="num">{{ s.missing }}</td><td>{{ 'Review grade weights' if not s.weighting_valid else ('Complete score entry' if s.missing else ('Enroll students' if not s.students else 'Review and publish')) }}</td></tr>
+{% else %}<tr><td colspan="5">{{ 'All classes have complete, published results.' if sections else 'No classes assigned in this term.' }}</td></tr>{% endfor %}
+</tbody></table></div></article>
+<article class="insight-panel"><h2>Latest system activity</h2>{% for item in recent_activity %}<div class="insight-fact"><span>{{ item.message }}</span><small>{{ item.created_at.strftime('%b %d, %Y %H:%M') if item.created_at else '' }}</small></div>{% else %}{{ empty('No activity recorded', 'Recorded administrative changes will appear here.') }}{% endfor %}</article>
+
+
+</div>
+{% endblock %}

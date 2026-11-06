@@ -1,0 +1,6 @@
+BLOCKED strong_secret_configured
+BLOCKED oracle_credentials_configured
+BLOCKED smtp_host_and_sender_configured
+PASS secure_cookies_enabled
+BLOCKED oracle_metadata_connection
+This preflight does not certify email delivery, backups, TLS/proxy setup, or production load capacity.

@@ -1,0 +1,9 @@
+<div class="faculty-load-summary">
+  <h3>{{ teacher.full_name }}</h3><p class="footnote">{{ 'All school terms' if term and term.is_all else term.school_year ~ ' · ' ~ term.semester if term else 'No selected term' }}</p>
+  <p>{{ classes|length }} assigned {{ 'class' if classes|length==1 else 'classes' }}</p>
+</div>
+{% for c in classes %}<article class="faculty-class-card">
+  <div class="panel-heading"><div><span class="section-kicker">{{ c.subject_code }}</span><h3>{{ c.subject_name }}</h3></div><span class="state-pill">{{ c.status|replace('_',' ')|title }}</span></div>
+  <dl class="detail-list"><dt>Program</dt><dd>{{ c.program or 'Not recorded' }}</dd><dt>Year level</dt><dd>{{ c.year_level }}</dd><dt>Section</dt><dd>{{ c.section }}</dd><dt>Term</dt><dd>{{ c.school_year }} · {{ c.semester }}</dd><dt>Enrolled students</dt><dd>{{ c.student_count }}</dd></dl>
+  <a class="btn btn-outline btn-sm" href="{{ url_for('admin.class_details',assignment_id=c.assignment_id,term_filter=c.term_id) }}">View Class</a>
+</article>{% else %}<div class="faculty-load-empty"><p>No assigned classes in this term.</p><a class="btn btn-primary" href="{{ url_for('admin.classes',teacher_id=teacher.teacher_id,term_filter='all' if term and term.is_all else term.term_id if term else '') }}">Assign Class</a></div>{% endfor %}

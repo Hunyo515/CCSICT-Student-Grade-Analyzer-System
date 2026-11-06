@@ -1,0 +1,6 @@
+{% extends 'admin/_layout.html' %}
+{% block body_class %}student-directory{% endblock %}
+{% block extra_head %}<link rel="stylesheet" href="{{ url_for('static',filename='css/student-directory.css') }}">{% endblock %}
+{% block main_area %}
+<header class="directory-head"><div class="directory-inner"><div>{% if s is defined %}<a href="{{ url_for('admin.students') }}">‹ &nbsp; Students</a> &nbsp;/&nbsp; <strong>{{ s.full_name }}</strong>{% else %}<h1>Students</h1><small>Enrollment records for the selected term</small>{% endif %}</div><div class="directory-tools">{% if s is not defined %}{% include '_term_selector.html' %}{% include '_notifications.html' %}{% endif %}<div class="admin-switch"><span>{{ current_user.full_name }}<small>System Admin</small></span></div></div></div></header><main class="directory-inner directory-main">{% block content %}{% endblock %}</main>
+{% endblock %}

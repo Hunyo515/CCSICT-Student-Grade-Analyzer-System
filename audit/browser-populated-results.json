@@ -1,0 +1,479 @@
+{
+  "results": [
+    {
+      "width": 1440,
+      "path": "/faculty/dashboard",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.588,
+      "overflow_elements": []
+    },
+    {
+      "width": 1440,
+      "path": "/faculty/grade-entry",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.671,
+      "overflow_elements": []
+    },
+    {
+      "width": 1440,
+      "path": "/faculty/grade-weighting",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.632,
+      "overflow_elements": []
+    },
+    {
+      "width": 1440,
+      "path": "/faculty/analytics",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.606,
+      "overflow_elements": []
+    },
+    {
+      "width": 1440,
+      "path": "/faculty/top-performers",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.75,
+      "overflow_elements": []
+    },
+    {
+      "width": 1440,
+      "path": "/faculty/section-detail",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.639,
+      "overflow_elements": []
+    },
+    {
+      "width": 1440,
+      "path": "/faculty/grade-entry/registry",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.611,
+      "overflow_elements": []
+    },
+    {
+      "width": 1440,
+      "path": "/student/dashboard",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.6,
+      "overflow_elements": []
+    },
+    {
+      "width": 1440,
+      "path": "/student/grades",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.63,
+      "overflow_elements": []
+    },
+    {
+      "width": 1440,
+      "path": "/student/profile",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.591,
+      "overflow_elements": []
+    },
+    {
+      "width": 1440,
+      "path": "/student/analytics",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.606,
+      "overflow_elements": []
+    },
+    {
+      "width": 1440,
+      "path": "/student/my-rank",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.603,
+      "overflow_elements": []
+    },
+    {
+      "width": 1440,
+      "path": "/",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.597,
+      "overflow_elements": []
+    },
+    {
+      "width": 1440,
+      "path": "/login/admin",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.604,
+      "overflow_elements": []
+    },
+    {
+      "width": 1440,
+      "path": "/login/faculty",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.867,
+      "overflow_elements": []
+    },
+    {
+      "width": 1440,
+      "path": "/login/student",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.587,
+      "overflow_elements": []
+    },
+    {
+      "width": 1440,
+      "path": "/register",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.602,
+      "overflow_elements": []
+    },
+    {
+      "width": 1440,
+      "path": "/forgot-password/student",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.596,
+      "overflow_elements": []
+    },
+    {
+      "width": 1440,
+      "path": "/does-not-exist",
+      "status": 404,
+      "overflow": false,
+      "seconds": 0.584,
+      "overflow_elements": []
+    },
+    {
+      "width": 375,
+      "path": "/faculty/dashboard",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.581,
+      "overflow_elements": []
+    },
+    {
+      "width": 375,
+      "path": "/faculty/grade-entry",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.568,
+      "overflow_elements": []
+    },
+    {
+      "width": 375,
+      "path": "/faculty/grade-weighting",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.595,
+      "overflow_elements": []
+    },
+    {
+      "width": 375,
+      "path": "/faculty/analytics",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.575,
+      "overflow_elements": []
+    },
+    {
+      "width": 375,
+      "path": "/faculty/top-performers",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.572,
+      "overflow_elements": []
+    },
+    {
+      "width": 375,
+      "path": "/faculty/section-detail",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.579,
+      "overflow_elements": []
+    },
+    {
+      "width": 375,
+      "path": "/faculty/grade-entry/registry",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.576,
+      "overflow_elements": []
+    },
+    {
+      "width": 375,
+      "path": "/student/dashboard",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.587,
+      "overflow_elements": []
+    },
+    {
+      "width": 375,
+      "path": "/student/grades",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.601,
+      "overflow_elements": []
+    },
+    {
+      "width": 375,
+      "path": "/student/profile",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.591,
+      "overflow_elements": []
+    },
+    {
+      "width": 375,
+      "path": "/student/analytics",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.594,
+      "overflow_elements": []
+    },
+    {
+      "width": 375,
+      "path": "/student/my-rank",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.596,
+      "overflow_elements": []
+    },
+    {
+      "width": 375,
+      "path": "/",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.6,
+      "overflow_elements": []
+    },
+    {
+      "width": 375,
+      "path": "/login/admin",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.582,
+      "overflow_elements": []
+    },
+    {
+      "width": 375,
+      "path": "/login/faculty",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.573,
+      "overflow_elements": []
+    },
+    {
+      "width": 375,
+      "path": "/login/student",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.592,
+      "overflow_elements": []
+    },
+    {
+      "width": 375,
+      "path": "/register",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.572,
+      "overflow_elements": []
+    },
+    {
+      "width": 375,
+      "path": "/forgot-password/student",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.57,
+      "overflow_elements": []
+    },
+    {
+      "width": 375,
+      "path": "/does-not-exist",
+      "status": 404,
+      "overflow": false,
+      "seconds": 0.556,
+      "overflow_elements": []
+    },
+    {
+      "width": 320,
+      "path": "/faculty/dashboard",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.577,
+      "overflow_elements": []
+    },
+    {
+      "width": 320,
+      "path": "/faculty/grade-entry",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.576,
+      "overflow_elements": []
+    },
+    {
+      "width": 320,
+      "path": "/faculty/grade-weighting",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.592,
+      "overflow_elements": []
+    },
+    {
+      "width": 320,
+      "path": "/faculty/analytics",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.587,
+      "overflow_elements": []
+    },
+    {
+      "width": 320,
+      "path": "/faculty/top-performers",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.578,
+      "overflow_elements": []
+    },
+    {
+      "width": 320,
+      "path": "/faculty/section-detail",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.573,
+      "overflow_elements": []
+    },
+    {
+      "width": 320,
+      "path": "/faculty/grade-entry/registry",
+      "status": 200,
+      "overflow": false,
+      "seconds": 2.365,
+      "overflow_elements": []
+    },
+    {
+      "width": 320,
+      "path": "/student/dashboard",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.63,
+      "overflow_elements": []
+    },
+    {
+      "width": 320,
+      "path": "/student/grades",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.597,
+      "overflow_elements": []
+    },
+    {
+      "width": 320,
+      "path": "/student/profile",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.597,
+      "overflow_elements": []
+    },
+    {
+      "width": 320,
+      "path": "/student/analytics",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.577,
+      "overflow_elements": []
+    },
+    {
+      "width": 320,
+      "path": "/student/my-rank",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.631,
+      "overflow_elements": []
+    },
+    {
+      "width": 320,
+      "path": "/",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.613,
+      "overflow_elements": []
+    },
+    {
+      "width": 320,
+      "path": "/login/admin",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.597,
+      "overflow_elements": []
+    },
+    {
+      "width": 320,
+      "path": "/login/faculty",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.625,
+      "overflow_elements": []
+    },
+    {
+      "width": 320,
+      "path": "/login/student",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.596,
+      "overflow_elements": []
+    },
+    {
+      "width": 320,
+      "path": "/register",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.584,
+      "overflow_elements": []
+    },
+    {
+      "width": 320,
+      "path": "/forgot-password/student",
+      "status": 200,
+      "overflow": false,
+      "seconds": 0.589,
+      "overflow_elements": []
+    },
+    {
+      "width": 320,
+      "path": "/does-not-exist",
+      "status": 404,
+      "overflow": false,
+      "seconds": 0.572,
+      "overflow_elements": []
+    },
+    {
+      "condition": "confirmation-injection",
+      "status": 200
+    },
+    {
+      "condition": "mobile-modal-and-settings",
+      "status": 200
+    },
+    {
+      "condition": "slow-network",
+      "path": "/register",
+      "status": 200,
+      "seconds": 15.293
+    },
+    {
+      "condition": "offline",
+      "result": "browser reports connection failure; no false success"
+    }
+  ],
+  "errors": []
+}

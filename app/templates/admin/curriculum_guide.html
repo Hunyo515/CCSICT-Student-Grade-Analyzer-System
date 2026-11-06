@@ -1,0 +1,32 @@
+{% extends "admin/_layout.html" %}
+{% set active_page = "subjects" %}
+{% block title %}{{ program_name }} Subjects{% endblock %}
+{% block page_title %}<a class="subject-crumb" href="{{ url_for('admin.subjects') }}">‹ Programs</a> / {{ program }}{% endblock %}
+{% block header_extra %}{% endblock %}
+{% block content %}
+<div class="subject-catalog">
+
+<div class="action-bar"><div class="catalog-program-heading"><span aria-hidden="true">▱</span><div><h2>{{ program }}</h2><small>{{ program_name }}</small></div></div><div class="workflow-actions">
+{% if folder %}
+<form method="post" action="{{ url_for('admin.delete_catalog_folder',folder_id=folder.id) }}" data-confirm="Delete {{ folder.name }}? Its subjects will stay in their program folders.">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+  <button type="submit" class="btn btn-outline danger-text">Delete folder</button>
+</form>
+{% endif %}
+<a class="btn btn-outline" href="{{ url_for('admin.catalog_folder',folder_id=folder.id,show_archived='0' if archived else '1') if folder else url_for('admin.subjects',program=program,show_archived='0' if archived else '1') }}">{{ 'Active subjects' if archived else 'Archived subjects' }}</a>
+{% if program != 'UNSORTED' %}<a class="btn btn-primary" href="{{ url_for('admin.subject_form',folder_id=folder.id) if folder else url_for('admin.subject_form',program=program) }}">Add subject</a>{% endif %}</div></div>
+{% if curriculum %}<div class="curriculum-source-info"><a class="workflow-source" href="{{ url_for('admin.program_curriculum_source',program=program.lower()) }}">Original {{ program }} curriculum · S.Y. {{ curriculum.school_year }} ↓</a>{% if curriculum.specialization %}<p class="footnote">Specialization: {{ curriculum.specialization }}</p>{% endif %}{% if curriculum.notes %}<details class="curriculum-source-notes"><summary>Curriculum source notes</summary><ul>{% for note in curriculum.notes %}<li>{{ note }}</li>{% endfor %}</ul></details>{% endif %}</div>{% endif %}
+{% if archived %}<p class="info-banner">Archived subjects are kept for existing classes and cannot be used for new classes.</p>{% endif %}
+<div class="catalog-controls"><div aria-label="Year level">{% for year in year_order if grouped.get(year) %}<button type="button" data-year="{{ year }}" aria-pressed="{{ 'true' if loop.first else 'false' }}">{{ year }}</button>{% endfor %}</div><input type="search" id="catalog-search" aria-label="Search in {{ program }}" placeholder="Search in {{ program }}"></div><p id="catalog-empty" hidden>No matching subjects.</p>
+{% for year in year_order if grouped.get(year) %}<section class="curriculum-year" data-group="{{ year }}"><h2>{{ year }}</h2>
+{% for semester in semester_order if grouped[year].get(semester) %}{% set courses=grouped[year][semester] %}
+<details class="curriculum-semester" {{ 'open' if loop.first }}><summary><h3>{{ semester }}</h3></summary><div class="table-scroll" tabindex="0" role="region" aria-label="{{ year }} {{ semester }} subjects"><table class="data-table curriculum-table">
+<thead><tr><th>Course No.</th><th>Course Title</th><th>Units</th><th>Prerequisite</th><th>Actions</th></tr></thead><tbody>
+{% for c in courses %}<tr><td class="cell-strong">{{ c.subject_code }}</td><td>{{ c.subject_name }}</td><td>{{ c.units_note or c.units }}</td><td>{{ c.prerequisite_text or c.prerequisite_code or 'None' }}</td><td><div class="workflow-actions">
+
+{% if not archived and program != 'UNSORTED' %}<a class="btn btn-outline btn-sm" href="{{ url_for('admin.classes',subject_id=c.subject_id,program=c.program or program) }}">Create class</a>{% endif %}
+<a class="btn btn-outline btn-sm" href="{{ url_for('admin.subject_form',subject_id=c.subject_id) }}" aria-label="Edit" title="Edit subject">Edit</a><details class="course-options"><summary aria-label="More actions for {{ c.subject_code }}">⋯</summary><form method="POST" action="{{ url_for('admin.archive_subject',subject_id=c.subject_id) }}"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><input type="hidden" name="archived" value="{{ 0 if archived else 1 }}"><button class="btn btn-outline btn-sm" type="submit">{{ 'Restore' if archived else 'Archive' }}</button></form>
+<form method="POST" action="{{ url_for('admin.delete_subject',subject_id=c.subject_id) }}" data-confirm="Delete {{ c.subject_code }} — {{ c.subject_name }}? Subjects used by classes cannot be deleted."><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="btn btn-outline btn-sm" type="submit">Delete</button></form></details>
+</div></td></tr>{% endfor %}</tbody><tfoot><tr><th colspan="2">Total</th><td>{{ courses|sum(attribute='units') }}</td><td colspan="2"></td></tr></tfoot></table></div></details>{% endfor %}</section>
+{% else %}<div class="card"><p>{{ 'No archived subjects.' if archived else 'No subjects in this program yet.' }}</p></div>{% endfor %}
+</div>{% endblock %}{% block extra_scripts %}<script src="{{ url_for('static',filename='js/catalog-view.js') }}" defer></script>{% endblock %}

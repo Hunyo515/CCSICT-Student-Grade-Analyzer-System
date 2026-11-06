@@ -1,0 +1,397 @@
+{
+  "results": [
+    {
+      "mode": "empty",
+      "width": 1440,
+      "path": "/admin/dashboard",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 1440,
+      "path": "/admin/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 1440,
+      "path": "curriculum-folders-and-bsdsa",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 1440,
+      "path": "/faculty/dashboard",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 1440,
+      "path": "/faculty/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 1440,
+      "path": "/student/dashboard",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 1440,
+      "path": "/student/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 768,
+      "path": "/admin/dashboard",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 768,
+      "path": "/admin/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 768,
+      "path": "curriculum-folders-and-bsdsa",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 768,
+      "path": "/faculty/dashboard",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 768,
+      "path": "/faculty/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 768,
+      "path": "/student/dashboard",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 768,
+      "path": "/student/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 375,
+      "path": "/admin/dashboard",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 375,
+      "path": "/admin/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 375,
+      "path": "curriculum-folders-and-bsdsa",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 375,
+      "path": "/faculty/dashboard",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 375,
+      "path": "/faculty/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 375,
+      "path": "/student/dashboard",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 375,
+      "path": "/student/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 320,
+      "path": "/admin/dashboard",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 320,
+      "path": "/admin/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 320,
+      "path": "curriculum-folders-and-bsdsa",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 320,
+      "path": "/faculty/dashboard",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 320,
+      "path": "/faculty/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 320,
+      "path": "/student/dashboard",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 320,
+      "path": "/student/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "path": "/admin/dashboard",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "path": "/admin/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "path": "curriculum-folders-and-bsdsa",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "path": "/faculty/dashboard",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "path": "/faculty/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "path": "/student/dashboard",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "path": "/student/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "path": "/admin/dashboard",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "path": "/admin/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "path": "curriculum-folders-and-bsdsa",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "path": "/faculty/dashboard",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "path": "/faculty/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "path": "/student/dashboard",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "path": "/student/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "path": "/admin/dashboard",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "path": "/admin/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "path": "curriculum-folders-and-bsdsa",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "path": "/faculty/dashboard",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "path": "/faculty/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "path": "/student/dashboard",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "path": "/student/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "path": "/admin/dashboard",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "path": "/admin/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "path": "curriculum-folders-and-bsdsa",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "path": "/faculty/dashboard",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "path": "/faculty/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "path": "/student/dashboard",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "path": "/student/analytics",
+      "status": 200,
+      "overflow": false
+    }
+  ],
+  "errors": []
+}

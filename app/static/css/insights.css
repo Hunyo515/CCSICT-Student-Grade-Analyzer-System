@@ -1,0 +1,65 @@
+/* Shared, dependency-free reporting surfaces. Scoped to the six insight pages. */
+.insights { --ink:#183044; --muted:#586b7b; --line:#dce5e9; --teal:#087f83; --blue:#3974b6; --amber:#a46013; display:flex; flex-direction:column; gap:24px; width:100%; min-width:0; color:var(--ink); }
+.insights h2,.insights h3,.insights p { margin:0; }
+
+
+
+
+.insight-action { background:var(--ink); color:white; border:1px solid var(--ink); border-radius:9px; padding:12px 17px; font:inherit; font-weight:600; text-align:center; white-space:nowrap; cursor:pointer; }
+.insight-action:hover { background:#285269; }
+.insight-metrics { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
+.insight-metric { padding:22px; border:1px solid var(--line); background:#fff; border-radius:13px; min-width:0; }
+.insight-metric p { font-size:12px; font-weight:650; color:var(--muted); }
+.insight-metric strong { display:block; font-size:32px; font-variant-numeric:tabular-nums; letter-spacing:-1px; margin:12px 0 8px; line-height:1; }
+.insight-metric span { font-size:11px; line-height:1.55; color:var(--muted); display:block; }
+.insight-metric.accent { border-top:3px solid var(--teal); }
+.insight-metric.attention { border-top:3px solid #b7782c; }
+.insight-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; align-items:stretch; }
+.insight-grid.wide { grid-template-columns:minmax(0,1.65fr) minmax(0,1fr); }
+.insight-panel { padding:26px; border:1px solid var(--line); border-radius:15px; background:white; min-width:0; }
+.insight-panel h2 { font-size:18px; letter-spacing:-.3px; line-height:1.4; }
+.insight-panel-head { display:flex; justify-content:space-between; align-items:flex-start; gap:14px; margin-bottom:8px; }
+.insight-tag { display:inline-block; flex-shrink:0; padding:5px 8px; background:#edf4f5; color:#32666c; font-size:11px; font-weight:700; border-radius:6px; }
+.insight-description { font-size:12px; color:var(--muted); line-height:1.65; margin:8px 0 18px!important; }
+.insight-bar { margin-top:20px; }
+.insight-bar-heading { display:flex; justify-content:space-between; align-items:baseline; gap:12px; font-size:12px; line-height:1.4; margin-bottom:8px; }
+.insight-bar-heading span { overflow-wrap:anywhere; }
+.insight-bar-heading strong { white-space:nowrap; font-variant-numeric:tabular-nums; }
+.insight-track { height:10px; border-radius:3px; background:#edf1f4; position:relative; }
+.insight-fill { display:block; height:100%; border-radius:3px; background:var(--teal); }
+.insight-fill.blue { background:var(--blue); }.insight-fill.amber { background:var(--amber); }
+.insight-target { position:absolute; height:16px; width:2px; background:#34495e; left:75%; top:-3px; }
+.insight-caption { font-size:10px; color:var(--muted); margin-top:7px!important; line-height:1.5; }
+.insight-scroll { max-height:430px; overflow:auto; padding:0 4px 6px 0; }
+.insight-big-number { font-size:64px; font-weight:750; letter-spacing:-3px; margin-top:20px; font-variant-numeric:tabular-nums; }
+.insight-big-number span { color:#7d919d; font-size:28px; letter-spacing:-1px; }
+.insight-fact { display:flex; justify-content:space-between; gap:12px; padding:14px 0; font-size:12px; border-bottom:1px solid var(--line); }
+.insight-footnote { font-size:11px; color:var(--muted); line-height:1.6; margin-top:18px!important; }
+.insight-empty { padding:38px 16px; text-align:center; background:#f7fafb; border:1px dashed var(--line); border-radius:9px; margin-top:18px; }
+.insight-empty strong { display:block; font-size:14px; }.insight-empty p { font-size:12px; line-height:1.7; color:var(--muted); margin-top:8px; }
+.insight-histogram { display:flex; gap:16px; margin-top:28px; }
+.insight-histogram > div { flex:1; min-width:0; text-align:center; font-size:10px; color:var(--muted); }
+.insight-histogram strong { display:block; font-size:15px; color:var(--ink); margin-bottom:8px; }
+.insight-column-track { height:150px; border-bottom:1px solid var(--line); display:flex; align-items:flex-end; justify-content:center; margin-bottom:10px; background:repeating-linear-gradient(to top,transparent 0,transparent 49px,#edf1f4 49px,#edf1f4 50px); }
+.insight-column-track span { display:block; width:68%; border-radius:4px 4px 0 0; background:var(--teal); }.insight-column-track span.amber { background:#bb803c; }
+.insight-table-wrap { overflow:auto; margin-top:18px; }
+.insight-table { width:100%; border-collapse:collapse; font-size:12px; text-align:left; }
+.insight-table th { color:var(--muted); background:#f5f8fa; font-weight:600; font-size:10px; letter-spacing:.4px; padding:12px; white-space:nowrap; }
+.insight-table td { padding:15px 12px; border-bottom:1px solid #edf1f4; vertical-align:middle; line-height:1.6; }
+.insight-table td small { display:block; color:var(--muted); font-size:10px; }.insight-table .num { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.insight-link { color:#096c7b; font-weight:650; text-decoration:underline; text-underline-offset:3px; }
+.insight-status { font-size:10px; font-weight:650; padding:5px 8px; border-radius:5px; background:#eef2f6; color:#526575; white-space:nowrap; }.insight-status.published { color:#116b60; background:#e7f4ee; }.insight-status.review { background:#fcf1df; color:#8c5616; }
+
+.insight-filter { display:flex; gap:12px; align-items:center; flex-wrap:wrap; padding:16px 20px; background:#fff; border:1px solid var(--line); border-radius:10px; font-size:12px; }.insight-filter label { font-weight:650; }.insight-filter select { min-width:0; max-width:100%; flex:1; padding:10px; border:1px solid #c5d5dd; border-radius:6px; font:inherit; background:white; color:var(--ink); }.insight-filter button { padding:10px 16px; }
+.insight-course-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr)); gap:16px; margin-top:18px; }.insight-course { padding:20px; border:1px solid var(--line); border-radius:10px; background:#fff; }.insight-course h3 { font-size:15px; margin:12px 0 8px; line-height:1.5; }.insight-course p { font-size:12px; color:var(--muted); line-height:1.6; }.insight-course a { display:inline-block; margin-top:16px; }
+.insight-note { padding:15px 18px; border-left:3px solid #b77a32; background:#fff7e9; font-size:12px; line-height:1.7; color:#77501e; }
+.insights :focus-visible { outline:3px solid #287d99; outline-offset:4px; }
+@media(max-width:1100px) { .insight-metrics { grid-template-columns:repeat(2,minmax(0,1fr)); }.insight-grid.wide { grid-template-columns:1fr 1fr; } }
+@media(max-width:720px) { .insights { gap:18px; }.insight-grid,.insight-grid.wide { grid-template-columns:1fr; }.insight-panel { padding:20px; }.insight-metric { padding:16px; }.insight-metric strong { font-size:27px; }.insight-metrics { gap:10px; }.insight-histogram { gap:8px; }.insight-panel-head { flex-wrap:wrap; }.insight-filter select { flex-basis:100%; }.insight-scroll { max-height:none; } }
+@media print { .sidebar,.top-bar,.insight-action,.insight-filter { display:none!important; }.insight-scroll { max-height:none; }.insight-panel { break-inside:avoid; }.insight-fill,.insight-column-track span { print-color-adjust:exact; } }
+
+.insight-toolbar { display:flex; justify-content:flex-end; margin-bottom:-8px; font-size:13px; }
+.insight-ring-row { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:24px; padding:26px 0 14px; }
+.insight-ring { width:170px; height:170px; flex-shrink:0; border-radius:50%; background:conic-gradient(var(--teal) var(--share), #e4ebef 0); display:grid; place-items:center; }
+.insight-ring > div { width:128px; height:128px; border-radius:50%; background:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; }.insight-ring strong { font-size:36px; font-variant-numeric:tabular-nums; }.insight-ring span { font-size:12px; color:var(--muted); }
+.insight-ring-legend { display:flex; flex-direction:column; gap:16px; font-size:12px; }.insight-ring-legend > div { display:flex; gap:8px; align-items:center; }.insight-ring-legend strong { margin-left:auto; padding-left:10px; }.insight-ring-legend i { width:10px; height:10px; background:var(--teal); border-radius:2px; }.insight-ring-legend i.pending { background:#e4ebef; border:1px solid #a9b8c2; }

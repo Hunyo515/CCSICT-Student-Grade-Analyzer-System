@@ -1,0 +1,3 @@
+{% extends 'admin/_layout.html' %}{% set active_page='teachers' %}
+{% block title %}Assigned Classes{% endblock %}{% block page_title %}Assigned classes{% endblock %}
+{% block content %}<a class="text-action" href="{{ url_for('admin.teachers',term_filter='all' if term and term.is_all else term.term_id if term else '') }}">← Back to Faculty</a><section class="panel">{% include 'admin/_faculty_classes.html' %}</section>{% endblock %}

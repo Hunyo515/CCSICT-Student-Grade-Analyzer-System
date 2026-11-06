@@ -1,0 +1,18 @@
+[
+  "Lecture/Laboratory split and explicit component weights",
+  "Setup remains draft until score entry",
+  "Missing component contributes zero without creating a fake zero score",
+  "Draft scores excluded from student results and rankings",
+  "Cancelled CSV preview cannot be confirmed",
+  "CSV preview imports valid rows, skips invalid rows, and rejects replay",
+  "Two-tier weighted total and letter grade",
+  "Teacher directly publishes and enrolled students receive in-app notification",
+  "Published gradebook requires explicit reopen before editing",
+  "Student sees own published grade, unit-weighted average, and rank",
+  "CSV export includes calculated totals and letters",
+  "Reopened draft results are hidden until teacher republication",
+  "Publication history preserved",
+  "Invalid weighting cannot be published",
+  "Notification failure does not block teacher publication",
+  "All academic fixtures rolled back"
+]

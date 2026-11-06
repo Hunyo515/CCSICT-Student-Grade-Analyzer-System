@@ -1,0 +1,22 @@
+{% extends "admin/_layout.html" %}
+{% set active_page = "subjects" %}
+{% block title %}BSDSA Curriculum{% endblock %}
+{% block page_title %}BSDSA Curriculum{% endblock %}
+{% block header_extra %}{% endblock %}
+{% block content %}
+<div class="action-bar"><a class="btn-back" href="{{ url_for('admin.curriculum_guide') }}">← Programs</a><a class="btn btn-outline btn-sm" href="{{ url_for('admin.curriculum_source') }}">Download source</a></div>
+<header class="curriculum-heading"><h2>{{ curriculum.title }}</h2><p>{{ curriculum.institution }} · S.Y. {{ curriculum.school_year }}</p></header>
+<nav class="curriculum-years" aria-label="Curriculum years">{% for year in curriculum.years %}<a href="#year-{{ loop.index }}">{{ year.label }}</a>{% endfor %}</nav>
+{% for year in curriculum.years %}
+<section class="curriculum-year" id="year-{{ loop.index }}"><h2>{{ year.label }}</h2>
+{% for semester in year.semesters %}
+<article class="curriculum-semester"><h3>{{ semester.label }}</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="{{ year.label }} {{ semester.label }} courses"><table class="data-table curriculum-table">
+<thead><tr><th scope="col">Course No.</th><th scope="col">Course Title</th><th scope="col" class="number">Units</th><th scope="col" class="number">Lec</th><th scope="col" class="number">Lab</th><th scope="col">Prerequisite</th></tr></thead>
+<tbody>{% for c in semester.courses %}<tr><td class="cell-strong">{{ c.code }}</td><td>{{ c.title }}</td><td class="number">{{ c.units }}</td><td class="number">{{ c.lecture }}</td><td class="number">{{ c.laboratory or '—' }}</td><td>{{ c.prerequisite or '—' }}</td></tr>{% endfor %}</tbody>
+<tfoot><tr><th colspan="2" scope="row">Total</th><td class="number">{{ semester.totals.units }}</td><td class="number">{{ semester.totals.lecture }}</td><td class="number">{{ semester.totals.laboratory or '—' }}</td><td></td></tr></tfoot>
+</table></div>
+{% for note in semester.notes %}<p class="curriculum-note">{{ note }}</p>{% endfor %}
+</article>{% endfor %}</section>{% endfor %}
+<section class="curriculum-notes"><h3>Source notes</h3><ul>{% for note in curriculum.notes %}<li>{{ note }}</li>{% endfor %}</ul></section>
+{% endblock %}

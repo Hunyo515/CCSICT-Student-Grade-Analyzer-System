@@ -1,0 +1,182 @@
+{% extends "faculty/_layout.html" %}
+{% set active_page = "grade_entry" %}
+{% from "_icons.html" import icon %}
+{% block title %}Grade Entry{% endblock %}
+{% block page_title %}Grade Configuration &amp; Entry{% endblock %}
+{% block header_extra %}
+{% if assignments %}
+<form method="GET" action="{{ url_for('faculty.grade_entry') }}">
+  <select class="filter-select" name="assignment_id" onchange="this.form.submit()">
+    {% for a in assignments %}
+    <option value="{{ a.assignment_id }}" {{ 'selected' if assignment and a.assignment_id == assignment.assignment_id }}>
+      {{ a.subject_name }} - {{ a.section }}
+    </option>
+    {% endfor %}
+  </select>
+</form>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+{% if not assignment %}
+<div class="card"><p class="cell-muted">You have no subjects assigned this term yet.</p></div>
+{% else %}
+
+<div style="display:flex;gap:12px;width:100%;justify-content:flex-end;">
+  <a class="btn btn-outline" href="{{ url_for('faculty.grade_weighting', assignment_id=assignment.assignment_id) }}">
+    {{ icon('settings') }} Grade Weighting
+  </a>
+  <a class="btn btn-outline" href="{{ url_for('faculty.section_detail', assignment_id=assignment.assignment_id) }}">
+    {{ icon('link') }} Section Detail
+  </a>
+  <a class="btn btn-outline" href="{{ url_for('faculty.grade_registry', assignment_id=assignment.assignment_id) }}">
+    {{ icon('download') }} View Grade Registry
+  </a>
+  <form method="POST" action="{{ url_for('faculty.update_status') }}">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
+<input type="hidden" name="revision" value="{{ assignment.revision }}">
+    <input type="hidden" name="status" value="IN_PROGRESS">
+    <button type="submit" class="btn btn-outline">Save Draft</button>
+  </form>
+  <form method="POST" action="{{ url_for('faculty.update_status') }}" data-confirm="Publish grades for {{ assignment.subject_name }} - {{ assignment.section }}? Students will see final grades.">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
+<input type="hidden" name="revision" value="{{ assignment.revision }}">
+    <input type="hidden" name="status" value="PUBLISHED">
+    <button type="submit" class="btn btn-primary">Publish Grades</button>
+  </form>
+</div>
+
+<div style="display:flex;gap:24px;width:100%;align-items:flex-start;">
+
+  <!-- Components panel -->
+  <div class="card" style="width:400px;flex-shrink:0;">
+    <div class="card-title">Grade Components Setup</div>
+    <div class="card-subtitle">Weights must total 100%.</div>
+
+    {% if has_categories %}
+    <div class="info-banner" style="margin-top:12px;">
+      {{ icon('alert') }}
+      <p>This subject uses grade weighting categories. Only uncategorized components are shown here —
+        manage categorized ones on the <a href="{{ url_for('faculty.grade_weighting', assignment_id=assignment.assignment_id) }}" style="font-weight:700;">Grade Weighting page</a>.</p>
+    </div>
+    {% endif %}
+
+    <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px;">
+      {% for c in components if not c.category_id %}
+      <form method="POST" action="{{ url_for('faculty.delete_component', component_id=c.component_id) }}" class="component-row" onsubmit="return confirm('Remove this component? Any scores entered for it will also be removed.');">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
+<input type="hidden" name="revision" value="{{ assignment.revision }}">
+        <div class="component-name-field">{{ c.component_name }}</div>
+        <div class="component-weight-field">{{ c.weight_percent|round(1) }}%</div>
+        <button type="submit" class="icon-btn danger" title="Remove">{{ icon('trash') }}</button>
+      </form>
+      {% else %}
+      <div class="cell-muted">No uncategorized components yet — add one below.</div>
+      {% endfor %}
+    </div>
+
+    <div class="allocation-box {{ 'over' if allocation_total > 100 }}" style="margin-top:16px;">
+      <div style="display:flex;justify-content:space-between;font-weight:600;">
+        <span>Allocation Total</span><span style="font-weight:700;">{{ allocation_total|int }}%</span>
+      </div>
+      <div style="font-size:11px;margin-top:4px;">
+        {{ allocation_total|int }}% allocated &middot; {{ (100 - allocation_total)|int }}% remaining
+      </div>
+    </div>
+
+    <form method="POST" action="{{ url_for('faculty.add_component') }}" style="display:flex;gap:8px;margin-top:16px;width:100%;">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
+<input type="hidden" name="revision" value="{{ assignment.revision }}">
+      <input class="field-input" name="component_name" placeholder="Component name" required style="flex:1;">
+      <input class="field-input" name="weight_percent" type="number" min="0" max="100" placeholder="%" style="width:80px;" required>
+      <button type="submit" class="btn btn-outline btn-sm">{{ icon('plus') }}</button>
+    </form>
+  </div>
+
+  <!-- Gradebook panel -->
+  <div class="card" style="flex:1;min-width:0;padding:0;overflow:hidden;">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 24px 0;">
+      <div>
+        <div class="card-title">Scores Registry Sheet</div>
+        <div class="card-subtitle">Enter scores or import a CSV.</div>
+      </div>
+      <button type="button" class="btn btn-outline btn-sm" onclick="toggleCsv()">
+        {{ icon('upload') }} Import CSV File
+      </button>
+    </div>
+
+    <form id="csvUploadForm" method="POST" action="{{ url_for('faculty.csv_upload') }}" enctype="multipart/form-data"
+          style="display:none;gap:8px;align-items:center;padding:12px 24px 0;">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
+<input type="hidden" name="revision" value="{{ assignment.revision }}">
+      <input type="file" name="csv_file" accept=".csv" required style="flex:1;">
+      <button type="submit" class="btn btn-primary btn-sm">Upload &amp; Preview</button>
+      <span class="cell-muted" style="font-size:12px;">Columns: id_number, component_name, score</span>
+    </form>
+
+    <div style="padding:16px 24px 0;">
+      <form class="search-box" method="GET" action="{{ url_for('faculty.grade_entry') }}" style="width:100%;">
+        <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
+<input type="hidden" name="revision" value="{{ assignment.revision }}">
+        {{ icon('search') }}
+        <input type="text" name="q" value="{{ q }}" placeholder="Search student ID or name...">
+      </form>
+    </div>
+
+    <form method="POST" action="{{ url_for('faculty.save_scores') }}">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
+<input type="hidden" name="revision" value="{{ assignment.revision }}">
+      <div style="overflow-x:auto;margin-top:16px;">
+        <table class="gradebook-table">
+          <thead>
+            <tr>
+              <th>Student ID</th>
+              <th>Full Name</th>
+              {% for c in components %}
+              <th>{{ c.component_name }} ({{ c.weight_percent|round(1) }}%)</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for s in students %}
+            <tr>
+              <td class="cell-strong">{{ s.id_number }}</td>
+              <td>{{ s.full_name }}</td>
+              {% for c in components %}
+              {% set existing = scores.get(s.enrollment_id, {}).get(c.component_id) %}
+              <td>
+                <input class="score-input" type="number" step="0.01" min="0" max="100"
+                       name="score__{{ s.enrollment_id }}__{{ c.component_id }}"
+                       value="{{ ((existing[0] / existing[1] * 100)|round(2)) if existing and existing[0] is not none and existing[1] else '' }}">
+              </td>
+              {% endfor %}
+            </tr>
+            {% else %}
+            <tr><td colspan="{{ 2 + components|length }}" class="cell-muted" style="text-align:center;padding:32px;">No students enrolled yet.</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div style="padding:20px 24px;display:flex;justify-content:flex-end;">
+        <button type="submit" class="btn btn-primary">Save Scores</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+function toggleCsv() {
+  const el = document.getElementById('csvUploadForm');
+  el.style.display = (el.style.display === 'flex') ? 'none' : 'flex';
+}
+</script>
+{% endblock %}

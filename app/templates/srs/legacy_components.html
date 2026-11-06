@@ -1,0 +1,17 @@
+{% if legacy_components %}
+<section class="panel">
+  <div class="panel-heading"><h2>Activities to classify</h2><span class="subtle-tag">Records preserved</span></div>
+  <p class="panel-description">Assign these existing activities to a grading component. Their recorded scores remain intact.</p>
+  <div class="table-scroll"><table class="srs-table"><thead><tr><th>Component</th><th>Weight</th><th>Maximum</th><th>Action</th></tr></thead><tbody>
+  {% for c in legacy_components %}<tr><td>{{ c.component_name }}</td><td>{{ c.weight_percent }}%</td><td>{{ c.maximum_score }}</td><td>
+  {% if not locked %}<details class="row-menu"><summary>Edit</summary><form class="srs-form" method="post" action="{{ url_for('srs.setup',aid=a.assignment_id) }}">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><input type="hidden" name="revision" value="{{ a.revision }}"><input type="hidden" name="action" value="edit_component"><input type="hidden" name="component_id" value="{{ c.component_id }}">
+    <label>Activity name<input name="component_name" value="{{ c.component_name }}" maxlength="50" required></label>
+    <label>Grading component<select name="category_id" required><option value="">Choose component</option>{% for cat in categories %}<option value="{{ cat.category_id }}">{{ cat.category_name }}</option>{% endfor %}</select></label>
+    <label>Weight within component (%)<input type="number" name="weight_percent" min="0" max="100" step="0.01" value="{{ c.weight_percent }}" required></label>
+    <input type="hidden" name="maximum_score" value="{{ c.maximum_score }}"><button class="btn btn-primary">Save activity</button>
+  </form></details>{% else %}Published{% endif %}
+  </td></tr>{% endfor %}
+  </tbody></table></div>
+</section>
+{% endif %}

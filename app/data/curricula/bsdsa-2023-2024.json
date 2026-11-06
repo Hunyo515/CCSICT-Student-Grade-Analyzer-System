@@ -1,0 +1,541 @@
+{
+  "program": "BSDSA",
+  "title": "Bachelor of Science in Data Science and Analytics",
+  "school_year": "2023-2024",
+  "institution": "Isabela State University",
+  "college": "College of Computing Studies, Information and Communication Technology",
+  "years": [
+    {
+      "label": "First Year",
+      "semesters": [
+        {
+          "label": "First Semester",
+          "courses": [
+            {
+              "code": "DSA 111",
+              "title": "Fundamentals of Programming",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "None"
+            },
+            {
+              "code": "DSA 112",
+              "title": "Discrete Structures",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "None"
+            },
+            {
+              "code": "DSA 113",
+              "title": "Calculus 1",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 1",
+              "title": "Understanding the Self",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 2",
+              "title": "Readings in Philippine History",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 3",
+              "title": "Mathematics in the Modern World",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "PE 1",
+              "title": "Physical Activity Towards Health and Fitness 1 (Movement Patterns)",
+              "units": "2",
+              "lecture": "2",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "NSTP/ROTC 1",
+              "title": "National Service Training Program / Reserve Officers' Training Corps 1",
+              "units": "(3)",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            }
+          ],
+          "notes": [],
+          "totals": {
+            "units": "23",
+            "lecture": "21",
+            "laboratory": "2"
+          }
+        },
+        {
+          "label": "Second Semester",
+          "courses": [
+            {
+              "code": "DSA 121",
+              "title": "Intermediate Programming",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "DSA 111"
+            },
+            {
+              "code": "DSA 122",
+              "title": "Calculus 2",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "DSA 113"
+            },
+            {
+              "code": "DSA 123",
+              "title": "Introduction to Statistics",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "DSA 113"
+            },
+            {
+              "code": "DSA 124",
+              "title": "Introduction to Data Science",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 4",
+              "title": "Purposive Communication",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 5",
+              "title": "Art Appreciation",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "PE 2",
+              "title": "Physical Activity Towards Health and Fitness 2 (Exercise Program Based)",
+              "units": "2",
+              "lecture": "2",
+              "laboratory": "0",
+              "prerequisite": "PE 1"
+            },
+            {
+              "code": "NSTP/ROTC 2",
+              "title": "National Service Training Program 2 / Reserve Officers' Training Corps 2",
+              "units": "(3)",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "NSTP/ROTC 1"
+            }
+          ],
+          "notes": [],
+          "totals": {
+            "units": "23",
+            "lecture": "20",
+            "laboratory": "3"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Second Year",
+      "semesters": [
+        {
+          "label": "First Semester",
+          "courses": [
+            {
+              "code": "DSA 211",
+              "title": "Data Structures and Algorithms",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "DSA 112, 121"
+            },
+            {
+              "code": "DSA 212",
+              "title": "Linear Algebra for Data Science",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "DSA 122"
+            },
+            {
+              "code": "DSA 213",
+              "title": "Computer-Aided Statistical Inference",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "DSA 123"
+            },
+            {
+              "code": "DSA 214",
+              "title": "Programming for Data Science",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "DSA 121"
+            },
+            {
+              "code": "GEC 6",
+              "title": "Science, Technology, and Society",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 7",
+              "title": "Ethics",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "DSA Inst 1",
+              "title": "Climate Change and Disaster Risk Management",
+              "units": "2",
+              "lecture": "2",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "PE 3",
+              "title": "Physical Activity Towards Health and Fitness 3 (PATH-Fit)",
+              "units": "2",
+              "lecture": "2",
+              "laboratory": "0",
+              "prerequisite": "PE 2"
+            }
+          ],
+          "notes": [],
+          "totals": {
+            "units": "22",
+            "lecture": "19",
+            "laboratory": "3"
+          }
+        },
+        {
+          "label": "Second Semester",
+          "courses": [
+            {
+              "code": "DSA 221",
+              "title": "Information Management",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "DSA 124, 211"
+            },
+            {
+              "code": "DSA 222",
+              "title": "Algorithm and Complexity",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "DSA 211"
+            },
+            {
+              "code": "DSA 223",
+              "title": "Artificial Intelligence",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "DSA 211"
+            },
+            {
+              "code": "DSA 224",
+              "title": "Information Presentation and Visualization",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "DSA 123, 212, 211"
+            },
+            {
+              "code": "GEC 8",
+              "title": "The Contemporary World",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 9",
+              "title": "Life and Works of Rizal",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "DSA Inst 2",
+              "title": "Entrepreneurial Management",
+              "units": "2",
+              "lecture": "2",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "PE 4",
+              "title": "Physical Activity Towards Health and Fitness 4 (PATH-Fit)",
+              "units": "2",
+              "lecture": "2",
+              "laboratory": "0",
+              "prerequisite": "PE 3"
+            }
+          ],
+          "notes": [],
+          "totals": {
+            "units": "22",
+            "lecture": "18",
+            "laboratory": "4"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Third Year",
+      "semesters": [
+        {
+          "label": "First Semester",
+          "courses": [
+            {
+              "code": "DSA 311",
+              "title": "Computational Statistics",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "DSA 121, 213, 212"
+            },
+            {
+              "code": "DSA 312",
+              "title": "Exploratory Data Analysis",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "DSA 123"
+            },
+            {
+              "code": "DSA 313",
+              "title": "Business Intelligence",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "DSA 224"
+            },
+            {
+              "code": "DSA 314",
+              "title": "Machine Learning & Data Mining 1",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "DSA 213, 223"
+            },
+            {
+              "code": "DSA 315",
+              "title": "Data Management and Warehousing",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "DSA 221"
+            },
+            {
+              "code": "DSA 315",
+              "title": "Elective 1 - Internet of Things",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "None"
+            },
+            {
+              "code": "DSA Inst 3",
+              "title": "Creative and Critical Thinking Skills",
+              "units": "2",
+              "lecture": "2",
+              "laboratory": "0",
+              "prerequisite": "None"
+            }
+          ],
+          "notes": [
+            "Both Data Management and Warehousing and Elective 1 are printed as DSA 315 on the source sheet."
+          ],
+          "totals": {
+            "units": "20",
+            "lecture": "15",
+            "laboratory": "5"
+          }
+        },
+        {
+          "label": "Second Semester",
+          "courses": [
+            {
+              "code": "DSA 321",
+              "title": "Principles of Big Data",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "DSA 315"
+            },
+            {
+              "code": "DSA 322",
+              "title": "Information Security and Data Privacy",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "3rd year standing"
+            },
+            {
+              "code": "DSA 323",
+              "title": "Special Topics in Data Science",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "3rd year standing"
+            },
+            {
+              "code": "DSA 324",
+              "title": "Research Methods",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "3rd year standing"
+            },
+            {
+              "code": "DSA Elec 1",
+              "title": "Environmental Science",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "DSA 325",
+              "title": "Elective 2 - Natural Language Processing",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "DSA 315"
+            }
+          ],
+          "notes": [],
+          "totals": {
+            "units": "18",
+            "lecture": "13",
+            "laboratory": "5"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Fourth Year",
+      "semesters": [
+        {
+          "label": "First Semester",
+          "courses": [
+            {
+              "code": "DSA 411",
+              "title": "Social Issues and Professional Practice 1",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "4th year standing"
+            },
+            {
+              "code": "DSA 412",
+              "title": "Capstone Project",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "4th year standing"
+            },
+            {
+              "code": "DSA 413",
+              "title": "Elective 3 - Machine Learning and Data Mining 2",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "DSA 325"
+            },
+            {
+              "code": "DSA 414",
+              "title": "Elective 4 - Software Engineering",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "DSA 325"
+            },
+            {
+              "code": "DSA Elec 2",
+              "title": "Gender and Society",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "DSA Elec 3",
+              "title": "Foreign Language - Japanese/Nihongo",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            }
+          ],
+          "notes": [],
+          "totals": {
+            "units": "18",
+            "lecture": "15",
+            "laboratory": "3"
+          }
+        },
+        {
+          "label": "Second Semester",
+          "courses": [
+            {
+              "code": "DSA 421",
+              "title": "On-the-Job Training (320 hours)",
+              "units": "6",
+              "lecture": "6",
+              "laboratory": "",
+              "prerequisite": ""
+            }
+          ],
+          "notes": [],
+          "totals": {
+            "units": "6",
+            "lecture": "6",
+            "laboratory": ""
+          }
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Sequencing of General Education and Core courses was taken from the CMO series of 2021.",
+    "Stat/Computing/Math electives are chosen from the list based on the availability of specialists in the field and the number of enrollees.",
+    "70% of the total program units must be earned as a prerequisite for the BSDSA On-the-Job Training (320 hours). The sheet prints this as DSA 412, while the course table lists it as DSA 421.",
+    "Units in parentheses, (3), for NSTP/ROTC are as printed on the sheet."
+  ]
+}

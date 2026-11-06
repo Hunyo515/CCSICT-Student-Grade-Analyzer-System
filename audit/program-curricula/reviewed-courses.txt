@@ -1,0 +1,193 @@
+@BSIS|1|1|2|20.0|18|2
+GEC 4|Purposive Communication|3|3||None
+GEC 5|Art Appreciation|3|3||None
+IS 111|Introduction to Computing|3|2|1|None
+IS 112|Computer Programming 1|3|2|1|None
+IS GEC Elec 1|Health and Wellness Science|3|3||None
+IS GE Elec 2|Multicultural Education|3|3||None
+PE 1|Physical Activity Towards Health Fitness I (Movement Patterns)|2|2||None
+NSTP 1|CWTS/LTS/MS 1|(3)|3||None
+@BSIS|1|2|2|22.0|21|1
+GEC 1|Understanding the Self|3|3||None
+GEC 2|Readings in Philippine History|3|3||None
+GEC 3|Mathematics in the Modern World|3|3||None
+IS GEC Elec 2|Gender and Society|3|3||None
+IS INST 1|Climate Change and Disaster Risk Management|2|2||None
+IS 121|Fundamentals of Information Systems|3|3||IS 111
+IS 122|Computer Programming 2|3|2|1|IS 112
+PE 2|Physical Activity Towards Health Fitness II (Exercise Program)|2|2||PE 1
+NSTP 2|CWTS/LTS/MS 2|(3)|3||NSTP 1
+@BSIS|2|1|3|25.0|22|3
+GEC 6|Science, Technology, and Society|3|3||None
+GEC 8|The Contemporary World|3|3||None
+IS Inst 2|Creative and Critical Thinking|2|1|1|None
+IS 211|Data Structures and Algorithms|3|2|1|IS 122
+IS 212|Professional Issues in Information Systems|3|3||IS 111, IS 121
+IS 213|IT Infrastructure and Network Technologies|3|2|1|IS 111, IS 121
+IS 214|Organization and Management Concepts|3|3||IS 111
+PE 3|Physical Activity Towards Health Fitness III (Dance, Sports, Group Exercise, Outdoor Adventure Activities)|2|2||PE 1, PE 2
+IS BPO 211|Business Communication for BPO|3|3||GEC 4
+@BSIS|2|2|3|23.0|20|3
+GEC 7|Ethics|3|3||None
+GEC 9|Life and Works of Rizal|3|3||None
+IS GE Elec 1|Entrepreneurial Mind|3|3||None
+IS 221|Systems Analysis and Design|3|2|1|2nd Year Standing
+IS 222|Financial Management|3|3||IS 214
+IS Elec 1|IT Audit and Controls|3|2|1|2nd year standing
+PE 4|Physical Activity Towards Health Fitness IV (Dance, Sports, Group Exercise, Outdoor Adventure Activities)|2|2||PE 1, PE 2, PE 3
+IS BPO 221|Service Culture|3|2|1|IS BPO 211
+@BSIS|3|1|4|21.0|17|4
+IS 311|Information Management|3|2|1|IS 211
+IS 312|Enterprise Architecture|3|2|1|IS 213
+IS 313|Business Process Management|3|3||IS 222
+IS 314|Quantitative Methods|3|3||3rd year standing
+IS Elec 2|Data Mining|3|2|1|3rd year standing
+IS BPO 311|Fundamentals of Business Process Outsourcing 101|3|2|1|IS BPO 211, IS BPO 221
+IS BPO 312|Principles of Systems Thinking|3|3||IS BPO 211, IS BPO 221
+@BSIS|3|2|4|21.0|18|3
+IS GEC Elec 3|Foreign Language 1|3|3||None
+IS 321|IS Project Management 1|3|3||IS 221
+IS 322|Evaluation of Business Performance|3|3||IS 313
+IS 323|Capstone Project 1|3|2|1|3rd year standing
+IS Elec 3|IT Security and Risks Management|3|2|1|3rd year standing
+IS GE Elec 3|Leadership and Management in the Profession|3|3||None
+IS BPO 321|Fundamentals of Business Process Outsourcing 102|3|2|1|IS BPO 211, IS BPO 221, IS BPO 311
+@BSIS|4|1|5|15.0|12|3
+IS 411|IS Strategy, Management, and Acquisition|3|3||4th year standing
+IS 412|Applications Development and Emerging Technologies|3|2|1|4th year standing
+IS 413|Capstone Project 2|3|2|1|IS 323
+IS Elec 4|IS Innovations and New Technologies|3|2|1|4th year standing
+IS FOR 411|Foreign Language|3|3||None
+@BSIS|4|2|5|9.0|9|
+IS 421|Practicum for Information Systems/Internship Program (486 hours)|9|9||4th year standing
+@BSCS|1|1|6|25||
+CS Inst 1|Climate Change and Disaster Risk Management|2|2||None
+GEC 3|Mathematics in the Modern World|3|3||None
+GEC 4|Purposive Communication|3|3||None
+GE Elec CS 1|Health and Wellness Science|3|3||None
+GE Elec CS 2|Gender and Society|3|3||None
+CS 111|Introduction to Computing|3|2|1|None
+CS 112|Fundamentals of Programming|3|2|1|None
+PE 1|Physical Activity Towards Health Fitness I (Movement Enhancement)|2|2||None
+NSTP 1|CWTS/LTS/MS 1|(3)|3||None
+@BSCS|1|2|6|23||
+GEC 1|Understanding the Self|3|3||None
+GEC 2|Readings in Philippine History|3|3||None
+GEC 5|Art Appreciation|3|3||None
+GE Elec CS 3|Foreign Language 1|3|3||None
+CS 121|Discrete Structures 1|3|3||GEC 3
+CS 122|Intermediate Programming|3|2|1|CS 112
+PE 2|Physical Activity Towards Health Fitness II (Fitness Exercise)|2|2||PE 1
+NSTP 2|CWTS/LTS/MS 2|(3)|3||NSTP 1
+@BSCS|2|1|7|25||
+GEC 6|Science, Technology and Society|3|3||None
+GEC 8|The Contemporary World|3|3||None
+CS Inst 2|Creative and Critical Thinking|2|1|1|None
+CS 211|Discrete Structures 2|3|3||CS 121
+CS 212|Object-Oriented Programming|3|2|1|CS 122
+CS 213|Data Structures and Algorithms|3|2|1|CS 122
+CS 214|Calculus with Analytic Geometry|3|3||2nd Year Standing
+CS Elec 1|CS Elective 1|3|2|1|2nd year Standing
+PE 3|Physical Activity Towards Health Fitness III (Dance & Indiv./Dual Sports)|2|2||PE 1, PE 2
+@BSCS|2|2|7|26||
+GEC 7|Ethics|3|3||None
+GEC 9|Life and Works of Rizal|3|3||None
+CS GE Elec 1|The Entrepreneurial Mind|3|3||CS Inst 2
+CS GE Elec 4|Technical Writing|3|3||None
+CS 221|Algorithms and Complexity|3|3||CS 213, CS 211
+CS 222|Information Management|3|2|1|CS 122
+CS DM 1|Statistical methods for Data Analysis and Inference|3|2|1|2nd Year Standing
+CS DM 2|Data Preparation and Analysis|3|2|1|2nd Year Standing
+PE 4|Physical Activity Towards Health Fitness IV (Team Sports/Outdoor & Adventure Activities/Dance)|2|2||PE 1, PE 2, PE 3
+@BSCS|3|1|8|20||
+CS 311|Automata Theory and Formal Languages|3|3||CS 221
+CS 312|Architecture and Organization|3|3||CS 213, CS 121
+CS 313|Information Assurance and Security|2|2||CS 222
+CS 314|Software Engineering 1|3|2|1|CS 222, CS 212
+CS 315|Social and Professional Issues|3|3||Co-requisite with CS 314
+CS DM 3|Data Mining Techniques and Tools|3|2|1|3rd Year Standing
+CS DM 4|Data Mining Applications|3|2|1|3rd Year Standing
+@BSCS|3|2|8|21||
+CS 321|CS Thesis Writing 1|3|2|1|CS 313, CS GE Elec 4
+CS 322|Software Engineering 2|3|2|1|CS 314
+CS 323|Application Development and Emerging Technologies|3|2|1|CS 222
+CS 324|Programming Languages|3|2|1|CS 213
+CS Elec 2|CS Elective 2|3|2|1|3rd Year Standing
+CS DM 5|Algorithms for Data Mining|3|2|1|CS DM 3 & 4
+CS DM 6|Data Mining Methodology|3|2|1|CS DM 3 & 4
+@BSCS|3|S|8|9||
+CS Elec 3|CS Elective 3|3|2|1|4th year Standing
+CS GE Elec 2|Multi-cultural Education|3|3||None
+CS GE Elec 3|Leadership and Management in the Profession|3|3||None
+@BSCS|4|1|9|10||
+CS 412|Human-Computer Interaction|1|1||CS 122
+CS 413|Networks and Communications|3|2|1|CS 213
+CS 414|Operating Systems|3|2|1|CS 213
+CS 411|CS Thesis Writing 2|3|2|1|CS 321
+@BSCS|4|2|9|9||
+CS 421|Practicum (486 hours)|9|||4th Year Standing
+@BSIT|1|1|10|25|23|2
+GEC 4|Purposive Communication|3|3|0|None
+GEC 5|Art Appreciation|3|3|0|None
+IT INST 1|Climate Change and Disaster Risk Management|2|2|0|None
+IT GE ELEC 1|Health and Wellness Science|3|3|0|None
+IT GE ELEC 2|Foreign Language 1|3|3|0|None
+IT 111|Introduction to Computing|3|2|1|None
+IT 112|Computer Programming 1|3|2|1|None
+PE 1|Physical Activity Towards Health and Fitness I (Movement Enhancement)|2|2|0|None
+NSTP 1|CWTS/LTS/MS 1|3|3||None
+@BSIT|1|2|10|26|24|2
+GEC 1|Understanding the Self|3|3|0|None
+GEC 2|Readings in Philippine History|3|3|0|None
+GEC 3|Mathematics in the Modern World|3|3|0|None
+GEC 7|Ethics|3|3|0|None
+IT 121|Computer Programming 2|3|2|1|IT 112
+IT 122|Human-Computer Interaction 1|3|2|1|IT 112
+IT 123|Discrete Mathematics|3|3|0|None
+PE 2|Physical Activity Towards Health and Fitness II (Fitness Exercise)|2|2|0|PE 1
+NSTP 2|CWTS/LTS/MS 2|3|3||NSTP 1
+@BSIT|2|1|11|25|21|4
+GEC 6|Science, Technology and Society|3|3|0|None
+GEC 8|The Contemporary World|3|3|0|None
+IT INST 2|Creative and Critical Thinking|2|1|1|None
+IT GE ELEC 3|Foreign Language 2|3|3|0|None
+IT 211|Data Structures and Algorithms|3|2|1|IT 121
+IT ELEC 1|Platform Technologies|3|2|1|IT 121
+IT ELEC 2|Object-Oriented Programming|3|2|1|IT 121
+IT BPO 1|Business Communication|3|3|0|None
+PE 3|Physical Activity Towards Health and Fitness III (Dance and Individual/Dual Sports)|2|2|0|PE 1, PE 2
+@BSIT|2|2|11|26|22|4
+IT GE ELEC 4|The Entrepreneurial Mind|3|3|0|None
+GEC 9|The Life and Works of Rizal|3|3|0|None
+IT 221|Information Management|3|2|1|IT 121
+IT 222|Networking 1|3|2|1|IT Elec 1
+IT 223|Quantitative Methods (including Modeling and Simulation)|3|3|0|IT 211, IT 123
+IT 224|Integrative Programming and Technologies|3|2|1|IT Elec 1, IT Elec 2
+IT 225|Accounting for Information Technology|3|3|0|None
+IT APPDEV 1|Fundamentals of Mobile Technology|3|2|1|IT Elec 1, IT Elec 2
+PE 4|Physical Activity Towards Health and Fitness IV (Dance, Team Sports, Outdoor and Adventure Activities)|2|2|0|PE 1, PE 2, PE 3
+@BSIT|2|S|12|6|4|2
+IT 226|Applications Development and Emerging Technologies|3|2|1|IT 221
+IT ELEC 3|Web Systems and Technologies|3|2|1|None
+@BSIT|3|1|12|20|13|7
+IT Inst 3|Data Science Analytics|2|1|1|None
+IT 311|Advanced Database Systems|3|2|1|IT 221
+IT 312|Networking 2|3|2|1|IT 222
+IT 313|System Integration and Architecture|3|2|1|IT 224
+IT 314|Information Assurance and Security 1|3|2|1|IT 224
+IT APPDEV 2|Web Applications|3|2|1|IT Elec 3
+IT APPDEV 3|Mobile Applications|3|2|1|IT APPDEV 1
+@BSIT|3|2|12|18|14|4
+IT GE ELEC 5|Multicultural Education|3|3|0|None
+IT 321|Information Assurance and Security 2|3|2|1|IT 314
+IT 322|Social and Professional Issues|3|3|0|GEC 7
+IT 323|Capstone Project and Research 1|3|2|1|IT 226, IT 314
+IT APPDEV 4|Game Development|3|2|1|IT APPDEV 2, IT APPDEV 3
+IT APPDEV 5|Cloud Computing|3|2|1|IT APPDEV 2, IT APPDEV 3
+@BSIT|4|1|13|12|9|3
+IT GE ELEC 6|Leadership and Management in the Profession|3|3|0|None
+IT 411|System Administration and Maintenance|3|2|1|IT 321
+IT ELEC 4|Human-Computer Interaction 2|3|2|1|IT 122
+IT 412|Capstone Project and Research 2|3|2|1|IT 323
+@BSIT|4|2|13|9||
+IT 421|Internship/OJT/Practicum (486 hours)|9|||4th Year Standing

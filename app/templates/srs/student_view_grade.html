@@ -1,0 +1,13 @@
+{% extends 'student/_layout.html' %}{% set active_page='view_grade' %}
+{% block title %}View Grade{% endblock %}{% block page_title %}View Grade{% endblock %}
+{% block content %}
+{% for term_key,subjects in grade_groups.items() %}<section class="student-grade-list semester-grade-card" aria-label="{{ term_key[1] }} {{ term_key[0] }}">
+<h2 class="student-grade-term">{{ term_key[1] }}{% if term_key[0] %}, {{ term_key[0] }}{% endif %}</h2><div class="student-grade-list-heading"><strong>SUBJECT DETAILS</strong><strong>GRADE</strong></div>
+{% for subject in subjects %}<article class="student-grade-subject">
+<span class="student-grade-number">{{ loop.index }}.</span><div class="student-grade-details">
+<div class="student-grade-title">{{ subject.subject_code }} {{ subject.subject_name }}</div>
+{% if subject.schedule %}<p>Schedule: {{ subject.schedule }}</p>{% endif %}
+<p>Subject Teacher: <strong>{{ subject.teacher_name or 'Not yet assigned' }}</strong></p>
+<p class="student-subject-unit-label">Units: {{ subject.units }}</p>
+</div><div class="student-grade-units">{% if subject.result and subject.result.total is not none %}<span class="student-grade-result {{ 'passed' if subject.result.total>=75 else 'failed' }}">{{ subject.result.equivalent or ('%.2f'|format(subject.result.total) ~ '%') }}</span><small>{{ 'Passed' if subject.result.total>=75 else 'Failed' }}</small>{% else %}<span class="student-grade-pending">--</span>{% endif %}</div></article>{% endfor %}{% else %}<p class="table-empty">No enrolled subjects in the selected term.</p>{% endfor %}
+{% endblock %}

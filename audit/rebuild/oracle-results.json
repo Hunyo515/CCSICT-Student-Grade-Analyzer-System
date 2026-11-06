@@ -1,0 +1,22 @@
+[
+  "Immediate cross-program/year/section code join",
+  "Repeated join cannot duplicate enrollment",
+  "Flexible categories and assessment maxima",
+  "Equal percentage calculation 90%",
+  "Explicit score release creates immutable student revision",
+  "Unreleased draft changes remain private",
+  "Category edits preview impact before saving",
+  "Out of bounds score rejected",
+  "Unconfirmed rounding blocks final submission",
+  "Excel template, preview, and atomic import",
+  "Stale Excel confirmation rejected",
+  "Formula import rejected without grade changes",
+  "Points aggregation 88%",
+  "Frozen submission uses chosen conversion",
+  "Submitted score writes blocked",
+  "Submitted roster joining blocked",
+  "Administrator return, resubmission, publication",
+  "Student sees own approved published result",
+  "Corrections preserve prior publication and submission",
+  "All integration fixture records rolled back"
+]

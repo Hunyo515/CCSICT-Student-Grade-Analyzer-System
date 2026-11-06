@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}CCSICT Grade Analyzer{% endblock %} — Faculty Portal</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  {% if active_page in ('dashboard', 'analytics') %}<link rel="stylesheet" href="{{ url_for('static', filename='css/insights.css') }}">{% endif %}
+  {% block extra_head %}{% endblock %}
+<link rel="icon" href="{{ url_for('static', filename='img/logo.png') }}">
+<link rel="stylesheet" href="{{ url_for('static',filename='css/workspace.css') }}"><link rel="stylesheet" href="{{ url_for('static',filename='css/srs.css') }}"></head>
+<body>
+{% from "_icons.html" import icon %}
+
+<div class="flash-stack">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+      <div class="flash {{ category }}">{{ message }}</div>
+    {% endfor %}
+  {% endwith %}
+</div>
+
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <script>
+      (function () {
+        if (localStorage.getItem('sidebarCollapsed') === 'true') {
+          document.getElementById('sidebar').classList.add('collapsed');
+        }
+      })();
+    </script>
+    <button type="button" class="sidebar-toggle-btn" id="sidebarToggleBtn" onclick="toggleSidebar()" title="Collapse sidebar" aria-label="Toggle sidebar">
+      {{ icon('chevron-left') }}
+    </button>
+    <div class="sidebar-top">
+      <div class="sidebar-header">
+        <div class="brand">
+          <img class="brand-logo" src="{{ url_for('static', filename='img/logo.png') }}" alt="CCSICT logo">
+          <div>
+            <div class="brand-text-title">CCSICT Grade Analyzer</div>
+            <div class="brand-text-sub">CCSICT</div>
+          </div>
+        </div>
+        <div class="role-badge">
+          <span class="role-dot"></span>
+          <span class="role-badge-text">Faculty Portal</span>
+        </div>
+      </div>
+      <nav class="nav-menu">
+        <a class="nav-item {{ 'active' if active_page=='dashboard' }}" href="{{ url_for('srs.teacher_home') }}">{{ icon('dashboard') }}<span class="nav-label">Dashboard</span></a>
+        <a class="nav-item {{ 'active' if active_page=='classes' }}" href="{{ url_for('srs.teacher_classes') }}">{{ icon('book') }}<span class="nav-label">My Classes</span></a>
+        <a class="nav-item {{ 'active' if active_page=='analytics' }}" href="{{ url_for('srs.teacher_analytics') }}">{{ icon('chart') }}<span class="nav-label">Analytics</span></a>
+        <a class="nav-item {{ 'active' if active_page=='top' }}" href="{{ url_for('srs.top_performers') }}">{{ icon('award') }}<span class="nav-label">Top Performers</span></a>
+      </nav>
+    </div>
+    <div class="sidebar-bottom">
+      <hr class="sidebar-divider">
+      <form method="POST" action="{{ url_for('auth.logout') }}"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button type="submit" class="nav-logout">{{ icon('logout') }} <span class="nav-logout-label">Logout</span></button></form>
+    </div>
+  </aside>
+
+  <div class="main-content">
+    <div class="top-bar">
+      <div class="title-area">
+        <h1 class="page-title">{% block page_title %}{% endblock %}</h1>
+        {% block header_extra %}
+        {% include "_term_selector.html" %}
+        {% endblock %}
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;">
+        {% include "_notifications.html" %}
+        <div class="user-profile">
+          <span class="user-name">{{ current_user.full_name }}</span>
+          <span class="user-badge">Faculty Member</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-body">
+      {% block content %}{% endblock %}
+    </div>
+  </div>
+</div>
+
+{% block extra_scripts %}{% endblock %}
+<script>
+  function toggleSidebar() {
+    var sidebar = document.getElementById('sidebar');
+    var btn = document.getElementById('sidebarToggleBtn');
+    var collapsed = sidebar.classList.toggle('collapsed');
+    localStorage.setItem('sidebarCollapsed', collapsed ? 'true' : 'false');
+    btn.title = collapsed ? 'Expand sidebar' : 'Collapse sidebar';
+    btn.setAttribute('aria-expanded',String(!collapsed));
+  }
+  (function () {
+    var btn = document.getElementById('sidebarToggleBtn');
+    var sidebar = document.getElementById('sidebar');
+    if (btn && sidebar) btn.setAttribute('aria-expanded',String(!sidebar.classList.contains('collapsed')));
+    if (btn && sidebar && sidebar.classList.contains('collapsed')) {
+      btn.title = 'Expand sidebar';
+    }
+  })();
+</script>
+<script src="{{ url_for('static', filename='js/forms.js') }}" defer></script>
+<script src="{{ url_for('static',filename='js/workspace.js') }}" defer></script><script src="{{ url_for('static',filename='js/srs.js') }}" defer></script></body>
+</html>

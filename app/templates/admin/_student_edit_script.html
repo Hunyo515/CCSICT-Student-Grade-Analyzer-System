@@ -1,0 +1,21 @@
+
+<script>
+function openEditStudent(id, name, program, yearLevel, section, contact, status, sex, enrollmentType, email, first, middle, last, identifier) {
+  document.getElementById('editStudentForm').action = "/admin/students/" + id + "/edit";
+  document.getElementById('editStudentFirst').value=first;
+  document.getElementById('editStudentMiddle').value=middle;
+  document.getElementById('editStudentLast').value=last;
+  document.getElementById('editStudentId').value=identifier;
+  document.getElementById('editStudentEmail').value = email || '';
+  const programAliases = {{ program_aliases|tojson }};
+  const code = Object.keys(programAliases).find(key => programAliases[key].some(alias => alias.toLowerCase() === program.trim().toLowerCase()));
+  document.getElementById('editStudentProgram').value = code || '';
+  document.getElementById('editStudentYearLevel').value = yearLevel;
+  document.getElementById('editStudentSection').value = section;
+  document.getElementById('editStudentContact').value = contact;
+  document.getElementById('editStudentStatus').value = status;
+  document.getElementById('editStudentSex').value = sex || '';
+  document.getElementById('editStudentType').value = enrollmentType || 'REGULAR';
+  document.getElementById('editStudentModal').classList.add('open');
+}
+</script>

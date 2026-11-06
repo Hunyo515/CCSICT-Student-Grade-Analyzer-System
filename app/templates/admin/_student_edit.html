@@ -1,0 +1,68 @@
+<!-- Edit Student Modal -->
+<div class="modal-overlay" id="editStudentModal">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3 class="modal-title">Edit Student</h3>
+      <button class="modal-close" onclick="document.getElementById('editStudentModal').classList.remove('open')">{{ icon('x-circle') }}</button>
+    </div>
+    <form method="POST" id="editStudentForm">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <div class="modal-body">
+<p class="cell-muted">Verify each name against the student's record. Legacy full names are not split automatically.</p><div class="field-group"><label class="field-label">First name</label><input class="field-input" name="first_name" id="editStudentFirst" required></div><div class="field-group"><label class="field-label">Middle name (optional)</label><input class="field-input" name="middle_name" id="editStudentMiddle"></div><div class="field-group"><label class="field-label">Last name</label><input class="field-input" name="last_name" id="editStudentLast" required></div><div class="field-group"><label class="field-label">Student ID / username</label><input class="field-input" name="id_number" id="editStudentId" required placeholder="23-2762"></div><div class="field-group"><label class="field-label">Institutional email</label><input class="field-input" name="email" id="editStudentEmail" type="email" required></div>        <div class="field-group">
+          <label class="field-label">Program</label>
+          <select class="field-input" name="program" id="editStudentProgram" required><option value="">Choose program</option>{% for code,name in curriculum_programs.items() %}<option value="{{ code }}">{{ code }} · {{ name }}</option>{% endfor %}</select>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Year Level</label>
+            <select class="field-input" name="year_level" id="editStudentYearLevel">
+              <option>1st Year</option>
+              <option>2nd Year</option>
+              <option>3rd Year</option>
+              <option>4th Year</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Section</label>
+            <input class="field-input" name="section" id="editStudentSection" required>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Contact Number</label>
+            <input class="field-input" name="contact_number" id="editStudentContact">
+          </div>
+          <div class="field-group">
+            <label class="field-label">Status</label>
+            <select class="field-input" name="status" id="editStudentStatus">
+              <option value="ACTIVE">Active</option>
+              <option value="INACTIVE">Inactive</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Sex</label>
+            <select class="field-input" name="sex" id="editStudentSex">
+              <option value="">Not specified</option>
+              <option value="MALE">Male</option>
+              <option value="FEMALE">Female</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Enrollment Type</label>
+            <select class="field-input" name="enrollment_type" id="editStudentType">
+              <option value="REGULAR">Regular</option>
+              <option value="IRREGULAR">Irregular</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" onclick="document.getElementById('editStudentModal').classList.remove('open')">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+      </div>
+    </form>
+  </div>
+</div>

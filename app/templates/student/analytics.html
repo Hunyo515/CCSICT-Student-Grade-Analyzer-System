@@ -1,0 +1,24 @@
+{% extends "student/_layout.html" %}
+{% set active_page = "analytics" %}
+{% from "_insight_ui.html" import metric, bar, empty, distribution, readiness, publication %}
+{% block title %}Analytics{% endblock %}
+{% block page_title %}Analytics{% endblock %}
+{% block content %}
+<div class="insights">
+
+
+<div class="insight-metrics">
+{{ metric('Published average', report.average ~ '%' if report.average is not none else '—', 'Weighted by subject units', 'accent') }}
+{{ metric('Complete subjects', report.complete ~ ' / ' ~ report.published, 'Complete results / published subjects') }}
+{{ metric('Units in average', '%g'|format(report.units), 'Complete subjects') }}
+{{ metric('Subjects below 75%', report.below, 'Published, complete results to review', 'attention') }}
+</div>
+{% if published %}<form class="insight-filter" method="GET"><label for="subject-filter">Published subject</label><select id="subject-filter" name="assignment_id">{% for s in published %}<option value="{{ s.assignment_id }}" {{ 'selected' if selected and selected.assignment_id == s.assignment_id }}>{{ s.subject_code }} · {{ s.subject_name }}</option>{% endfor %}</select><button class="insight-action" type="submit">Apply</button></form>{% endif %}
+<div class="insight-grid"><article class="insight-panel"><div class="insight-panel-head"><div><h2>{{ selected.subject_code if selected else 'Published subject' }} breakdown</h2></div><span class="insight-tag">0–100%</span></div><p class="insight-description">Score ÷ maximum · Reference: 75%</p>
+{% if selected %}{% for c in selected.components %}{{ bar(c.component_name, c.mean, c.effective_weight ~ '% of final grade' if c.mean is not none else 'No valid score recorded', target=true, tone='amber' if c.mean is not none and c.mean < 75 else 'teal') }}{% else %}{{ empty('No assessment details', 'Ask your instructor to review this published grade record.') }}{% endfor %}{% else %}{{ empty('No published subjects yet', 'Assessment analysis becomes available after publication.') }}{% endif %}</article>
+<article class="insight-panel"><div class="insight-panel-head"><div><h2>Published term averages</h2></div><span class="insight-tag">0–100%</span></div><p class="insight-description">Credit-weighted · Subject loads may differ.</p><div class="insight-scroll">{% for t in trend %}{{ bar(t.label, t.average, t.complete ~ ' / ' ~ t.total ~ ' subjects included · ' ~ ('%g'|format(t.units)) ~ ' units', target=true) }}{% else %}{{ empty('No term history yet', 'Term averages will appear when complete grades are published.') }}{% endfor %}</div></article></div>
+{% if selected %}<article class="insight-panel"><h2>Grade breakdown</h2><p class="insight-description">Score × effective weight = earned points.</p>{% if not selected.weighting_valid %}<p class="insight-note">Weighting needs review. Contributions and the final result are withheld until your instructor corrects it.</p>{% endif %}<div class="insight-table-wrap" tabindex="0" role="region" aria-label="Scrollable report table"><table class="insight-table"><thead><tr><th>Assessment</th><th class="num">Score (%)</th><th class="num">Effective weight</th><th class="num">Earned points</th></tr></thead><tbody>{% for c in selected.components %}<tr><td><strong>{{ c.component_name }}</strong></td><td class="num">{{ c.mean ~ '%' if c.mean is not none else 'Not recorded' }}</td><td class="num">{{ c.effective_weight ~ '%' if selected.weighting_valid else '—' }}</td><td class="num">{{ c.contribution if c.contribution is not none else '—' }}</td></tr>{% endfor %}</tbody><tfoot><tr><td colspan="3"><strong>Complete weighted result</strong></td><td class="num"><strong>{{ selected.totals[0] ~ '%' if selected.complete else 'Incomplete' }}</strong></td></tr></tfoot></table></div><p class="insight-footnote">Values are rounded.</p></article>{% endif %}
+
+
+</div>
+{% endblock %}

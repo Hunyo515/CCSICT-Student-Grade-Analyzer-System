@@ -1,0 +1,18 @@
+{% extends "admin/_layout.html" %}
+{% set active_page = "subjects" %}
+{% block title %}Subjects{% endblock %}
+{% block page_title %}Subjects{% endblock %}
+{% block header_extra %}<small>Browse the curriculum by program</small>{% endblock %}
+{% block content %}<div class="action-bar"><form class="srs-search subject-search-form" method="get"><input name="q" placeholder="Search course code or subject title" aria-label="Search subjects"><button class="btn btn-secondary">Search</button></form><a class="btn btn-primary" href="{{ url_for('admin.catalog_folder') }}">＋ Add folder</a></div>
+
+<h3 class="programs-label">Programs <small>{{ programs|length }} programs</small></h3><div class="curriculum-folders modern-folders">
+{% for code, name in programs.items() %}
+<a class="curriculum-folder" href="{{ url_for('admin.subjects', program=code) }}">
+  <small class="folder-count">{{ counts.get(code,0) }} subjects</small><svg viewBox="0 0 64 52" width="64" height="52" aria-hidden="true"><path d="M3 12a5 5 0 0 1 5-5h17l6 7h25a5 5 0 0 1 5 5v25a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5Z" fill="#ead7ac"/><path d="M3 21h58v23a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5Z" fill="#b38b48"/></svg>
+  <h2>{{ code }}</h2><p>{{ name }}</p>
+  <span>View subjects <b aria-hidden="true">→</b></span>
+</a>
+{% endfor %}
+</div>
+
+{% if folders %}<h3>Subject folders</h3><div class="curriculum-folders modern-folders">{% for folder in folders %}<a class="curriculum-folder" href="{{ url_for('admin.catalog_folder',folder_id=folder.id) }}"><h2>{{ folder.name }}</h2><span>View subjects →</span></a>{% endfor %}</div>{% endif %}{% endblock %}

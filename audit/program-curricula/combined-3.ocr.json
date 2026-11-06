@@ -1,0 +1,2861 @@
+﻿[
+    {
+        "text":  "Republic of the Philippines",
+        "words":  [
+                      {
+                          "y":  85,
+                          "w":  68,
+                          "h":  18,
+                          "text":  "Republic",
+                          "x":  485
+                      },
+                      {
+                          "y":  85,
+                          "w":  16,
+                          "h":  14,
+                          "text":  "of",
+                          "x":  558
+                      },
+                      {
+                          "y":  85,
+                          "w":  26,
+                          "h":  14,
+                          "text":  "the",
+                          "x":  578
+                      },
+                      {
+                          "y":  85,
+                          "w":  87,
+                          "h":  18,
+                          "text":  "Philippines",
+                          "x":  610
+                      }
+                  ]
+    },
+    {
+        "text":  "ISABELA STATE UNIVERSITY",
+        "words":  [
+                      {
+                          "y":  110,
+                          "w":  67,
+                          "h":  14,
+                          "text":  "ISABELA",
+                          "x":  478
+                      },
+                      {
+                          "y":  110,
+                          "w":  51,
+                          "h":  14,
+                          "text":  "STATE",
+                          "x":  549
+                      },
+                      {
+                          "y":  110,
+                          "w":  99,
+                          "h":  15,
+                          "text":  "UNIVERSITY",
+                          "x":  605
+                      }
+                  ]
+    },
+    {
+        "text":  "Echague, Isabela",
+        "words":  [
+                      {
+                          "y":  134,
+                          "w":  71,
+                          "h":  18,
+                          "text":  "Echague,",
+                          "x":  524
+                      },
+                      {
+                          "y":  134,
+                          "w":  56,
+                          "h":  15,
+                          "text":  "Isabela",
+                          "x":  601
+                      }
+                  ]
+    },
+    {
+        "text":  "College of Computing Studies, Information and Communication Technology",
+        "words":  [
+                      {
+                          "y":  157,
+                          "w":  60,
+                          "h":  18,
+                          "text":  "College",
+                          "x":  280
+                      },
+                      {
+                          "y":  157,
+                          "w":  17,
+                          "h":  15,
+                          "text":  "of",
+                          "x":  345
+                      },
+                      {
+                          "y":  158,
+                          "w":  90,
+                          "h":  18,
+                          "text":  "Computing",
+                          "x":  367
+                      },
+                      {
+                          "y":  158,
+                          "w":  64,
+                          "h":  17,
+                          "text":  "Studies,",
+                          "x":  462
+                      },
+                      {
+                          "y":  158,
+                          "w":  97,
+                          "h":  15,
+                          "text":  "Information",
+                          "x":  532
+                      },
+                      {
+                          "y":  159,
+                          "w":  31,
+                          "h":  14,
+                          "text":  "and",
+                          "x":  635
+                      },
+                      {
+                          "y":  159,
+                          "w":  130,
+                          "h":  15,
+                          "text":  "Communication",
+                          "x":  672
+                      },
+                      {
+                          "y":  158,
+                          "w":  95,
+                          "h":  18,
+                          "text":  "Technology",
+                          "x":  807
+                      }
+                  ]
+    },
+    {
+        "text":  "BACHELOR OF SCIENCE IN INFORMATION SYSTEMS (BSIS)",
+        "words":  [
+                      {
+                          "y":  192,
+                          "w":  104,
+                          "h":  16,
+                          "text":  "BACHELOR",
+                          "x":  309
+                      },
+                      {
+                          "y":  192,
+                          "w":  24,
+                          "h":  16,
+                          "text":  "OF",
+                          "x":  421
+                      },
+                      {
+                          "y":  192,
+                          "w":  81,
+                          "h":  17,
+                          "text":  "SCIENCE",
+                          "x":  452
+                      },
+                      {
+                          "y":  193,
+                          "w":  19,
+                          "h":  15,
+                          "text":  "IN",
+                          "x":  541
+                      },
+                      {
+                          "y":  192,
+                          "w":  145,
+                          "h":  17,
+                          "text":  "INFORMATION",
+                          "x":  568
+                      },
+                      {
+                          "y":  193,
+                          "w":  89,
+                          "h":  16,
+                          "text":  "SYSTEMS",
+                          "x":  721
+                      },
+                      {
+                          "y":  191,
+                          "w":  56,
+                          "h":  21,
+                          "text":  "(BSIS)",
+                          "x":  817
+                      }
+                  ]
+    },
+    {
+        "text":  "With Specialization Track in",
+        "words":  [
+                      {
+                          "y":  220,
+                          "w":  37,
+                          "h":  14,
+                          "text":  "With",
+                          "x":  480
+                      },
+                      {
+                          "y":  220,
+                          "w":  109,
+                          "h":  17,
+                          "text":  "Specialization",
+                          "x":  523
+                      },
+                      {
+                          "y":  220,
+                          "w":  43,
+                          "h":  14,
+                          "text":  "Track",
+                          "x":  638
+                      },
+                      {
+                          "y":  221,
+                          "w":  14,
+                          "h":  13,
+                          "text":  "in",
+                          "x":  686
+                      }
+                  ]
+    },
+    {
+        "text":  "Service Management for Business Process Outsourcing (BPO)",
+        "words":  [
+                      {
+                          "y":  244,
+                          "w":  65,
+                          "h":  16,
+                          "text":  "Service",
+                          "x":  314
+                      },
+                      {
+                          "y":  244,
+                          "w":  120,
+                          "h":  19,
+                          "text":  "Management",
+                          "x":  385
+                      },
+                      {
+                          "y":  244,
+                          "w":  26,
+                          "h":  16,
+                          "text":  "for",
+                          "x":  510
+                      },
+                      {
+                          "y":  245,
+                          "w":  76,
+                          "h":  15,
+                          "text":  "Business",
+                          "x":  543
+                      },
+                      {
+                          "y":  245,
+                          "w":  68,
+                          "h":  16,
+                          "text":  "Process",
+                          "x":  625
+                      },
+                      {
+                          "y":  245,
+                          "w":  111,
+                          "h":  19,
+                          "text":  "Outsourcing",
+                          "x":  699
+                      },
+                      {
+                          "y":  244,
+                          "w":  51,
+                          "h":  19,
+                          "text":  "(BPO)",
+                          "x":  816
+                      }
+                  ]
+    },
+    {
+        "text":  "Effect•ve First Semester, School Year 2021-2022",
+        "words":  [
+                      {
+                          "y":  270,
+                          "w":  68,
+                          "h":  14,
+                          "text":  "Effect•ve",
+                          "x":  400
+                      },
+                      {
+                          "y":  271,
+                          "w":  33,
+                          "h":  14,
+                          "text":  "First",
+                          "x":  474
+                      },
+                      {
+                          "y":  271,
+                          "w":  79,
+                          "h":  16,
+                          "text":  "Semester,",
+                          "x":  512
+                      },
+                      {
+                          "y":  271,
+                          "w":  52,
+                          "h":  14,
+                          "text":  "School",
+                          "x":  597
+                      },
+                      {
+                          "y":  272,
+                          "w":  36,
+                          "h":  13,
+                          "text":  "Year",
+                          "x":  655
+                      },
+                      {
+                          "y":  272,
+                          "w":  85,
+                          "h":  13,
+                          "text":  "2021-2022",
+                          "x":  696
+                      }
+                  ]
+    },
+    {
+        "text":  "SECOND YEAR",
+        "words":  [
+                      {
+                          "y":  326,
+                          "w":  67,
+                          "h":  14,
+                          "text":  "SECOND",
+                          "x":  559
+                      },
+                      {
+                          "y":  326,
+                          "w":  43,
+                          "h":  14,
+                          "text":  "YEAR",
+                          "x":  631
+                      }
+                  ]
+    },
+    {
+        "text":  "FIRST SEMESTER",
+        "words":  [
+                      {
+                          "y":  352,
+                          "w":  44,
+                          "h":  14,
+                          "text":  "FIRST",
+                          "x":  153
+                      },
+                      {
+                          "y":  352,
+                          "w":  86,
+                          "h":  14,
+                          "text":  "SEMESTER",
+                          "x":  202
+                      }
+                  ]
+    },
+    {
+        "text":  "Course No.",
+        "words":  [
+                      {
+                          "y":  378,
+                          "w":  57,
+                          "h":  13,
+                          "text":  "Course",
+                          "x":  158
+                      },
+                      {
+                          "y":  377,
+                          "w":  28,
+                          "h":  14,
+                          "text":  "No.",
+                          "x":  220
+                      }
+                  ]
+    },
+    {
+        "text":  "GEC6",
+        "words":  [
+                      {
+                          "y":  428,
+                          "w":  47,
+                          "h":  13,
+                          "text":  "GEC6",
+                          "x":  151
+                      }
+                  ]
+    },
+    {
+        "text":  "GEC 8",
+        "words":  [
+                      {
+                          "y":  453,
+                          "w":  32,
+                          "h":  13,
+                          "text":  "GEC",
+                          "x":  151
+                      },
+                      {
+                          "y":  453,
+                          "w":  9,
+                          "h":  13,
+                          "text":  "8",
+                          "x":  189
+                      }
+                  ]
+    },
+    {
+        "text":  "iS Inst 2",
+        "words":  [
+                      {
+                          "y":  477,
+                          "w":  13,
+                          "h":  13,
+                          "text":  "iS",
+                          "x":  151
+                      },
+                      {
+                          "y":  477,
+                          "w":  29,
+                          "h":  14,
+                          "text":  "Inst",
+                          "x":  170
+                      },
+                      {
+                          "y":  477,
+                          "w":  8,
+                          "h":  14,
+                          "text":  "2",
+                          "x":  205
+                      }
+                  ]
+    },
+    {
+        "text":  "IS 211",
+        "words":  [
+                      {
+                          "y":  503,
+                          "w":  13,
+                          "h":  13,
+                          "text":  "IS",
+                          "x":  151
+                      },
+                      {
+                          "y":  502,
+                          "w":  28,
+                          "h":  14,
+                          "text":  "211",
+                          "x":  170
+                      }
+                  ]
+    },
+    {
+        "text":  "IS 212",
+        "words":  [
+                      {
+                          "y":  528,
+                          "w":  13,
+                          "h":  13,
+                          "text":  "IS",
+                          "x":  151
+                      },
+                      {
+                          "y":  528,
+                          "w":  28,
+                          "h":  13,
+                          "text":  "212",
+                          "x":  170
+                      }
+                  ]
+    },
+    {
+        "text":  "IS 213",
+        "words":  [
+                      {
+                          "y":  577,
+                          "w":  12,
+                          "h":  14,
+                          "text":  "IS",
+                          "x":  151
+                      },
+                      {
+                          "y":  577,
+                          "w":  29,
+                          "h":  14,
+                          "text":  "213",
+                          "x":  169
+                      }
+                  ]
+    },
+    {
+        "text":  "IS 214",
+        "words":  [
+                      {
+                          "y":  628,
+                          "w":  13,
+                          "h":  13,
+                          "text":  "IS",
+                          "x":  151
+                      },
+                      {
+                          "y":  627,
+                          "w":  29,
+                          "h":  14,
+                          "text":  "214",
+                          "x":  170
+                      }
+                  ]
+    },
+    {
+        "text":  "PE3",
+        "words":  [
+                      {
+                          "y":  676,
+                          "w":  33,
+                          "h":  14,
+                          "text":  "PE3",
+                          "x":  151
+                      }
+                  ]
+    },
+    {
+        "text":  "IS BPO 211",
+        "words":  [
+                      {
+                          "y":  774,
+                          "w":  13,
+                          "h":  14,
+                          "text":  "IS",
+                          "x":  151
+                      },
+                      {
+                          "y":  774,
+                          "w":  33,
+                          "h":  14,
+                          "text":  "BPO",
+                          "x":  170
+                      },
+                      {
+                          "y":  774,
+                          "w":  28,
+                          "h":  14,
+                          "text":  "211",
+                          "x":  208
+                      }
+                  ]
+    },
+    {
+        "text":  "Course Title",
+        "words":  [
+                      {
+                          "y":  377,
+                          "w":  56,
+                          "h":  13,
+                          "text":  "Course",
+                          "x":  381
+                      },
+                      {
+                          "y":  376,
+                          "w":  37,
+                          "h":  14,
+                          "text":  "Title",
+                          "x":  441
+                      }
+                  ]
+    },
+    {
+        "text":  "Science, Technology, and Society",
+        "words":  [
+                      {
+                          "y":  427,
+                          "w":  64,
+                          "h":  15,
+                          "text":  "Science,",
+                          "x":  277
+                      },
+                      {
+                          "y":  426,
+                          "w":  97,
+                          "h":  18,
+                          "text":  "Technology,",
+                          "x":  347
+                      },
+                      {
+                          "y":  426,
+                          "w":  29,
+                          "h":  14,
+                          "text":  "and",
+                          "x":  450
+                      },
+                      {
+                          "y":  427,
+                          "w":  57,
+                          "h":  16,
+                          "text":  "Society",
+                          "x":  485
+                      }
+                  ]
+    },
+    {
+        "text":  "The Contemporary World",
+        "words":  [
+                      {
+                          "y":  452,
+                          "w":  29,
+                          "h":  13,
+                          "text":  "The",
+                          "x":  276
+                      },
+                      {
+                          "y":  452,
+                          "w":  117,
+                          "h":  16,
+                          "text":  "Contemporary",
+                          "x":  311
+                      },
+                      {
+                          "y":  452,
+                          "w":  49,
+                          "h":  13,
+                          "text":  "World",
+                          "x":  433
+                      }
+                  ]
+    },
+    {
+        "text":  "Creative and Critical Thinking",
+        "words":  [
+                      {
+                          "y":  477,
+                          "w":  66,
+                          "h":  13,
+                          "text":  "Creative",
+                          "x":  277
+                      },
+                      {
+                          "y":  475,
+                          "w":  29,
+                          "h":  15,
+                          "text":  "and",
+                          "x":  349
+                      },
+                      {
+                          "y":  476,
+                          "w":  54,
+                          "h":  14,
+                          "text":  "Critical",
+                          "x":  384
+                      },
+                      {
+                          "y":  476,
+                          "w":  68,
+                          "h":  17,
+                          "text":  "Thinking",
+                          "x":  444
+                      }
+                  ]
+    },
+    {
+        "text":  "Data Structures and Algorithms",
+        "words":  [
+                      {
+                          "y":  502,
+                          "w":  36,
+                          "h":  13,
+                          "text":  "Data",
+                          "x":  277
+                      },
+                      {
+                          "y":  502,
+                          "w":  82,
+                          "h":  13,
+                          "text":  "Structures",
+                          "x":  319
+                      },
+                      {
+                          "y":  501,
+                          "w":  29,
+                          "h":  14,
+                          "text":  "and",
+                          "x":  407
+                      },
+                      {
+                          "y":  501,
+                          "w":  88,
+                          "h":  18,
+                          "text":  "Algorithms",
+                          "x":  442
+                      }
+                  ]
+    },
+    {
+        "text":  "Professional Issues in Information",
+        "words":  [
+                      {
+                          "y":  526,
+                          "w":  97,
+                          "h":  15,
+                          "text":  "Professional",
+                          "x":  277
+                      },
+                      {
+                          "y":  527,
+                          "w":  47,
+                          "h":  13,
+                          "text":  "Issues",
+                          "x":  381
+                      },
+                      {
+                          "y":  527,
+                          "w":  13,
+                          "h":  13,
+                          "text":  "in",
+                          "x":  434
+                      },
+                      {
+                          "y":  526,
+                          "w":  94,
+                          "h":  14,
+                          "text":  "Information",
+                          "x":  454
+                      }
+                  ]
+    },
+    {
+        "text":  "Systems",
+        "words":  [
+                      {
+                          "y":  552,
+                          "w":  66,
+                          "h":  17,
+                          "text":  "Systems",
+                          "x":  276
+                      }
+                  ]
+    },
+    {
+        "text":  "IT Infrastructure and Network",
+        "words":  [
+                      {
+                          "y":  577,
+                          "w":  14,
+                          "h":  13,
+                          "text":  "IT",
+                          "x":  276
+                      },
+                      {
+                          "y":  576,
+                          "w":  110,
+                          "h":  14,
+                          "text":  "Infrastructure",
+                          "x":  296
+                      },
+                      {
+                          "y":  576,
+                          "w":  29,
+                          "h":  14,
+                          "text":  "and",
+                          "x":  412
+                      },
+                      {
+                          "y":  576,
+                          "w":  69,
+                          "h":  14,
+                          "text":  "Network",
+                          "x":  448
+                      }
+                  ]
+    },
+    {
+        "text":  "Technologies",
+        "words":  [
+                      {
+                          "y":  600,
+                          "w":  107,
+                          "h":  18,
+                          "text":  "Technologies",
+                          "x":  275
+                      }
+                  ]
+    },
+    {
+        "text":  "Organization and Management",
+        "words":  [
+                      {
+                          "y":  627,
+                          "w":  103,
+                          "h":  17,
+                          "text":  "Organization",
+                          "x":  276
+                      },
+                      {
+                          "y":  626,
+                          "w":  29,
+                          "h":  14,
+                          "text":  "and",
+                          "x":  385
+                      },
+                      {
+                          "y":  626,
+                          "w":  108,
+                          "h":  17,
+                          "text":  "Management",
+                          "x":  420
+                      }
+                  ]
+    },
+    {
+        "text":  "Concepts",
+        "words":  [
+                      {
+                          "y":  651,
+                          "w":  74,
+                          "h":  17,
+                          "text":  "Concepts",
+                          "x":  276
+                      }
+                  ]
+    },
+    {
+        "text":  "Physical Activity Towards Health",
+        "words":  [
+                      {
+                          "y":  675,
+                          "w":  63,
+                          "h":  17,
+                          "text":  "Physical",
+                          "x":  277
+                      },
+                      {
+                          "y":  676,
+                          "w":  60,
+                          "h":  16,
+                          "text":  "Activity",
+                          "x":  346
+                      },
+                      {
+                          "y":  675,
+                          "w":  69,
+                          "h":  14,
+                          "text":  "Towards",
+                          "x":  410
+                      },
+                      {
+                          "y":  675,
+                          "w":  52,
+                          "h":  14,
+                          "text":  "Health",
+                          "x":  485
+                      }
+                  ]
+    },
+    {
+        "text":  "Fitness ill",
+        "words":  [
+                      {
+                          "y":  700,
+                          "w":  56,
+                          "h":  14,
+                          "text":  "Fitness",
+                          "x":  276
+                      },
+                      {
+                          "y":  700,
+                          "w":  13,
+                          "h":  13,
+                          "text":  "ill",
+                          "x":  338
+                      }
+                  ]
+    },
+    {
+        "text":  "(Dance, Sports, Group Exercise,",
+        "words":  [
+                      {
+                          "y":  723,
+                          "w":  60,
+                          "h":  17,
+                          "text":  "(Dance,",
+                          "x":  276
+                      },
+                      {
+                          "y":  724,
+                          "w":  56,
+                          "h":  16,
+                          "text":  "Sports,",
+                          "x":  342
+                      },
+                      {
+                          "y":  724,
+                          "w":  50,
+                          "h":  17,
+                          "text":  "Group",
+                          "x":  404
+                      },
+                      {
+                          "y":  724,
+                          "w":  69,
+                          "h":  15,
+                          "text":  "Exercise,",
+                          "x":  460
+                      }
+                  ]
+    },
+    {
+        "text":  "Outdoor Adventure Activities)",
+        "words":  [
+                      {
+                          "y":  748,
+                          "w":  68,
+                          "h":  14,
+                          "text":  "Outdoor",
+                          "x":  276
+                      },
+                      {
+                          "y":  748,
+                          "w":  84,
+                          "h":  13,
+                          "text":  "Adventure",
+                          "x":  350
+                      },
+                      {
+                          "y":  747,
+                          "w":  79,
+                          "h":  17,
+                          "text":  "Activities)",
+                          "x":  439
+                      }
+                  ]
+    },
+    {
+        "text":  "Business Communication for BPO",
+        "words":  [
+                      {
+                          "y":  774,
+                          "w":  69,
+                          "h":  13,
+                          "text":  "Business",
+                          "x":  276
+                      },
+                      {
+                          "y":  773,
+                          "w":  127,
+                          "h":  14,
+                          "text":  "Communication",
+                          "x":  351
+                      },
+                      {
+                          "y":  772,
+                          "w":  23,
+                          "h":  15,
+                          "text":  "for",
+                          "x":  483
+                      },
+                      {
+                          "y":  773,
+                          "w":  33,
+                          "h":  14,
+                          "text":  "BPO",
+                          "x":  512
+                      }
+                  ]
+    },
+    {
+        "text":  "Total Units",
+        "words":  [
+                      {
+                          "y":  797,
+                          "w":  41,
+                          "h":  15,
+                          "text":  "Total",
+                          "x":  490
+                      },
+                      {
+                          "y":  798,
+                          "w":  42,
+                          "h":  14,
+                          "text":  "Units",
+                          "x":  537
+                      }
+                  ]
+    },
+    {
+        "text":  "SECOND SEMESTER",
+        "words":  [
+                      {
+                          "y":  825,
+                          "w":  68,
+                          "h":  13,
+                          "text":  "SECOND",
+                          "x":  150
+                      },
+                      {
+                          "y":  824,
+                          "w":  87,
+                          "h":  14,
+                          "text":  "SEMESTER",
+                          "x":  223
+                      }
+                  ]
+    },
+    {
+        "text":  "GEC 7",
+        "words":  [
+                      {
+                          "y":  850,
+                          "w":  32,
+                          "h":  14,
+                          "text":  "GEC",
+                          "x":  150
+                      },
+                      {
+                          "y":  850,
+                          "w":  8,
+                          "h":  13,
+                          "text":  "7",
+                          "x":  188
+                      }
+                  ]
+    },
+    {
+        "text":  "GEC 9",
+        "words":  [
+                      {
+                          "y":  875,
+                          "w":  32,
+                          "h":  14,
+                          "text":  "GEC",
+                          "x":  150
+                      },
+                      {
+                          "y":  875,
+                          "w":  10,
+                          "h":  14,
+                          "text":  "9",
+                          "x":  187
+                      }
+                  ]
+    },
+    {
+        "text":  "IS GE Elec 1",
+        "words":  [
+                      {
+                          "y":  901,
+                          "w":  13,
+                          "h":  14,
+                          "text":  "IS",
+                          "x":  150
+                      },
+                      {
+                          "y":  901,
+                          "w":  21,
+                          "h":  14,
+                          "text":  "GE",
+                          "x":  169
+                      },
+                      {
+                          "y":  900,
+                          "w":  31,
+                          "h":  15,
+                          "text":  "Elec",
+                          "x":  196
+                      },
+                      {
+                          "y":  900,
+                          "w":  9,
+                          "h":  15,
+                          "text":  "1",
+                          "x":  233
+                      }
+                  ]
+    },
+    {
+        "text":  "IS 221",
+        "words":  [
+                      {
+                          "y":  927,
+                          "w":  13,
+                          "h":  14,
+                          "text":  "IS",
+                          "x":  150
+                      },
+                      {
+                          "y":  927,
+                          "w":  28,
+                          "h":  13,
+                          "text":  "221",
+                          "x":  169
+                      }
+                  ]
+    },
+    {
+        "text":  "IS 222",
+        "words":  [
+                      {
+                          "y":  952,
+                          "w":  12,
+                          "h":  14,
+                          "text":  "IS",
+                          "x":  151
+                      },
+                      {
+                          "y":  952,
+                          "w":  28,
+                          "h":  14,
+                          "text":  "222",
+                          "x":  169
+                      }
+                  ]
+    },
+    {
+        "text":  "IS Elec 1",
+        "words":  [
+                      {
+                          "y":  977,
+                          "w":  13,
+                          "h":  14,
+                          "text":  "IS",
+                          "x":  150
+                      },
+                      {
+                          "y":  977,
+                          "w":  31,
+                          "h":  14,
+                          "text":  "Elec",
+                          "x":  169
+                      },
+                      {
+                          "y":  977,
+                          "w":  7,
+                          "h":  13,
+                          "text":  "1",
+                          "x":  207
+                      }
+                  ]
+    },
+    {
+        "text":  "PE4",
+        "words":  [
+                      {
+                          "y":  1002,
+                          "w":  32,
+                          "h":  14,
+                          "text":  "PE4",
+                          "x":  151
+                      }
+                  ]
+    },
+    {
+        "text":  "IS BPO 221",
+        "words":  [
+                      {
+                          "y":  1099,
+                          "w":  13,
+                          "h":  14,
+                          "text":  "IS",
+                          "x":  150
+                      },
+                      {
+                          "y":  1099,
+                          "w":  34,
+                          "h":  14,
+                          "text":  "BPO",
+                          "x":  169
+                      },
+                      {
+                          "y":  1099,
+                          "w":  29,
+                          "h":  14,
+                          "text":  "221",
+                          "x":  208
+                      }
+                  ]
+    },
+    {
+        "text":  "Pre red by:",
+        "words":  [
+                      {
+                          "y":  1196,
+                          "w":  28,
+                          "h":  17,
+                          "text":  "Pre",
+                          "x":  139
+                      },
+                      {
+                          "y":  1196,
+                          "w":  27,
+                          "h":  17,
+                          "text":  "red",
+                          "x":  190
+                      },
+                      {
+                          "y":  1196,
+                          "w":  25,
+                          "h":  21,
+                          "text":  "by:",
+                          "x":  223
+                      }
+                  ]
+    },
+    {
+        "text":  "rogram hai",
+        "words":  [
+                      {
+                          "y":  1275,
+                          "w":  55,
+                          "h":  17,
+                          "text":  "rogram",
+                          "x":  152
+                      },
+                      {
+                          "y":  1271,
+                          "w":  23,
+                          "h":  16,
+                          "text":  "hai",
+                          "x":  227
+                      }
+                  ]
+    },
+    {
+        "text":  "Endor by:",
+        "words":  [
+                      {
+                          "y":  1346,
+                          "w":  51,
+                          "h":  16,
+                          "text":  "Endor",
+                          "x":  140
+                      },
+                      {
+                          "y":  1346,
+                          "w":  25,
+                          "h":  20,
+                          "text":  "by:",
+                          "x":  228
+                      }
+                  ]
+    },
+    {
+        "text":  "Ethics",
+        "words":  [
+                      {
+                          "y":  848,
+                          "w":  47,
+                          "h":  15,
+                          "text":  "Ethics",
+                          "x":  276
+                      }
+                  ]
+    },
+    {
+        "text":  "Life and Works of Rizal",
+        "words":  [
+                      {
+                          "y":  874,
+                          "w":  28,
+                          "h":  15,
+                          "text":  "Life",
+                          "x":  276
+                      },
+                      {
+                          "y":  874,
+                          "w":  29,
+                          "h":  14,
+                          "text":  "and",
+                          "x":  310
+                      },
+                      {
+                          "y":  873,
+                          "w":  52,
+                          "h":  15,
+                          "text":  "Works",
+                          "x":  344
+                      },
+                      {
+                          "y":  873,
+                          "w":  15,
+                          "h":  15,
+                          "text":  "of",
+                          "x":  402
+                      },
+                      {
+                          "y":  874,
+                          "w":  35,
+                          "h":  14,
+                          "text":  "Rizal",
+                          "x":  423
+                      }
+                  ]
+    },
+    {
+        "text":  "Entrepreneurial Mind",
+        "words":  [
+                      {
+                          "y":  899,
+                          "w":  126,
+                          "h":  18,
+                          "text":  "Entrepreneurial",
+                          "x":  276
+                      },
+                      {
+                          "y":  899,
+                          "w":  40,
+                          "h":  14,
+                          "text":  "Mind",
+                          "x":  409
+                      }
+                  ]
+    },
+    {
+        "text":  "Systems Analysis and Design",
+        "words":  [
+                      {
+                          "y":  926,
+                          "w":  66,
+                          "h":  17,
+                          "text":  "Systems",
+                          "x":  276
+                      },
+                      {
+                          "y":  925,
+                          "w":  65,
+                          "h":  17,
+                          "text":  "Analysis",
+                          "x":  347
+                      },
+                      {
+                          "y":  925,
+                          "w":  28,
+                          "h":  14,
+                          "text":  "and",
+                          "x":  418
+                      },
+                      {
+                          "y":  925,
+                          "w":  53,
+                          "h":  20,
+                          "text":  "Design",
+                          "x":  452
+                      }
+                  ]
+    },
+    {
+        "text":  "Financial Management",
+        "words":  [
+                      {
+                          "y":  951,
+                          "w":  71,
+                          "h":  14,
+                          "text":  "Financial",
+                          "x":  276
+                      },
+                      {
+                          "y":  951,
+                          "w":  106,
+                          "h":  17,
+                          "text":  "Management",
+                          "x":  354
+                      }
+                  ]
+    },
+    {
+        "text":  "IT Audit and Controls",
+        "words":  [
+                      {
+                          "y":  977,
+                          "w":  15,
+                          "h":  13,
+                          "text":  "IT",
+                          "x":  276
+                      },
+                      {
+                          "y":  976,
+                          "w":  43,
+                          "h":  14,
+                          "text":  "Audit",
+                          "x":  295
+                      },
+                      {
+                          "y":  975,
+                          "w":  29,
+                          "h":  14,
+                          "text":  "and",
+                          "x":  344
+                      },
+                      {
+                          "y":  975,
+                          "w":  66,
+                          "h":  14,
+                          "text":  "Controls",
+                          "x":  379
+                      }
+                  ]
+    },
+    {
+        "text":  "Physical Activity Towards Health",
+        "words":  [
+                      {
+                          "y":  1001,
+                          "w":  64,
+                          "h":  17,
+                          "text":  "Physical",
+                          "x":  276
+                      },
+                      {
+                          "y":  1001,
+                          "w":  60,
+                          "h":  17,
+                          "text":  "Activity",
+                          "x":  346
+                      },
+                      {
+                          "y":  1000,
+                          "w":  68,
+                          "h":  15,
+                          "text":  "Towards",
+                          "x":  411
+                      },
+                      {
+                          "y":  1000,
+                          "w":  53,
+                          "h":  15,
+                          "text":  "Health",
+                          "x":  484
+                      }
+                  ]
+    },
+    {
+        "text":  "Fitness IV",
+        "words":  [
+                      {
+                          "y":  1026,
+                          "w":  56,
+                          "h":  13,
+                          "text":  "Fitness",
+                          "x":  276
+                      },
+                      {
+                          "y":  1025,
+                          "w":  16,
+                          "h":  14,
+                          "text":  "IV",
+                          "x":  338
+                      }
+                  ]
+    },
+    {
+        "text":  "(Dance, Sports, Group Exercise,",
+        "words":  [
+                      {
+                          "y":  1049,
+                          "w":  61,
+                          "h":  17,
+                          "text":  "(Dance,",
+                          "x":  276
+                      },
+                      {
+                          "y":  1050,
+                          "w":  54,
+                          "h":  16,
+                          "text":  "Sports,",
+                          "x":  343
+                      },
+                      {
+                          "y":  1049,
+                          "w":  49,
+                          "h":  17,
+                          "text":  "Group",
+                          "x":  404
+                      },
+                      {
+                          "y":  1049,
+                          "w":  69,
+                          "h":  16,
+                          "text":  "Exercise,",
+                          "x":  460
+                      }
+                  ]
+    },
+    {
+        "text":  "Outdoor Adventure Activities)",
+        "words":  [
+                      {
+                          "y":  1073,
+                          "w":  69,
+                          "h":  14,
+                          "text":  "Outdoor",
+                          "x":  276
+                      },
+                      {
+                          "y":  1073,
+                          "w":  84,
+                          "h":  14,
+                          "text":  "Adventure",
+                          "x":  350
+                      },
+                      {
+                          "y":  1072,
+                          "w":  79,
+                          "h":  18,
+                          "text":  "Activities)",
+                          "x":  439
+                      }
+                  ]
+    },
+    {
+        "text":  "Service Culture",
+        "words":  [
+                      {
+                          "y":  1099,
+                          "w":  58,
+                          "h":  13,
+                          "text":  "Service",
+                          "x":  276
+                      },
+                      {
+                          "y":  1098,
+                          "w":  59,
+                          "h":  14,
+                          "text":  "Culture",
+                          "x":  339
+                      }
+                  ]
+    },
+    {
+        "text":  "Total Units",
+        "words":  [
+                      {
+                          "y":  1122,
+                          "w":  42,
+                          "h":  15,
+                          "text":  "Total",
+                          "x":  490
+                      },
+                      {
+                          "y":  1123,
+                          "w":  43,
+                          "h":  14,
+                          "text":  "Units",
+                          "x":  537
+                      }
+                  ]
+    },
+    {
+        "text":  "Revie by:",
+        "words":  [
+                      {
+                          "y":  1195,
+                          "w":  48,
+                          "h":  17,
+                          "text":  "Revie",
+                          "x":  427
+                      },
+                      {
+                          "y":  1195,
+                          "w":  24,
+                          "h":  21,
+                          "text":  "by:",
+                          "x":  516
+                      }
+                  ]
+    },
+    {
+        "text":  "Unit",
+        "words":  [
+                      {
+                          "y":  377,
+                          "w":  35,
+                          "h":  14,
+                          "text":  "Unit",
+                          "x":  626
+                      }
+                  ]
+    },
+    {
+        "text":  "2",
+        "words":  [
+                      {
+                          "y":  477,
+                          "w":  8,
+                          "h":  13,
+                          "text":  "2",
+                          "x":  640
+                      }
+                  ]
+    },
+    {
+        "text":  "3",
+        "words":  [
+                      {
+                          "y":  502,
+                          "w":  9,
+                          "h":  13,
+                          "text":  "3",
+                          "x":  640
+                      }
+                  ]
+    },
+    {
+        "text":  "3",
+        "words":  [
+                      {
+                          "y":  527,
+                          "w":  9,
+                          "h":  13,
+                          "text":  "3",
+                          "x":  640
+                      }
+                  ]
+    },
+    {
+        "text":  "3",
+        "words":  [
+                      {
+                          "y":  576,
+                          "w":  9,
+                          "h":  14,
+                          "text":  "3",
+                          "x":  640
+                      }
+                  ]
+    },
+    {
+        "text":  "3",
+        "words":  [
+                      {
+                          "y":  626,
+                          "w":  9,
+                          "h":  14,
+                          "text":  "3",
+                          "x":  640
+                      }
+                  ]
+    },
+    {
+        "text":  "2",
+        "words":  [
+                      {
+                          "y":  675,
+                          "w":  9,
+                          "h":  14,
+                          "text":  "2",
+                          "x":  640
+                      }
+                  ]
+    },
+    {
+        "text":  "3",
+        "words":  [
+                      {
+                          "y":  773,
+                          "w":  8,
+                          "h":  14,
+                          "text":  "3",
+                          "x":  640
+                      }
+                  ]
+    },
+    {
+        "text":  "25.0",
+        "words":  [
+                      {
+                          "y":  798,
+                          "w":  35,
+                          "h":  14,
+                          "text":  "25.0",
+                          "x":  626
+                      }
+                  ]
+    },
+    {
+        "text":  "3",
+        "words":  [
+                      {
+                          "y":  848,
+                          "w":  9,
+                          "h":  14,
+                          "text":  "3",
+                          "x":  639
+                      }
+                  ]
+    },
+    {
+        "text":  "3",
+        "words":  [
+                      {
+                          "y":  874,
+                          "w":  8,
+                          "h":  14,
+                          "text":  "3",
+                          "x":  640
+                      }
+                  ]
+    },
+    {
+        "text":  "3",
+        "words":  [
+                      {
+                          "y":  899,
+                          "w":  8,
+                          "h":  14,
+                          "text":  "3",
+                          "x":  640
+                      }
+                  ]
+    },
+    {
+        "text":  "3",
+        "words":  [
+                      {
+                          "y":  925,
+                          "w":  8,
+                          "h":  14,
+                          "text":  "3",
+                          "x":  640
+                      }
+                  ]
+    },
+    {
+        "text":  "3",
+        "words":  [
+                      {
+                          "y":  951,
+                          "w":  8,
+                          "h":  13,
+                          "text":  "3",
+                          "x":  640
+                      }
+                  ]
+    },
+    {
+        "text":  "3",
+        "words":  [
+                      {
+                          "y":  976,
+                          "w":  8,
+                          "h":  13,
+                          "text":  "3",
+                          "x":  640
+                      }
+                  ]
+    },
+    {
+        "text":  "2",
+        "words":  [
+                      {
+                          "y":  1001,
+                          "w":  8,
+                          "h":  13,
+                          "text":  "2",
+                          "x":  640
+                      }
+                  ]
+    },
+    {
+        "text":  "3",
+        "words":  [
+                      {
+                          "y":  1098,
+                          "w":  9,
+                          "h":  14,
+                          "text":  "3",
+                          "x":  640
+                      }
+                  ]
+    },
+    {
+        "text":  "23.0",
+        "words":  [
+                      {
+                          "y":  1123,
+                          "w":  35,
+                          "h":  14,
+                          "text":  "23.0",
+                          "x":  626
+                      }
+                  ]
+    },
+    {
+        "text":  "No. of Units",
+        "words":  [
+                      {
+                          "y":  377,
+                          "w":  28,
+                          "h":  14,
+                          "text":  "No.",
+                          "x":  761
+                      },
+                      {
+                          "y":  376,
+                          "w":  17,
+                          "h":  15,
+                          "text":  "of",
+                          "x":  794
+                      },
+                      {
+                          "y":  377,
+                          "w":  43,
+                          "h":  14,
+                          "text":  "Units",
+                          "x":  816
+                      }
+                  ]
+    },
+    {
+        "text":  "Laborato",
+        "words":  [
+                      {
+                          "y":  401,
+                          "w":  74,
+                          "h":  15,
+                          "text":  "Laborato",
+                          "x":  814
+                      }
+                  ]
+    },
+    {
+        "text":  "Lecture",
+        "words":  [
+                      {
+                          "y":  403,
+                          "w":  60,
+                          "h":  14,
+                          "text":  "Lecture",
+                          "x":  717
+                      }
+                  ]
+    },
+    {
+        "text":  "3",
+        "words":  [
+                      {
+                          "y":  428,
+                          "w":  8,
+                          "h":  13,
+                          "text":  "3",
+                          "x":  743
+                      }
+                  ]
+    },
+    {
+        "text":  "3",
+        "words":  [
+                      {
+                          "y":  453,
+                          "w":  8,
+                          "h":  13,
+                          "text":  "3",
+                          "x":  743
+                      }
+                  ]
+    },
+    {
+        "text":  "1",
+        "words":  [
+                      {
+                          "y":  476,
+                          "w":  7,
+                          "h":  14,
+                          "text":  "1",
+                          "x":  856
+                      }
+                  ]
+    },
+    {
+        "text":  "1",
+        "words":  [
+                      {
+                          "y":  478,
+                          "w":  8,
+                          "h":  13,
+                          "text":  "1",
+                          "x":  743
+                      }
+                  ]
+    },
+    {
+        "text":  "1",
+        "words":  [
+                      {
+                          "y":  502,
+                          "w":  8,
+                          "h":  13,
+                          "text":  "1",
+                          "x":  856
+                      }
+                  ]
+    },
+    {
+        "text":  "2",
+        "words":  [
+                      {
+                          "y":  503,
+                          "w":  8,
+                          "h":  13,
+                          "text":  "2",
+                          "x":  743
+                      }
+                  ]
+    },
+    {
+        "text":  "3",
+        "words":  [
+                      {
+                          "y":  527,
+                          "w":  8,
+                          "h":  14,
+                          "text":  "3",
+                          "x":  743
+                      }
+                  ]
+    },
+    {
+        "text":  "1",
+        "words":  [
+                      {
+                          "y":  576,
+                          "w":  8,
+                          "h":  14,
+                          "text":  "1",
+                          "x":  856
+                      }
+                  ]
+    },
+    {
+        "text":  "2",
+        "words":  [
+                      {
+                          "y":  577,
+                          "w":  8,
+                          "h":  14,
+                          "text":  "2",
+                          "x":  743
+                      }
+                  ]
+    },
+    {
+        "text":  "3",
+        "words":  [
+                      {
+                          "y":  626,
+                          "w":  9,
+                          "h":  14,
+                          "text":  "3",
+                          "x":  743
+                      }
+                  ]
+    },
+    {
+        "text":  "2",
+        "words":  [
+                      {
+                          "y":  675,
+                          "w":  9,
+                          "h":  14,
+                          "text":  "2",
+                          "x":  743
+                      }
+                  ]
+    },
+    {
+        "text":  "3",
+        "words":  [
+                      {
+                          "y":  773,
+                          "w":  8,
+                          "h":  14,
+                          "text":  "3",
+                          "x":  743
+                      }
+                  ]
+    },
+    {
+        "text":  "3",
+        "words":  [
+                      {
+                          "y":  797,
+                          "w":  10,
+                          "h":  14,
+                          "text":  "3",
+                          "x":  855
+                      }
+                  ]
+    },
+    {
+        "text":  "22",
+        "words":  [
+                      {
+                          "y":  798,
+                          "w":  19,
+                          "h":  14,
+                          "text":  "22",
+                          "x":  737
+                      }
+                  ]
+    },
+    {
+        "text":  "3",
+        "words":  [
+                      {
+                          "y":  848,
+                          "w":  9,
+                          "h":  14,
+                          "text":  "3",
+                          "x":  742
+                      }
+                  ]
+    },
+    {
+        "text":  "3",
+        "words":  [
+                      {
+                          "y":  874,
+                          "w":  8,
+                          "h":  14,
+                          "text":  "3",
+                          "x":  743
+                      }
+                  ]
+    },
+    {
+        "text":  "3",
+        "words":  [
+                      {
+                          "y":  899,
+                          "w":  8,
+                          "h":  14,
+                          "text":  "3",
+                          "x":  743
+                      }
+                  ]
+    },
+    {
+        "text":  "1",
+        "words":  [
+                      {
+                          "y":  923,
+                          "w":  8,
+                          "h":  15,
+                          "text":  "1",
+                          "x":  856
+                      }
+                  ]
+    },
+    {
+        "text":  "2",
+        "words":  [
+                      {
+                          "y":  925,
+                          "w":  8,
+                          "h":  14,
+                          "text":  "2",
+                          "x":  743
+                      }
+                  ]
+    },
+    {
+        "text":  "3",
+        "words":  [
+                      {
+                          "y":  950,
+                          "w":  8,
+                          "h":  14,
+                          "text":  "3",
+                          "x":  743
+                      }
+                  ]
+    },
+    {
+        "text":  "1",
+        "words":  [
+                      {
+                          "y":  974,
+                          "w":  8,
+                          "h":  14,
+                          "text":  "1",
+                          "x":  856
+                      }
+                  ]
+    },
+    {
+        "text":  "2",
+        "words":  [
+                      {
+                          "y":  976,
+                          "w":  8,
+                          "h":  13,
+                          "text":  "2",
+                          "x":  743
+                      }
+                  ]
+    },
+    {
+        "text":  "2",
+        "words":  [
+                      {
+                          "y":  1001,
+                          "w":  8,
+                          "h":  14,
+                          "text":  "2",
+                          "x":  743
+                      }
+                  ]
+    },
+    {
+        "text":  "1",
+        "words":  [
+                      {
+                          "y":  1096,
+                          "w":  8,
+                          "h":  14,
+                          "text":  "1",
+                          "x":  856
+                      }
+                  ]
+    },
+    {
+        "text":  "2",
+        "words":  [
+                      {
+                          "y":  1098,
+                          "w":  8,
+                          "h":  13,
+                          "text":  "2",
+                          "x":  743
+                      }
+                  ]
+    },
+    {
+        "text":  "3",
+        "words":  [
+                      {
+                          "y":  1121,
+                          "w":  10,
+                          "h":  15,
+                          "text":  "3",
+                          "x":  855
+                      }
+                  ]
+    },
+    {
+        "text":  "20",
+        "words":  [
+                      {
+                          "y":  1122,
+                          "w":  20,
+                          "h":  15,
+                          "text":  "20",
+                          "x":  737
+                      }
+                  ]
+    },
+    {
+        "text":  "Pre-re uisite",
+        "words":  [
+                      {
+                          "y":  376,
+                          "w":  51,
+                          "h":  14,
+                          "text":  "Pre-re",
+                          "x":  954
+                      },
+                      {
+                          "y":  376,
+                          "w":  45,
+                          "h":  14,
+                          "text":  "uisite",
+                          "x":  1017
+                      }
+                  ]
+    },
+    {
+        "text":  "None",
+        "words":  [
+                      {
+                          "y":  426,
+                          "w":  43,
+                          "h":  14,
+                          "text":  "None",
+                          "x":  987
+                      }
+                  ]
+    },
+    {
+        "text":  "None",
+        "words":  [
+                      {
+                          "y":  452,
+                          "w":  42,
+                          "h":  13,
+                          "text":  "None",
+                          "x":  987
+                      }
+                  ]
+    },
+    {
+        "text":  "None",
+        "words":  [
+                      {
+                          "y":  476,
+                          "w":  42,
+                          "h":  13,
+                          "text":  "None",
+                          "x":  987
+                      }
+                  ]
+    },
+    {
+        "text":  "IS 122",
+        "words":  [
+                      {
+                          "y":  501,
+                          "w":  13,
+                          "h":  14,
+                          "text":  "IS",
+                          "x":  985
+                      },
+                      {
+                          "y":  501,
+                          "w":  28,
+                          "h":  14,
+                          "text":  "122",
+                          "x":  1004
+                      }
+                  ]
+    },
+    {
+        "text":  "IS 111, IS 121",
+        "words":  [
+                      {
+                          "y":  526,
+                          "w":  13,
+                          "h":  14,
+                          "text":  "IS",
+                          "x":  955
+                      },
+                      {
+                          "y":  526,
+                          "w":  33,
+                          "h":  16,
+                          "text":  "111,",
+                          "x":  975
+                      },
+                      {
+                          "y":  526,
+                          "w":  13,
+                          "h":  14,
+                          "text":  "IS",
+                          "x":  1014
+                      },
+                      {
+                          "y":  526,
+                          "w":  28,
+                          "h":  14,
+                          "text":  "121",
+                          "x":  1034
+                      }
+                  ]
+    },
+    {
+        "text":  "IS 111, IS 121",
+        "words":  [
+                      {
+                          "y":  576,
+                          "w":  13,
+                          "h":  14,
+                          "text":  "IS",
+                          "x":  955
+                      },
+                      {
+                          "y":  576,
+                          "w":  33,
+                          "h":  16,
+                          "text":  "111,",
+                          "x":  974
+                      },
+                      {
+                          "y":  576,
+                          "w":  13,
+                          "h":  13,
+                          "text":  "IS",
+                          "x":  1014
+                      },
+                      {
+                          "y":  576,
+                          "w":  28,
+                          "h":  13,
+                          "text":  "121",
+                          "x":  1033
+                      }
+                  ]
+    },
+    {
+        "text":  "111",
+        "words":  [
+                      {
+                          "y":  625,
+                          "w":  28,
+                          "h":  14,
+                          "text":  "111",
+                          "x":  1004
+                      }
+                  ]
+    },
+    {
+        "text":  "GEC4",
+        "words":  [
+                      {
+                          "y":  771,
+                          "w":  47,
+                          "h":  15,
+                          "text":  "GEC4",
+                          "x":  985
+                      }
+                  ]
+    },
+    {
+        "text":  "None",
+        "words":  [
+                      {
+                          "y":  847,
+                          "w":  42,
+                          "h":  13,
+                          "text":  "None",
+                          "x":  987
+                      }
+                  ]
+    },
+    {
+        "text":  "None",
+        "words":  [
+                      {
+                          "y":  872,
+                          "w":  42,
+                          "h":  14,
+                          "text":  "None",
+                          "x":  987
+                      }
+                  ]
+    },
+    {
+        "text":  "None",
+        "words":  [
+                      {
+                          "y":  898,
+                          "w":  43,
+                          "h":  14,
+                          "text":  "None",
+                          "x":  987
+                      }
+                  ]
+    },
+    {
+        "text":  "2nd Year Standin",
+        "words":  [
+                      {
+                          "y":  920,
+                          "w":  22,
+                          "h":  18,
+                          "text":  "2nd",
+                          "x":  939
+                      },
+                      {
+                          "y":  923,
+                          "w":  36,
+                          "h":  14,
+                          "text":  "Year",
+                          "x":  966
+                      },
+                      {
+                          "y":  922,
+                          "w":  60,
+                          "h":  15,
+                          "text":  "Standin",
+                          "x":  1008
+                      }
+                  ]
+    },
+    {
+        "text":  "IS 214",
+        "words":  [
+                      {
+                          "y":  949,
+                          "w":  13,
+                          "h":  14,
+                          "text":  "IS",
+                          "x":  985
+                      },
+                      {
+                          "y":  949,
+                          "w":  29,
+                          "h":  14,
+                          "text":  "214",
+                          "x":  1004
+                      }
+                  ]
+    },
+    {
+        "text":  "2nd year standin",
+        "words":  [
+                      {
+                          "y":  970,
+                          "w":  22,
+                          "h":  18,
+                          "text":  "2nd",
+                          "x":  940
+                      },
+                      {
+                          "y":  977,
+                          "w":  36,
+                          "h":  14,
+                          "text":  "year",
+                          "x":  967
+                      },
+                      {
+                          "y":  973,
+                          "w":  60,
+                          "h":  14,
+                          "text":  "standin",
+                          "x":  1008
+                      }
+                  ]
+    },
+    {
+        "text":  "PE 1, PE 2, PE 3",
+        "words":  [
+                      {
+                          "y":  999,
+                          "w":  19,
+                          "h":  14,
+                          "text":  "PE",
+                          "x":  947
+                      },
+                      {
+                          "y":  999,
+                          "w":  13,
+                          "h":  16,
+                          "text":  "1,",
+                          "x":  972
+                      },
+                      {
+                          "y":  999,
+                          "w":  18,
+                          "h":  13,
+                          "text":  "PE",
+                          "x":  992
+                      },
+                      {
+                          "y":  999,
+                          "w":  14,
+                          "h":  16,
+                          "text":  "2,",
+                          "x":  1016
+                      },
+                      {
+                          "y":  999,
+                          "w":  17,
+                          "h":  13,
+                          "text":  "PE",
+                          "x":  1037
+                      },
+                      {
+                          "y":  999,
+                          "w":  9,
+                          "h":  14,
+                          "text":  "3",
+                          "x":  1060
+                      }
+                  ]
+    },
+    {
+        "text":  "IS BPO 211",
+        "words":  [
+                      {
+                          "y":  1096,
+                          "w":  14,
+                          "h":  14,
+                          "text":  "IS",
+                          "x":  965
+                      },
+                      {
+                          "y":  1096,
+                          "w":  34,
+                          "h":  14,
+                          "text":  "BPO",
+                          "x":  984
+                      },
+                      {
+                          "y":  1095,
+                          "w":  29,
+                          "h":  15,
+                          "text":  "211",
+                          "x":  1023
+                      }
+                  ]
+    },
+    {
+        "text":  "8,",
+        "words":  [
+                      {
+                          "y":  1068,
+                          "w":  6,
+                          "h":  9,
+                          "text":  "8,",
+                          "x":  1188
+                      }
+                  ]
+    },
+    {
+        "text":  "DO . CAMUNGAO DIT",
+        "words":  [
+                      {
+                          "y":  1246,
+                          "w":  26,
+                          "h":  16,
+                          "text":  "DO",
+                          "x":  485
+                      },
+                      {
+                          "y":  1258,
+                          "w":  4,
+                          "h":  3,
+                          "text":  ".",
+                          "x":  531
+                      },
+                      {
+                          "y":  1245,
+                          "w":  107,
+                          "h":  17,
+                          "text":  "CAMUNGAO",
+                          "x":  541
+                      },
+                      {
+                          "y":  1245,
+                          "w":  28,
+                          "h":  17,
+                          "text":  "DIT",
+                          "x":  658
+                      }
+                  ]
+    },
+    {
+        "text":  "MARINEL DAYAWON. Ph.D.",
+        "words":  [
+                      {
+                          "y":  1395,
+                          "w":  81,
+                          "h":  16,
+                          "text":  "MARINEL",
+                          "x":  428
+                      },
+                      {
+                          "y":  1395,
+                          "w":  97,
+                          "h":  17,
+                          "text":  "DAYAWON.",
+                          "x":  537
+                      },
+                      {
+                          "y":  1395,
+                          "w":  44,
+                          "h":  17,
+                          "text":  "Ph.D.",
+                          "x":  641
+                      }
+                  ]
+    },
+    {
+        "text":  "Univ Ity Director for Instruction",
+        "words":  [
+                      {
+                          "y":  1445,
+                          "w":  36,
+                          "h":  16,
+                          "text":  "Univ",
+                          "x":  428
+                      },
+                      {
+                          "y":  1446,
+                          "w":  17,
+                          "h":  20,
+                          "text":  "Ity",
+                          "x":  489
+                      },
+                      {
+                          "y":  1444,
+                          "w":  62,
+                          "h":  18,
+                          "text":  "Director",
+                          "x":  512
+                      },
+                      {
+                          "y":  1444,
+                          "w":  22,
+                          "h":  18,
+                          "text":  "for",
+                          "x":  578
+                      },
+                      {
+                          "y":  1445,
+                          "w":  81,
+                          "h":  17,
+                          "text":  "Instruction",
+                          "x":  606
+                      }
+                  ]
+    },
+    {
+        "text":  "DO",
+        "words":  [
+                      {
+                          "y":  1554,
+                          "w":  30,
+                          "h":  20,
+                          "text":  "DO",
+                          "x":  634
+                      }
+                  ]
+    },
+    {
+        "text":  "Engr. NANETTE D.",
+        "words":  [
+                      {
+                          "y":  1245,
+                          "w":  46,
+                          "h":  21,
+                          "text":  "Engr.",
+                          "x":  786
+                      },
+                      {
+                          "y":  1244,
+                          "w":  84,
+                          "h":  16,
+                          "text":  "NANETTE",
+                          "x":  838
+                      },
+                      {
+                          "y":  1244,
+                          "w":  16,
+                          "h":  16,
+                          "text":  "D.",
+                          "x":  929
+                      }
+                  ]
+    },
+    {
+        "text":  "Campus ARA",
+        "words":  [
+                      {
+                          "y":  1270,
+                          "w":  67,
+                          "h":  20,
+                          "text":  "Campus",
+                          "x":  786
+                      },
+                      {
+                          "y":  1269,
+                          "w":  37,
+                          "h":  17,
+                          "text":  "ARA",
+                          "x":  859
+                      }
+                  ]
+    },
+    {
+        "text":  "SAYO",
+        "words":  [
+                      {
+                          "y":  1244,
+                          "w":  51,
+                          "h":  16,
+                          "text":  "SAYO",
+                          "x":  952
+                      }
+                  ]
+    },
+    {
+        "text":  "PEA",
+        "words":  [
+                      {
+                          "y":  1394,
+                          "w":  32,
+                          "h":  16,
+                          "text":  "PEA",
+                          "x":  344
+                      }
+                  ]
+    },
+    {
+        "text":  "JOSE P GALLENA JR.",
+        "words":  [
+                      {
+                          "y":  1395,
+                          "w":  46,
+                          "h":  17,
+                          "text":  "JOSE",
+                          "x":  140
+                      },
+                      {
+                          "y":  1395,
+                          "w":  10,
+                          "h":  16,
+                          "text":  "P",
+                          "x":  193
+                      },
+                      {
+                          "y":  1395,
+                          "w":  86,
+                          "h":  17,
+                          "text":  "GALLENA",
+                          "x":  215
+                      },
+                      {
+                          "y":  1395,
+                          "w":  27,
+                          "h":  16,
+                          "text":  "JR.",
+                          "x":  307
+                      }
+                  ]
+    },
+    {
+        "text":  "Executive Officer",
+        "words":  [
+                      {
+                          "y":  1445,
+                          "w":  76,
+                          "h":  16,
+                          "text":  "Executive",
+                          "x":  140
+                      },
+                      {
+                          "y":  1445,
+                          "w":  52,
+                          "h":  16,
+                          "text":  "Officer",
+                          "x":  223
+                      }
+                  ]
+    },
+    {
+        "text":  "Prof. BOYET L. BATANG,",
+        "words":  [
+                      {
+                          "y":  1394,
+                          "w":  40,
+                          "h":  17,
+                          "text":  "Prof.",
+                          "x":  775
+                      },
+                      {
+                          "y":  1393,
+                          "w":  62,
+                          "h":  18,
+                          "text":  "BOYET",
+                          "x":  821
+                      },
+                      {
+                          "y":  1393,
+                          "w":  15,
+                          "h":  18,
+                          "text":  "L.",
+                          "x":  888
+                      },
+                      {
+                          "y":  1393,
+                          "w":  80,
+                          "h":  21,
+                          "text":  "BATANG,",
+                          "x":  910
+                      }
+                  ]
+    },
+    {
+        "text":  "VP for Academic and Related",
+        "words":  [
+                      {
+                          "y":  1444,
+                          "w":  24,
+                          "h":  17,
+                          "text":  "VP",
+                          "x":  774
+                      },
+                      {
+                          "y":  1444,
+                          "w":  22,
+                          "h":  17,
+                          "text":  "for",
+                          "x":  803
+                      },
+                      {
+                          "y":  1444,
+                          "w":  79,
+                          "h":  17,
+                          "text":  "Academic",
+                          "x":  830
+                      },
+                      {
+                          "y":  1444,
+                          "w":  29,
+                          "h":  17,
+                          "text":  "and",
+                          "x":  914
+                      },
+                      {
+                          "y":  1444,
+                          "w":  62,
+                          "h":  17,
+                          "text":  "Related",
+                          "x":  949
+                      }
+                  ]
+    },
+    {
+        "text":  "RUZ",
+        "words":  [
+                      {
+                          "y":  1548,
+                          "w":  41,
+                          "h":  20,
+                          "text":  "RUZ",
+                          "x":  787
+                      }
+                  ]
+    },
+    {
+        "text":  "Educatio Supervisor II",
+        "words":  [
+                      {
+                          "y":  1580,
+                          "w":  82,
+                          "h":  21,
+                          "text":  "Educatio",
+                          "x":  622
+                      },
+                      {
+                          "y":  1577,
+                          "w":  102,
+                          "h":  23,
+                          "text":  "Supervisor",
+                          "x":  722
+                      },
+                      {
+                          "y":  1575,
+                          "w":  10,
+                          "h":  18,
+                          "text":  "II",
+                          "x":  830
+                      }
+                  ]
+    }
+]

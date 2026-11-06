@@ -1,0 +1,320 @@
+
+=== PAGE 1 ===
+                                                       Republic of the Philippines
+                                                  ISABELA STATE UNIVERSITY
+                                                             Echague, lsabela
+               College of Computing Studies, Information and Communication Technology
+
+
+
+
+
+
+
+
+                                    BACHELOR OF LIBRARY AND INFORMATION SCIENCE
+                                             Effective First Semester, S Y 2021 – 2022
+
+                                                                  FIRST YEAR
+                                                              FIRST SEMESTER
+      Course                               Descriptive Title                            No of       No. of Units             Prerequisite
+     Number                                                                              Units       Lec       Lab
+ GEC 4                 Purposive Communication                                             3          3                           None
+ GEC 5                 Art Appreciation                                                    3          3                           None
+ LIS 111               Introduction to Library and      Information Science                3          3                           None
+ LIS Spt 1             School/Academic Librarianship                                       3          3                           None
+ LIS ICT 111           Information Processing and Handling in Libraries                    3          2          1                None
+                       and Information Centers
+ LIS ICT 112           Office Productivity                                                 3          2          1                None
+ LIS Inst 1            Climate Change and Disaster Risk Management                         2
+ PE 1                  Physical Activity Towards Health and Fitness                        2          2                           None
+                       1(Movement Patterns)
+ NSTP 1                CWTS/LTS/MS1                                                       (3)         3                           None
+                                                                      Total Units         23         21          2
+                                                            SECOND SEMESTER
+      Course                               Descriptive Title                            No of       No. of Units             Prerequisite
+     Number                                                                              Units       Lec       Lab
+ GEC 1                 Understanding the Self                                              3          3                           None
+ GEC 2                 Reading in Philippine History                                       3          3                           None
+ GEC 3                 Mathematics in the Modern World                                     3          3                           None
+ LIS 121               Collection Management of Information Resources                      3          3                          LIS 111
+ LIS Spt 2             Special/Public Librarianship                                        3          3                           None
+ LIS ICT 121           Web Technologies in Libraries and Information                       3          2          1            LIS ICT 111
+                       Science
+ LIS ICT 122           Programming Fundamentals 1                                          3          2          1            LIS ICT 111
+ PE 2                  Physical Activity Towards Health and Fitness 2                      2          2                           PE 1
+                       (Exercise Program Based)
+ NSTP 2                CWTS/LTS/MS 2                                                      (3)         3                          NSTP 1
+                                                                      Total Units         23         21          2
+Prepared by:                              Reviewed by:
+
+HONEYLYN C. GAJES, RL                     RICARDO Q. CAMUNGAO, DIT                              Engr. NANETTE D. SAYO
+Program Chair, BLIS                       Dean                                                  Campus Director, ARA
+
+
+Endorsed by:
+
+
+JOSE P. GALLENA, JR., DPA                 MARINEL P. DAYAWON, Ph.D.                           BOYET L. BATANG, Ph.D.
+Executive Officer                          University Director for Instruction       VP for Academic and Related Affairs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=== PAGE 2 ===
+                                                        Republic of the Philippines
+                                                  ISABELA STATE UNIVERSITY
+                                                              Echague, lsabela
+                College of Computing Studies, Information and Communication Technology
+
+
+
+
+
+
+
+
+                                     BACHELOR OF LIBRARY AND INFORMATION SCIENCE
+                                              Effective First Semester, S Y 2021 – 2022
+                                                                 SECOND YEAR
+                                                               FIRST SEMESTER
+      Course                                Descriptive Title                             No of       No. of Units             Prerequisite
+     Number                                                                               Units       Lec        Lab
+ GEC 6                 Science, Technology, and Society                                      3          3                           None
+ GEC 8                 The Contemporary World                                                3          3                           None
+ LIS Inst 2            Creative and Critical Thinking                                        2          1          1
+ LIS GE Elec 1         The Entrepreneurial Mind                                              3          3                           None
+ LIS 211               Information Resources and Services I                                  3          3                     LIS 111, LIS 121
+ LIS 212               Organization of Information Resources I                               3          3                     LIS 111, LIS 121
+ LIS Spt 3             Preservation of Information Resources                                 3          3                   2nd  year Standing
+ LIS ICT 221           Programming Fundamentals 2                                            3          2          1             LIS ICT 211
+ PE 3                  Physical Activity Towards Health and Fitness 3                        2          2                        PE 1, PE 2
+                       (PATH-Fit)
+                                                                        Total Units         25                     2
+                                                             SECOND SEMESTER
+      Course                                Descriptive Title                             No of       No. of Units             Prerequisite
+     Number                                                                               Units       Lec        Lab
+ GEC 7                 Ethics                                                                3          3                           None
+ GEC 9                 The Life and Works of Rizal                                           3          3                           None
+ LIS GE Elec 2         Leadership and Management in the Profession                           3          3                           None
+ LIS 221               Information Resources and Services II                                 3          3                          LIS 211
+ LIS 222               Organization of Information Resources II                              3          3                          LIS 212
+ LIS 223               Library Materials for Children and Young Adults                       3          3                          LIS 121
+
+ LIS ICT 211           Digital Libraries and Resources                                       3          2          1             LIS ICT 121
+ LIS Spt 4             Philosophies and Principles of Teaching                               3          3                   2nd  year Standing
+ PE 4                  Physical Activity Towards Health and Fitness 4                        2          2                     PE 1, PE 2, PE 3
+                       (PATH-Fit)
+                                                                        Total Units         26         25          1
+
+
+Prepared by:                               Reviewed by:
+
+HONEYLYN C. GAJES, RL                      RICARDO Q. CAMUNGAO, DIT                               Engr. NANETTE D. SAYO
+Program Chair, BLIS                        Dean                                                   Campus Director, ARA
+
+
+Endorsed by:
+
+
+JOSE P. GALLENA, JR., DPA                  MARINEL P. DAYAWON, Ph.D.                            BOYET L. BATANG, Ph.D.
+Executive Officer                           University Director for Instruction           VP for Academic and Related Affairs
+
+
+
+
+
+
+
+
+
+
+
+=== PAGE 3 ===
+                                                       Republic of the Philippines
+                                                  ISABELA STATE UNIVERSITY
+                                                             Echague, lsabela
+                College of Computing Studies, Information and Communication Technology
+
+
+
+
+
+
+
+
+                                    BACHELOR OF LIBRARY AND INFORMATION SCIENCE
+                                              Effective First Semester, S Y 2021 – 2022
+
+
+
+
+                                                                  THIRD YEAR
+                                                               FIRST SEMESTER
+
+      Course                                Descriptive Title                            No of       No. of Units             Prerequisite
+     Number                                                                              Units        Lec       Lab
+ LIS 311               Indexing and Abstracting                                             3          3                  LIS 212, LIS 222
+ LIS 312               Introduction to Records Management and Archives                      3          3                  None
+ LIS 313               Library and Information Management in Academic                       3          3                  LIS 221, LIS 222
+                       Libraries
+ LIS ICT 311           Systems Analysis and Design in Libraries and                         3          2          1       3rd year Standing
+                       Information Centers
+ LIS GE Elec 3         Environmental Science                                                3          3                           None
+ LIS Spt 5             Educational Technology                                               3          3                  3rd year Standing
+ LIS Spt 6             Indigenous Knowledge and Multi-Culturalism                           3          3                  3rd year Standing
+                       Total Units                                                         21         20          1
+                                                             SECOND SEMESTER
+      Course                                Descriptive Title                            No of       No. of Units             Prerequisite
+     Number                                                                              Units
+                                                                                                      Lec       Lab
+ LIS 321               Management of Libraries and Information Centers                      3          3                  LIS 111 – LIS 311
+ LIS 322               Information Literacy                                                 3          3                  LIS 111, LIS 211, LIS
+                                                                                                                          221, LIS 212, LIS 311
+ LIS 323               Information Sources and Services in Academic                         3          3                  LIS 313
+                       Librarianship
+ LIS ICT 321           Database Design for Libraries                                        3          2          1       LIS ICT 311
+ LIS ICT 322           Introduction to Data Science                                         3          2          1       LIS ICT 311
+ LIS Spt 7             Seminar in Library and Information Science                           3          3                  3rd Year Standing
+ LIS Spt 8             Foreign Language                                                     3          3                  3rd Year Standing
+                       Total Units                                                         24         22          2
+
+
+Prepared by:                               Reviewed by:
+
+HONEYLYN C. GAJES, RL                      RICARDO Q. CAMUNGAO, DIT                              Engr. NANETTE D. SAYO
+Program Chair, BLIS                        Dean                                                  Campus Director, ARA
+
+
+Endorsed by:
+
+
+JOSE P. GALLENA, JR., DPA                  MARINEL P. DAYAWON, Ph.D.                           BOYET L. BATANG, Ph.D.
+Executive Officer                           University Director for Instruction       VP for Academic and Related Affairs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=== PAGE 4 ===
+                                                      Republic of the Philippines
+                                                 ISABELA STATE UNIVERSITY
+                                                            Echague, lsabela
+               College of Computing Studies, Information and Communication Technology
+
+
+
+
+
+
+
+
+                                    BACHELOR OF LIBRARY AND INFORMATION SCIENCE
+                                             Effective First Semester, S Y 2021 – 2022
+                                                               FOURTH YEAR
+                                                              FIRST SEMESTER
+      Course                               Descriptive Title                            No of       No. of Units            Prerequisite
+     Number                                                                             Units
+                                                                                                    Lec       Lab
+ LIS 411              Research Methods in Library and Information                          3         2          1        LIS 111 – LIS 312
+                      Science                                                                                             LIS ICT 111- LIS
+                                                                                                                               ICT 322
+                                                                                                                          LIS Elec 1 – LIS
+                                                                                                                                Elec 7
+ LIS 412              Library Practice I (200 hours)                                       3                    3        LIS 111 – LIS 323
+ LIS ICT 411          Internet Technologies and Information Services                       3         2          1         4th year Standing
+ LIS ICT 412          Data Science 2                                                       3         2          1            LIS ICT 322
+                                                                       Total Units        12         6          3
+                                                            SECOND SEMESTER
+      Course                               Descriptive Title                            No of       No. of Units            Prerequisite
+     Number                                                                             Units       Lec       Lab
+ LIS 421              Thesis/Research Writing                                              3         2          1       LIS 411
+ LIS 422              Library Practice II (200 hours)                                      3                    3       LIS 412
+ LIS ICT 421          Project Management                                                   3         3                  4th year Standing
+                      Total Units                                                          9         5          1
+                                                             Grand Total Units           165
+
+Prepared by:                              Reviewed by:
+
+HONEYLYN C. GAJES, RL                     RICARDO Q. CAMUNGAO, DIT                             Engr. NANETTE D. SAYO
+Program Chair, BLIS                       Dean                                                 Campus Director, ARA
+
+
+Endorsed by:
+
+
+JOSE P. GALLENA, JR., DPA                 MARINEL P. DAYAWON, Ph.D.                           BOYET L. BATANG, Ph.D.
+Executive Officer                          University Director for Instruction       VP for Academic and Related Affairs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,4 @@
+{% extends 'faculty/_layout.html' %}{% set active_page='dashboard' %}{% from 'srs/ui.html' import metric,bar,state,empty %}{% block title %}Faculty Dashboard{% endblock %}{% block page_title %}Your teaching workspace{% endblock %}
+{% block content %}<div class="srs-intro"><div><span class="section-kicker">FACULTY DASHBOARD</span><h2>Classes, scores, and progress.</h2><p>Open a class to manage its gradebook.</p></div></div>
+<div class="stat-grid">{{ metric('Assigned classes',classes|length,'Selected term','book') }}{{ metric('Class enrollments',total_students,'Across your classes','users') }}{{ metric('Recorded scores',recorded,expected|string+' expected entries','edit') }}{{ metric('Published classes',classes|selectattr('status','equalto','PUBLISHED')|list|length,'Visible to students','check') }}</div>
+{% endblock %}

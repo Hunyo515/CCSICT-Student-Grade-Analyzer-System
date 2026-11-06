@@ -1,0 +1,617 @@
+{
+  "program": "BSCS",
+  "title": "Bachelor of Science in Computer Science",
+  "school_year": "2021-2022",
+  "institution": "Isabela State University",
+  "college": "College of Computing Studies, Information and Communication Technology",
+  "specialization": "Data Mining",
+  "years": [
+    {
+      "label": "First Year",
+      "semesters": [
+        {
+          "label": "First Semester",
+          "semester": "1st Semester",
+          "source_page": 6,
+          "courses": [
+            {
+              "code": "CS Inst 1",
+              "title": "Climate Change and Disaster Risk Management",
+              "units": "2",
+              "lecture": "2",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 3",
+              "title": "Mathematics in the Modern World",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 4",
+              "title": "Purposive Communication",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GE Elec CS 1",
+              "title": "Health and Wellness Science",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GE Elec CS 2",
+              "title": "Gender and Society",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "CS 111",
+              "title": "Introduction to Computing",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "None"
+            },
+            {
+              "code": "CS 112",
+              "title": "Fundamentals of Programming",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "None"
+            },
+            {
+              "code": "PE 1",
+              "title": "Physical Activity Towards Health Fitness I (Movement Enhancement)",
+              "units": "2",
+              "lecture": "2",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "NSTP 1",
+              "title": "CWTS/LTS/MS 1",
+              "units": "(3)",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            }
+          ],
+          "totals": {
+            "units": "25",
+            "lecture": "",
+            "laboratory": ""
+          },
+          "notes": []
+        },
+        {
+          "label": "Second Semester",
+          "semester": "2nd Semester",
+          "source_page": 6,
+          "courses": [
+            {
+              "code": "GEC 1",
+              "title": "Understanding the Self",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 2",
+              "title": "Readings in Philippine History",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 5",
+              "title": "Art Appreciation",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GE Elec CS 3",
+              "title": "Foreign Language 1",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "CS 121",
+              "title": "Discrete Structures 1",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "GEC 3"
+            },
+            {
+              "code": "CS 122",
+              "title": "Intermediate Programming",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "CS 112"
+            },
+            {
+              "code": "PE 2",
+              "title": "Physical Activity Towards Health Fitness II (Fitness Exercise)",
+              "units": "2",
+              "lecture": "2",
+              "laboratory": "",
+              "prerequisite": "PE 1"
+            },
+            {
+              "code": "NSTP 2",
+              "title": "CWTS/LTS/MS 2",
+              "units": "(3)",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "NSTP 1"
+            }
+          ],
+          "totals": {
+            "units": "23",
+            "lecture": "",
+            "laboratory": ""
+          },
+          "notes": []
+        }
+      ]
+    },
+    {
+      "label": "Second Year",
+      "semesters": [
+        {
+          "label": "First Semester",
+          "semester": "1st Semester",
+          "source_page": 7,
+          "courses": [
+            {
+              "code": "GEC 6",
+              "title": "Science, Technology and Society",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 8",
+              "title": "The Contemporary World",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "CS Inst 2",
+              "title": "Creative and Critical Thinking",
+              "units": "2",
+              "lecture": "1",
+              "laboratory": "1",
+              "prerequisite": "None"
+            },
+            {
+              "code": "CS 211",
+              "title": "Discrete Structures 2",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "CS 121"
+            },
+            {
+              "code": "CS 212",
+              "title": "Object-Oriented Programming",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "CS 122"
+            },
+            {
+              "code": "CS 213",
+              "title": "Data Structures and Algorithms",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "CS 122"
+            },
+            {
+              "code": "CS 214",
+              "title": "Calculus with Analytic Geometry",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "2nd Year Standing"
+            },
+            {
+              "code": "CS Elec 1",
+              "title": "CS Elective 1",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "2nd year Standing"
+            },
+            {
+              "code": "PE 3",
+              "title": "Physical Activity Towards Health Fitness III (Dance & Indiv./Dual Sports)",
+              "units": "2",
+              "lecture": "2",
+              "laboratory": "",
+              "prerequisite": "PE 1, PE 2"
+            }
+          ],
+          "totals": {
+            "units": "25",
+            "lecture": "",
+            "laboratory": ""
+          },
+          "notes": []
+        },
+        {
+          "label": "Second Semester",
+          "semester": "2nd Semester",
+          "source_page": 7,
+          "courses": [
+            {
+              "code": "GEC 7",
+              "title": "Ethics",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 9",
+              "title": "Life and Works of Rizal",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "CS GE Elec 1",
+              "title": "The Entrepreneurial Mind",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "CS Inst 2"
+            },
+            {
+              "code": "CS GE Elec 4",
+              "title": "Technical Writing",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "CS 221",
+              "title": "Algorithms and Complexity",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "CS 213, CS 211"
+            },
+            {
+              "code": "CS 222",
+              "title": "Information Management",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "CS 122"
+            },
+            {
+              "code": "CS DM 1",
+              "title": "Statistical methods for Data Analysis and Inference",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "2nd Year Standing"
+            },
+            {
+              "code": "CS DM 2",
+              "title": "Data Preparation and Analysis",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "2nd Year Standing"
+            },
+            {
+              "code": "PE 4",
+              "title": "Physical Activity Towards Health Fitness IV (Team Sports/Outdoor & Adventure Activities/Dance)",
+              "units": "2",
+              "lecture": "2",
+              "laboratory": "",
+              "prerequisite": "PE 1, PE 2, PE 3"
+            }
+          ],
+          "totals": {
+            "units": "26",
+            "lecture": "",
+            "laboratory": ""
+          },
+          "notes": []
+        }
+      ]
+    },
+    {
+      "label": "Third Year",
+      "semesters": [
+        {
+          "label": "First Semester",
+          "semester": "1st Semester",
+          "source_page": 8,
+          "courses": [
+            {
+              "code": "CS 311",
+              "title": "Automata Theory and Formal Languages",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "CS 221"
+            },
+            {
+              "code": "CS 312",
+              "title": "Architecture and Organization",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "CS 213, CS 121"
+            },
+            {
+              "code": "CS 313",
+              "title": "Information Assurance and Security",
+              "units": "2",
+              "lecture": "2",
+              "laboratory": "",
+              "prerequisite": "CS 222"
+            },
+            {
+              "code": "CS 314",
+              "title": "Software Engineering 1",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "CS 222, CS 212"
+            },
+            {
+              "code": "CS 315",
+              "title": "Social and Professional Issues",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "Co-requisite with CS 314"
+            },
+            {
+              "code": "CS DM 3",
+              "title": "Data Mining Techniques and Tools",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "3rd Year Standing"
+            },
+            {
+              "code": "CS DM 4",
+              "title": "Data Mining Applications",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "3rd Year Standing"
+            }
+          ],
+          "totals": {
+            "units": "20",
+            "lecture": "",
+            "laboratory": ""
+          },
+          "notes": []
+        },
+        {
+          "label": "Second Semester",
+          "semester": "2nd Semester",
+          "source_page": 8,
+          "courses": [
+            {
+              "code": "CS 321",
+              "title": "CS Thesis Writing 1",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "CS 313, CS GE Elec 4"
+            },
+            {
+              "code": "CS 322",
+              "title": "Software Engineering 2",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "CS 314"
+            },
+            {
+              "code": "CS 323",
+              "title": "Application Development and Emerging Technologies",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "CS 222"
+            },
+            {
+              "code": "CS 324",
+              "title": "Programming Languages",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "CS 213"
+            },
+            {
+              "code": "CS Elec 2",
+              "title": "CS Elective 2",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "3rd Year Standing"
+            },
+            {
+              "code": "CS DM 5",
+              "title": "Algorithms for Data Mining",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "CS DM 3 & 4"
+            },
+            {
+              "code": "CS DM 6",
+              "title": "Data Mining Methodology",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "CS DM 3 & 4"
+            }
+          ],
+          "totals": {
+            "units": "21",
+            "lecture": "",
+            "laboratory": ""
+          },
+          "notes": []
+        },
+        {
+          "label": "Midyear",
+          "semester": "Summer",
+          "source_page": 8,
+          "courses": [
+            {
+              "code": "CS Elec 3",
+              "title": "CS Elective 3",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "4th year Standing"
+            },
+            {
+              "code": "CS GE Elec 2",
+              "title": "Multi-cultural Education",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "CS GE Elec 3",
+              "title": "Leadership and Management in the Profession",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            }
+          ],
+          "totals": {
+            "units": "9",
+            "lecture": "",
+            "laboratory": ""
+          },
+          "notes": []
+        }
+      ]
+    },
+    {
+      "label": "Fourth Year",
+      "semesters": [
+        {
+          "label": "First Semester",
+          "semester": "1st Semester",
+          "source_page": 9,
+          "courses": [
+            {
+              "code": "CS 412",
+              "title": "Human-Computer Interaction",
+              "units": "1",
+              "lecture": "1",
+              "laboratory": "",
+              "prerequisite": "CS 122"
+            },
+            {
+              "code": "CS 413",
+              "title": "Networks and Communications",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "CS 213"
+            },
+            {
+              "code": "CS 414",
+              "title": "Operating Systems",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "CS 213"
+            },
+            {
+              "code": "CS 411",
+              "title": "CS Thesis Writing 2",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "CS 321"
+            }
+          ],
+          "totals": {
+            "units": "10",
+            "lecture": "",
+            "laboratory": ""
+          },
+          "notes": []
+        },
+        {
+          "label": "Second Semester",
+          "semester": "2nd Semester",
+          "source_page": 9,
+          "courses": [
+            {
+              "code": "CS 421",
+              "title": "Practicum (486 hours)",
+              "units": "9",
+              "lecture": "",
+              "laboratory": "",
+              "prerequisite": "4th Year Standing"
+            }
+          ],
+          "totals": {
+            "units": "9",
+            "lecture": "",
+            "laboratory": ""
+          },
+          "notes": []
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "The source includes a third-year Midyear term; it is catalogued under Summer.",
+    "The printed second-year first-semester header contains “CS Inst 3: 1 hour lecture; 3 hours lab 2 units” without a course title, row units or prerequisite. It is retained as a source note, not invented as a subject.",
+    "NSTP units are printed as (3); the source totals include them. Parentheses are preserved as units notes.",
+    "Prerequisites and year-standing requirements are retained as printed, including the fourth-year-standing requirement for third-year Midyear CS Elec 3."
+  ],
+  "source_file": "ccsict-2021-2022.pdf",
+  "source_pages": [
+    6,
+    7,
+    8,
+    9
+  ],
+  "printed_grand_total": "168"
+}

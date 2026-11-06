@@ -1,0 +1,23 @@
+{% extends "faculty/_layout.html" %}
+{% set active_page = "dashboard" %}
+{% from "_insight_ui.html" import metric, bar, empty, distribution, readiness, publication, class_sizes, history_chart %}
+{% block title %}Dashboard{% endblock %}
+{% block page_title %}Dashboard{% endblock %}
+{% block content %}
+<div class="insights"><div class="insight-toolbar"><a class="insight-link" href="{{ url_for('faculty.analytics') }}">Analytics →</a></div>
+
+
+<div class="insight-metrics">
+{{ metric('Assigned class sections', report.sections, 'Current term', 'accent') }}
+{{ metric('Unique students', report.students, report.enrollments ~ ' enrollments across your classes') }}
+{{ metric('Scores awaiting entry', report.missing, 'Required entries missing or invalid', 'attention') }}
+{{ metric('Published classes', report.published ~ ' / ' ~ report.sections, 'Current term') }}
+</div>
+<div class="insight-grid wide">{{ readiness(sections, 'faculty') }}{{ publication(report) }}</div>
+<div class="insight-grid">{{ class_sizes(sections) }}{{ distribution(report, 'Includes unpublished grades') }}</div>
+<article class="insight-panel"><h2>Class readiness</h2><div class="insight-table-wrap" tabindex="0" role="region" aria-label="Scrollable report table"><table class="insight-table"><thead><tr><th>Class / section</th><th>State</th><th class="num">Students</th><th class="num">Complete results</th><th>Next step</th></tr></thead><tbody>
+{% for s in sections %}<tr><td><strong>{{ s.subject_code }} · {{ s.section }}</strong><small>{{ s.subject_name }}</small></td><td><span class="insight-status {{ 'published' if s.status == 'PUBLISHED' }}">{{ s.status|replace('_',' ')|title }}</span></td><td class="num">{{ s.students }}</td><td class="num">{{ s.complete }} / {{ s.students }}</td><td><a class="insight-link" href="{{ url_for('faculty.grade_weighting' if not s.weighting_valid else 'faculty.grade_entry', assignment_id=s.assignment_id) }}">{{ 'Set grade weights' if not s.weighting_valid else ('Enter missing scores' if s.missing else 'Review grades') }} →</a></td></tr>{% else %}<tr><td colspan="5">No classes assigned. Contact your administrator to set up your teaching load.</td></tr>{% endfor %}</tbody></table></div></article>
+
+
+</div>
+{% endblock %}

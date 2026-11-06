@@ -1,0 +1,582 @@
+{
+  "program": "BSIS",
+  "title": "Bachelor of Science in Information Systems",
+  "school_year": "2021-2022",
+  "institution": "Isabela State University",
+  "college": "College of Computing Studies, Information and Communication Technology",
+  "specialization": "Service Management for Business Process Outsourcing (BPO)",
+  "years": [
+    {
+      "label": "First Year",
+      "semesters": [
+        {
+          "label": "First Semester",
+          "semester": "1st Semester",
+          "source_page": 2,
+          "courses": [
+            {
+              "code": "GEC 4",
+              "title": "Purposive Communication",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 5",
+              "title": "Art Appreciation",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "IS 111",
+              "title": "Introduction to Computing",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "None"
+            },
+            {
+              "code": "IS 112",
+              "title": "Computer Programming 1",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "None"
+            },
+            {
+              "code": "IS GEC Elec 1",
+              "title": "Health and Wellness Science",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "IS GE Elec 2",
+              "title": "Multicultural Education",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "PE 1",
+              "title": "Physical Activity Towards Health Fitness I (Movement Patterns)",
+              "units": "2",
+              "lecture": "2",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "NSTP 1",
+              "title": "CWTS/LTS/MS 1",
+              "units": "(3)",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            }
+          ],
+          "totals": {
+            "units": "20.0",
+            "lecture": "18",
+            "laboratory": "2"
+          },
+          "notes": [
+            "Source total: 20.0 units; listed course rows: 23 units (including parenthesized NSTP). Source values are retained."
+          ]
+        },
+        {
+          "label": "Second Semester",
+          "semester": "2nd Semester",
+          "source_page": 2,
+          "courses": [
+            {
+              "code": "GEC 1",
+              "title": "Understanding the Self",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 2",
+              "title": "Readings in Philippine History",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 3",
+              "title": "Mathematics in the Modern World",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "IS GEC Elec 2",
+              "title": "Gender and Society",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "IS INST 1",
+              "title": "Climate Change and Disaster Risk Management",
+              "units": "2",
+              "lecture": "2",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "IS 121",
+              "title": "Fundamentals of Information Systems",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "IS 111"
+            },
+            {
+              "code": "IS 122",
+              "title": "Computer Programming 2",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IS 112"
+            },
+            {
+              "code": "PE 2",
+              "title": "Physical Activity Towards Health Fitness II (Exercise Program)",
+              "units": "2",
+              "lecture": "2",
+              "laboratory": "",
+              "prerequisite": "PE 1"
+            },
+            {
+              "code": "NSTP 2",
+              "title": "CWTS/LTS/MS 2",
+              "units": "(3)",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "NSTP 1"
+            }
+          ],
+          "totals": {
+            "units": "22.0",
+            "lecture": "21",
+            "laboratory": "1"
+          },
+          "notes": [
+            "Source total: 22.0 units; listed course rows: 25 units (including parenthesized NSTP). Source values are retained."
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Second Year",
+      "semesters": [
+        {
+          "label": "First Semester",
+          "semester": "1st Semester",
+          "source_page": 3,
+          "courses": [
+            {
+              "code": "GEC 6",
+              "title": "Science, Technology, and Society",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 8",
+              "title": "The Contemporary World",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "IS Inst 2",
+              "title": "Creative and Critical Thinking",
+              "units": "2",
+              "lecture": "1",
+              "laboratory": "1",
+              "prerequisite": "None"
+            },
+            {
+              "code": "IS 211",
+              "title": "Data Structures and Algorithms",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IS 122"
+            },
+            {
+              "code": "IS 212",
+              "title": "Professional Issues in Information Systems",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "IS 111, IS 121"
+            },
+            {
+              "code": "IS 213",
+              "title": "IT Infrastructure and Network Technologies",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IS 111, IS 121"
+            },
+            {
+              "code": "IS 214",
+              "title": "Organization and Management Concepts",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "IS 111"
+            },
+            {
+              "code": "PE 3",
+              "title": "Physical Activity Towards Health Fitness III (Dance, Sports, Group Exercise, Outdoor Adventure Activities)",
+              "units": "2",
+              "lecture": "2",
+              "laboratory": "",
+              "prerequisite": "PE 1, PE 2"
+            },
+            {
+              "code": "IS BPO 211",
+              "title": "Business Communication for BPO",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "GEC 4"
+            }
+          ],
+          "totals": {
+            "units": "25.0",
+            "lecture": "22",
+            "laboratory": "3"
+          },
+          "notes": []
+        },
+        {
+          "label": "Second Semester",
+          "semester": "2nd Semester",
+          "source_page": 3,
+          "courses": [
+            {
+              "code": "GEC 7",
+              "title": "Ethics",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 9",
+              "title": "Life and Works of Rizal",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "IS GE Elec 1",
+              "title": "Entrepreneurial Mind",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "IS 221",
+              "title": "Systems Analysis and Design",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "2nd Year Standing"
+            },
+            {
+              "code": "IS 222",
+              "title": "Financial Management",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "IS 214"
+            },
+            {
+              "code": "IS Elec 1",
+              "title": "IT Audit and Controls",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "2nd year standing"
+            },
+            {
+              "code": "PE 4",
+              "title": "Physical Activity Towards Health Fitness IV (Dance, Sports, Group Exercise, Outdoor Adventure Activities)",
+              "units": "2",
+              "lecture": "2",
+              "laboratory": "",
+              "prerequisite": "PE 1, PE 2, PE 3"
+            },
+            {
+              "code": "IS BPO 221",
+              "title": "Service Culture",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IS BPO 211"
+            }
+          ],
+          "totals": {
+            "units": "23.0",
+            "lecture": "20",
+            "laboratory": "3"
+          },
+          "notes": []
+        }
+      ]
+    },
+    {
+      "label": "Third Year",
+      "semesters": [
+        {
+          "label": "First Semester",
+          "semester": "1st Semester",
+          "source_page": 4,
+          "courses": [
+            {
+              "code": "IS 311",
+              "title": "Information Management",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IS 211"
+            },
+            {
+              "code": "IS 312",
+              "title": "Enterprise Architecture",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IS 213"
+            },
+            {
+              "code": "IS 313",
+              "title": "Business Process Management",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "IS 222"
+            },
+            {
+              "code": "IS 314",
+              "title": "Quantitative Methods",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "3rd year standing"
+            },
+            {
+              "code": "IS Elec 2",
+              "title": "Data Mining",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "3rd year standing"
+            },
+            {
+              "code": "IS BPO 311",
+              "title": "Fundamentals of Business Process Outsourcing 101",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IS BPO 211, IS BPO 221"
+            },
+            {
+              "code": "IS BPO 312",
+              "title": "Principles of Systems Thinking",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "IS BPO 211, IS BPO 221"
+            }
+          ],
+          "totals": {
+            "units": "21.0",
+            "lecture": "17",
+            "laboratory": "4"
+          },
+          "notes": []
+        },
+        {
+          "label": "Second Semester",
+          "semester": "2nd Semester",
+          "source_page": 4,
+          "courses": [
+            {
+              "code": "IS GEC Elec 3",
+              "title": "Foreign Language 1",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "IS 321",
+              "title": "IS Project Management 1",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "IS 221"
+            },
+            {
+              "code": "IS 322",
+              "title": "Evaluation of Business Performance",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "IS 313"
+            },
+            {
+              "code": "IS 323",
+              "title": "Capstone Project 1",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "3rd year standing"
+            },
+            {
+              "code": "IS Elec 3",
+              "title": "IT Security and Risks Management",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "3rd year standing"
+            },
+            {
+              "code": "IS GE Elec 3",
+              "title": "Leadership and Management in the Profession",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "IS BPO 321",
+              "title": "Fundamentals of Business Process Outsourcing 102",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IS BPO 211, IS BPO 221, IS BPO 311"
+            }
+          ],
+          "totals": {
+            "units": "21.0",
+            "lecture": "18",
+            "laboratory": "3"
+          },
+          "notes": []
+        }
+      ]
+    },
+    {
+      "label": "Fourth Year",
+      "semesters": [
+        {
+          "label": "First Semester",
+          "semester": "1st Semester",
+          "source_page": 5,
+          "courses": [
+            {
+              "code": "IS 411",
+              "title": "IS Strategy, Management, and Acquisition",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "4th year standing"
+            },
+            {
+              "code": "IS 412",
+              "title": "Applications Development and Emerging Technologies",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "4th year standing"
+            },
+            {
+              "code": "IS 413",
+              "title": "Capstone Project 2",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IS 323"
+            },
+            {
+              "code": "IS Elec 4",
+              "title": "IS Innovations and New Technologies",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "4th year standing"
+            },
+            {
+              "code": "IS FOR 411",
+              "title": "Foreign Language",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            }
+          ],
+          "totals": {
+            "units": "15.0",
+            "lecture": "12",
+            "laboratory": "3"
+          },
+          "notes": []
+        },
+        {
+          "label": "Second Semester",
+          "semester": "2nd Semester",
+          "source_page": 5,
+          "courses": [
+            {
+              "code": "IS 421",
+              "title": "Practicum for Information Systems/Internship Program (486 hours)",
+              "units": "9",
+              "lecture": "9",
+              "laboratory": "",
+              "prerequisite": "4th year standing"
+            }
+          ],
+          "totals": {
+            "units": "9.0",
+            "lecture": "9",
+            "laboratory": ""
+          },
+          "notes": []
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "The source prints NSTP units as (3) and excludes them from semester totals. Parentheses are preserved as units notes.",
+    "Similar GE/GEC elective codes with different titles are retained as separate subjects, as printed."
+  ],
+  "source_file": "ccsict-2021-2022.pdf",
+  "source_pages": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "printed_grand_total": "156"
+}

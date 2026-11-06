@@ -1,0 +1,593 @@
+{
+  "results": [
+    {
+      "role": "admin",
+      "width": 1440,
+      "path": "/workspace/overview",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 1440,
+      "path": "/admin/subjects",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 1440,
+      "path": "/admin/subjects?program=BSDSA",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 1440,
+      "path": "/workspace/sections",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 1440,
+      "path": "/admin/students",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 1440,
+      "path": "/admin/teachers",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 1440,
+      "path": "/admin/classes",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 1440,
+      "path": "/workspace/review",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 1440,
+      "path": "/workspace/review/10",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 1440,
+      "path": "/workspace/reports",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 1440,
+      "path": "/admin/settings",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "faculty",
+      "width": 1440,
+      "path": "/workspace/classes",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "faculty",
+      "width": 1440,
+      "path": "/workspace/class/10",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "faculty",
+      "width": 1440,
+      "path": "/workspace/class/10?tab=setup",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "faculty",
+      "width": 1440,
+      "path": "/workspace/class/10?tab=analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "faculty",
+      "width": 1440,
+      "path": "/workspace/class/10?tab=details",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "faculty",
+      "width": 1440,
+      "path": "/workspace/classes?view=submissions",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "student",
+      "width": 1440,
+      "path": "/workspace/subjects",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "student",
+      "width": 1440,
+      "path": "/workspace/subjects?view=history",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "student",
+      "width": 1440,
+      "path": "/workspace/join?code=ABC1234567",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "student",
+      "width": 1440,
+      "path": "/student/profile",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 768,
+      "path": "/workspace/overview",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 768,
+      "path": "/admin/subjects",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 768,
+      "path": "/admin/subjects?program=BSDSA",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 768,
+      "path": "/workspace/sections",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 768,
+      "path": "/admin/students",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 768,
+      "path": "/admin/teachers",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 768,
+      "path": "/admin/classes",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 768,
+      "path": "/workspace/review",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 768,
+      "path": "/workspace/review/10",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 768,
+      "path": "/workspace/reports",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 768,
+      "path": "/admin/settings",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "faculty",
+      "width": 768,
+      "path": "/workspace/classes",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "faculty",
+      "width": 768,
+      "path": "/workspace/class/10",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "faculty",
+      "width": 768,
+      "path": "/workspace/class/10?tab=setup",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "faculty",
+      "width": 768,
+      "path": "/workspace/class/10?tab=analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "faculty",
+      "width": 768,
+      "path": "/workspace/class/10?tab=details",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "faculty",
+      "width": 768,
+      "path": "/workspace/classes?view=submissions",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "student",
+      "width": 768,
+      "path": "/workspace/subjects",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "student",
+      "width": 768,
+      "path": "/workspace/subjects?view=history",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "student",
+      "width": 768,
+      "path": "/workspace/join?code=ABC1234567",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "student",
+      "width": 768,
+      "path": "/student/profile",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 375,
+      "path": "/workspace/overview",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 375,
+      "path": "/admin/subjects",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 375,
+      "path": "/admin/subjects?program=BSDSA",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 375,
+      "path": "/workspace/sections",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 375,
+      "path": "/admin/students",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 375,
+      "path": "/admin/teachers",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 375,
+      "path": "/admin/classes",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 375,
+      "path": "/workspace/review",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 375,
+      "path": "/workspace/review/10",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 375,
+      "path": "/workspace/reports",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 375,
+      "path": "/admin/settings",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "faculty",
+      "width": 375,
+      "path": "/workspace/classes",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "faculty",
+      "width": 375,
+      "path": "/workspace/class/10",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "faculty",
+      "width": 375,
+      "path": "/workspace/class/10?tab=setup",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "faculty",
+      "width": 375,
+      "path": "/workspace/class/10?tab=analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "faculty",
+      "width": 375,
+      "path": "/workspace/class/10?tab=details",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "faculty",
+      "width": 375,
+      "path": "/workspace/classes?view=submissions",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "student",
+      "width": 375,
+      "path": "/workspace/subjects",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "student",
+      "width": 375,
+      "path": "/workspace/subjects?view=history",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "student",
+      "width": 375,
+      "path": "/workspace/join?code=ABC1234567",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "student",
+      "width": 375,
+      "path": "/student/profile",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 320,
+      "path": "/workspace/overview",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 320,
+      "path": "/admin/subjects",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 320,
+      "path": "/admin/subjects?program=BSDSA",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 320,
+      "path": "/workspace/sections",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 320,
+      "path": "/admin/students",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 320,
+      "path": "/admin/teachers",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 320,
+      "path": "/admin/classes",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 320,
+      "path": "/workspace/review",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 320,
+      "path": "/workspace/review/10",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 320,
+      "path": "/workspace/reports",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "admin",
+      "width": 320,
+      "path": "/admin/settings",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "faculty",
+      "width": 320,
+      "path": "/workspace/classes",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "faculty",
+      "width": 320,
+      "path": "/workspace/class/10",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "faculty",
+      "width": 320,
+      "path": "/workspace/class/10?tab=setup",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "faculty",
+      "width": 320,
+      "path": "/workspace/class/10?tab=analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "faculty",
+      "width": 320,
+      "path": "/workspace/class/10?tab=details",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "faculty",
+      "width": 320,
+      "path": "/workspace/classes?view=submissions",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "student",
+      "width": 320,
+      "path": "/workspace/subjects",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "student",
+      "width": 320,
+      "path": "/workspace/subjects?view=history",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "student",
+      "width": 320,
+      "path": "/workspace/join?code=ABC1234567",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "role": "student",
+      "width": 320,
+      "path": "/student/profile",
+      "status": 200,
+      "overflow": false
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,611 @@
+{
+  "program": "BLIS",
+  "title": "Bachelor of Library and Information Science",
+  "school_year": "2021-2022",
+  "institution": "Isabela State University",
+  "college": "College of Computing Studies, Information and Communication Technology",
+  "specialization": "",
+  "years": [
+    {
+      "label": "First Year",
+      "semesters": [
+        {
+          "label": "First Semester",
+          "semester": "1st Semester",
+          "source_page": 1,
+          "courses": [
+            {
+              "code": "GEC 4",
+              "title": "Purposive Communication",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 5",
+              "title": "Art Appreciation",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "LIS 111",
+              "title": "Introduction to Library and Information Science",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "LIS Spt 1",
+              "title": "School/Academic Librarianship",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "LIS ICT 111",
+              "title": "Information Processing and Handling in Libraries and Information Centers",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "None"
+            },
+            {
+              "code": "LIS ICT 112",
+              "title": "Office Productivity",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "None"
+            },
+            {
+              "code": "LIS Inst 1",
+              "title": "Climate Change and Disaster Risk Management",
+              "units": "2",
+              "lecture": "",
+              "laboratory": "",
+              "prerequisite": ""
+            },
+            {
+              "code": "PE 1",
+              "title": "Physical Activity Towards Health and Fitness 1(Movement Patterns)",
+              "units": "2",
+              "lecture": "2",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "NSTP 1",
+              "title": "CWTS/LTS/MS1",
+              "units": "(3)",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            }
+          ],
+          "notes": [
+            "Source total: 23 units; listed course rows: 25 units (including parenthesized NSTP). Source values are retained."
+          ],
+          "totals": {
+            "units": "23",
+            "lecture": "21",
+            "laboratory": "2"
+          }
+        },
+        {
+          "label": "Second Semester",
+          "semester": "2nd Semester",
+          "source_page": 1,
+          "courses": [
+            {
+              "code": "GEC 1",
+              "title": "Understanding the Self",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 2",
+              "title": "Reading in Philippine History",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 3",
+              "title": "Mathematics in the Modern World",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "LIS 121",
+              "title": "Collection Management of Information Resources",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "LIS 111"
+            },
+            {
+              "code": "LIS Spt 2",
+              "title": "Special/Public Librarianship",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "LIS ICT 121",
+              "title": "Web Technologies in Libraries and Information Science",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "LIS ICT 111"
+            },
+            {
+              "code": "LIS ICT 122",
+              "title": "Programming Fundamentals 1",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "LIS ICT 111"
+            },
+            {
+              "code": "PE 2",
+              "title": "Physical Activity Towards Health and Fitness 2 (Exercise Program Based)",
+              "units": "2",
+              "lecture": "2",
+              "laboratory": "",
+              "prerequisite": "PE 1"
+            },
+            {
+              "code": "NSTP 2",
+              "title": "CWTS/LTS/MS 2",
+              "units": "(3)",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "NSTP 1"
+            }
+          ],
+          "notes": [
+            "Source total: 23 units; listed course rows: 26 units (including parenthesized NSTP). Source values are retained."
+          ],
+          "totals": {
+            "units": "23",
+            "lecture": "21",
+            "laboratory": "2"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Second Year",
+      "semesters": [
+        {
+          "label": "First Semester",
+          "semester": "1st Semester",
+          "source_page": 2,
+          "courses": [
+            {
+              "code": "GEC 6",
+              "title": "Science, Technology, and Society",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 8",
+              "title": "The Contemporary World",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "LIS Inst 2",
+              "title": "Creative and Critical Thinking",
+              "units": "2",
+              "lecture": "1",
+              "laboratory": "1",
+              "prerequisite": ""
+            },
+            {
+              "code": "LIS GE Elec 1",
+              "title": "The Entrepreneurial Mind",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "LIS 211",
+              "title": "Information Resources and Services I",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "LIS 111, LIS 121"
+            },
+            {
+              "code": "LIS 212",
+              "title": "Organization of Information Resources I",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "LIS 111, LIS 121"
+            },
+            {
+              "code": "LIS Spt 3",
+              "title": "Preservation of Information Resources",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "2nd year Standing"
+            },
+            {
+              "code": "LIS ICT 221",
+              "title": "Programming Fundamentals 2",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "LIS ICT 211"
+            },
+            {
+              "code": "PE 3",
+              "title": "Physical Activity Towards Health and Fitness 3 (PATH-Fit)",
+              "units": "2",
+              "lecture": "2",
+              "laboratory": "",
+              "prerequisite": "PE 1, PE 2"
+            }
+          ],
+          "notes": [],
+          "totals": {
+            "units": "25",
+            "lecture": "",
+            "laboratory": "2"
+          }
+        },
+        {
+          "label": "Second Semester",
+          "semester": "2nd Semester",
+          "source_page": 2,
+          "courses": [
+            {
+              "code": "GEC 7",
+              "title": "Ethics",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 9",
+              "title": "The Life and Works of Rizal",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "LIS GE Elec 2",
+              "title": "Leadership and Management in the Profession",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "LIS 221",
+              "title": "Information Resources and Services II",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "LIS 211"
+            },
+            {
+              "code": "LIS 222",
+              "title": "Organization of Information Resources II",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "LIS 212"
+            },
+            {
+              "code": "LIS 223",
+              "title": "Library Materials for Children and Young Adults",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "LIS 121"
+            },
+            {
+              "code": "LIS ICT 211",
+              "title": "Digital Libraries and Resources",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "LIS ICT 121"
+            },
+            {
+              "code": "LIS Spt 4",
+              "title": "Philosophies and Principles of Teaching",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "2nd year Standing"
+            },
+            {
+              "code": "PE 4",
+              "title": "Physical Activity Towards Health and Fitness 4 (PATH-Fit)",
+              "units": "2",
+              "lecture": "2",
+              "laboratory": "",
+              "prerequisite": "PE 1, PE 2, PE 3"
+            }
+          ],
+          "notes": [],
+          "totals": {
+            "units": "26",
+            "lecture": "25",
+            "laboratory": "1"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Third Year",
+      "semesters": [
+        {
+          "label": "First Semester",
+          "semester": "1st Semester",
+          "source_page": 3,
+          "courses": [
+            {
+              "code": "LIS 311",
+              "title": "Indexing and Abstracting",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "LIS 212, LIS 222"
+            },
+            {
+              "code": "LIS 312",
+              "title": "Introduction to Records Management and Archives",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "LIS 313",
+              "title": "Library and Information Management in Academic Libraries",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "LIS 221, LIS 222"
+            },
+            {
+              "code": "LIS ICT 311",
+              "title": "Systems Analysis and Design in Libraries and Information Centers",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "3rd year Standing"
+            },
+            {
+              "code": "LIS GE Elec 3",
+              "title": "Environmental Science",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            },
+            {
+              "code": "LIS Spt 5",
+              "title": "Educational Technology",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "3rd year Standing"
+            },
+            {
+              "code": "LIS Spt 6",
+              "title": "Indigenous Knowledge and Multi-Culturalism",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "3rd year Standing"
+            }
+          ],
+          "notes": [],
+          "totals": {
+            "units": "21",
+            "lecture": "20",
+            "laboratory": "1"
+          }
+        },
+        {
+          "label": "Second Semester",
+          "semester": "2nd Semester",
+          "source_page": 3,
+          "courses": [
+            {
+              "code": "LIS 321",
+              "title": "Management of Libraries and Information Centers",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "LIS 111 – LIS 311"
+            },
+            {
+              "code": "LIS 322",
+              "title": "Information Literacy",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "LIS 111, LIS 211, LIS 221, LIS 212, LIS 311"
+            },
+            {
+              "code": "LIS 323",
+              "title": "Information Sources and Services in Academic Librarianship",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "LIS 313"
+            },
+            {
+              "code": "LIS ICT 321",
+              "title": "Database Design for Libraries",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "LIS ICT 311"
+            },
+            {
+              "code": "LIS ICT 322",
+              "title": "Introduction to Data Science",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "LIS ICT 311"
+            },
+            {
+              "code": "LIS Spt 7",
+              "title": "Seminar in Library and Information Science",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "3rd Year Standing"
+            },
+            {
+              "code": "LIS Spt 8",
+              "title": "Foreign Language",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "3rd Year Standing"
+            }
+          ],
+          "notes": [
+            "Source total: 24 units; listed course rows: 21 units (including parenthesized NSTP). Source values are retained."
+          ],
+          "totals": {
+            "units": "24",
+            "lecture": "22",
+            "laboratory": "2"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Fourth Year",
+      "semesters": [
+        {
+          "label": "First Semester",
+          "semester": "1st Semester",
+          "source_page": 4,
+          "courses": [
+            {
+              "code": "LIS 411",
+              "title": "Research Methods in Library and Information Science",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "LIS 111 – LIS 312 LIS ICT 111- LIS ICT 322 LIS Elec 1 – LIS Elec 7"
+            },
+            {
+              "code": "LIS 412",
+              "title": "Library Practice I (200 hours)",
+              "units": "3",
+              "lecture": "",
+              "laboratory": "3",
+              "prerequisite": "LIS 111 – LIS 323"
+            },
+            {
+              "code": "LIS ICT 411",
+              "title": "Internet Technologies and Information Services",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "4th year Standing"
+            },
+            {
+              "code": "LIS ICT 412",
+              "title": "Data Science 2",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "LIS ICT 322"
+            }
+          ],
+          "notes": [],
+          "totals": {
+            "units": "12",
+            "lecture": "6",
+            "laboratory": "3"
+          }
+        },
+        {
+          "label": "Second Semester",
+          "semester": "2nd Semester",
+          "source_page": 4,
+          "courses": [
+            {
+              "code": "LIS 421",
+              "title": "Thesis/Research Writing",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "LIS 411"
+            },
+            {
+              "code": "LIS 422",
+              "title": "Library Practice II (200 hours)",
+              "units": "3",
+              "lecture": "",
+              "laboratory": "3",
+              "prerequisite": "LIS 412"
+            },
+            {
+              "code": "LIS ICT 421",
+              "title": "Project Management",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "4th year Standing"
+            }
+          ],
+          "notes": [],
+          "totals": {
+            "units": "9",
+            "lecture": "5",
+            "laboratory": "1"
+          }
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Blank lecture, laboratory and prerequisite cells are retained as unspecified, including LIS Inst 1.",
+    "LIS ICT 221 (Programming Fundamentals 2) is printed in second-year first semester with prerequisite LIS ICT 211, which is printed in the following semester. The sequence is retained as printed.",
+    "LIS 411 prerequisites refer to LIS Elec 1 through LIS Elec 7, which are not separate listed subjects in the supplied document. No additional courses are invented.",
+    "Printed totals contain discrepancies: third-year second semester states 24 units although its seven listed courses sum to 21; fourth-year laboratory totals do not include all listed laboratory units. The supplied grand total is 165. Catalog totals are calculated from listed course rows.",
+    "NSTP units are printed as (3); parentheses are preserved as units notes."
+  ],
+  "source_file": "blis-2021-2022.pdf",
+  "source_pages": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "printed_grand_total": "165"
+}

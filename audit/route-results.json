@@ -1,0 +1,214 @@
+[
+  {
+    "path": "/",
+    "status": 200
+  },
+  {
+    "path": "/verify-email",
+    "status": 302
+  },
+  {
+    "path": "/change-password",
+    "status": 302
+  },
+  {
+    "path": "/register",
+    "status": 200
+  },
+  {
+    "path": "/register/faculty",
+    "status": 200
+  },
+  {
+    "path": "/admin/dashboard",
+    "status": 200
+  },
+  {
+    "path": "/admin/subjects",
+    "status": 200
+  },
+  {
+    "path": "/admin/subjects/new",
+    "status": 200
+  },
+  {
+    "path": "/admin/subjects/curriculum",
+    "status": 302
+  },
+  {
+    "path": "/admin/subjects/curriculum/bsdsa/source",
+    "status": 200
+  },
+  {
+    "path": "/admin/teachers",
+    "status": 200
+  },
+  {
+    "path": "/admin/classes",
+    "status": 200
+  },
+  {
+    "path": "/admin/students",
+    "status": 200
+  },
+  {
+    "path": "/admin/students/assign",
+    "status": 200
+  },
+  {
+    "path": "/admin/settings",
+    "status": 200
+  },
+  {
+    "path": "/admin/analytics",
+    "status": 200
+  },
+  {
+    "path": "/faculty/dashboard",
+    "status": 200
+  },
+  {
+    "path": "/faculty/grade-entry",
+    "status": 200
+  },
+  {
+    "path": "/faculty/grade-weighting",
+    "status": 200
+  },
+  {
+    "path": "/faculty/grade-entry/csv/preview",
+    "status": 302
+  },
+  {
+    "path": "/faculty/analytics",
+    "status": 200
+  },
+  {
+    "path": "/faculty/top-performers",
+    "status": 200
+  },
+  {
+    "path": "/faculty/section-detail",
+    "status": 200
+  },
+  {
+    "path": "/faculty/grade-entry/registry",
+    "status": 200
+  },
+  {
+    "path": "/faculty/grade-entry/export",
+    "status": 404
+  },
+  {
+    "path": "/student/dashboard",
+    "status": 200
+  },
+  {
+    "path": "/student/grades",
+    "status": 200
+  },
+  {
+    "path": "/student/profile",
+    "status": 200
+  },
+  {
+    "path": "/student/profile/photo",
+    "status": 404
+  },
+  {
+    "path": "/student/analytics",
+    "status": 200
+  },
+  {
+    "path": "/student/my-rank",
+    "status": 200
+  },
+  {
+    "path": "/workspace/overview",
+    "status": 302
+  },
+  {
+    "path": "/workspace/reports",
+    "status": 302
+  },
+  {
+    "path": "/workspace/classes",
+    "status": 302
+  },
+  {
+    "path": "/workspace/review",
+    "status": 302
+  },
+  {
+    "path": "/workspace/sections",
+    "status": 302
+  },
+  {
+    "path": "/workspace/subjects",
+    "status": 302
+  },
+  {
+    "path": "/workspace/join",
+    "status": 302
+  },
+  {
+    "path": "/app/teacher",
+    "status": 302
+  },
+  {
+    "path": "/app/teacher/classes",
+    "status": 302
+  },
+  {
+    "path": "/app/teacher/top-performers",
+    "status": 302
+  },
+  {
+    "path": "/app/teacher/analytics",
+    "status": 302
+  },
+  {
+    "path": "/app/student",
+    "status": 302
+  },
+  {
+    "path": "/app/student/grades",
+    "status": 302
+  },
+  {
+    "path": "/app/student/view-grade",
+    "status": 302
+  },
+  {
+    "path": "/app/student/rank",
+    "status": 302
+  },
+  {
+    "path": "/app/student/analytics",
+    "status": 302
+  },
+  {
+    "path": "/app/student/join",
+    "status": 302
+  },
+  {
+    "path": "/app/admin",
+    "status": 302
+  },
+  {
+    "path": "/app/admin/analytics",
+    "status": 302
+  },
+  {
+    "path": "/app/admin/subjects",
+    "status": 302
+  },
+  {
+    "path": "/university/credentials",
+    "status": 302
+  },
+  {
+    "path": "/university/enlistme",
+    "status": 302
+  }
+]

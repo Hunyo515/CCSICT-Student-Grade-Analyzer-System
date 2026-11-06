@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ error.code }} — Request could not be completed</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='img/logo.png') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/workspace.css') }}">
+</head>
+<body class="auth-body">
+  <main class="login-wrap">
+    <h1>{{ 'Review this request' if error.code in (400, 409) else 'Please try again' }}</h1>
+    <p role="alert">{{ error.description }}</p>
+    {% if back_url %}
+      <p>Return to the previous page to review your input, or return to your workspace.</p>
+      <a href="{{ back_url }}">Return to previous page</a>
+    {% else %}
+      <p>Return to your workspace.</p>
+    {% endif %}
+    <a href="{{ url_for('auth.select_role') }}">Return to workspace</a>
+  </main>
+  <script src="{{ url_for('static', filename='js/forms.js') }}" defer></script>
+</body>
+</html>

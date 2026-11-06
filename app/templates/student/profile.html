@@ -1,0 +1,18 @@
+{% extends 'student/_layout.html' %}
+{% set active_page='profile' %}
+{% block title %}My Profile{% endblock %}
+{% block page_title %}My profile{% endblock %}
+{% block header_extra %}{% endblock %}
+{% block content %}
+<div class="student-profile-stack">
+ <section class="panel">
+  <div class="panel-heading"><div><span class="section-kicker">STUDENT RECORD</span><h2>{{ student.full_name }}</h2></div><span class="state-pill published">{{ student.status|title }}</span></div>
+  <div class="student-photo-area"><button type="button" class="profile-photo-trigger" aria-label="Change profile picture">{% if student_photo_url %}<img class="student-profile-photo" src="{{ student_photo_url }}" alt="Your profile picture">{% else %}<span class="student-profile-photo student-avatar-initial">{{ student.full_name[:1]|upper }}</span>{% endif %}<span class="profile-camera" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h4l2-3h6l2 3h4v13H3z"/><circle cx="12" cy="13" r="4"/></svg></span></button></div>
+  <dl class="detail-list"><dt>Student ID</dt><dd>{{ student.id_number }}</dd><dt>Program</dt><dd>{{ student.program }}</dd><dt>Standing year</dt><dd>{{ student.standing_year or student.year_level }}</dd><dt>Academic status</dt><dd>{{ student.enrollment_type or "REGULAR" }}</dd><dt>Age at registration</dt><dd>{{ student.age if student.age is defined and student.age else "Not recorded" }}</dd><dt>Main section</dt><dd>{{ student.section if student.section!='UNASSIGNED' else 'Choose in EnlistMe' }}</dd><dt>Email</dt><dd>{{ student.email or 'Not recorded' }}</dd><dt>Contact</dt><dd>{{ student.contact_number or 'Not recorded' }}</dd></dl>
+
+ </section>
+
+</div>
+<dialog id="profilePhotoDialog" class="sheet-dialog" aria-labelledby="profilePhotoTitle"><div class="sheet-dialog-heading"><h2 id="profilePhotoTitle">Update profile picture</h2><button type="button" data-photo-cancel aria-label="Close photo dialog">×</button></div><form method="post" enctype="multipart/form-data" action="{{ url_for('student.profile_photo') }}" id="profilePhotoForm"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><div class="sheet-dialog-fields"><label class="btn btn-secondary photo-choose">Choose photo<input class="sr-only" type="file" name="profile_photo" accept="image/jpeg,image/png,image/webp" required></label><div class="photo-preview-circle"><img id="photoPreview" alt="New profile picture preview" hidden><span id="photoPreviewEmpty">Choose a photo to preview</span></div><label>Zoom<input id="photoZoom" type="range" min="1" max="3" step="0.05" value="1" disabled></label><p id="photoUploadStatus" role="status">JPG, PNG or WebP · up to 2 MB. Your photo changes only after you save.</p></div><div class="sheet-dialog-actions"><button type="button" class="btn btn-secondary" data-photo-cancel>Cancel</button><button type="button" class="btn btn-primary" id="saveProfilePhoto" disabled>Save picture</button></div></form></dialog>
+{% endblock %}
+{% block extra_scripts %}<script src="{{ url_for('static',filename='js/profile-photo.js') }}" defer></script>{% endblock %}

@@ -1,0 +1,65 @@
+{
+  "results": [
+    {
+      "width": 1440,
+      "path": "/admin/subjects/new?program=BSDSA",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "path": "/admin/subjects/1001",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "path": "/admin/classes",
+      "status": 200
+    },
+    {
+      "width": 1440,
+      "path": "/admin/students/assign?assignment_id=10",
+      "status": 200
+    },
+    {
+      "width": 375,
+      "path": "/admin/subjects/new?program=BSDSA",
+      "status": 200
+    },
+    {
+      "width": 375,
+      "path": "/admin/subjects/1001",
+      "status": 200
+    },
+    {
+      "width": 375,
+      "path": "/admin/classes",
+      "status": 200
+    },
+    {
+      "width": 375,
+      "path": "/admin/students/assign?assignment_id=10",
+      "status": 200
+    },
+    {
+      "width": 320,
+      "path": "/admin/subjects/new?program=BSDSA",
+      "status": 200
+    },
+    {
+      "width": 320,
+      "path": "/admin/subjects/1001",
+      "status": 200
+    },
+    {
+      "width": 320,
+      "path": "/admin/classes",
+      "status": 200
+    },
+    {
+      "width": 320,
+      "path": "/admin/students/assign?assignment_id=10",
+      "status": 200
+    }
+  ],
+  "errors": []
+}

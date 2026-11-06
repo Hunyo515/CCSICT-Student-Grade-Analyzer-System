@@ -1,0 +1,18 @@
+{% extends "admin/_layout.html" %}
+{% set active_page = "subjects" %}
+{% block title %}{{ 'Edit' if subject else 'Add' }} Subject{% endblock %}
+{% block page_title %}{{ 'Edit' if subject else 'Add' }} Subject{% endblock %}
+{% block header_extra %}{% endblock %}
+{% block content %}
+<a class="btn-back" href="{{ url_for('admin.catalog_folder',folder_id=folder_id) if folder_id else url_for('admin.subjects',program=program or 'UNSORTED') }}">← Subjects</a>
+<form class="card workflow-form" method="POST" action="{{ url_for('admin.edit_subject',subject_id=subject.subject_id) if subject else url_for('admin.add_subject') }}">
+{% if folder_id %}<input type="hidden" name="folder_id" value="{{ folder_id }}">{% endif %}<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+<div class="field-group"><label class="field-label" for="program">Program</label><select class="field-input" id="program" name="program" required><option value="">Choose program</option>{% for code,name in programs.items() %}<option value="{{ code }}" {{ 'selected' if code==program }}>{{ code }} · {{ name }}</option>{% endfor %}</select></div>
+<div class="field-row"><div class="field-group"><label class="field-label" for="code">Course code</label><input class="field-input" id="code" name="subject_code" value="{{ subject.subject_code if subject else '' }}" maxlength="20" required></div><div class="field-group"><label class="field-label" for="units">Units</label><input class="field-input" id="units" name="units" type="number" min="1" max="9" value="{{ subject.units if subject else 3 }}" required></div></div>
+<div class="field-group"><label class="field-label" for="name">Course title</label><input class="field-input" id="name" name="subject_name" value="{{ subject.subject_name if subject else '' }}" maxlength="150" required></div>
+<div class="field-row"><div class="field-group"><label class="field-label" for="year">Year</label><select class="field-input" id="year" name="year_level" required>{% for year in year_levels %}<option {{ 'selected' if subject and subject.year_level==year }}>{{ year }}</option>{% endfor %}</select></div><div class="field-group"><label class="field-label" for="semester">Semester</label><select class="field-input" id="semester" name="semester_offered" required><option value="">Choose semester</option>{% for semester in ['1st Semester','2nd Semester','Summer'] %}<option {{ 'selected' if subject and subject.semester_offered==semester }}>{{ semester }}</option>{% endfor %}</select></div></div>
+<div class="field-group"><label class="field-label" for="prerequisite">Prerequisites</label><input class="field-input" id="prerequisite" name="prerequisite_text" maxlength="500" value="{{ subject.prerequisite_text or '' if subject else '' }}" placeholder="None, course codes, or standing requirement"></div>
+<p class="cell-muted">Used subjects keep their code and units to protect academic history.</p>
+<div class="workflow-actions"><button class="btn btn-primary" type="submit">Save subject</button><a class="btn btn-outline" href="{{ url_for('admin.catalog_folder',folder_id=folder_id) if folder_id else url_for('admin.subjects',program=program or 'UNSORTED') }}">Cancel</a></div>
+</form>
+{% endblock %}

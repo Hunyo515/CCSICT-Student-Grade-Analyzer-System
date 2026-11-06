@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account — Student Grade Analyzer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+<link rel="icon" href="{{ url_for('static', filename='img/logo.png') }}">
+<link rel="stylesheet" href="{{ url_for('static',filename='css/workspace.css') }}"><link rel="stylesheet" href="{{ url_for('static',filename='css/srs.css') }}"></head>
+<body class="auth-body role-student">
+{% from "_icons.html" import icon %}
+<img class="auth-wave" src="{{ url_for('static', filename='img/wave-decor.png') }}" alt="">
+
+<div class="login-wrap" style="width:820px;max-width:94vw;">
+  <a class="login-back" href="{{ url_for('auth.login', role='student') }}">{{ icon('arrow-left') }} Back</a>
+  <img class="login-logo" src="{{ url_for('static', filename='img/logo.png') }}" alt="CCSICT logo">
+  <h1 class="login-title">Create Your Account</h1>
+  <p class="login-subtitle">Register, then sign in with your email address or Student ID.</p>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+      <div class="auth-flash {{ category }}">{{ message }}</div>
+    {% endfor %}
+  {% endwith %}
+
+  <form class="login-form" method="POST" action="{{ url_for('auth.register') }}">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    
+    <div style="display:flex;gap:20px;width:100%;">
+      <div class="login-field" style="flex:1;">
+        <label for="first_name">First Name</label>
+        <input type="text" id="first_name" name="first_name" value="{{ form.first_name or '' }}" placeholder="Enter first name" required>
+      </div>
+      <div class="login-field" style="flex:1;">
+        <label for="last_name">Last Name</label>
+        <input type="text" id="last_name" name="last_name" value="{{ form.last_name or '' }}" placeholder="Enter last name" required>
+      </div>
+    </div>
+
+<div style="display:flex;gap:20px;width:100%;"><div class="login-field" style="flex:1;"><label for="middle_name">Middle name (optional)</label><input id="middle_name" name="middle_name" maxlength="50" value="{{ form.middle_name or '' }}"></div><div class="login-field" style="flex:1;"><label for="age">Age</label><input id="age" name="age" type="number" min="1" max="120" step="1" value="{{ form.age or '' }}" required></div></div><div style="display:flex;gap:20px;width:100%;"><div class="login-field" style="flex:1;"><label for="contact_number">Contact number</label><input id="contact_number" name="contact_number" value="{{ form.contact_number or '' }}" placeholder="09999999999" required></div><div class="login-field" style="flex:1;"><label for="id_number">Student ID / username</label>
+        <input type="text" id="id_number" name="id_number" value="{{ form.id_number or '' }}" placeholder="e.g. 23-2762" required>
+      </div>
+      
+    </div>
+
+    <div style="display:flex;gap:20px;width:100%;">
+      
+      <div class="login-field" style="flex:1;">
+        <label for="program">Program</label>
+        <select id="program" name="program" required><option value="">Choose program</option>{% for code,name in curriculum_programs.items() %}<option value="{{ code }}" {{ 'selected' if canonical_program(form.program)==code }}>{{ code }} · {{ name }}</option>{% endfor %}</select>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:20px;width:100%;">
+      <div class="login-field" style="flex:1;">
+        <label for="sex">Sex</label>
+        <select id="sex" name="sex">
+          <option value="">Prefer not to say</option>
+          <option value="MALE" {{ 'selected' if form.sex == 'MALE' }}>Male</option>
+          <option value="FEMALE" {{ 'selected' if form.sex == 'FEMALE' }}>Female</option>
+        </select>
+      </div>
+      <div class="login-field" style="flex:1;">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" value="{{ form.email or '' }}" placeholder="alexis.s.balmores@isu.edu.ph" required>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:20px;width:100%;">
+      <div class="login-field" style="flex:1;">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" data-password-toggle="inside" data-random-password autocomplete="new-password" placeholder="Enter password (min. 8 characters)" required minlength="8">{% include '_password_requirements.html' %}
+      </div>
+      <div class="login-field" style="flex:1;">
+        <label for="confirm_password">Confirm Password</label>
+        <input type="password" id="confirm_password" name="confirm_password" data-password-toggle="inside" data-random-password autocomplete="new-password" placeholder="Re-enter password" required minlength="8">
+      </div>
+    </div>
+
+<button type="submit" class="login-submit">Register</button>
+  </form>
+
+  <p style="margin-top:8px;color:#1DBBCE;font-size:15px;font-weight:600;">
+    Already have an account?
+    <a href="{{ url_for('auth.login', role='student') }}" style="text-decoration:underline;">Login</a>
+  </p>
+</div>
+<script src="{{ url_for('static', filename='js/forms.js') }}" defer></script>
+<script src="{{ url_for('static',filename='js/workspace.js') }}" defer></script></body>
+</html>

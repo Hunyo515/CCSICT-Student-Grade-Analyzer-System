@@ -1,0 +1,9 @@
+{% if nav_all_terms %}
+<form method="get" class="term-wrap" aria-label="School term filter">
+{% for key,value in request.args.items() if key not in ['term_filter','page','assignment_id'] %}<input type="hidden" name="{{ key }}" value="{{ value }}">{% endfor %}
+<label class="sr-only" for="term-filter">School term filter</label>
+<select id="term-filter" class="term-pill" name="term_filter" onchange="this.form.submit()">
+{% if allow_all_terms|default(true) %}<option value="all" {{ 'selected' if term and term.is_all }}>All school terms</option>{% endif %}
+{% for t in nav_all_terms %}<option value="{{ t.term_id }}" {{ 'selected' if term and term.term_id==t.term_id }}>{{ t.school_year }} · {{ t.semester }}{{ ' · Active' if t.is_active }}</option>{% endfor %}
+</select><noscript><button class="btn btn-secondary">Filter</button></noscript></form>
+{% endif %}

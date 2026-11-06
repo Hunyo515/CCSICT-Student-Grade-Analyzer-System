@@ -1,0 +1,60 @@
+{% macro metric(label, value, detail, tone='') -%}
+<article class="insight-metric {{ tone }}"><p>{{ label }}</p><strong>{{ value }}</strong><span>{{ detail }}</span></article>
+{%- endmacro %}
+
+{% macro bar(label, value, note='', maximum=100, target=false, suffix='%', tone='teal') -%}
+<div class="insight-bar">
+  <div class="insight-bar-heading"><span>{{ label }}</span><strong>{{ value ~ suffix if value is not none else '—' }}</strong></div>
+  <div class="insight-track" aria-hidden="true"><span class="insight-fill {{ tone }}" style="width:{{ ([100, [0, value / maximum * 100]|max]|min) if value is not none and maximum else 0 }}%"></span>{% if target %}<i class="insight-target"></i>{% endif %}</div>
+  {% if note %}<p class="insight-caption">{{ note }}</p>{% endif %}
+</div>
+{%- endmacro %}
+
+{% macro empty(title, detail) -%}
+<div class="insight-empty"><strong>{{ title }}</strong><p>{{ detail }}</p></div>
+{%- endmacro %}
+
+{% macro distribution(report, scope='Published results') -%}
+<article class="insight-panel">
+  <div class="insight-panel-head"><div><h2>Grade distribution</h2></div><span class="insight-tag">n = {{ report.complete }}</span></div>
+  <p class="insight-description">{{ scope }} · Complete results</p>
+  {% if report.complete %}
+  <div class="insight-histogram" role="img" aria-label="Distribution of {{ report.complete }} complete results. {% for row in report.distribution %}{{ row.label }} percent: {{ row.value }} results. {% endfor %}">
+    {% for row in report.distribution %}<div><strong>{{ row.value }}</strong><div class="insight-column-track"><span class="{{ 'amber' if loop.index <= 2 else 'teal' }}" style="height:{{ row.value / ([1, report.distribution|map(attribute='value')|max]|max) * 100 }}%"></span></div><span>{{ row.label }}</span></div>{% endfor %}
+  </div>
+  <p class="insight-footnote">{{ report.below }} below the 75% reference · {{ report.excluded }} incomplete results excluded.</p>
+  {% else %}{{ empty('No complete results yet', 'Results appear once required scores and valid weights are available.') }}{% endif %}
+</article>
+{%- endmacro %}
+
+{% macro readiness(sections, role) -%}
+<article class="insight-panel">
+  <div class="insight-panel-head"><div><h2>Grading progress</h2></div><span class="insight-tag">0–100%</span></div>
+  <p class="insight-description">Entered / required scores</p>
+  <div class="insight-scroll">
+  {% for s in sections %}
+    {{ bar(s.subject_code ~ ' · ' ~ s.section, s.coverage, s.recorded ~ ' / ' ~ s.expected ~ ' scores entered' ~ (' · Review weighting' if not s.weighting_valid else ''), tone='teal' if s.coverage == 100 else 'blue') }}
+  {% else %}{{ empty('No classes in this term', 'Assigned classes and enrollments will appear here.') }}{% endfor %}
+  </div>
+</article>
+{%- endmacro %}
+
+{% macro publication(report) -%}
+<article class="insight-panel"><h2>Published classes</h2>
+{% if report.sections %}
+<div class="insight-ring-row"><div class="insight-ring" style="--share:{{ report.published / report.sections * 100 }}%" role="img" aria-label="{{ report.published }} of {{ report.sections }} classes published"><div><strong>{{ report.published }}</strong><span>of {{ report.sections }}</span></div></div>
+<div class="insight-ring-legend"><div><i></i>Published <strong>{{ report.published }}</strong></div><div><i class="pending"></i>Unpublished <strong>{{ report.sections - report.published }}</strong></div></div></div>
+{% else %}{{ empty('No classes yet', '') }}{% endif %}
+{% if report.invalid %}<p class="insight-caption">{{ report.invalid }} classes need weighting review.</p>{% endif %}
+</article>
+{%- endmacro %}
+
+{% macro class_sizes(sections) -%}
+<article class="insight-panel"><h2>Class sizes</h2><p class="insight-description">Enrollments per section</p><div class="insight-scroll">
+{% for s in sections|sort(attribute='students', reverse=true) %}{{ bar(s.subject_code ~ ' · ' ~ s.section, s.students, maximum=([1, sections|map(attribute='students')|max]|max), suffix='', tone='blue') }}{% else %}{{ empty('No enrollments yet', '') }}{% endfor %}</div></article>
+{%- endmacro %}
+
+{% macro history_chart(trend) -%}
+<article class="insight-panel"><div class="insight-panel-head"><h2>Term averages</h2><span class="insight-tag">0–100%</span></div><p class="insight-description">Published, credit-weighted · Reference: 75%</p>
+{% for t in trend %}{{ bar(t.label, t.average, t.complete ~ ' / ' ~ t.total ~ ' subjects', target=true) }}{% else %}{{ empty('No published history yet', '') }}{% endfor %}</article>
+{%- endmacro %}

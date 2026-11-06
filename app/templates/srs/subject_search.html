@@ -1,0 +1,15 @@
+{% extends 'admin/_layout.html' %}
+{% set active_page='subjects' %}
+{% block title %}Search Subjects{% endblock %}
+{% block page_title %}Subjects{% endblock %}
+{% block content %}
+<div class="gradebook-toolbar">
+  <a class="text-action" href="{{ url_for('admin.subjects') }}">← Program folders</a>
+  <form class="srs-search subject-search-form" method="get"><input name="q" value="{{ q }}" aria-label="Search subjects" placeholder="Course code or title"><button class="btn btn-secondary">Search</button></form>
+</div>
+<section class="panel"><div class="panel-heading"><h2>Search results</h2><span class="subtle-tag">{{ rows|length }}</span></div>
+<div class="table-scroll"><table class="srs-table"><thead><tr><th>Code</th><th>Subject</th><th>Program</th><th>Year</th><th>Units</th><th></th></tr></thead><tbody>
+{% for s in rows %}<tr><td>{{ s.subject_code }}</td><td>{{ s.subject_name }}</td><td>{{ s.program or 'Unsorted' }}</td><td>{{ s.year_level }}</td><td>{{ s.units }}</td><td><a class="text-action" href="{{ url_for('admin.subject_form',subject_id=s.subject_id) }}">Edit</a></td></tr>
+{% else %}<tr><td colspan="6" class="table-empty">No subjects match this search.</td></tr>{% endfor %}
+</tbody></table></div></section>
+{% endblock %}

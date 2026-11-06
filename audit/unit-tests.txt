@@ -1,0 +1,46 @@
+test_all_protected_routes_reject_anonymous_and_wrong_role (test_launch_audit.LaunchAuditTests.test_all_protected_routes_reject_anonymous_and_wrong_role) ... ok
+test_all_static_get_pages_empty_data (test_launch_audit.LaunchAuditTests.test_all_static_get_pages_empty_data) ... ok
+test_bulk_ranking_credit_weights_and_ties (test_launch_audit.LaunchAuditTests.test_bulk_ranking_credit_weights_and_ties) ... ok
+test_concurrent_otp_only_one_success (test_launch_audit.LaunchAuditTests.test_concurrent_otp_only_one_success) ... ok
+test_concurrent_rate_limit_no_bypass (test_launch_audit.LaunchAuditTests.test_concurrent_rate_limit_no_bypass) ... ok
+test_confirmation_attributes_do_not_interpolate_javascript (test_launch_audit.LaunchAuditTests.test_confirmation_attributes_do_not_interpolate_javascript) ... ok
+test_csv_formula_sanitization (test_launch_audit.LaunchAuditTests.test_csv_formula_sanitization) ... ok
+test_database_outage_error_does_not_query_context_again (test_launch_audit.LaunchAuditTests.test_database_outage_error_does_not_query_context_again) ... [2026-10-25 09:02:04,642] ERROR in __init__: Database operation failed (DatabaseError)
+ok
+test_each_post_role_guard_precedes_route_logic (test_launch_audit.LaunchAuditTests.test_each_post_role_guard_precedes_route_logic) ... ok
+test_grade_revision_required_and_blank_score_clears_value (test_launch_audit.LaunchAuditTests.test_grade_revision_required_and_blank_score_clears_value) ... ok
+test_local_assets_and_template_endpoints_exist (test_launch_audit.LaunchAuditTests.test_local_assets_and_template_endpoints_exist) ... ok
+test_notification_unicode_fits_database_byte_limit (test_launch_audit.LaunchAuditTests.test_notification_unicode_fits_database_byte_limit) ... ok
+test_real_password_otp_flow_for_each_role_with_fake_mail_transport (test_launch_audit.LaunchAuditTests.test_real_password_otp_flow_for_each_role_with_fake_mail_transport) ... ok
+test_recovery_refuses_unverified_or_nonempty_target (test_launch_audit.LaunchAuditTests.test_recovery_refuses_unverified_or_nonempty_target) ... ok
+test_registration_requires_identity_approval (test_launch_audit.LaunchAuditTests.test_registration_requires_identity_approval) ... ok
+test_revoked_disabled_changed_credentials (test_launch_audit.LaunchAuditTests.test_revoked_disabled_changed_credentials) ... ok
+test_simultaneous_isolated_user_sessions (test_launch_audit.LaunchAuditTests.test_simultaneous_isolated_user_sessions) ... ok
+test_smtp_timeout_does_not_authenticate (test_launch_audit.LaunchAuditTests.test_smtp_timeout_does_not_authenticate) ... [2026-10-25 09:02:08,745] WARNING in auth: OTP delivery failed; login was denied
+ok
+test_stale_grade_form_rejected_before_writes (test_launch_audit.LaunchAuditTests.test_stale_grade_form_rejected_before_writes) ... ok
+test_unicode_csrf_and_oversized_upload (test_launch_audit.LaunchAuditTests.test_unicode_csrf_and_oversized_upload) ... ok
+test_unpublished_scores_not_read (test_launch_audit.LaunchAuditTests.test_unpublished_scores_not_read) ... ok
+test_faculty_and_student_pages_with_realistic_rows (test_launch_audit.PopulatedPageTests.test_faculty_and_student_pages_with_realistic_rows) ... ok
+test_csrf_and_invalid_input (test_security.IntegrationTests.test_csrf_and_invalid_input) ... ok
+test_dashboard_chart_rendering (test_security.IntegrationTests.test_dashboard_chart_rendering) ... ok
+test_delivery_failure_denies_login (test_security.IntegrationTests.test_delivery_failure_denies_login) ... [2026-10-25 09:02:09,711] WARNING in auth: OTP delivery failed; login was denied
+ok
+test_foreign_class_score_denied (test_security.IntegrationTests.test_foreign_class_score_denied) ... ok
+test_login_requires_otp_and_role_guard (test_security.IntegrationTests.test_login_requires_otp_and_role_guard) ... ok
+test_request_transaction_commit_and_rollback (test_security.IntegrationTests.test_request_transaction_commit_and_rollback) ... ok
+test_templates_compile_and_forms_have_csrf (test_security.IntegrationTests.test_templates_compile_and_forms_have_csrf) ... ok
+test_backup_and_isolated_recovery (test_security.RecoveryTests.test_backup_and_isolated_recovery) ... ok
+test_expiry_attempts_and_replay (test_security.SecurityTests.test_expiry_attempts_and_replay) ... ok
+test_preview_owner_and_consumption (test_security.SecurityTests.test_preview_owner_and_consumption) ... ok
+test_rate_limit_persists_and_expires (test_security.SecurityTests.test_rate_limit_persists_and_expires) ... ok
+test_choices (test_security.ValidationTests.test_choices) ... ok
+test_every_text_limit (test_security.ValidationTests.test_every_text_limit) ... ok
+test_password_hash_policy (test_security.ValidationTests.test_password_hash_policy) ... ok
+test_required_field_contracts (test_security.ValidationTests.test_required_field_contracts) ... ok
+test_valid_and_invalid_fields (test_security.ValidationTests.test_valid_and_invalid_fields) ... ok
+
+----------------------------------------------------------------------
+Ran 38 tests in 9.513s
+
+OK

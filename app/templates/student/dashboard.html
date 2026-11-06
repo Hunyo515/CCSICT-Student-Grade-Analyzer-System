@@ -1,0 +1,54 @@
+{% extends "student/_layout.html" %}
+{% set active_page = "dashboard" %}
+{% from "_insight_ui.html" import metric, bar, empty, distribution, readiness, publication, class_sizes, history_chart %}
+{% block title %}Dashboard{% endblock %}
+{% block page_title %}Dashboard{% endblock %}
+{% block content %}
+<div class="insights"><div class="insight-toolbar"><a class="insight-link" href="{{ url_for('student.analytics') }}">Analytics →</a></div>
+
+
+<div class="insight-metrics">
+{{ metric('Published average', report.average ~ '%' if report.average is not none else '—', 'Credit-weighted · ' ~ report.complete ~ ' complete subjects', 'accent') }}
+{{ metric('Enrolled subjects', report.total, 'Current term') }}
+{{ metric('Published subjects', report.published ~ ' / ' ~ report.total, 'Current term') }}
+{{ metric('Subjects below 75%', report.below, 'Complete published results', 'attention') }}
+</div>
+<div class="insight-grid wide"><article class="insight-panel"><div class="insight-panel-head"><div><h2>Performance by subject</h2></div><span class="insight-tag">0–100%</span></div><p class="insight-description">Published results · Reference: 75%</p>
+{% for s in sections if s.status == 'PUBLISHED' %}{{ bar(s.subject_code ~ ' · ' ~ s.subject_name, s.mean, (s.units ~ ' units') if s.mean is not none else 'Incomplete result · Ask your instructor to review scores or weighting', target=true, tone='amber' if s.mean is not none and s.mean < 75 else 'teal') }}{% else %}{{ empty('Your results are not published yet', 'Your instructors will release grades when they are ready. Unpublished results are not included in your average.') }}{% endfor %}</article>
+<article class="insight-panel"><h2>Published subjects</h2>{% if report.total %}<div class="insight-ring-row"><div class="insight-ring" style="--share:{{ report.published / report.total * 100 }}%" role="img" aria-label="{{ report.published }} of {{ report.total }} subjects published"><div><strong>{{ report.published }}</strong><span>of {{ report.total }}</span></div></div><div class="insight-ring-legend"><div><i></i>Published <strong>{{ report.published }}</strong></div><div><i class="pending"></i>Pending <strong>{{ report.total - report.published }}</strong></div></div></div>{% else %}{{ empty('No subjects yet', '') }}{% endif %}{% if report.below %}<p class="insight-caption"><a class="insight-link" href="{{ url_for('student.analytics') }}">Review {{ report.below }} subjects below 75% →</a></p>{% endif %}</article></div>
+<div class="insight-grid">{{ history_chart(trend) }}<article class="insight-panel"><h2>Subject units</h2><p class="insight-description">Current course load</p>{% for s in sections %}{{ bar(s.subject_code ~ ' · ' ~ s.subject_name, s.units, maximum=([1, sections|map(attribute='units')|max]|max), suffix=' units', tone='blue') }}{% else %}{{ empty('No enrolled subjects', '') }}{% endfor %}</article></div>
+
+<article class="insight-panel"><div class="insight-panel-head"><div><h2>My enrolled courses</h2></div><button type="button" class="insight-action" onclick="document.getElementById('joinCourseModal').classList.add('open')">Join course +</button></div><div class="insight-course-grid">{% for e in enrollments %}<article class="insight-course"><span class="insight-tag">{{ e.subject_code }}</span><h3>{{ e.subject_name }}</h3><p>{{ e.teacher_name }}<br>Section {{ e.section }} · {{ e.units }} units</p><p>{{ 'Published' if e.status == 'PUBLISHED' else 'Awaiting publication' }}</p><a class="insight-link" href="{{ url_for('student.grades', assignment_id=e.assignment_id) }}">View course grades →</a></article>{% else %}{{ empty('No courses yet', 'Join using the class code provided by your instructor.') }}{% endfor %}</div></article>
+
+{% from "_icons.html" import icon %}
+<div class="modal-overlay {{ 'open' if join_error }}" id="joinCourseModal">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3 class="modal-title">Join a Course</h3>
+      <button class="modal-close" onclick="document.getElementById('joinCourseModal').classList.remove('open')">{{ icon('x-circle') }}</button>
+    </div>
+    <p class="cell-muted" style="margin:-8px 0 0;font-size:13px;">
+      Enter the alphanumeric code provided by your instructor to instantly enroll and track your grades.
+    </p>
+    <form method="POST" action="{{ url_for('university.enlistme') }}">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <div class="modal-body">
+        <div class="field-group">
+          <label class="field-label">Enter Class Code</label>
+          <input class="field-input {{ 'field-input-error' if join_error }}" name="code" placeholder="e.g. X7K2QP"
+                 value="{{ submitted_code or '' }}" maxlength="10" autocomplete="off" style="text-transform:uppercase;">
+          {% if join_error %}
+          <p style="color:var(--danger);font-size:12px;margin:4px 0 0;">{{ join_error }}</p>
+          {% endif %}
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-cancel-plain" onclick="document.getElementById('joinCourseModal').classList.remove('open')">Cancel</button>
+        <button type="submit" class="btn btn-primary">Join</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+</div>
+{% endblock %}

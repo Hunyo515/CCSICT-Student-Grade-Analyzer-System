@@ -1,0 +1,607 @@
+{
+  "program": "BSIT",
+  "title": "Bachelor of Science in Information Technology",
+  "school_year": "2021-2022",
+  "institution": "Isabela State University",
+  "college": "College of Computing Studies, Information and Communication Technology",
+  "specialization": "Web and Mobile Applications Development",
+  "years": [
+    {
+      "label": "First Year",
+      "semesters": [
+        {
+          "label": "First Semester",
+          "semester": "1st Semester",
+          "source_page": 10,
+          "courses": [
+            {
+              "code": "GEC 4",
+              "title": "Purposive Communication",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 5",
+              "title": "Art Appreciation",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "IT INST 1",
+              "title": "Climate Change and Disaster Risk Management",
+              "units": "2",
+              "lecture": "2",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "IT GE ELEC 1",
+              "title": "Health and Wellness Science",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "IT GE ELEC 2",
+              "title": "Foreign Language 1",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "IT 111",
+              "title": "Introduction to Computing",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "None"
+            },
+            {
+              "code": "IT 112",
+              "title": "Computer Programming 1",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "None"
+            },
+            {
+              "code": "PE 1",
+              "title": "Physical Activity Towards Health and Fitness I (Movement Enhancement)",
+              "units": "2",
+              "lecture": "2",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "NSTP 1",
+              "title": "CWTS/LTS/MS 1",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "None"
+            }
+          ],
+          "totals": {
+            "units": "25",
+            "lecture": "23",
+            "laboratory": "2"
+          },
+          "notes": []
+        },
+        {
+          "label": "Second Semester",
+          "semester": "2nd Semester",
+          "source_page": 10,
+          "courses": [
+            {
+              "code": "GEC 1",
+              "title": "Understanding the Self",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 2",
+              "title": "Readings in Philippine History",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 3",
+              "title": "Mathematics in the Modern World",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 7",
+              "title": "Ethics",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "IT 121",
+              "title": "Computer Programming 2",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IT 112"
+            },
+            {
+              "code": "IT 122",
+              "title": "Human-Computer Interaction 1",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IT 112"
+            },
+            {
+              "code": "IT 123",
+              "title": "Discrete Mathematics",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "PE 2",
+              "title": "Physical Activity Towards Health and Fitness II (Fitness Exercise)",
+              "units": "2",
+              "lecture": "2",
+              "laboratory": "0",
+              "prerequisite": "PE 1"
+            },
+            {
+              "code": "NSTP 2",
+              "title": "CWTS/LTS/MS 2",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "",
+              "prerequisite": "NSTP 1"
+            }
+          ],
+          "totals": {
+            "units": "26",
+            "lecture": "24",
+            "laboratory": "2"
+          },
+          "notes": []
+        }
+      ]
+    },
+    {
+      "label": "Second Year",
+      "semesters": [
+        {
+          "label": "First Semester",
+          "semester": "1st Semester",
+          "source_page": 11,
+          "courses": [
+            {
+              "code": "GEC 6",
+              "title": "Science, Technology and Society",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 8",
+              "title": "The Contemporary World",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "IT INST 2",
+              "title": "Creative and Critical Thinking",
+              "units": "2",
+              "lecture": "1",
+              "laboratory": "1",
+              "prerequisite": "None"
+            },
+            {
+              "code": "IT GE ELEC 3",
+              "title": "Foreign Language 2",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "IT 211",
+              "title": "Data Structures and Algorithms",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IT 121"
+            },
+            {
+              "code": "IT ELEC 1",
+              "title": "Platform Technologies",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IT 121"
+            },
+            {
+              "code": "IT ELEC 2",
+              "title": "Object-Oriented Programming",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IT 121"
+            },
+            {
+              "code": "IT BPO 1",
+              "title": "Business Communication",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "PE 3",
+              "title": "Physical Activity Towards Health and Fitness III (Dance and Individual/Dual Sports)",
+              "units": "2",
+              "lecture": "2",
+              "laboratory": "0",
+              "prerequisite": "PE 1, PE 2"
+            }
+          ],
+          "totals": {
+            "units": "25",
+            "lecture": "21",
+            "laboratory": "4"
+          },
+          "notes": []
+        },
+        {
+          "label": "Second Semester",
+          "semester": "2nd Semester",
+          "source_page": 11,
+          "courses": [
+            {
+              "code": "IT GE ELEC 4",
+              "title": "The Entrepreneurial Mind",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "GEC 9",
+              "title": "The Life and Works of Rizal",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "IT 221",
+              "title": "Information Management",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IT 121"
+            },
+            {
+              "code": "IT 222",
+              "title": "Networking 1",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IT Elec 1"
+            },
+            {
+              "code": "IT 223",
+              "title": "Quantitative Methods (including Modeling and Simulation)",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "IT 211, IT 123"
+            },
+            {
+              "code": "IT 224",
+              "title": "Integrative Programming and Technologies",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IT Elec 1, IT Elec 2"
+            },
+            {
+              "code": "IT 225",
+              "title": "Accounting for Information Technology",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "IT APPDEV 1",
+              "title": "Fundamentals of Mobile Technology",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IT Elec 1, IT Elec 2"
+            },
+            {
+              "code": "PE 4",
+              "title": "Physical Activity Towards Health and Fitness IV (Dance, Team Sports, Outdoor and Adventure Activities)",
+              "units": "2",
+              "lecture": "2",
+              "laboratory": "0",
+              "prerequisite": "PE 1, PE 2, PE 3"
+            }
+          ],
+          "totals": {
+            "units": "26",
+            "lecture": "22",
+            "laboratory": "4"
+          },
+          "notes": []
+        },
+        {
+          "label": "Midyear",
+          "semester": "Summer",
+          "source_page": 12,
+          "courses": [
+            {
+              "code": "IT 226",
+              "title": "Applications Development and Emerging Technologies",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IT 221"
+            },
+            {
+              "code": "IT ELEC 3",
+              "title": "Web Systems and Technologies",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "None"
+            }
+          ],
+          "totals": {
+            "units": "6",
+            "lecture": "4",
+            "laboratory": "2"
+          },
+          "notes": []
+        }
+      ]
+    },
+    {
+      "label": "Third Year",
+      "semesters": [
+        {
+          "label": "First Semester",
+          "semester": "1st Semester",
+          "source_page": 12,
+          "courses": [
+            {
+              "code": "IT Inst 3",
+              "title": "Data Science Analytics",
+              "units": "2",
+              "lecture": "1",
+              "laboratory": "1",
+              "prerequisite": "None"
+            },
+            {
+              "code": "IT 311",
+              "title": "Advanced Database Systems",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IT 221"
+            },
+            {
+              "code": "IT 312",
+              "title": "Networking 2",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IT 222"
+            },
+            {
+              "code": "IT 313",
+              "title": "System Integration and Architecture",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IT 224"
+            },
+            {
+              "code": "IT 314",
+              "title": "Information Assurance and Security 1",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IT 224"
+            },
+            {
+              "code": "IT APPDEV 2",
+              "title": "Web Applications",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IT Elec 3"
+            },
+            {
+              "code": "IT APPDEV 3",
+              "title": "Mobile Applications",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IT APPDEV 1"
+            }
+          ],
+          "totals": {
+            "units": "20",
+            "lecture": "13",
+            "laboratory": "7"
+          },
+          "notes": []
+        },
+        {
+          "label": "Second Semester",
+          "semester": "2nd Semester",
+          "source_page": 12,
+          "courses": [
+            {
+              "code": "IT GE ELEC 5",
+              "title": "Multicultural Education",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "IT 321",
+              "title": "Information Assurance and Security 2",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IT 314"
+            },
+            {
+              "code": "IT 322",
+              "title": "Social and Professional Issues",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "GEC 7"
+            },
+            {
+              "code": "IT 323",
+              "title": "Capstone Project and Research 1",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IT 226, IT 314"
+            },
+            {
+              "code": "IT APPDEV 4",
+              "title": "Game Development",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IT APPDEV 2, IT APPDEV 3"
+            },
+            {
+              "code": "IT APPDEV 5",
+              "title": "Cloud Computing",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IT APPDEV 2, IT APPDEV 3"
+            }
+          ],
+          "totals": {
+            "units": "18",
+            "lecture": "14",
+            "laboratory": "4"
+          },
+          "notes": []
+        }
+      ]
+    },
+    {
+      "label": "Fourth Year",
+      "semesters": [
+        {
+          "label": "First Semester",
+          "semester": "1st Semester",
+          "source_page": 13,
+          "courses": [
+            {
+              "code": "IT GE ELEC 6",
+              "title": "Leadership and Management in the Profession",
+              "units": "3",
+              "lecture": "3",
+              "laboratory": "0",
+              "prerequisite": "None"
+            },
+            {
+              "code": "IT 411",
+              "title": "System Administration and Maintenance",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IT 321"
+            },
+            {
+              "code": "IT ELEC 4",
+              "title": "Human-Computer Interaction 2",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IT 122"
+            },
+            {
+              "code": "IT 412",
+              "title": "Capstone Project and Research 2",
+              "units": "3",
+              "lecture": "2",
+              "laboratory": "1",
+              "prerequisite": "IT 323"
+            }
+          ],
+          "totals": {
+            "units": "12",
+            "lecture": "9",
+            "laboratory": "3"
+          },
+          "notes": []
+        },
+        {
+          "label": "Second Semester",
+          "semester": "2nd Semester",
+          "source_page": 13,
+          "courses": [
+            {
+              "code": "IT 421",
+              "title": "Internship/OJT/Practicum (486 hours)",
+              "units": "9",
+              "lecture": "",
+              "laboratory": "",
+              "prerequisite": "4th Year Standing"
+            }
+          ],
+          "totals": {
+            "units": "9",
+            "lecture": "",
+            "laboratory": ""
+          },
+          "notes": []
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "The source includes a second-year Mid-Year term; it is catalogued under Summer.",
+    "IT Inst 3 is titled “Data Science Analytics” in the course table; the summary page calls it “Fundamentals of Data Science Analytics”. The course-table title is retained."
+  ],
+  "source_file": "ccsict-2021-2022.pdf",
+  "source_pages": [
+    10,
+    11,
+    12,
+    13
+  ],
+  "printed_grand_total": "167"
+}

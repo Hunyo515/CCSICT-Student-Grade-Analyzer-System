@@ -1,0 +1,1163 @@
+{
+  "results": [
+    {
+      "mode": "populated",
+      "width": 1440,
+      "role": "admin",
+      "path": "/app/admin",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "role": "admin",
+      "path": "/app/admin/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "role": "admin",
+      "path": "/admin/subjects",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "role": "admin",
+      "path": "/admin/subjects?program=BSDSA",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "role": "admin",
+      "path": "/admin/subjects?q=DSA",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "role": "admin",
+      "path": "/admin/teachers",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "role": "admin",
+      "path": "/admin/students",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "role": "admin",
+      "path": "/admin/classes",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "role": "admin",
+      "path": "/admin/settings",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "role": "faculty",
+      "path": "/app/teacher",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "role": "faculty",
+      "path": "/app/teacher/class/10",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "role": "faculty",
+      "path": "/app/teacher/class/10?tab=weighting",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "role": "faculty",
+      "path": "/app/teacher/class/10?tab=class",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "role": "faculty",
+      "path": "/app/teacher/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "role": "faculty",
+      "path": "/app/teacher/top-performers",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "role": "faculty",
+      "path": "/app/teacher/class/20",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "role": "student",
+      "path": "/app/student",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "role": "student",
+      "path": "/app/student/grades",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "role": "student",
+      "path": "/app/student/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "role": "student",
+      "path": "/app/student/rank",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "role": "student",
+      "path": "/app/student/join?code=ABC1234567",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1440,
+      "role": "student",
+      "path": "/student/profile",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1024,
+      "role": "admin",
+      "path": "/app/admin",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1024,
+      "role": "admin",
+      "path": "/app/admin/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1024,
+      "role": "admin",
+      "path": "/admin/subjects",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1024,
+      "role": "admin",
+      "path": "/admin/subjects?program=BSDSA",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1024,
+      "role": "admin",
+      "path": "/admin/subjects?q=DSA",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1024,
+      "role": "admin",
+      "path": "/admin/teachers",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1024,
+      "role": "admin",
+      "path": "/admin/students",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1024,
+      "role": "admin",
+      "path": "/admin/classes",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1024,
+      "role": "admin",
+      "path": "/admin/settings",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1024,
+      "role": "faculty",
+      "path": "/app/teacher",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1024,
+      "role": "faculty",
+      "path": "/app/teacher/class/10",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1024,
+      "role": "faculty",
+      "path": "/app/teacher/class/10?tab=weighting",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1024,
+      "role": "faculty",
+      "path": "/app/teacher/class/10?tab=class",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1024,
+      "role": "faculty",
+      "path": "/app/teacher/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1024,
+      "role": "faculty",
+      "path": "/app/teacher/top-performers",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1024,
+      "role": "faculty",
+      "path": "/app/teacher/class/20",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1024,
+      "role": "student",
+      "path": "/app/student",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1024,
+      "role": "student",
+      "path": "/app/student/grades",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1024,
+      "role": "student",
+      "path": "/app/student/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1024,
+      "role": "student",
+      "path": "/app/student/rank",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1024,
+      "role": "student",
+      "path": "/app/student/join?code=ABC1234567",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 1024,
+      "role": "student",
+      "path": "/student/profile",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "role": "admin",
+      "path": "/app/admin",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "role": "admin",
+      "path": "/app/admin/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "role": "admin",
+      "path": "/admin/subjects",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "role": "admin",
+      "path": "/admin/subjects?program=BSDSA",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "role": "admin",
+      "path": "/admin/subjects?q=DSA",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "role": "admin",
+      "path": "/admin/teachers",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "role": "admin",
+      "path": "/admin/students",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "role": "admin",
+      "path": "/admin/classes",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "role": "admin",
+      "path": "/admin/settings",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "role": "faculty",
+      "path": "/app/teacher",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "role": "faculty",
+      "path": "/app/teacher/class/10",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "role": "faculty",
+      "path": "/app/teacher/class/10?tab=weighting",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "role": "faculty",
+      "path": "/app/teacher/class/10?tab=class",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "role": "faculty",
+      "path": "/app/teacher/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "role": "faculty",
+      "path": "/app/teacher/top-performers",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "role": "faculty",
+      "path": "/app/teacher/class/20",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "role": "student",
+      "path": "/app/student",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "role": "student",
+      "path": "/app/student/grades",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "role": "student",
+      "path": "/app/student/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "role": "student",
+      "path": "/app/student/rank",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "role": "student",
+      "path": "/app/student/join?code=ABC1234567",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 768,
+      "role": "student",
+      "path": "/student/profile",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "role": "admin",
+      "path": "/app/admin",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "role": "admin",
+      "path": "/app/admin/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "role": "admin",
+      "path": "/admin/subjects",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "role": "admin",
+      "path": "/admin/subjects?program=BSDSA",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "role": "admin",
+      "path": "/admin/subjects?q=DSA",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "role": "admin",
+      "path": "/admin/teachers",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "role": "admin",
+      "path": "/admin/students",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "role": "admin",
+      "path": "/admin/classes",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "role": "admin",
+      "path": "/admin/settings",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "role": "faculty",
+      "path": "/app/teacher",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "role": "faculty",
+      "path": "/app/teacher/class/10",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "role": "faculty",
+      "path": "/app/teacher/class/10?tab=weighting",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "role": "faculty",
+      "path": "/app/teacher/class/10?tab=class",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "role": "faculty",
+      "path": "/app/teacher/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "role": "faculty",
+      "path": "/app/teacher/top-performers",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "role": "faculty",
+      "path": "/app/teacher/class/20",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "role": "student",
+      "path": "/app/student",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "role": "student",
+      "path": "/app/student/grades",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "role": "student",
+      "path": "/app/student/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "role": "student",
+      "path": "/app/student/rank",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "role": "student",
+      "path": "/app/student/join?code=ABC1234567",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 375,
+      "role": "student",
+      "path": "/student/profile",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "role": "admin",
+      "path": "/app/admin",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "role": "admin",
+      "path": "/app/admin/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "role": "admin",
+      "path": "/admin/subjects",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "role": "admin",
+      "path": "/admin/subjects?program=BSDSA",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "role": "admin",
+      "path": "/admin/subjects?q=DSA",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "role": "admin",
+      "path": "/admin/teachers",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "role": "admin",
+      "path": "/admin/students",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "role": "admin",
+      "path": "/admin/classes",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "role": "admin",
+      "path": "/admin/settings",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "role": "faculty",
+      "path": "/app/teacher",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "role": "faculty",
+      "path": "/app/teacher/class/10",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "role": "faculty",
+      "path": "/app/teacher/class/10?tab=weighting",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "role": "faculty",
+      "path": "/app/teacher/class/10?tab=class",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "role": "faculty",
+      "path": "/app/teacher/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "role": "faculty",
+      "path": "/app/teacher/top-performers",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "role": "faculty",
+      "path": "/app/teacher/class/20",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "role": "student",
+      "path": "/app/student",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "role": "student",
+      "path": "/app/student/grades",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "role": "student",
+      "path": "/app/student/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "role": "student",
+      "path": "/app/student/rank",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "role": "student",
+      "path": "/app/student/join?code=ABC1234567",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "populated",
+      "width": 320,
+      "role": "student",
+      "path": "/student/profile",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 1440,
+      "role": "admin",
+      "path": "/app/admin",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 1440,
+      "role": "admin",
+      "path": "/app/admin/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 1440,
+      "role": "admin",
+      "path": "/admin/subjects",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 1440,
+      "role": "admin",
+      "path": "/admin/subjects?program=BSDSA",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 1440,
+      "role": "admin",
+      "path": "/admin/subjects?q=DSA",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 1440,
+      "role": "admin",
+      "path": "/admin/teachers",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 1440,
+      "role": "admin",
+      "path": "/admin/students",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 1440,
+      "role": "admin",
+      "path": "/admin/classes",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 1440,
+      "role": "admin",
+      "path": "/admin/settings",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 1440,
+      "role": "faculty",
+      "path": "/app/teacher",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 1440,
+      "role": "faculty",
+      "path": "/app/teacher/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 1440,
+      "role": "faculty",
+      "path": "/app/teacher/top-performers",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 1440,
+      "role": "student",
+      "path": "/app/student",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 1440,
+      "role": "student",
+      "path": "/app/student/grades",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 1440,
+      "role": "student",
+      "path": "/app/student/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 1440,
+      "role": "student",
+      "path": "/app/student/rank",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 1440,
+      "role": "student",
+      "path": "/student/profile",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 375,
+      "role": "admin",
+      "path": "/app/admin",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 375,
+      "role": "admin",
+      "path": "/app/admin/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 375,
+      "role": "admin",
+      "path": "/admin/subjects",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 375,
+      "role": "admin",
+      "path": "/admin/subjects?program=BSDSA",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 375,
+      "role": "admin",
+      "path": "/admin/subjects?q=DSA",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 375,
+      "role": "admin",
+      "path": "/admin/teachers",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 375,
+      "role": "admin",
+      "path": "/admin/students",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 375,
+      "role": "admin",
+      "path": "/admin/classes",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 375,
+      "role": "admin",
+      "path": "/admin/settings",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 375,
+      "role": "faculty",
+      "path": "/app/teacher",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 375,
+      "role": "faculty",
+      "path": "/app/teacher/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 375,
+      "role": "faculty",
+      "path": "/app/teacher/top-performers",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 375,
+      "role": "student",
+      "path": "/app/student",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 375,
+      "role": "student",
+      "path": "/app/student/grades",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 375,
+      "role": "student",
+      "path": "/app/student/analytics",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 375,
+      "role": "student",
+      "path": "/app/student/rank",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "mode": "empty",
+      "width": 375,
+      "role": "student",
+      "path": "/student/profile",
+      "status": 200,
+      "overflow": false
+    }
+  ],
+  "interactions": [
+    "publication confirmation and cancellation",
+    "CSV import panel",
+    "component edit dialog",
+    "mobile navigation open and escape close"
+  ],
+  "errors": []
+}

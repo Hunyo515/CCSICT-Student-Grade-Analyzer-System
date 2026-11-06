@@ -1,0 +1,26 @@
+{% extends "admin/_layout.html" %}
+{% set active_page = "analytics" %}
+{% from "_insight_ui.html" import metric, bar, empty, distribution, readiness, publication %}
+{% block title %}Analytics{% endblock %}
+{% block page_title %}Analytics{% endblock %}
+{% block content %}
+<div class="insights">
+
+
+<div class="insight-metrics">
+{{ metric('Published results analyzed', report.complete, 'Complete published results', 'accent') }}
+{{ metric('At or above 75%', report.pass_rate ~ '%' if report.pass_rate is not none else '—', 'Complete published results') }}
+{{ metric('Below 75%', report.below, 'Results to review', 'attention') }}
+{{ metric('Incomplete results excluded', report.excluded, 'Within published classes only') }}
+</div>
+<div class="insight-grid">
+<article class="insight-panel"><div class="insight-panel-head"><div><h2>Published class averages</h2></div><span class="insight-tag">0–100%</span></div><p class="insight-description">Complete published results · Reference: 75%</p><div class="insight-scroll">
+{% for s in sections if s.status == 'PUBLISHED' and s.mean is not none %}{{ bar(s.subject_code ~ ' · ' ~ s.section, s.mean, 'n = ' ~ s.complete ~ ' of ' ~ s.students ~ ' enrollments · ' ~ s.subject_name, target=true, tone='amber' if s.mean < 75 else 'teal') }}{% else %}{{ empty('No comparable results yet', 'Publish classes with complete scores and valid weights to see comparisons.') }}{% endfor %}</div></article>
+{{ distribution(report) }}
+</div>
+<article class="insight-panel"><h2>Class results</h2><p class="insight-description">Complete published results.</p><div class="insight-table-wrap" tabindex="0" role="region" aria-label="Scrollable report table"><table class="insight-table"><thead><tr><th>Class / section</th><th>Publication</th><th class="num">Complete / enrolled</th><th class="num">Mean</th><th class="num">Median</th><th class="num">Below 75%</th></tr></thead><tbody>
+{% for s in sections %}<tr><td><strong>{{ s.subject_code }} · {{ s.section }}</strong><small>{{ s.subject_name }}</small></td><td><span class="insight-status {{ 'published' if s.status == 'PUBLISHED' }}">{{ s.status|replace('_',' ')|title }}</span></td><td class="num">{{ s.complete }} / {{ s.students }}</td><td class="num">{{ s.mean ~ '%' if s.status == 'PUBLISHED' and s.mean is not none else '—' }}</td><td class="num">{{ s.median ~ '%' if s.status == 'PUBLISHED' and s.median is not none else '—' }}</td><td class="num">{{ s.below if s.status == 'PUBLISHED' and s.complete else '—' }}</td></tr>{% else %}<tr><td colspan="6">No classes in this term.</td></tr>{% endfor %}</tbody></table></div></article>
+
+
+</div>
+{% endblock %}
