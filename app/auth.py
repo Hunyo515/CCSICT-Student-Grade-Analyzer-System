@@ -6,17 +6,23 @@ from flask import abort, flash, redirect, session, url_for
 
 
 def hash_password(plain_password: str) -> str:
+<<<<<<< HEAD
     from .validation import password_error
     error = password_error(plain_password)
     if error:
         raise ValueError(error)
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     return bcrypt.hashpw(plain_password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
 
 
 def verify_password(plain_password: str, password_hash: str) -> bool:
     try:
+<<<<<<< HEAD
         if len(plain_password.encode("utf-8")) > 72:
             return False
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         return bcrypt.checkpw(plain_password.encode("utf-8"), password_hash.encode("utf-8"))
     except (ValueError, TypeError):
         return False

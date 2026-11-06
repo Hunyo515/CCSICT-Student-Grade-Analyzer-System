@@ -2,10 +2,16 @@
 {% set active_page = "grades" %}
 {% from "_icons.html" import icon %}
 {% block title %}My Grades{% endblock %}
+<<<<<<< HEAD
 {% block page_title %}My Grades{% endblock %}
 
 {% block content %}
 {% if selected and selected.status != "PUBLISHED" %}<p class="card" role="status">Your teacher has not published these grades yet.</p>{% endif %}
+=======
+{% block page_title %}My Grades Breakdown{% endblock %}
+
+{% block content %}
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 <div class="action-bar">
   <form method="GET" action="{{ url_for('student.grades') }}">
     <select class="filter-select" name="assignment_id" onchange="this.form.submit()">
@@ -19,11 +25,19 @@
     </select>
   </form>
 
+<<<<<<< HEAD
   {% if selected and selected.status == "PUBLISHED" %}
   <div style="background:var(--accent-light);border:1px solid var(--accent);border-radius:12px;padding:16px 20px;display:flex;align-items:center;gap:20px;">
     <div>
       <div class="stat-label-caps" style="font-size:11px;">Overall Performance</div>
       <div style="font-family:var(--font-ui);font-weight:800;font-size:20px;color:var(--text-dark);margin-top:2px;">
+=======
+  {% if selected %}
+  <div style="background:var(--accent-light);border:1px solid var(--accent);border-radius:12px;padding:16px 20px;display:flex;align-items:center;gap:20px;">
+    <div>
+      <div class="stat-label-caps" style="font-size:11px;">Overall Performance</div>
+      <div style="font-family:'Lexend',sans-serif;font-weight:800;font-size:20px;color:var(--text-dark);margin-top:2px;">
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         {{ weighted_total }}% ({{ letter.replace('Grade ', '') }})
       </div>
     </div>
@@ -35,7 +49,11 @@
 </div>
 
 <div class="card" style="width:100%;">
+<<<<<<< HEAD
   <div class="card-title">Assessments</div>
+=======
+  <div class="card-title">Detailed Assessment Record</div>
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
   <div class="table-card" style="margin-top:16px;">
     <table class="data-table">
       <thead>

@@ -1,20 +1,30 @@
 import os
+<<<<<<< HEAD
 from datetime import timedelta
 from dotenv import load_dotenv
 
 load_dotenv()
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 
 
 class Config:
     """Application configuration, sourced from environment variables."""
 
+<<<<<<< HEAD
     SECRET_KEY = os.getenv("SECRET_KEY", "")
+=======
+    SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-change-me")
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 
     # --- Oracle DB connection -------------------------------------------------
     ORACLE_HOST = os.getenv("ORACLE_HOST", "localhost")
     ORACLE_PORT = os.getenv("ORACLE_PORT", "1521")
     ORACLE_SERVICE = os.getenv("ORACLE_SERVICE", "XEPDB1")
+<<<<<<< HEAD
     ORACLE_SCHEMA = os.getenv("ORACLE_SCHEMA", "")
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     ORACLE_USER = os.getenv("ORACLE_USER", "student")
     ORACLE_PASSWORD = os.getenv("ORACLE_PASSWORD", "1j2u3n4e")
 
@@ -30,6 +40,7 @@ class Config:
 
     SESSION_COOKIE_HTTPONLY = True
     SESSION_COOKIE_SAMESITE = "Lax"
+<<<<<<< HEAD
 
     SESSION_COOKIE_SECURE = os.getenv("COOKIE_SECURE", "true").lower() == "true"
     PERMANENT_SESSION_LIFETIME = timedelta(minutes=30)
@@ -43,3 +54,5 @@ class Config:
     MAIL_USERNAME = os.getenv('MAIL_USERNAME', '')
     MAIL_PASSWORD = os.getenv('MAIL_PASSWORD', '')
     MAIL_SSL = os.getenv('MAIL_SSL', 'false').lower() == 'true'
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423

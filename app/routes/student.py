@@ -22,26 +22,37 @@ def current_student_id():
 
 def get_student(student_id=None):
     student_id = student_id or current_student_id()
+<<<<<<< HEAD
     row=query_one(
         """
         SELECT s.student_id, s.id_number, s.program, s.year_level, s.section,
                s.contact_number, s.status, s.age, s.enrollment_type, u.full_name, u.email
+=======
+    return query_one(
+        """
+        SELECT s.student_id, s.id_number, s.program, s.year_level, s.section,
+               s.contact_number, s.status, u.full_name, u.email
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         FROM students s JOIN users u ON u.user_id = s.user_id
         WHERE s.student_id = :id
         """,
         {"id": student_id},
     )
+<<<<<<< HEAD
     if row:
         from ..student_progress import residency
         from .. import academic
         row.update(residency(row,academic.active()))
     return row
 
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 
 
 def my_enrollments(student_id, term_id):
     return query_all(
         """
+<<<<<<< HEAD
         SELECT e.enrollment_id, e.assignment_id, ts.section, ts.status, ac.school_year, ac.semester,
                s.subject_id, s.subject_code, s.subject_name, s.units,
                COALESCE(u.full_name,'Faculty not yet assigned') AS teacher_name,
@@ -53,6 +64,18 @@ def my_enrollments(student_id, term_id):
         LEFT JOIN teachers t ON t.teacher_id = ts.teacher_id
         LEFT JOIN users u ON u.user_id = t.user_id
         WHERE e.student_id = :sid AND (:term_id IS NULL OR ts.term_id = :term_id)
+=======
+        SELECT e.enrollment_id, e.assignment_id, ts.section, ts.status,
+               s.subject_id, s.subject_code, s.subject_name, s.units,
+               u.full_name AS teacher_name,
+               (SELECT COUNT(*) FROM grade_components gc WHERE gc.assignment_id = ts.assignment_id) AS component_count
+        FROM enrollments e
+        JOIN teacher_subjects ts ON ts.assignment_id = e.assignment_id
+        JOIN subjects s ON s.subject_id = ts.subject_id
+        JOIN teachers t ON t.teacher_id = ts.teacher_id
+        JOIN users u ON u.user_id = t.user_id
+        WHERE e.student_id = :sid AND ts.term_id = :term_id
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         ORDER BY s.subject_name
         """,
         {"sid": student_id, "term_id": term_id},
@@ -113,6 +136,7 @@ def overall_average(student_id, term_id):
 
 
 def class_leaderboard(section, term_id):
+<<<<<<< HEAD
     """Bulk-load published class grades; avoid one query per student/subject."""
     rows = query_all(
         """
@@ -152,6 +176,28 @@ def class_leaderboard(section, term_id):
             rank = position
         row["rank"] = rank
         previous = row["average"]
+=======
+    """Rank every student in the same section by their overall average."""
+    classmates = query_all(
+        """
+        SELECT s.student_id, s.id_number, u.full_name
+        FROM students s JOIN users u ON u.user_id = s.user_id
+        WHERE s.section = :section AND s.status = 'ACTIVE'
+        """,
+        {"section": section},
+    )
+
+    ranked = []
+    for c in classmates:
+        avg = overall_average(c["student_id"], term_id)
+        if avg is None:
+            continue
+        ranked.append({**c, "average": avg})
+
+    ranked.sort(key=lambda r: r["average"], reverse=True)
+    for i, r in enumerate(ranked, start=1):
+        r["rank"] = i
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     return ranked
 
 
@@ -165,7 +211,11 @@ def recent_assessments(student_id, limit=5):
         JOIN enrollments e ON e.enrollment_id = g.enrollment_id
         JOIN teacher_subjects ts ON ts.assignment_id = e.assignment_id
         JOIN subjects s ON s.subject_id = ts.subject_id
+<<<<<<< HEAD
         WHERE e.student_id = :sid AND ts.status = 'PUBLISHED' AND g.score IS NOT NULL AND g.max_score > 0
+=======
+        WHERE e.student_id = :sid AND g.score IS NOT NULL
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         ORDER BY g.updated_at DESC
         FETCH FIRST {limit} ROWS ONLY
         """,
@@ -180,6 +230,7 @@ def recent_assessments(student_id, limit=5):
 @student_bp.route("/dashboard")
 @login_required("student")
 def dashboard():
+<<<<<<< HEAD
     from ..insights import load_sections, student_summary, term_history
     term = active_term()
     student = get_student()
@@ -190,14 +241,45 @@ def dashboard():
         sections=sections, report=student_summary(sections), trend=term_history(history),
         enrollments=my_enrollments(student["student_id"], term_id),
         join_error=request.args.get("join_error"), submitted_code=request.args.get("code"))
+=======
+    term = active_term()
+    student = get_student()
+    term_id = term["term_id"] if term else 0
+
+    enrollments = my_enrollments(student["student_id"], term_id)
+    avg = overall_average(student["student_id"], term_id)
+    leaderboard = class_leaderboard(student["section"], term_id)
+    my_rank_entry = next((r for r in leaderboard if r["student_id"] == student["student_id"]), None)
+
+    stats = {
+        "overall_average": avg,
+        "subjects_enrolled": len(enrollments),
+        "rank": my_rank_entry["rank"] if my_rank_entry else None,
+        "class_size": len(leaderboard),
+    }
+
+    return render_template(
+        "student/dashboard.html",
+        term=term,
+        student=student,
+        enrollments=enrollments,
+        stats=stats,
+        recent=recent_assessments(student["student_id"]),
+        join_error=request.args.get("join_error"),
+        submitted_code=request.args.get("code"),
+    )
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 
 
 @student_bp.route("/join-course", methods=["POST"])
 @login_required("student")
 def join_course():
     student = get_student()
+<<<<<<< HEAD
     from ..security import rate_limit
     rate_limit("join:" + str(student["student_id"]), 10, 900)
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     code = request.form.get("code", "").strip().upper()
 
     if not code:
@@ -206,12 +288,20 @@ def join_course():
     assignment = query_one(
         """
         SELECT ts.assignment_id, ts.term_id, ts.enrollment_open, ts.section,
+<<<<<<< HEAD
                ts.subject_id, ts.status, s.program, s.year_level,
                s.subject_name, u.user_id AS teacher_user_id
         FROM teacher_subjects ts
         JOIN subjects s ON s.subject_id = ts.subject_id
         LEFT JOIN teachers t ON t.teacher_id = ts.teacher_id
         LEFT JOIN users u ON u.user_id = t.user_id
+=======
+               s.subject_name, u.user_id AS teacher_user_id
+        FROM teacher_subjects ts
+        JOIN subjects s ON s.subject_id = ts.subject_id
+        JOIN teachers t ON t.teacher_id = ts.teacher_id
+        JOIN users u ON u.user_id = t.user_id
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         WHERE ts.join_code = :c
         """,
         {"c": code},
@@ -220,12 +310,17 @@ def join_course():
         return redirect(url_for(
             "student.dashboard", join_error="Invalid or expired class code. Please check and try again.", code=code,
         ))
+<<<<<<< HEAD
     term = active_term()
     if not term or assignment["term_id"] != term["term_id"] or assignment["enrollment_open"] != "Y":
+=======
+    if assignment["enrollment_open"] != "Y":
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         return redirect(url_for(
             "student.dashboard", join_error="This class is not currently accepting self-enrollment.", code=code,
         ))
 
+<<<<<<< HEAD
     locked=query_one('SELECT status,enrollment_open FROM teacher_subjects WHERE assignment_id=:id FOR UPDATE WAIT 5',{'id':assignment['assignment_id']})
     if not locked or locked['status']=='PUBLISHED' or locked['enrollment_open']!='Y':
         return redirect(url_for('student.dashboard',join_error='This class is not accepting enrollment. Contact your administrator.',code=code))
@@ -242,13 +337,25 @@ def join_course():
     if existing:
         return redirect(url_for(
             "student.dashboard", join_error="You're already enrolled in this subject for this term.", code=code,
+=======
+    existing = query_one(
+        "SELECT enrollment_id FROM enrollments WHERE student_id = :sid AND assignment_id = :aid",
+        {"sid": student["student_id"], "aid": assignment["assignment_id"]},
+    )
+    if existing:
+        return redirect(url_for(
+            "student.dashboard", join_error="You're already enrolled in this class.", code=code,
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         ))
 
     execute(
         "INSERT INTO enrollments (student_id, assignment_id) VALUES (:sid, :aid)",
         {"sid": student["student_id"], "aid": assignment["assignment_id"]},
     )
+<<<<<<< HEAD
     execute('UPDATE teacher_subjects SET revision=revision+1 WHERE assignment_id=:id',{'id':assignment['assignment_id']})
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     notify(
         assignment["teacher_user_id"],
         f"{student['full_name']} joined {assignment['subject_name']} ({assignment['section']}) via class code.",
@@ -283,7 +390,11 @@ def grades():
     letter_class = None
     passed = None
 
+<<<<<<< HEAD
     if selected and selected["status"] == "PUBLISHED":
+=======
+    if selected:
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         components = assignment_components(selected["assignment_id"])
         scores = scores_for_enrollment(selected["enrollment_id"])
         for c in components:
@@ -299,7 +410,11 @@ def grades():
         weighted_total = compute_weighted_total(scores, components, category_weights_for(selected["assignment_id"]))
         letter = letter_grade(weighted_total)
         letter_class = letter_grade_class(letter)
+<<<<<<< HEAD
         passed = weighted_total >= 75
+=======
+        passed = weighted_total >= 60
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 
     return render_template(
         "student/grades.html",
@@ -318,11 +433,16 @@ def grades():
 # Profile
 # ---------------------------------------------------------------------------
 
+<<<<<<< HEAD
 @student_bp.route("/profile",methods=['GET','POST'])
+=======
+@student_bp.route("/profile")
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 @login_required("student")
 def profile():
     term = active_term()
     student = get_student()
+<<<<<<< HEAD
     if request.method=='POST':abort(403,description='Personal information is read-only. Contact your administrator for corrections.')
     from .. import academic
     from ..student_progress import academic_status,curriculum,passed_subjects
@@ -352,6 +472,10 @@ def profile_photo():
     finally:
         if os.path.exists(temporary):os.unlink(temporary)
     flash('Profile picture updated.','success');return redirect(url_for('student.profile'))
+=======
+    enrollments = my_enrollments(student["student_id"], term["term_id"] if term else 0)
+    return render_template("student/profile.html", term=term, student=student, enrollments=enrollments)
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 
 
 # ---------------------------------------------------------------------------
@@ -361,6 +485,7 @@ def profile_photo():
 @student_bp.route("/analytics")
 @login_required("student")
 def analytics():
+<<<<<<< HEAD
     from ..insights import load_sections, student_summary, term_history
     term = active_term()
     student = get_student()
@@ -372,6 +497,81 @@ def analytics():
     trend = term_history(all_sections)
     return render_template("student/analytics.html", term=term, sections=sections,
         published=published, selected=selected, trend=trend, report=student_summary(sections))
+=======
+    term = active_term()
+    student = get_student()
+    term_id = term["term_id"] if term else 0
+    enrollments = my_enrollments(student["student_id"], term_id)
+
+    subject_performance = []
+    completed_count = 0
+    missed_count = 0
+
+    for e in enrollments:
+        components = assignment_components(e["assignment_id"])
+        scores = scores_for_enrollment(e["enrollment_id"])
+        total = compute_weighted_total(scores, components, category_weights_for(e["assignment_id"]))
+        subject_performance.append({
+            "subject_name": e["subject_name"], "assignment_id": e["assignment_id"], "avg": total,
+        })
+        for c in components:
+            score, max_score = scores.get(c["component_id"], (None, None))
+            if score is not None and max_score:
+                completed_count += 1
+            else:
+                missed_count += 1
+
+    max_subject = max([s["avg"] for s in subject_performance], default=1) or 1
+
+    # Per-component breakdown for one selected subject (defaults to the first enrollment)
+    aid = request.args.get("assignment_id", type=int)
+    selected = next((e for e in enrollments if e["assignment_id"] == aid), None) or (enrollments[0] if enrollments else None)
+    component_breakdown = []
+    if selected:
+        components = assignment_components(selected["assignment_id"])
+        scores = scores_for_enrollment(selected["enrollment_id"])
+        for c in components:
+            score, max_score = scores.get(c["component_id"], (None, None))
+            if score is not None and max_score:
+                component_breakdown.append({
+                    "name": c["component_name"], "pct": round((float(score) / float(max_score)) * 100, 1),
+                })
+
+    # Grade trend across all terms the student has published grades in
+    all_terms = query_all("SELECT term_id, school_year, semester FROM school_terms ORDER BY term_id")
+    term_trend = []
+    for t in all_terms:
+        avg = overall_average(student["student_id"], t["term_id"])
+        if avg is not None:
+            term_trend.append({"label": f"{t['semester']} {t['school_year']}", "avg": avg})
+    max_trend = max([t["avg"] for t in term_trend], default=1) or 1
+
+    gpa = gpa_scale(subject_performance and (sum(s["avg"] for s in subject_performance) / len(subject_performance)))
+    gpa_trend = None
+    if len(term_trend) >= 2:
+        gpa_trend = round(gpa_scale(term_trend[-1]["avg"]) - gpa_scale(term_trend[-2]["avg"]), 2)
+
+    total_activities = completed_count + missed_count
+    completion_pct = round((completed_count / total_activities) * 100) if total_activities else 0
+
+    return render_template(
+        "student/analytics.html",
+        term=term,
+        enrollments=enrollments,
+        subject_performance=subject_performance,
+        max_subject=max_subject,
+        selected=selected,
+        component_breakdown=component_breakdown,
+        term_trend=term_trend,
+        max_trend=max_trend,
+        gpa=gpa,
+        gpa_trend=gpa_trend,
+        completed_count=completed_count,
+        missed_count=missed_count,
+        total_activities=total_activities,
+        completion_pct=completion_pct,
+    )
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 
 
 # ---------------------------------------------------------------------------
@@ -392,7 +592,11 @@ def my_rank():
         "student/my_rank.html",
         term=term,
         student=student,
+<<<<<<< HEAD
         leaderboard=[my_entry] if my_entry else [],
+=======
+        leaderboard=leaderboard,
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         my_entry=my_entry,
         class_size=len(leaderboard),
     )

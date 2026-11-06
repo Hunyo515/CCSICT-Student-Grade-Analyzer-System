@@ -1,11 +1,20 @@
 --------------------------------------------------------------------------
 -- Seed data — matches the sample rows shown in the Figma design
+<<<<<<< HEAD
 -- DEMO DATA ONLY. All passwords are disabled until reset by the operator.
 --------------------------------------------------------------------------
 
 -- Demo admin user; reset password and set a real email before use.
 INSERT INTO users (username, password_hash, role, full_name, email, status)
 VALUES ('admin', '!DISABLED-RESET-REQUIRED', 'admin', 'Admin User', 'admin@cct.edu', 'ACTIVE');
+=======
+-- Passwords below are the bcrypt hash of "password123" (change in prod!)
+--------------------------------------------------------------------------
+
+-- Admin user (username: admin / password: password123)
+INSERT INTO users (username, password_hash, role, full_name, email, status)
+VALUES ('admin', '$2b$12$G8kzR8n7l4b8m1s9y2eYxOQ2Zt2QeYxKQnVYb1zK8m1s9y2eYxOQ2', 'admin', 'Admin User', 'admin@cct.edu', 'ACTIVE');
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 
 -- School terms
 INSERT INTO school_terms (school_year, semester, is_active) VALUES ('2025-2026', '1st Semester', 1);
@@ -23,27 +32,47 @@ INSERT INTO subjects (subject_code, subject_name, units, year_level) VALUES ('MA
 
 -- Teachers (from the Faculty Members screen)
 INSERT INTO users (username, password_hash, role, full_name, email, status)
+<<<<<<< HEAD
 VALUES ('e.cruz', '!DISABLED-RESET-REQUIRED', 'faculty', 'Prof. Elena Cruz', 'e.cruz@cct.edu', 'ACTIVE');
+=======
+VALUES ('e.cruz', '$2b$12$G8kzR8n7l4b8m1s9y2eYxOQ2Zt2QeYxKQnVYb1zK8m1s9y2eYxOQ2', 'faculty', 'Prof. Elena Cruz', 'e.cruz@cct.edu', 'ACTIVE');
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 INSERT INTO teachers (user_id, faculty_code, status)
 VALUES ((SELECT user_id FROM users WHERE username='e.cruz'), 'TCH-104', 'ACTIVE');
 
 INSERT INTO users (username, password_hash, role, full_name, email, status)
+<<<<<<< HEAD
 VALUES ('r.santos', '!DISABLED-RESET-REQUIRED', 'faculty', 'Prof. Ricardo Santos', 'r.santos@cct.edu', 'ACTIVE');
+=======
+VALUES ('r.santos', '$2b$12$G8kzR8n7l4b8m1s9y2eYxOQ2Zt2QeYxKQnVYb1zK8m1s9y2eYxOQ2', 'faculty', 'Prof. Ricardo Santos', 'r.santos@cct.edu', 'ACTIVE');
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 INSERT INTO teachers (user_id, faculty_code, status)
 VALUES ((SELECT user_id FROM users WHERE username='r.santos'), 'TCH-089', 'ACTIVE');
 
 INSERT INTO users (username, password_hash, role, full_name, email, status)
+<<<<<<< HEAD
 VALUES ('m.bautista', '!DISABLED-RESET-REQUIRED', 'faculty', 'Prof. Maria Bautista', 'm.bautista@cct.edu', 'ACTIVE');
+=======
+VALUES ('m.bautista', '$2b$12$G8kzR8n7l4b8m1s9y2eYxOQ2Zt2QeYxKQnVYb1zK8m1s9y2eYxOQ2', 'faculty', 'Prof. Maria Bautista', 'm.bautista@cct.edu', 'ACTIVE');
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 INSERT INTO teachers (user_id, faculty_code, status)
 VALUES ((SELECT user_id FROM users WHERE username='m.bautista'), 'TCH-112', 'ACTIVE');
 
 INSERT INTO users (username, password_hash, role, full_name, email, status)
+<<<<<<< HEAD
 VALUES ('a.reyes', '!DISABLED-RESET-REQUIRED', 'faculty', 'Prof. Antonio Reyes', 'a.reyes@cct.edu', 'ACTIVE');
+=======
+VALUES ('a.reyes', '$2b$12$G8kzR8n7l4b8m1s9y2eYxOQ2Zt2QeYxKQnVYb1zK8m1s9y2eYxOQ2', 'faculty', 'Prof. Antonio Reyes', 'a.reyes@cct.edu', 'ACTIVE');
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 INSERT INTO teachers (user_id, faculty_code, status)
 VALUES ((SELECT user_id FROM users WHERE username='a.reyes'), 'TCH-076', 'ACTIVE');
 
 INSERT INTO users (username, password_hash, role, full_name, email, status)
+<<<<<<< HEAD
 VALUES ('s.lim', '!DISABLED-RESET-REQUIRED', 'faculty', 'Prof. Sofia Lim', 's.lim@cct.edu', 'INACTIVE');
+=======
+VALUES ('s.lim', '$2b$12$G8kzR8n7l4b8m1s9y2eYxOQ2Zt2QeYxKQnVYb1zK8m1s9y2eYxOQ2', 'faculty', 'Prof. Sofia Lim', 's.lim@cct.edu', 'INACTIVE');
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 INSERT INTO teachers (user_id, faculty_code, status)
 VALUES ((SELECT user_id FROM users WHERE username='s.lim'), 'TCH-131', 'INACTIVE');
 
@@ -60,32 +89,56 @@ VALUES ((SELECT teacher_id FROM teachers WHERE faculty_code='TCH-104'),
 
 -- Students (from the Students Registry screen)
 INSERT INTO users (username, password_hash, role, full_name, email, status)
+<<<<<<< HEAD
 VALUES ('j.delacruz', '!DISABLED-RESET-REQUIRED', 'student', 'Juan Gabriel dela Cruz', 'j.delacruz@cct.edu', 'ACTIVE');
+=======
+VALUES ('j.delacruz', '$2b$12$G8kzR8n7l4b8m1s9y2eYxOQ2Zt2QeYxKQnVYb1zK8m1s9y2eYxOQ2', 'student', 'Juan Gabriel dela Cruz', 'j.delacruz@cct.edu', 'ACTIVE');
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 INSERT INTO students (user_id, id_number, program, year_level, section, contact_number, sex, enrollment_type, status)
 VALUES ((SELECT user_id FROM users WHERE username='j.delacruz'), 'CCT-22-0142', 'BS Computer Science', '3rd Year', 'BSCS 3A', '+63 917 123 4567', 'MALE', 'REGULAR', 'ACTIVE');
 
 INSERT INTO users (username, password_hash, role, full_name, email, status)
+<<<<<<< HEAD
 VALUES ('m.santos', '!DISABLED-RESET-REQUIRED', 'student', 'Maria Cassandra Santos', 'm.santos@cct.edu', 'ACTIVE');
+=======
+VALUES ('m.santos', '$2b$12$G8kzR8n7l4b8m1s9y2eYxOQ2Zt2QeYxKQnVYb1zK8m1s9y2eYxOQ2', 'student', 'Maria Cassandra Santos', 'm.santos@cct.edu', 'ACTIVE');
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 INSERT INTO students (user_id, id_number, program, year_level, section, contact_number, sex, enrollment_type, status)
 VALUES ((SELECT user_id FROM users WHERE username='m.santos'), 'CCT-23-0891', 'BS Information Technology', '2nd Year', 'BSIT 2B', '+63 918 765 4321', 'FEMALE', 'REGULAR', 'ACTIVE');
 
 INSERT INTO users (username, password_hash, role, full_name, email, status)
+<<<<<<< HEAD
 VALUES ('j.bautista', '!DISABLED-RESET-REQUIRED', 'student', 'Joshua Miguel Bautista', 'j.bautista@cct.edu', 'ACTIVE');
+=======
+VALUES ('j.bautista', '$2b$12$G8kzR8n7l4b8m1s9y2eYxOQ2Zt2QeYxKQnVYb1zK8m1s9y2eYxOQ2', 'student', 'Joshua Miguel Bautista', 'j.bautista@cct.edu', 'ACTIVE');
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 INSERT INTO students (user_id, id_number, program, year_level, section, contact_number, sex, enrollment_type, status)
 VALUES ((SELECT user_id FROM users WHERE username='j.bautista'), 'CCT-24-1102', 'BS Information Systems', '1st Year', 'BSIS 1A', '+63 922 456 7890', 'MALE', 'REGULAR', 'ACTIVE');
 
 INSERT INTO users (username, password_hash, role, full_name, email, status)
+<<<<<<< HEAD
 VALUES ('a.gonzales', '!DISABLED-RESET-REQUIRED', 'student', 'Alyssa Mae Gonzales', 'a.gonzales@cct.edu', 'INACTIVE');
+=======
+VALUES ('a.gonzales', '$2b$12$G8kzR8n7l4b8m1s9y2eYxOQ2Zt2QeYxKQnVYb1zK8m1s9y2eYxOQ2', 'student', 'Alyssa Mae Gonzales', 'a.gonzales@cct.edu', 'INACTIVE');
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 INSERT INTO students (user_id, id_number, program, year_level, section, contact_number, sex, enrollment_type, status)
 VALUES ((SELECT user_id FROM users WHERE username='a.gonzales'), 'CCT-22-0453', 'BS Computer Science', '3rd Year', 'BSCS 3B', '+63 915 987 6543', 'FEMALE', 'IRREGULAR', 'INACTIVE');
 
 INSERT INTO users (username, password_hash, role, full_name, email, status)
+<<<<<<< HEAD
 VALUES ('m.reyes', '!DISABLED-RESET-REQUIRED', 'student', 'Miguel Reyes', 'm.reyes@cct.edu', 'ACTIVE');
+=======
+VALUES ('m.reyes', '$2b$12$G8kzR8n7l4b8m1s9y2eYxOQ2Zt2QeYxKQnVYb1zK8m1s9y2eYxOQ2', 'student', 'Miguel Reyes', 'm.reyes@cct.edu', 'ACTIVE');
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 INSERT INTO students (user_id, id_number, program, year_level, section, contact_number, sex, enrollment_type, status)
 VALUES ((SELECT user_id FROM users WHERE username='m.reyes'), 'CCT-23-0512', 'BS Information Technology', '2nd Year', 'BSIT 2B', '+63 920 111 2222', 'MALE', 'IRREGULAR', 'ACTIVE');
 
 INSERT INTO users (username, password_hash, role, full_name, email, status)
+<<<<<<< HEAD
 VALUES ('c.villanueva', '!DISABLED-RESET-REQUIRED', 'student', 'Carmela Villanueva', 'c.villanueva@cct.edu', 'ACTIVE');
+=======
+VALUES ('c.villanueva', '$2b$12$G8kzR8n7l4b8m1s9y2eYxOQ2Zt2QeYxKQnVYb1zK8m1s9y2eYxOQ2', 'student', 'Carmela Villanueva', 'c.villanueva@cct.edu', 'ACTIVE');
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 INSERT INTO students (user_id, id_number, program, year_level, section, contact_number, sex, enrollment_type, status)
 VALUES ((SELECT user_id FROM users WHERE username='c.villanueva'), 'CCT-24-0733', 'BS Information Systems', '1st Year', 'BSIS 1A', '+63 921 333 4444', 'FEMALE', 'REGULAR', 'ACTIVE');
 

@@ -1,5 +1,6 @@
 {% extends "faculty/_layout.html" %}
 {% set active_page = "analytics" %}
+<<<<<<< HEAD
 {% from "_insight_ui.html" import metric, bar, empty, distribution, readiness, publication %}
 {% block title %}Analytics{% endblock %}
 {% block page_title %}Analytics{% endblock %}
@@ -24,4 +25,59 @@
 
 
 </div>
+=======
+{% from "_icons.html" import icon %}
+{% block title %}Analytics{% endblock %}
+{% block page_title %}Class Analytics{% endblock %}
+{% block header_extra %}
+{% if assignments %}
+<form method="GET" action="{{ url_for('faculty.analytics') }}">
+  <select class="filter-select" name="assignment_id" onchange="this.form.submit()">
+    {% for a in assignments %}
+    <option value="{{ a.assignment_id }}" {{ 'selected' if assignment and a.assignment_id == assignment.assignment_id }}>
+      {{ a.subject_name }} - {{ a.section }}
+    </option>
+    {% endfor %}
+  </select>
+</form>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+{% if not assignment %}
+<div class="card"><p class="cell-muted">You have no subjects assigned this term yet.</p></div>
+{% else %}
+<div class="analytics-grid">
+  <div class="card">
+    <div class="card-title">Component Averages</div>
+    <div class="card-subtitle">Class average score per weighted component</div>
+    <div style="margin-top:20px;">
+      {% for c in component_averages %}
+      <div class="bar-row">
+        <span class="bar-label">{{ c.name }}</span>
+        <div class="bar-track"><div class="bar-fill" style="width:{{ (c.avg / max_component * 100)|round(1) }}%"></div></div>
+        <span class="bar-value">{{ c.avg }}%</span>
+      </div>
+      {% else %}
+      <div class="cell-muted">No components set up yet.</div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Grade Distribution</div>
+    <div class="card-subtitle">Students per letter grade band (current weighted totals)</div>
+    <div style="margin-top:20px;">
+      {% for g in grade_distribution %}
+      <div class="bar-row">
+        <span class="bar-label">{{ g.letter }}</span>
+        <div class="bar-track"><div class="bar-fill" style="width:{{ (g.count / max_distribution * 100)|round(1) }}%"></div></div>
+        <span class="bar-value">{{ g.count }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 {% endblock %}

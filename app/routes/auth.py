@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from flask import abort, Blueprint, flash, redirect, render_template, request, session, url_for
 
 from ..curriculum import canonical_program
@@ -5,6 +6,13 @@ from ..auth import hash_password, verify_password
 from ..db import execute, execute_returning_id, query_all, query_one
 from ..notifications import notify_many
 from ..validation import PASSWORD_MIN_LENGTH
+=======
+from flask import Blueprint, flash, redirect, render_template, request, session, url_for
+
+from ..auth import hash_password, verify_password
+from ..db import execute, execute_returning_id, query_all, query_one
+from ..notifications import notify_many
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 
 auth_bp = Blueprint("auth", __name__)
 
@@ -21,6 +29,7 @@ ROLE_LABELS = {
 }
 
 
+<<<<<<< HEAD
 def finish_login(user):
     profile=None;role=user['role']
     if role in ('faculty','student'):
@@ -40,6 +49,12 @@ def finish_login(user):
 def select_role():
     if session.get("user_id") and session.get("role") in ROLE_DASHBOARD:
         return redirect(url_for(ROLE_DASHBOARD[session['role']]))
+=======
+@auth_bp.route("/")
+def select_role():
+    if session.get("user_id") and session.get("role") == "admin":
+        return redirect(url_for("admin.dashboard"))
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     return render_template("auth/select_role.html")
 
 
@@ -52,6 +67,7 @@ def login(role):
         username = request.form.get("username", "").strip()
         password = request.form.get("password", "")
 
+<<<<<<< HEAD
         identifier_clause = "username = :username"
         if role == 'student':
             identifier_clause = "(LOWER(username) = LOWER(:username) OR LOWER(email) = LOWER(:username) OR user_id IN (SELECT user_id FROM students WHERE id_number = :username))"
@@ -62,10 +78,18 @@ def login(role):
             SELECT user_id, username, password_hash, role, full_name, status, email, must_change_password
             FROM users
             WHERE {identifier_clause} AND role = :role
+=======
+        user = query_one(
+            """
+            SELECT user_id, username, password_hash, role, full_name, status
+            FROM users
+            WHERE username = :username AND role = :role
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
             """,
             {"username": username, "role": role},
         )
 
+<<<<<<< HEAD
         if not user or user['role'] != role or not verify_password(password, user['password_hash']):
             flash('Invalid email address or password.' if role=='faculty' else 'Invalid username or password.', 'error')
             return render_template('auth/login.html', role=role, role_label=ROLE_LABELS[role])
@@ -84,10 +108,33 @@ def login(role):
             flash(str(error) if isinstance(error,RuntimeError) else 'Email delivery failed. Please try again or contact your administrator.', 'error')
             return render_template('auth/login.html',role=role,role_label=ROLE_LABELS[role]),503
         return redirect(url_for('auth.otp'))
+=======
+        if not user or user["status"] != "ACTIVE" or not verify_password(password, user["password_hash"]):
+            flash("Invalid username or password.", "error")
+            return render_template("auth/login.html", role=role, role_label=ROLE_LABELS[role])
+
+        session.clear()
+        session["user_id"] = user["user_id"]
+        session["username"] = user["username"]
+        session["full_name"] = user["full_name"]
+        session["role"] = user["role"]
+
+        if role == "faculty":
+            teacher = query_one("SELECT teacher_id FROM teachers WHERE user_id = :user_id", {"user_id": user["user_id"]})
+            if teacher:
+                session["teacher_id"] = teacher["teacher_id"]
+        elif role == "student":
+            student = query_one("SELECT student_id FROM students WHERE user_id = :user_id", {"user_id": user["user_id"]})
+            if student:
+                session["student_id"] = student["student_id"]
+
+        return redirect(url_for(ROLE_DASHBOARD[role]))
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 
     return render_template("auth/login.html", role=role, role_label=ROLE_LABELS[role])
 
 
+<<<<<<< HEAD
 @auth_bp.route('/verify-email',methods=['GET','POST'])
 def otp():
     from ..email_otp import pending,consume,begin
@@ -140,6 +187,10 @@ def change_password():
 def logout():
     from ..security import revoke_session
     revoke_session()
+=======
+@auth_bp.route("/logout")
+def logout():
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     session.clear()
     flash("You have been logged out.", "success")
     return redirect(url_for("auth.select_role"))
@@ -147,6 +198,7 @@ def logout():
 
 @auth_bp.route("/register", methods=["GET", "POST"])
 def register():
+<<<<<<< HEAD
     def registration_form(form):
         return render_template('auth/registration.html', form=form)
     if request.method == "POST":
@@ -159,10 +211,21 @@ def register():
         section = "UNASSIGNED"
         program = canonical_program(request.form.get("program", ""))
         email = request.form.get("email", "").strip().lower()
+=======
+    if request.method == "POST":
+        first_name = request.form.get("first_name", "").strip()
+        last_name = request.form.get("last_name", "").strip()
+        id_number = request.form.get("id_number", "").strip().upper()
+        year_level = request.form.get("year_level", "").strip()
+        section = request.form.get("section", "").strip()
+        program = request.form.get("program", "").strip()
+        email = request.form.get("email", "").strip()
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         sex = request.form.get("sex", "").strip() or None
         password = request.form.get("password", "")
         confirm_password = request.form.get("confirm_password", "")
 
+<<<<<<< HEAD
         form_data = {k:v for k,v in request.form.items() if "password" not in k and k != "csrf_token"}
 
         if not all([first_name, last_name, id_number, year_level, section, program, email, password]):
@@ -184,13 +247,38 @@ def register():
         if query_one("SELECT user_id FROM users WHERE LOWER(email) = :email", {"email": email}):
             flash('An account with this email address already exists.', 'error')
             return registration_form(form_data)
+=======
+        form_data = request.form.to_dict()
+
+        if not all([first_name, last_name, id_number, year_level, section, program, email, password]):
+            flash("Please fill in all required fields.", "error")
+            return render_template("auth/registration.html", form=form_data)
+
+        if password != confirm_password:
+            flash("Passwords do not match.", "error")
+            return render_template("auth/registration.html", form=form_data)
+
+        if len(password) < 8:
+            flash("Password must be at least 8 characters.", "error")
+            return render_template("auth/registration.html", form=form_data)
+
+        if query_one("SELECT student_id FROM students WHERE id_number = :i", {"i": id_number}):
+            flash(f"ID number {id_number} is already registered.", "error")
+            return render_template("auth/registration.html", form=form_data)
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 
         username = id_number.lower()
         if query_one("SELECT user_id FROM users WHERE username = :u", {"u": username}):
             flash("An account with this ID already exists.", "error")
+<<<<<<< HEAD
             return registration_form(form_data)
 
         full_name = " ".join(v for v in (first_name,middle_name,last_name) if v)
+=======
+            return render_template("auth/registration.html", form=form_data)
+
+        full_name = f"{first_name} {last_name}"
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         user_id = execute_returning_id(
             """
             INSERT INTO users (username, password_hash, role, full_name, email, status)
@@ -201,6 +289,7 @@ def register():
         )
         execute(
             """
+<<<<<<< HEAD
             INSERT INTO students (user_id, id_number, first_name, middle_name, last_name, contact_number, program, year_level, section, sex, age, progress_school_year, enrollment_type, status)
             VALUES (:user_id, :id_number, :first, :middle, :last, :contact, :program, :year_level, :section, :sex, :age, (SELECT TO_NUMBER(SUBSTR(school_year,1,4)) FROM school_terms WHERE is_active=1), 'REGULAR', 'ACTIVE')
             """,
@@ -213,6 +302,18 @@ def register():
         return redirect(url_for("auth.login", role="student"))
 
     return registration_form({})
+=======
+            INSERT INTO students (user_id, id_number, program, year_level, section, sex, enrollment_type, status)
+            VALUES (:user_id, :id_number, :program, :year_level, :section, :sex, 'REGULAR', 'ACTIVE')
+            """,
+            {"user_id": user_id, "id_number": id_number, "program": program, "year_level": year_level, "section": section, "sex": sex},
+        )
+
+        flash("Account created! You can now log in.", "success")
+        return redirect(url_for("auth.login", role="student"))
+
+    return render_template("auth/registration.html", form={})
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 
 
 @auth_bp.route("/forgot-password/<role>", methods=["GET", "POST"])
@@ -222,9 +323,14 @@ def forgot_password(role):
 
     if request.method == "POST":
         username = request.form.get("username", "").strip()
+<<<<<<< HEAD
         identifier_clause = 'LOWER(email) = LOWER(:u)' if role=='faculty' else 'username = :u'
         user = query_one(
             f"SELECT user_id, full_name FROM users WHERE {identifier_clause} AND role = :r",
+=======
+        user = query_one(
+            "SELECT user_id, full_name FROM users WHERE username = :u AND role = :r",
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
             {"u": username, "r": role},
         )
         if user:
@@ -232,7 +338,11 @@ def forgot_password(role):
             notify_many(
                 [a["user_id"] for a in admins],
                 f"Password reset requested by {user['full_name']} ({ROLE_LABELS[role]}, username: {username}).",
+<<<<<<< HEAD
                 link=url_for("admin.teachers" if role == "faculty" else "admin.students" if role == "student" else "admin.settings"),
+=======
+                link=url_for("admin.settings"),
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
             )
         # Always show the same message whether or not the account exists,
         # so this can't be used to check which usernames are registered.
@@ -240,6 +350,7 @@ def forgot_password(role):
         return redirect(url_for("auth.login", role=role))
 
     return render_template("auth/forgot_password.html", role=role, role_label=ROLE_LABELS[role])
+<<<<<<< HEAD
 
 
 @auth_bp.route('/register/faculty',methods=['GET','POST'])
@@ -261,3 +372,5 @@ def register_faculty():
         flash('Faculty registration successful. Sign in with your institutional email.','success')
         return redirect(url_for('auth.login',role='faculty'))
     return render_template('auth/faculty_registration.html',form={})
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423

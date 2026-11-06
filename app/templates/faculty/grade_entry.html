@@ -33,6 +33,7 @@
     {{ icon('download') }} View Grade Registry
   </a>
   <form method="POST" action="{{ url_for('faculty.update_status') }}">
+<<<<<<< HEAD
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
     <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
 <input type="hidden" name="revision" value="{{ assignment.revision }}">
@@ -43,6 +44,14 @@
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
     <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
 <input type="hidden" name="revision" value="{{ assignment.revision }}">
+=======
+    <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
+    <input type="hidden" name="status" value="IN_PROGRESS">
+    <button type="submit" class="btn btn-outline">Save Draft</button>
+  </form>
+  <form method="POST" action="{{ url_for('faculty.update_status') }}" onsubmit="return confirm('Publish grades for {{ assignment.subject_name }} - {{ assignment.section }}? Students will see final grades.');">
+    <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     <input type="hidden" name="status" value="PUBLISHED">
     <button type="submit" class="btn btn-primary">Publish Grades</button>
   </form>
@@ -53,7 +62,11 @@
   <!-- Components panel -->
   <div class="card" style="width:400px;flex-shrink:0;">
     <div class="card-title">Grade Components Setup</div>
+<<<<<<< HEAD
     <div class="card-subtitle">Weights must total 100%.</div>
+=======
+    <div class="card-subtitle">Configure weighted formula requirements (Total: 100%)</div>
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 
     {% if has_categories %}
     <div class="info-banner" style="margin-top:12px;">
@@ -66,9 +79,13 @@
     <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px;">
       {% for c in components if not c.category_id %}
       <form method="POST" action="{{ url_for('faculty.delete_component', component_id=c.component_id) }}" class="component-row" onsubmit="return confirm('Remove this component? Any scores entered for it will also be removed.');">
+<<<<<<< HEAD
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
 <input type="hidden" name="revision" value="{{ assignment.revision }}">
+=======
+        <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         <div class="component-name-field">{{ c.component_name }}</div>
         <div class="component-weight-field">{{ c.weight_percent|round(1) }}%</div>
         <button type="submit" class="icon-btn danger" title="Remove">{{ icon('trash') }}</button>
@@ -88,9 +105,13 @@
     </div>
 
     <form method="POST" action="{{ url_for('faculty.add_component') }}" style="display:flex;gap:8px;margin-top:16px;width:100%;">
+<<<<<<< HEAD
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
       <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
 <input type="hidden" name="revision" value="{{ assignment.revision }}">
+=======
+      <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
       <input class="field-input" name="component_name" placeholder="Component name" required style="flex:1;">
       <input class="field-input" name="weight_percent" type="number" min="0" max="100" placeholder="%" style="width:80px;" required>
       <button type="submit" class="btn btn-outline btn-sm">{{ icon('plus') }}</button>
@@ -102,7 +123,11 @@
     <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 24px 0;">
       <div>
         <div class="card-title">Scores Registry Sheet</div>
+<<<<<<< HEAD
         <div class="card-subtitle">Enter scores or import a CSV.</div>
+=======
+        <div class="card-subtitle">Manual keyboard entry or rapid CSV spreadsheet import</div>
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
       </div>
       <button type="button" class="btn btn-outline btn-sm" onclick="toggleCsv()">
         {{ icon('upload') }} Import CSV File
@@ -111,9 +136,13 @@
 
     <form id="csvUploadForm" method="POST" action="{{ url_for('faculty.csv_upload') }}" enctype="multipart/form-data"
           style="display:none;gap:8px;align-items:center;padding:12px 24px 0;">
+<<<<<<< HEAD
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
       <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
 <input type="hidden" name="revision" value="{{ assignment.revision }}">
+=======
+      <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
       <input type="file" name="csv_file" accept=".csv" required style="flex:1;">
       <button type="submit" class="btn btn-primary btn-sm">Upload &amp; Preview</button>
       <span class="cell-muted" style="font-size:12px;">Columns: id_number, component_name, score</span>
@@ -122,16 +151,23 @@
     <div style="padding:16px 24px 0;">
       <form class="search-box" method="GET" action="{{ url_for('faculty.grade_entry') }}" style="width:100%;">
         <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
+<<<<<<< HEAD
 <input type="hidden" name="revision" value="{{ assignment.revision }}">
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         {{ icon('search') }}
         <input type="text" name="q" value="{{ q }}" placeholder="Search student ID or name...">
       </form>
     </div>
 
     <form method="POST" action="{{ url_for('faculty.save_scores') }}">
+<<<<<<< HEAD
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
       <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
 <input type="hidden" name="revision" value="{{ assignment.revision }}">
+=======
+      <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
       <div style="overflow-x:auto;margin-top:16px;">
         <table class="gradebook-table">
           <thead>
@@ -153,7 +189,11 @@
               <td>
                 <input class="score-input" type="number" step="0.01" min="0" max="100"
                        name="score__{{ s.enrollment_id }}__{{ c.component_id }}"
+<<<<<<< HEAD
                        value="{{ ((existing[0] / existing[1] * 100)|round(2)) if existing and existing[0] is not none and existing[1] else '' }}">
+=======
+                       value="{{ existing[0] if existing and existing[0] is not none else '' }}">
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
               </td>
               {% endfor %}
             </tr>

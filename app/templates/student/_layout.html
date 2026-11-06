@@ -5,10 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}CCSICT Grade Analyzer{% endblock %} — Student Portal</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+<<<<<<< HEAD
   {% if active_page in ('dashboard', 'analytics') %}<link rel="stylesheet" href="{{ url_for('static', filename='css/insights.css') }}">{% endif %}
   {% block extra_head %}{% endblock %}
 <link rel="icon" href="{{ url_for('static', filename='img/logo.png') }}">
 <link rel="stylesheet" href="{{ url_for('static',filename='css/workspace.css') }}"><link rel="stylesheet" href="{{ url_for('static',filename='css/srs.css') }}"></head>
+=======
+  {% block extra_head %}{% endblock %}
+</head>
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 <body>
 {% from "_icons.html" import icon %}
 
@@ -47,6 +52,7 @@
         </div>
       </div>
       <nav class="nav-menu">
+<<<<<<< HEAD
         <a class="nav-item {{ 'active' if active_page=='dashboard' }}" href="{{ url_for('srs.student_home') }}">{{ icon('dashboard') }}<span class="nav-label">Dashboard</span></a>
         <a class="nav-item {{ 'active' if active_page=='enlistme' }}" href="{{ url_for('university.enlistme') }}">{{ icon('book') }}<span class="nav-label">EnlistMe</span></a>
         <a class="nav-item {{ 'active' if active_page=='grades' }}" href="{{ url_for('srs.student_grades') }}">{{ icon('book') }}<span class="nav-label">My Subjects</span></a>
@@ -54,11 +60,32 @@
         <a class="nav-item {{ 'active' if active_page=='analytics' }}" href="{{ url_for('srs.student_analytics') }}">{{ icon('chart') }}<span class="nav-label">Analytics</span></a>
         <a class="nav-item {{ 'active' if active_page=='rank' }}" href="{{ url_for('srs.student_rank') }}">{{ icon('award') }}<span class="nav-label">My Rank</span></a>
         <a class="nav-item {{ 'active' if active_page=='profile' }}" href="{{ url_for('student.profile') }}">{{ icon('users') }}<span class="nav-label">Profile</span></a>
+=======
+        <a class="nav-item {{ 'active' if active_page == 'dashboard' }}" href="{{ url_for('student.dashboard') }}" title="Dashboard">
+          {{ icon('dashboard') }} <span class="nav-label">Dashboard</span>
+        </a>
+        <a class="nav-item {{ 'active' if active_page == 'grades' }}" href="{{ url_for('student.grades') }}" title="My Grades">
+          {{ icon('book') }} <span class="nav-label">My Grades</span>
+        </a>
+        <a class="nav-item {{ 'active' if active_page == 'analytics' }}" href="{{ url_for('student.analytics') }}" title="Analytics">
+          {{ icon('chart') }} <span class="nav-label">Analytics</span>
+        </a>
+        <a class="nav-item {{ 'active' if active_page == 'my_rank' }}" href="{{ url_for('student.my_rank') }}" title="My Rank">
+          {{ icon('award') }} <span class="nav-label">My Rank</span>
+        </a>
+        <a class="nav-item {{ 'active' if active_page == 'profile' }}" href="{{ url_for('student.profile') }}" title="Profile">
+          {{ icon('user') }} <span class="nav-label">Profile</span>
+        </a>
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
       </nav>
     </div>
     <div class="sidebar-bottom">
       <hr class="sidebar-divider">
+<<<<<<< HEAD
       <form method="POST" action="{{ url_for('auth.logout') }}"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button type="submit" class="nav-logout">{{ icon('logout') }} <span class="nav-logout-label">Logout</span></button></form>
+=======
+      <a class="nav-logout" href="{{ url_for('auth.logout') }}" title="Logout">{{ icon('logout') }} <span class="nav-logout-label">Logout</span></a>
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     </div>
   </aside>
 
@@ -72,7 +99,14 @@
       </div>
       <div style="display:flex;align-items:center;gap:16px;">
         {% include "_notifications.html" %}
+<<<<<<< HEAD
         <div class="user-profile student-header-profile"><div class="student-header-identity"><span class="user-name">{{ current_user.full_name }}</span><span class="user-badge">Student</span></div>{% if student_photo_url %}<img class="student-avatar" src="{{ student_photo_url }}" alt="Your profile picture">{% else %}<span class="student-avatar student-avatar-initial" aria-hidden="true">{{ current_user.full_name[:1]|upper }}</span>{% endif %}</div>
+=======
+        <div class="user-profile">
+          <span class="user-name">{{ current_user.full_name }}</span>
+          <span class="user-badge">Student</span>
+        </div>
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
       </div>
     </div>
 
@@ -90,17 +124,27 @@
     var collapsed = sidebar.classList.toggle('collapsed');
     localStorage.setItem('sidebarCollapsed', collapsed ? 'true' : 'false');
     btn.title = collapsed ? 'Expand sidebar' : 'Collapse sidebar';
+<<<<<<< HEAD
     btn.setAttribute('aria-expanded',String(!collapsed));
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
   }
   (function () {
     var btn = document.getElementById('sidebarToggleBtn');
     var sidebar = document.getElementById('sidebar');
+<<<<<<< HEAD
     if (btn && sidebar) btn.setAttribute('aria-expanded',String(!sidebar.classList.contains('collapsed')));
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     if (btn && sidebar && sidebar.classList.contains('collapsed')) {
       btn.title = 'Expand sidebar';
     }
   })();
 </script>
+<<<<<<< HEAD
 <script src="{{ url_for('static', filename='js/forms.js') }}" defer></script>
 <script src="{{ url_for('static',filename='js/workspace.js') }}" defer></script><script src="{{ url_for('static',filename='js/srs.js') }}" defer></script></body>
+=======
+</body>
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 </html>

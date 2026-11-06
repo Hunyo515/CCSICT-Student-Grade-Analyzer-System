@@ -2,6 +2,7 @@
 {% set active_page = "my_rank" %}
 {% from "_icons.html" import icon %}
 {% block title %}My Rank{% endblock %}
+<<<<<<< HEAD
 {% block page_title %}My Rank{% endblock %}
 
 {% block content %}
@@ -11,6 +12,17 @@
   </div>
   <div style="text-align:center;">
     <div style="font-family:var(--font-ui);font-weight:700;font-size:22px;">
+=======
+{% block page_title %}Performance Standings{% endblock %}
+
+{% block content %}
+<div class="card" style="width:100%;display:flex;flex-direction:column;align-items:center;gap:16px;padding:32px;">
+  <div style="width:100px;height:100px;border-radius:50px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Lexend',sans-serif;font-weight:800;font-size:36px;">
+    {{ '#' ~ my_entry.rank if my_entry else '—' }}
+  </div>
+  <div style="text-align:center;">
+    <div style="font-family:'Lexend',sans-serif;font-weight:700;font-size:22px;">
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
       {% if my_entry %}Rank #{{ my_entry.rank }} out of {{ class_size }} students{% else %}Ranking unavailable{% endif %}
     </div>
     <div class="cell-muted" style="margin-top:4px;">CCSICT Department &middot; Class of {{ student.section }}</div>
@@ -21,7 +33,11 @@
 </div>
 
 <div class="card" style="width:100%;">
+<<<<<<< HEAD
   <div class="card-title">Class Rankings</div>
+=======
+  <div class="card-title">Class Leaderboard</div>
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
   <hr class="sidebar-divider" style="margin:16px 0;">
   <div class="table-card" style="box-shadow:none;">
     <table class="data-table">

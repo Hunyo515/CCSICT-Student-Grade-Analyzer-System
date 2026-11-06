@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 from urllib.parse import urlsplit
 
 from flask import Flask, request, session
+=======
+from flask import Flask
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 
 from config import Config
 
@@ -11,6 +15,7 @@ def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
 
+<<<<<<< HEAD
     from .security import init_security, protect_request, validate_session
     from .validation import validate_request
     init_security(app)
@@ -72,6 +77,8 @@ def create_app(config_class=Config):
             response.headers["Cache-Control"] = "no-store"
         return response
 
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     init_pool(app)
     register_teardown(app)
 
@@ -86,6 +93,7 @@ def create_app(config_class=Config):
     app.register_blueprint(faculty_bp)
     app.register_blueprint(student_bp)
     app.register_blueprint(notifications_bp)
+<<<<<<< HEAD
     from .routes.workspace import workspace_bp
     app.register_blueprint(workspace_bp)
     from .routes.srs import srs_bp
@@ -98,11 +106,17 @@ def create_app(config_class=Config):
     @app.context_processor
     def inject_globals():
         from .curriculum import PROGRAM_NAMES, PROGRAM_ALIASES, canonical_program
+=======
+
+    @app.context_processor
+    def inject_globals():
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         from .auth import current_user
         from . import notifications as notif
         from .db import query_all
 
         user = current_user()
+<<<<<<< HEAD
         student_photo_url=None
         if user and user.get('role')=='student':
             from .profile_photos import photo_path
@@ -113,6 +127,12 @@ def create_app(config_class=Config):
         nav_unread_count = 0
         nav_all_terms = []
         if user and not getattr(g, "error_page", False):
+=======
+        nav_notifications = []
+        nav_unread_count = 0
+        nav_all_terms = []
+        if user:
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
             nav_notifications = notif.recent(user["user_id"])
             nav_unread_count = notif.unread_count(user["user_id"])
 
@@ -131,11 +151,15 @@ def create_app(config_class=Config):
             nav_all_terms = terms
 
         return {
+<<<<<<< HEAD
             "curriculum_programs": PROGRAM_NAMES,
             "program_aliases": PROGRAM_ALIASES,
             "canonical_program": canonical_program,
             "current_user": user,
             "student_photo_url":student_photo_url,
+=======
+            "current_user": user,
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
             "nav_notifications": nav_notifications,
             "nav_unread_count": nav_unread_count,
             "nav_all_terms": nav_all_terms,

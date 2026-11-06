@@ -5,7 +5,10 @@
 {% block page_title %}Settings{% endblock %}
 
 {% block content %}
+<<<<<<< HEAD
 
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 <div class="tab-bar">
   <button type="button" class="tab-item active" data-tab="terms" onclick="showSettingsTab('terms')">Academic Terms</button>
   <button type="button" class="tab-item" data-tab="general" onclick="showSettingsTab('general')">General</button>
@@ -15,7 +18,11 @@
   <div class="action-bar">
     <div>
       <div class="card-title" style="margin:0;">Manage School Years &amp; Terms</div>
+<<<<<<< HEAD
       
+=======
+      <div class="card-subtitle">Configure active and upcoming semesters for the student grading portal.</div>
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     </div>
     <button type="button" class="btn btn-primary" onclick="document.getElementById('addTermModal').classList.add('open')">
       {{ icon('plus') }} Add Term
@@ -36,7 +43,11 @@
         {% for t in terms %}
         <tr>
           <td class="cell-strong">{{ t.school_year }}</td>
+<<<<<<< HEAD
           <td>{{ t.semester }} {% if t.state=='upcoming' or t.enlistment_open %}<form method="post" action="{{ url_for('university.open_enlistment',term_id=t.term_id) }}" style="display:inline"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="btn btn-outline btn-sm">{{ 'Close class preparation' if t.enlistment_open else 'Prepare future classes' }}</button></form>{% endif %}</td>
+=======
+          <td>{{ t.semester }}</td>
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
           <td>
             {% if t.state == 'active' %}
               <span class="badge active">Active Term</span>
@@ -50,7 +61,10 @@
             <div class="row-actions" style="justify-content:center;">
               {% if t.state != 'active' %}
               <form method="POST" action="{{ url_for('admin.activate_term', term_id=t.term_id) }}">
+<<<<<<< HEAD
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
                 <button class="icon-btn" title="Set as active term" type="submit">{{ icon('link') }}</button>
               </form>
               {% else %}
@@ -70,12 +84,19 @@
 <div id="tab-general" class="tab-panel" style="margin-top:24px;">
   <div class="card" style="max-width:520px;">
     <div class="card-title">Admin Profile</div>
+<<<<<<< HEAD
     
 
     <form method="POST" action="{{ url_for('admin.update_profile') }}" style="margin-top:20px;display:flex;flex-direction:column;gap:16px;">
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
       <div class="field-group">
         <label for="current_password">Current password (required to save)</label><input id="current_password" class="field-input" name="current_password" type="password" autocomplete="current-password" required>
+=======
+    <div class="card-subtitle">Update your account details and password.</div>
+
+    <form method="POST" action="{{ url_for('admin.update_profile') }}" style="margin-top:20px;display:flex;flex-direction:column;gap:16px;">
+      <div class="field-group">
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         <label class="field-label">Full Name</label>
         <input class="field-input" name="full_name" value="{{ admin_user.full_name }}" required>
       </div>
@@ -89,7 +110,11 @@
       </div>
       <div class="field-group">
         <label class="field-label">New Password (leave blank to keep current)</label>
+<<<<<<< HEAD
         <input class="field-input" name="new_password" type="password" placeholder="••••••••" minlength="8"><small>At least 8 characters. Avoid common passwords. Maximum 72 UTF-8 bytes.</small>
+=======
+        <input class="field-input" name="new_password" type="password" placeholder="••••••••">
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
       </div>
       <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Save Profile</button>
     </form>
@@ -104,7 +129,10 @@
       <button class="modal-close" onclick="document.getElementById('addTermModal').classList.remove('open')">{{ icon('x-circle') }}</button>
     </div>
     <form method="POST" action="{{ url_for('admin.add_term') }}">
+<<<<<<< HEAD
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
       <div class="modal-body">
         <div class="field-group">
           <label class="field-label">School Year</label>

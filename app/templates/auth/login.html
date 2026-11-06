@@ -5,8 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ role_label }} Login — Student Grade Analyzer</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+<<<<<<< HEAD
 <link rel="icon" href="{{ url_for('static', filename='img/logo.png') }}">
 <link rel="stylesheet" href="{{ url_for('static',filename='css/workspace.css') }}"><link rel="stylesheet" href="{{ url_for('static',filename='css/srs.css') }}"></head>
+=======
+</head>
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 <body class="auth-body role-{{ role }}">
 {% from "_icons.html" import icon %}
 <img class="auth-wave" src="{{ url_for('static', filename='img/wave-decor.png') }}" alt="">
@@ -15,7 +19,11 @@
   <a class="login-back" href="{{ url_for('auth.select_role') }}">{{ icon('arrow-left') }} Back</a>
   <img class="login-logo" src="{{ url_for('static', filename='img/logo.png') }}" alt="CCSICT logo">
   <h1 class="login-title">{{ role_label }} Login</h1>
+<<<<<<< HEAD
   <p class="login-subtitle">{{ 'Sign in with your password, then verify your email code.' if role=='admin' else 'Sign in with your email address or Student ID and password.' if role=='student' else 'Sign in with your institutional email and password.' }}</p>
+=======
+  <p class="login-subtitle">Please login to continue</p>
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 
   {% with messages = get_flashed_messages(with_categories=true) %}
     {% for category, message in messages %}
@@ -24,6 +32,7 @@
   {% endwith %}
 
   <form class="login-form" method="POST" action="{{ url_for('auth.login', role=role) }}">
+<<<<<<< HEAD
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
     <div class="login-field">
       <label for="username">{{ 'Email address' if role=='faculty' else 'Username' }}</label>
@@ -32,11 +41,21 @@
     <div class="login-field">
       <label for="password">Password</label>
       <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" data-password-toggle="inside" required>
+=======
+    <div class="login-field">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username" required autofocus>
+    </div>
+    <div class="login-field">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required>
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
       <a class="login-forgot" href="{{ url_for('auth.forgot_password', role=role) }}">Forgot Password?</a>
     </div>
     <button type="submit" class="login-submit">Login</button>
   </form>
 
+<<<<<<< HEAD
   {% if role in ('student','faculty') %}
   <p class="muted">
     Don't have an account?
@@ -46,4 +65,14 @@
 </div>
 <script src="{{ url_for('static', filename='js/forms.js') }}" defer></script>
 <script src="{{ url_for('static',filename='js/workspace.js') }}" defer></script></body>
+=======
+  {% if role == 'student' %}
+  <p style="margin-top:8px;color:#1DBBCE;font-size:14px;font-weight:600;">
+    Don't have an account?
+    <a href="{{ url_for('auth.register') }}" style="text-decoration:underline;">Register here</a>
+  </p>
+  {% endif %}
+</div>
+</body>
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 </html>

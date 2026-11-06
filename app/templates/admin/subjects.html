@@ -1,0 +1,165 @@
+{% extends "admin/_layout.html" %}
+{% set active_page = "subjects" %}
+{% from "_icons.html" import icon %}
+{% block title %}Subjects{% endblock %}
+{% block page_title %}Subjects Catalog{% endblock %}
+
+{% block content %}
+<div class="action-bar">
+  <form class="search-box" method="GET" action="{{ url_for('admin.subjects') }}">
+    {{ icon('search') }}
+    <input type="text" name="q" value="{{ q }}" placeholder="Search subjects...">
+  </form>
+  <div style="display:flex;gap:12px;">
+    <a class="btn btn-outline" href="{{ url_for('admin.curriculum_guide') }}">{{ icon('book-open') }} Curriculum Guide</a>
+    <button class="btn btn-primary" onclick="document.getElementById('addSubjectModal').classList.add('open')">
+      {{ icon('plus') }} Add Subject
+    </button>
+  </div>
+</div>
+
+<div class="table-card">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th style="width:150px;">Subject Code</th>
+        <th>Subject Name</th>
+        <th style="width:120px;">Units</th>
+        <th style="width:160px;">Year Level</th>
+        <th style="width:90px;text-align:right;">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for s in subjects %}
+      <tr>
+        <td class="cell-strong">{{ s.subject_code }}</td>
+        <td>{{ s.subject_name }}</td>
+        <td class="cell-muted">{{ s.units }} Units</td>
+        <td class="cell-muted">{{ s.year_level }}</td>
+        <td>
+          <div class="row-actions">
+            <button class="icon-btn" title="Edit"
+              onclick='openEditSubject({{ s.subject_id }}, {{ s.subject_name|tojson }}, {{ s.units }}, {{ s.year_level|tojson }})'>
+              {{ icon('edit') }}
+            </button>
+            <form method="POST" action="{{ url_for('admin.delete_subject', subject_id=s.subject_id) }}"
+                  onsubmit="return confirm('Delete this subject?');">
+              <button class="icon-btn danger" title="Delete" type="submit">{{ icon('trash') }}</button>
+            </form>
+          </div>
+        </td>
+      </tr>
+      {% else %}
+      <tr><td colspan="5" class="cell-muted" style="text-align:center;padding:32px;">No subjects found.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<div class="pagination-bar">
+  <div class="pagination-info">Showing page {{ page }} of {{ total_pages }} &middot; {{ total }} subjects</div>
+  <div class="pagination-controls">
+    <a class="page-link {{ 'disabled' if page <= 1 }}" href="{{ url_for('admin.subjects', q=q, page=page-1) }}">{{ icon('chevron-left') }}</a>
+    {% for p in range(1, total_pages + 1) %}
+      {% if p == page %}
+        <span class="page-link active">{{ p }}</span>
+      {% elif p == 1 or p == total_pages or (p >= page - 1 and p <= page + 1) %}
+        <a class="page-link" href="{{ url_for('admin.subjects', q=q, page=p) }}">{{ p }}</a>
+      {% elif p == 2 or p == total_pages - 1 %}
+        <span class="page-link disabled">...</span>
+      {% endif %}
+    {% endfor %}
+    <a class="page-link {{ 'disabled' if page >= total_pages }}" href="{{ url_for('admin.subjects', q=q, page=page+1) }}">{{ icon('chevron-right') }}</a>
+  </div>
+</div>
+
+<!-- Add Subject Modal -->
+<div class="modal-overlay" id="addSubjectModal">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3 class="modal-title">Add Subject</h3>
+      <button class="modal-close" onclick="document.getElementById('addSubjectModal').classList.remove('open')">{{ icon('x-circle') }}</button>
+    </div>
+    <form method="POST" action="{{ url_for('admin.add_subject') }}">
+      <div class="modal-body">
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Subject Code</label>
+            <input class="field-input" name="subject_code" placeholder="e.g. CS401" required>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Units</label>
+            <input class="field-input" name="units" type="number" min="1" max="10" value="3" required>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Subject Name</label>
+          <input class="field-input" name="subject_name" placeholder="e.g. Software Engineering" required>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Year Level</label>
+          <select class="field-input" name="year_level">
+            <option>1st Year</option>
+            <option>2nd Year</option>
+            <option>3rd Year</option>
+            <option>4th Year</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" onclick="document.getElementById('addSubjectModal').classList.remove('open')">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Subject</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Edit Subject Modal -->
+<div class="modal-overlay" id="editSubjectModal">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3 class="modal-title">Edit Subject</h3>
+      <button class="modal-close" onclick="document.getElementById('editSubjectModal').classList.remove('open')">{{ icon('x-circle') }}</button>
+    </div>
+    <form method="POST" id="editSubjectForm">
+      <div class="modal-body">
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Units</label>
+            <input class="field-input" name="units" id="editUnits" type="number" min="1" max="10" required>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Year Level</label>
+            <select class="field-input" name="year_level" id="editYearLevel">
+              <option>1st Year</option>
+              <option>2nd Year</option>
+              <option>3rd Year</option>
+              <option>4th Year</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Subject Name</label>
+          <input class="field-input" name="subject_name" id="editSubjectName" required>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" onclick="document.getElementById('editSubjectModal').classList.remove('open')">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+function openEditSubject(id, name, units, yearLevel) {
+  document.getElementById('editSubjectForm').action = "/admin/subjects/" + id + "/edit";
+  document.getElementById('editSubjectName').value = name;
+  document.getElementById('editUnits').value = units;
+  document.getElementById('editYearLevel').value = yearLevel;
+  document.getElementById('editSubjectModal').classList.add('open');
+}
+</script>
+{% endblock %}

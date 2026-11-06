@@ -1,5 +1,6 @@
 {% extends "student/_layout.html" %}
 {% set active_page = "analytics" %}
+<<<<<<< HEAD
 {% from "_insight_ui.html" import metric, bar, empty, distribution, readiness, publication %}
 {% block title %}Analytics{% endblock %}
 {% block page_title %}Analytics{% endblock %}
@@ -20,5 +21,107 @@
 {% if selected %}<article class="insight-panel"><h2>Grade breakdown</h2><p class="insight-description">Score × effective weight = earned points.</p>{% if not selected.weighting_valid %}<p class="insight-note">Weighting needs review. Contributions and the final result are withheld until your instructor corrects it.</p>{% endif %}<div class="insight-table-wrap" tabindex="0" role="region" aria-label="Scrollable report table"><table class="insight-table"><thead><tr><th>Assessment</th><th class="num">Score (%)</th><th class="num">Effective weight</th><th class="num">Earned points</th></tr></thead><tbody>{% for c in selected.components %}<tr><td><strong>{{ c.component_name }}</strong></td><td class="num">{{ c.mean ~ '%' if c.mean is not none else 'Not recorded' }}</td><td class="num">{{ c.effective_weight ~ '%' if selected.weighting_valid else '—' }}</td><td class="num">{{ c.contribution if c.contribution is not none else '—' }}</td></tr>{% endfor %}</tbody><tfoot><tr><td colspan="3"><strong>Complete weighted result</strong></td><td class="num"><strong>{{ selected.totals[0] ~ '%' if selected.complete else 'Incomplete' }}</strong></td></tr></tfoot></table></div><p class="insight-footnote">Values are rounded.</p></article>{% endif %}
 
 
+=======
+{% from "_icons.html" import icon %}
+{% block title %}Analytics{% endblock %}
+{% block page_title %}Performance Analytics{% endblock %}
+
+{% block content %}
+<div class="card" style="width:100%;display:flex;align-items:center;justify-content:space-between;">
+  <div>
+    <div style="font-size:13px;font-weight:600;color:var(--text-muted);text-transform:uppercase;">Overall Grade Point Average (GPA)</div>
+    <div style="font-family:'Lexend',sans-serif;font-weight:800;font-size:36px;margin-top:4px;">{{ gpa if gpa is not none else '—' }}</div>
+  </div>
+  {% if gpa_trend is not none %}
+  <div class="badge" style="background:{{ 'rgba(46,125,50,0.1)' if gpa_trend >= 0 else 'var(--danger-light)' }};color:{{ 'var(--success)' if gpa_trend >= 0 else 'var(--danger)' }};font-size:13px;padding:8px 12px;">
+    {{ '+' if gpa_trend >= 0 }}{{ gpa_trend }} from last term
+  </div>
+  {% endif %}
+</div>
+
+<div style="display:flex;gap:20px;width:100%;align-items:stretch;">
+  <div class="card" style="flex:1;height:360px;display:flex;flex-direction:column;">
+    <div class="card-title" style="margin:0;font-size:14px;">Grade Trend Across Terms</div>
+    <div style="flex:1;display:flex;align-items:flex-end;gap:12px;margin-top:16px;">
+      {% for t in term_trend %}
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end;">
+        <span style="font-size:11px;font-weight:700;color:var(--accent);">{{ t.avg }}%</span>
+        <div style="width:100%;max-width:36px;background:var(--accent);border-radius:4px 4px 0 0;height:{{ (t.avg / max_trend * 220)|round(0)|int }}px;"></div>
+      </div>
+      {% else %}
+      <p class="cell-muted" style="font-size:13px;">Not enough published terms yet to show a trend.</p>
+      {% endfor %}
+    </div>
+    {% if term_trend %}
+    <div style="display:flex;justify-content:space-between;margin-top:8px;">
+      {% for t in term_trend %}
+      <span style="font-size:10px;color:var(--text-muted);flex:1;text-align:center;">{{ t.label }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="card" style="flex:1;height:360px;display:flex;flex-direction:column;">
+    <div style="display:flex;align-items:center;justify-content:space-between;">
+      <div class="card-title" style="margin:0;font-size:14px;">Per-Component{% if selected %} ({{ selected.subject_name }}){% endif %}</div>
+      {% if enrollments|length > 1 %}
+      <form method="GET">
+        <select class="filter-select" name="assignment_id" onchange="this.form.submit()" style="font-size:12px;padding:6px 10px;">
+          {% for e in enrollments %}
+          <option value="{{ e.assignment_id }}" {{ 'selected' if selected and e.assignment_id == selected.assignment_id }}>{{ e.subject_name }}</option>
+          {% endfor %}
+        </select>
+      </form>
+      {% endif %}
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:16px;flex:1;overflow-y:auto;">
+      {% for c in component_breakdown %}
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+        <span style="font-size:12px;color:var(--text-muted);flex-shrink:0;">{{ c.name }}</span>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <div style="width:100px;height:6px;background:var(--sidebar-border);border-radius:3px;overflow:hidden;">
+            <div style="height:100%;background:var(--accent);width:{{ c.pct }}%;"></div>
+          </div>
+          <span style="font-size:12px;font-weight:700;width:32px;text-align:right;">{{ c.pct }}%</span>
+        </div>
+      </div>
+      {% else %}
+      <p class="cell-muted" style="font-size:13px;">No graded components yet.</p>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="card" style="flex:1;height:360px;display:flex;flex-direction:column;">
+    <div class="card-title" style="margin:0;font-size:14px;">Performance Per Subject</div>
+    <div style="flex:1;display:flex;align-items:flex-end;justify-content:space-between;gap:8px;margin-top:16px;">
+      {% for s in subject_performance %}
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;height:100%;justify-content:flex-end;">
+        <span class="chip" style="font-size:10px;">{{ s.avg }}%</span>
+        <div style="width:28px;background:var(--accent);border-radius:4px 4px 0 0;height:{{ (s.avg / max_subject * 220)|round(0)|int }}px;"></div>
+        <span style="font-size:11px;color:var(--text-muted);">{{ s.subject_name[:10] }}</span>
+      </div>
+      {% else %}
+      <p class="cell-muted" style="font-size:13px;">No subjects enrolled yet.</p>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<div class="card" style="width:100%;display:flex;align-items:center;justify-content:space-between;">
+  <div>
+    <div class="cell-strong" style="font-size:14px;">Attendance-to-Missed Ratio</div>
+    <div class="cell-muted" style="font-size:12px;">Total activities completed in contrast with flagged missing items.</div>
+  </div>
+  <div style="display:flex;gap:24px;">
+    <div style="text-align:right;">
+      <div style="font-family:'Lexend',sans-serif;font-weight:800;font-size:22px;color:var(--success);">{{ completed_count }} / {{ total_activities }}</div>
+      <div class="cell-muted" style="font-size:12px;">Completed ({{ completion_pct }}%)</div>
+    </div>
+    <div style="text-align:right;">
+      <div style="font-family:'Lexend',sans-serif;font-weight:800;font-size:22px;color:var(--danger);">{{ missed_count }}</div>
+      <div class="cell-muted" style="font-size:12px;">Missed Activities</div>
+    </div>
+  </div>
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 </div>
 {% endblock %}

@@ -2,7 +2,11 @@
 {% set active_page = "top_performers" %}
 {% from "_icons.html" import icon %}
 {% block title %}Top Performers{% endblock %}
+<<<<<<< HEAD
 {% block page_title %}Top Performers{% endblock %}
+=======
+{% block page_title %}Top Performing Students{% endblock %}
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 
 {% block content %}
 {% if not assignment %}
@@ -11,7 +15,11 @@
 
 <div class="card" style="width:100%;display:flex;align-items:center;justify-content:space-between;flex-direction:row;">
   <div style="display:flex;align-items:center;gap:16px;">
+<<<<<<< HEAD
     <span class="cell-strong">Class:</span>
+=======
+    <span class="cell-strong">Filter Leaders by Subject:</span>
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     <form method="GET" action="{{ url_for('faculty.top_performers') }}">
       <select class="filter-select" name="assignment_id" onchange="this.form.submit()">
         {% for a in assignments %}
@@ -22,6 +30,7 @@
       </select>
     </form>
   </div>
+<<<<<<< HEAD
   <span class="cell-muted" style="font-size:13px;">Ranked by weighted grade</span>
 </div>
 
@@ -30,6 +39,16 @@
   <hr class="sidebar-divider" style="margin:16px 0;">
 
   <div class="table-scroll"><table class="data-table" style="width:100%;">
+=======
+  <span class="cell-muted" style="font-size:13px;">Showing students ranked by weighted overall grade</span>
+</div>
+
+<div class="card" style="width:100%;">
+  <div class="card-title">Honor Roll &amp; Academic Leaders</div>
+  <hr class="sidebar-divider" style="margin:16px 0;">
+
+  <table class="data-table" style="width:100%;">
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     <thead>
       <tr>
         <th style="width:60px;">Rank</th>
@@ -60,7 +79,11 @@
       <tr><td colspan="5" class="cell-muted" style="text-align:center;padding:32px;">No students enrolled yet.</td></tr>
       {% endfor %}
     </tbody>
+<<<<<<< HEAD
   </table></div>
+=======
+  </table>
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 </div>
 {% endif %}
 {% endblock %}

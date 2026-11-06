@@ -59,11 +59,17 @@
 
   <div style="display:flex;gap:12px;justify-content:flex-end;margin-top:24px;">
     <form method="POST" action="{{ url_for('faculty.csv_cancel') }}">
+<<<<<<< HEAD
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
       <button type="submit" class="btn btn-outline">Cancel</button>
     </form>
     <form method="POST" action="{{ url_for('faculty.csv_confirm') }}">
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+=======
+      <button type="submit" class="btn btn-outline">Cancel</button>
+    </form>
+    <form method="POST" action="{{ url_for('faculty.csv_confirm') }}">
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
       <button type="submit" class="btn btn-primary" {{ 'disabled' if not valid_rows }}>
         Confirm Import ({{ valid_rows|length }})
       </button>

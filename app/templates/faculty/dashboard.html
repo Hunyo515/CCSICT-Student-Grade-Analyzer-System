@@ -1,5 +1,6 @@
 {% extends "faculty/_layout.html" %}
 {% set active_page = "dashboard" %}
+<<<<<<< HEAD
 {% from "_insight_ui.html" import metric, bar, empty, distribution, readiness, publication, class_sizes, history_chart %}
 {% block title %}Dashboard{% endblock %}
 {% block page_title %}Dashboard{% endblock %}
@@ -19,5 +20,82 @@
 {% for s in sections %}<tr><td><strong>{{ s.subject_code }} · {{ s.section }}</strong><small>{{ s.subject_name }}</small></td><td><span class="insight-status {{ 'published' if s.status == 'PUBLISHED' }}">{{ s.status|replace('_',' ')|title }}</span></td><td class="num">{{ s.students }}</td><td class="num">{{ s.complete }} / {{ s.students }}</td><td><a class="insight-link" href="{{ url_for('faculty.grade_weighting' if not s.weighting_valid else 'faculty.grade_entry', assignment_id=s.assignment_id) }}">{{ 'Set grade weights' if not s.weighting_valid else ('Enter missing scores' if s.missing else 'Review grades') }} →</a></td></tr>{% else %}<tr><td colspan="5">No classes assigned. Contact your administrator to set up your teaching load.</td></tr>{% endfor %}</tbody></table></div></article>
 
 
+=======
+{% from "_icons.html" import icon %}
+{% block title %}Dashboard{% endblock %}
+{% block page_title %}Faculty Dashboard{% endblock %}
+{% block header_extra %}
+{% if term %}
+<div class="term-pill"><span>{{ term.school_year }} &middot; {{ term.semester }}</span></div>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="welcome-banner">
+  <div>
+    <h2>Welcome, {{ current_user.full_name }}!</h2>
+    <p>Manage your class roster, configure weighted components, and submit grades for {{ term.semester if term else 'this term' }}.</p>
+  </div>
+  <div class="welcome-banner-icon">{{ icon('award', 'welcome-banner-icon') }}</div>
+</div>
+
+<div style="display:flex;gap:20px;width:100%;">
+  <div class="stat-card-plain">
+    <div class="stat-card-top">
+      <span class="stat-label-caps">Assigned Subjects</span>
+      <span class="stat-icon-sm">{{ icon('book-open') }}</span>
+    </div>
+    <div class="stat-big">{{ stats.assigned_subjects }}</div>
+    <div class="stat-desc">CCT Computing Programs</div>
+  </div>
+  <div class="stat-card-plain">
+    <div class="stat-card-top">
+      <span class="stat-label-caps">Total Students</span>
+      <span class="stat-icon-sm">{{ icon('users') }}</span>
+    </div>
+    <div class="stat-big">{{ stats.total_students }}</div>
+    <div class="stat-desc">Across all your sections</div>
+  </div>
+  <div class="stat-card-plain">
+    <div class="stat-card-top">
+      <span class="stat-label-caps">Pending Grade Entries</span>
+      <span class="stat-icon-sm">{{ icon('clock') }}</span>
+    </div>
+    <div class="stat-big">{{ stats.pending_entries }}</div>
+    <div class="stat-desc">Awaiting final term publish</div>
+  </div>
+</div>
+
+<div style="width:100%;display:flex;flex-direction:column;gap:16px;">
+  <div class="page-title" style="font-size:20px;">My Subjects ({{ term.school_year if term }} &middot; {{ term.semester if term }})</div>
+  <form class="search-box" method="GET" action="{{ url_for('faculty.grade_entry') }}" style="width:100%;max-width:none;height:44px;border-radius:10px;">
+    {{ icon('search') }}
+    <input type="text" name="q" placeholder="Search student by name or ID...">
+  </form>
+  <div style="display:flex;gap:20px;flex-wrap:wrap;width:100%;">
+    {% for a in assignments %}
+    <div class="subject-card">
+      <div class="subject-card-top">
+        <span class="chip">{{ a.subject_code }}</span>
+        <span class="cell-muted" style="font-size:13px;">{{ a.student_count }} Students Assigned</span>
+      </div>
+      <div>
+        <div class="subject-card-title">{{ a.subject_name }}</div>
+        <div class="subject-card-sub">Section: <strong>{{ a.section }}</strong></div>
+      </div>
+      <hr class="sidebar-divider">
+      <div class="subject-card-footer">
+        <div class="status-dot-row">
+          <span class="status-dot {{ 'draft' if a.status == 'DRAFT' else ('in-progress' if a.status == 'IN_PROGRESS' else 'published') }}"></span>
+          {{ 'Draft Mode' if a.status == 'DRAFT' else ('In Progress' if a.status == 'IN_PROGRESS' else 'Fully Graded') }}
+        </div>
+        <a class="btn btn-primary btn-sm" href="{{ url_for('faculty.grade_entry', assignment_id=a.assignment_id) }}">Manage Grades &rarr;</a>
+      </div>
+    </div>
+    {% else %}
+    <div class="cell-muted">No subjects assigned yet this term.</div>
+    {% endfor %}
+  </div>
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 </div>
 {% endblock %}

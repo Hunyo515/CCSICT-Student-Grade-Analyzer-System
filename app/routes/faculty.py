@@ -1,8 +1,12 @@
 import csv
 import io
+<<<<<<< HEAD
 import math
 import secrets
 import re
+=======
+import random
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 import string
 
 from flask import (
@@ -11,7 +15,10 @@ from flask import (
 )
 
 from ..auth import login_required
+<<<<<<< HEAD
 from ..security import store_preview, load_preview
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 from ..db import execute, query_all, query_one
 from ..notifications import notify, notify_many
 from ..grading import compute_weighted_total, letter_grade, letter_grade_class
@@ -46,6 +53,7 @@ def my_assignments(term_id):
 
 
 def get_assignment_or_404(assignment_id):
+<<<<<<< HEAD
     if request.method == "POST":
         # Serialize writers and publication per class; a bounded wait avoids hanging requests.
         lock = query_one("SELECT assignment_id FROM teacher_subjects WHERE assignment_id=:id AND teacher_id=:tid FOR UPDATE WAIT 5", {"id": assignment_id, "tid": current_teacher_id()})
@@ -54,6 +62,11 @@ def get_assignment_or_404(assignment_id):
     row = query_one(
         """
         SELECT ts.assignment_id, ts.section, ts.status, ts.teacher_id, ts.revision,
+=======
+    row = query_one(
+        """
+        SELECT ts.assignment_id, ts.section, ts.status, ts.teacher_id,
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
                s.subject_id, s.subject_code, s.subject_name
         FROM teacher_subjects ts
         JOIN subjects s ON s.subject_id = ts.subject_id
@@ -63,12 +76,15 @@ def get_assignment_or_404(assignment_id):
     )
     if not row or row["teacher_id"] != current_teacher_id():
         abort(404)
+<<<<<<< HEAD
     if request.method == "POST" and request.endpoint not in ("faculty.csv_upload",):
         if request.endpoint != "faculty.csv_confirm" and request.form.get("revision", type=int) != row["revision"]:
             abort(409, description="This class changed since you opened the page. Reload and review the latest grades before saving.")
         execute("UPDATE teacher_subjects SET revision=revision+1 WHERE assignment_id=:id", {"id": assignment_id})
         if request.endpoint in ("faculty.save_scores", "faculty.csv_confirm", "faculty.add_component", "faculty.delete_component", "faculty.add_category", "faculty.edit_category", "faculty.delete_category"):
             execute("UPDATE teacher_subjects SET status='IN_PROGRESS' WHERE assignment_id=:id", {"id": assignment_id})
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     return row
 
 
@@ -155,12 +171,54 @@ def selected_assignment_id(assignments):
 @faculty_bp.route("/dashboard")
 @login_required("faculty")
 def dashboard():
+<<<<<<< HEAD
     from ..insights import load_sections, summarize
     term = active_term()
     sections = load_sections(term["term_id"] if term else 0, teacher_id=current_teacher_id())
     sections.sort(key=lambda s: (s["status"] == "PUBLISHED", s["coverage"] if s["coverage"] is not None else -1))
     return render_template("faculty/dashboard.html", term=term, sections=sections,
                            report=summarize(sections))
+=======
+    term = active_term()
+    teacher_id = current_teacher_id()
+
+    assignments = query_all(
+        """
+        SELECT ts.assignment_id, ts.section, ts.status, s.subject_code, s.subject_name,
+               (SELECT COUNT(*) FROM enrollments e WHERE e.assignment_id = ts.assignment_id) AS student_count
+        FROM teacher_subjects ts
+        JOIN subjects s ON s.subject_id = ts.subject_id
+        WHERE ts.teacher_id = :tid AND ts.term_id = :term_id
+        ORDER BY s.subject_name, ts.section
+        """,
+        {"tid": teacher_id, "term_id": term["term_id"] if term else 0},
+    )
+
+    stats = {
+        "assigned_subjects": query_one(
+            "SELECT COUNT(DISTINCT subject_id) AS n FROM teacher_subjects WHERE teacher_id = :tid AND term_id = :term_id",
+            {"tid": teacher_id, "term_id": term["term_id"] if term else 0},
+        )["n"],
+        "total_students": query_one(
+            """
+            SELECT COUNT(*) AS n FROM enrollments e
+            JOIN teacher_subjects ts ON ts.assignment_id = e.assignment_id
+            WHERE ts.teacher_id = :tid AND ts.term_id = :term_id
+            """,
+            {"tid": teacher_id, "term_id": term["term_id"] if term else 0},
+        )["n"],
+        "pending_entries": query_one(
+            """
+            SELECT COUNT(*) AS n FROM enrollments e
+            JOIN teacher_subjects ts ON ts.assignment_id = e.assignment_id
+            WHERE ts.teacher_id = :tid AND ts.term_id = :term_id AND ts.status != 'PUBLISHED'
+            """,
+            {"tid": teacher_id, "term_id": term["term_id"] if term else 0},
+        )["n"],
+    }
+
+    return render_template("faculty/dashboard.html", term=term, assignments=assignments, stats=stats)
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 
 
 # ---------------------------------------------------------------------------
@@ -213,14 +271,20 @@ def add_component():
     category_id = request.form.get("category_id", type=int)  # None/blank = flat (uncategorized)
     redirect_to = request.form.get("redirect_to", "grade_entry")
 
+<<<<<<< HEAD
     if category_id and not query_one("SELECT category_id FROM grade_categories WHERE category_id=:cid AND assignment_id=:aid", {"cid": category_id, "aid": assignment_id}):
         abort(400, description="Select a category belonging to this class.")
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     if not name:
         flash("Component name is required.", "error")
         return redirect(url_for(f"faculty.{redirect_to}", assignment_id=assignment_id))
 
+<<<<<<< HEAD
     if query_one("SELECT component_id FROM grade_components WHERE assignment_id=:aid AND LOWER(TRIM(component_name))=LOWER(:name)", {"aid": assignment_id, "name": name}):
         abort(400, description="Component names must be unique within a class for CSV imports.")
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     execute(
         "INSERT INTO grade_components (assignment_id, component_name, weight_percent, category_id) "
         "VALUES (:aid, :name, :weight, :category_id)",
@@ -366,6 +430,7 @@ def save_scores():
     assignment_id = request.form.get("assignment_id", type=int)
     get_assignment_or_404(assignment_id)
 
+<<<<<<< HEAD
     allowed_enrollments = {str(e["enrollment_id"]) for e in assignment_enrollments(assignment_id)}
     allowed_components = {str(c["component_id"]) for c in assignment_components(assignment_id)}
     saved = 0
@@ -379,6 +444,13 @@ def save_scores():
             execute("DELETE FROM grades WHERE enrollment_id=:eid AND component_id=:cid", {"eid": enrollment_id, "cid": component_id})
             saved += 1
             continue
+=======
+    saved = 0
+    for key, value in request.form.items():
+        if not key.startswith("score__") or value.strip() == "":
+            continue
+        _, enrollment_id, component_id = key.split("__")
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         try:
             score = float(value)
         except ValueError:
@@ -389,7 +461,11 @@ def save_scores():
             MERGE INTO grades g
             USING (SELECT :eid AS enrollment_id, :cid AS component_id FROM dual) src
             ON (g.enrollment_id = src.enrollment_id AND g.component_id = src.component_id)
+<<<<<<< HEAD
             WHEN MATCHED THEN UPDATE SET score = :score, max_score = 100, updated_at = SYSTIMESTAMP
+=======
+            WHEN MATCHED THEN UPDATE SET score = :score, updated_at = SYSTIMESTAMP
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
             WHEN NOT MATCHED THEN INSERT (enrollment_id, component_id, score, max_score)
                 VALUES (:eid, :cid, :score, 100)
             """,
@@ -417,6 +493,7 @@ def update_status():
     if new_status not in ("DRAFT", "IN_PROGRESS", "PUBLISHED"):
         abort(400)
 
+<<<<<<< HEAD
     if new_status == "PUBLISHED":
         components = assignment_components(assignment_id)
         categories = assignment_categories(assignment_id)
@@ -430,6 +507,8 @@ def update_status():
             if abs(subtotal - 100) > 0.001:
                 abort(400, description="Each category's component weights must total 100% before publication.")
 
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     execute("UPDATE teacher_subjects SET status = :s WHERE assignment_id = :id", {"s": new_status, "id": assignment_id})
 
     if new_status == "PUBLISHED":
@@ -478,19 +557,26 @@ def csv_upload():
         flash("CSV must have columns: id_number, component_name, score", "error")
         return redirect(url_for("faculty.grade_entry", assignment_id=assignment_id))
 
+<<<<<<< HEAD
     reader.fieldnames = [(c or "").strip().lower() for c in reader.fieldnames]
     if len(reader.fieldnames) != len(set(reader.fieldnames)):
         abort(400, description="CSV headers must be unique.")
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     students = {s["id_number"]: s for s in assignment_enrollments(assignment_id)}
     components = {c["component_name"].lower(): c for c in assignment_components(assignment_id)}
 
     valid_rows, invalid_rows = [], []
+<<<<<<< HEAD
     seen = set()
     for index, row in enumerate(reader):
         if index >= 10000:
             abort(400, description="CSV imports are limited to 10,000 rows. Split the file and try again.")
         if None in row:
             abort(400, description="CSV row has too many columns.")
+=======
+    for row in reader:
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         id_number = (row.get("id_number") or "").strip()
         comp_name = (row.get("component_name") or "").strip()
         score_raw = (row.get("score") or "").strip()
@@ -498,19 +584,26 @@ def csv_upload():
         student = students.get(id_number)
         component = components.get(comp_name.lower())
         error = None
+<<<<<<< HEAD
         pair = (id_number, comp_name.lower())
         if pair in seen:
             abort(400, description="CSV contains duplicate student/component pairs. Remove duplicates and re-upload.")
         seen.add(pair)
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         if not student:
             error = "Unknown student ID"
         elif not component:
             error = "Unknown component"
         else:
             try:
+<<<<<<< HEAD
                 score = float(score_raw)
                 if not math.isfinite(score) or not 0 <= score <= 100:
                     error = "Score must be between 0 and 100"
+=======
+                float(score_raw)
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
             except ValueError:
                 error = "Score is not a number"
 
@@ -528,19 +621,31 @@ def csv_upload():
         else:
             valid_rows.append(record)
 
+<<<<<<< HEAD
     store_preview({
         "assignment_id": assignment_id,
         "revision": assignment["revision"],
         "valid_rows": valid_rows,
         "invalid_rows": invalid_rows,
     })
+=======
+    session["csv_preview"] = {
+        "assignment_id": assignment_id,
+        "valid_rows": valid_rows,
+        "invalid_rows": invalid_rows,
+    }
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     return redirect(url_for("faculty.csv_preview"))
 
 
 @faculty_bp.route("/grade-entry/csv/preview")
 @login_required("faculty")
 def csv_preview():
+<<<<<<< HEAD
     data = load_preview()
+=======
+    data = session.get("csv_preview")
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     if not data:
         flash("No CSV import in progress.", "error")
         return redirect(url_for("faculty.grade_entry"))
@@ -557,12 +662,17 @@ def csv_preview():
 @faculty_bp.route("/grade-entry/csv/confirm", methods=["POST"])
 @login_required("faculty")
 def csv_confirm():
+<<<<<<< HEAD
     data = load_preview(consume=True)
+=======
+    data = session.pop("csv_preview", None)
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     if not data:
         flash("No CSV import in progress.", "error")
         return redirect(url_for("faculty.grade_entry"))
 
     assignment_id = data["assignment_id"]
+<<<<<<< HEAD
     assignment = get_assignment_or_404(assignment_id)
     if data.get("revision") != assignment["revision"]:
         abort(409, description="The class changed since preview. Upload the CSV again.")
@@ -571,6 +681,10 @@ def csv_confirm():
     valid_components = {c["component_id"] for c in assignment_components(assignment_id)}
     if any(row["enrollment_id"] not in valid_enrollments or row["component_id"] not in valid_components for row in data["valid_rows"]):
         abort(400, description="The class changed since preview. Upload the CSV again.")
+=======
+    get_assignment_or_404(assignment_id)
+
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     imported = 0
     for row in data["valid_rows"]:
         execute(
@@ -578,7 +692,11 @@ def csv_confirm():
             MERGE INTO grades g
             USING (SELECT :eid AS enrollment_id, :cid AS component_id FROM dual) src
             ON (g.enrollment_id = src.enrollment_id AND g.component_id = src.component_id)
+<<<<<<< HEAD
             WHEN MATCHED THEN UPDATE SET score = :score, max_score = 100, updated_at = SYSTIMESTAMP
+=======
+            WHEN MATCHED THEN UPDATE SET score = :score, updated_at = SYSTIMESTAMP
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
             WHEN NOT MATCHED THEN INSERT (enrollment_id, component_id, score, max_score)
                 VALUES (:eid, :cid, :score, 100)
             """,
@@ -597,7 +715,11 @@ def csv_confirm():
 @faculty_bp.route("/grade-entry/csv/cancel", methods=["POST"])
 @login_required("faculty")
 def csv_cancel():
+<<<<<<< HEAD
     data = load_preview(consume=True)
+=======
+    data = session.pop("csv_preview", None)
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     aid = data["assignment_id"] if data else None
     flash("CSV import cancelled.", "success")
     return redirect(url_for("faculty.grade_entry", assignment_id=aid))
@@ -632,6 +754,7 @@ def compute_rankings(assignment_id):
 @faculty_bp.route("/analytics")
 @login_required("faculty")
 def analytics():
+<<<<<<< HEAD
     from ..insights import load_sections, summarize
     term = active_term()
     sections = load_sections(term["term_id"] if term else 0, teacher_id=current_teacher_id())
@@ -639,6 +762,47 @@ def analytics():
     selected = next((s for s in sections if s["assignment_id"] == aid), None)
     return render_template("faculty/analytics.html", term=term, sections=sections,
                            selected=selected, report=summarize([selected] if selected else []))
+=======
+    term = active_term()
+    assignments = my_assignments(term["term_id"] if term else 0)
+    aid = selected_assignment_id(assignments)
+
+    if not aid:
+        return render_template(
+            "faculty/analytics.html", term=term, assignments=[], assignment=None,
+            component_averages=[], grade_distribution=[], max_component=1, max_distribution=1,
+        )
+
+    assignment = get_assignment_or_404(aid)
+    components, ranked = compute_rankings(aid)
+    scores = scores_by_enrollment(aid)
+
+    component_averages = []
+    for c in components:
+        vals = [
+            (s / m * 100) for eid in scores for cid, (s, m) in scores[eid].items()
+            if cid == c["component_id"] and s is not None and m
+        ]
+        avg = round(sum(vals) / len(vals), 1) if vals else 0
+        component_averages.append({"name": c["component_name"], "avg": avg})
+
+    buckets = ["Grade A", "Grade B+", "Grade B", "Grade C+", "Grade C", "Grade D", "Grade F"]
+    grade_distribution = [{"letter": b, "count": sum(1 for r in ranked if r["letter"] == b)} for b in buckets]
+
+    max_component = max([c["avg"] for c in component_averages], default=1) or 1
+    max_distribution = max([g["count"] for g in grade_distribution], default=1) or 1
+
+    return render_template(
+        "faculty/analytics.html",
+        term=term,
+        assignments=assignments,
+        assignment=assignment,
+        component_averages=component_averages,
+        grade_distribution=grade_distribution,
+        max_component=max_component,
+        max_distribution=max_distribution,
+    )
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 
 
 # ---------------------------------------------------------------------------
@@ -676,7 +840,11 @@ def top_performers():
 def _generate_join_code():
     alphabet = string.ascii_uppercase + string.digits
     while True:
+<<<<<<< HEAD
         code = "".join([secrets.choice(alphabet) for _ in range(8)])
+=======
+        code = "".join(random.choices(alphabet, k=6))
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         if not query_one("SELECT 1 FROM teacher_subjects WHERE join_code = :c", {"c": code}):
             return code
 
@@ -699,7 +867,19 @@ def section_detail():
         "SELECT join_code, enrollment_open FROM teacher_subjects WHERE assignment_id = :id",
         {"id": aid},
     )
+<<<<<<< HEAD
     join_code, enrollment_open = row["join_code"], row["enrollment_open"]
+=======
+    if not row["join_code"]:
+        code = _generate_join_code()
+        execute(
+            "UPDATE teacher_subjects SET join_code = :c WHERE assignment_id = :id",
+            {"c": code, "id": aid},
+        )
+        join_code, enrollment_open = code, row["enrollment_open"]
+    else:
+        join_code, enrollment_open = row["join_code"], row["enrollment_open"]
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 
     roster = query_all(
         """
@@ -819,7 +999,11 @@ def grade_export():
     output = io.StringIO()
     writer = csv.writer(output)
     header = ["ID Number", "Full Name"] + [c["component_name"] for c in components] + ["Weighted Total", "Letter Grade"]
+<<<<<<< HEAD
     writer.writerow([csv_safe(value) for value in header])
+=======
+    writer.writerow(header)
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 
     for r in ranked:
         row = [r["id_number"], r["full_name"]]
@@ -829,14 +1013,21 @@ def grade_export():
             row.append(score if score is not None else "")
         row.append(r["weighted_total"])
         row.append(r["letter"])
+<<<<<<< HEAD
         writer.writerow([csv_safe(value) for value in row])
 
     filename = re.sub(r"[^A-Za-z0-9_.-]", "_", f"{assignment['subject_code']}_{assignment['section']}_grades.csv")
+=======
+        writer.writerow(row)
+
+    filename = f"{assignment['subject_code']}_{assignment['section']}_grades.csv".replace(" ", "_")
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     return Response(
         output.getvalue(),
         mimetype="text/csv",
         headers={"Content-Disposition": f"attachment; filename={filename}"},
     )
+<<<<<<< HEAD
 
 
 def csv_safe(value):
@@ -844,3 +1035,5 @@ def csv_safe(value):
     if text.lstrip().startswith(("=", "+", "-", "@")) or text.startswith(("\t", "\r", "\n")):
         return "'" + text
     return value
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423

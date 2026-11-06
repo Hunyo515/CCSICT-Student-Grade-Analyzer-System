@@ -7,7 +7,11 @@ from functools import wraps
 
 from flask import Blueprint, abort, redirect, request, session, url_for
 
+<<<<<<< HEAD
 from .. import notifications as notif
+=======
+from . import notifications as notif
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 
 notifications_bp = Blueprint("notifications", __name__, url_prefix="/notifications")
 
@@ -37,6 +41,7 @@ def _safe_redirect_back():
 @any_role_required
 def mark_read(notification_id):
     notif.mark_read(notification_id, session["user_id"])
+<<<<<<< HEAD
     # Read the destination from the owned notification, never from submitted data.
     from ..db import query_one
     from urllib.parse import urlsplit, unquote
@@ -44,6 +49,10 @@ def mark_read(notification_id):
     link = row.get("link") if row else None
     normalized = unquote(link or "")
     if normalized.startswith("/") and not normalized.startswith("//") and "\\" not in normalized and not urlsplit(normalized).netloc:
+=======
+    link = request.form.get("link")
+    if link and link.startswith("/"):
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         return redirect(link)
     return _safe_redirect_back()
 
@@ -53,6 +62,7 @@ def mark_read(notification_id):
 def mark_all_read():
     notif.mark_all_read(session["user_id"])
     return _safe_redirect_back()
+<<<<<<< HEAD
 
 
 @notifications_bp.route('/delete',methods=['POST'])
@@ -67,3 +77,5 @@ def delete_selected():
     binds=','.join(f':n{i}' for i in range(len(ids)))
     execute(f'DELETE FROM notifications WHERE user_id=:user_id AND notification_id IN ({binds})',params)
     return _safe_redirect_back()
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423

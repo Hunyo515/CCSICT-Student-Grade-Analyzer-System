@@ -4,12 +4,41 @@
 -- Target: Oracle XE (XEPDB1) or equivalent, user "student"
 --------------------------------------------------------------------------
 -- Run as the "student" schema owner:
+<<<<<<< HEAD
 --   sqlplus student@localhost:1521/XEPDB1 @schema.sql
 --------------------------------------------------------------------------
 
 -- Fresh EMPTY schema only. Existing installations must use migrations.
 WHENEVER SQLERROR EXIT SQL.SQLCODE ROLLBACK;
 
+=======
+--   sqlplus student/1j2u3n4e@localhost:1521/XEPDB1 @schema.sql
+--------------------------------------------------------------------------
+
+-- Drop order respects FKs (ignore errors on first run if objects absent)
+BEGIN EXECUTE IMMEDIATE 'DROP TABLE activity_log CASCADE CONSTRAINTS'; EXCEPTION WHEN OTHERS THEN NULL; END;
+/
+BEGIN EXECUTE IMMEDIATE 'DROP TABLE grades CASCADE CONSTRAINTS'; EXCEPTION WHEN OTHERS THEN NULL; END;
+/
+BEGIN EXECUTE IMMEDIATE 'DROP TABLE grade_components CASCADE CONSTRAINTS'; EXCEPTION WHEN OTHERS THEN NULL; END;
+/
+BEGIN EXECUTE IMMEDIATE 'DROP TABLE teacher_subjects CASCADE CONSTRAINTS'; EXCEPTION WHEN OTHERS THEN NULL; END;
+/
+BEGIN EXECUTE IMMEDIATE 'DROP TABLE enrollments CASCADE CONSTRAINTS'; EXCEPTION WHEN OTHERS THEN NULL; END;
+/
+BEGIN EXECUTE IMMEDIATE 'DROP TABLE students CASCADE CONSTRAINTS'; EXCEPTION WHEN OTHERS THEN NULL; END;
+/
+BEGIN EXECUTE IMMEDIATE 'DROP TABLE teachers CASCADE CONSTRAINTS'; EXCEPTION WHEN OTHERS THEN NULL; END;
+/
+BEGIN EXECUTE IMMEDIATE 'DROP TABLE subjects CASCADE CONSTRAINTS'; EXCEPTION WHEN OTHERS THEN NULL; END;
+/
+BEGIN EXECUTE IMMEDIATE 'DROP TABLE school_terms CASCADE CONSTRAINTS'; EXCEPTION WHEN OTHERS THEN NULL; END;
+/
+BEGIN EXECUTE IMMEDIATE 'DROP TABLE users CASCADE CONSTRAINTS'; EXCEPTION WHEN OTHERS THEN NULL; END;
+/
+
+--------------------------------------------------------------------------
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 -- USERS  (one row per login, any role)
 --------------------------------------------------------------------------
 CREATE TABLE users (
@@ -19,7 +48,10 @@ CREATE TABLE users (
     role            VARCHAR2(10)  NOT NULL CHECK (role IN ('admin','faculty','student')),
     full_name       VARCHAR2(150) NOT NULL,
     email           VARCHAR2(150),
+<<<<<<< HEAD
     must_change_password NUMBER(1) DEFAULT 0 NOT NULL CHECK(must_change_password IN (0,1)),
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     status          VARCHAR2(10)  DEFAULT 'ACTIVE' CHECK (status IN ('ACTIVE','INACTIVE')),
     created_at      TIMESTAMP DEFAULT SYSTIMESTAMP,
     updated_at      TIMESTAMP DEFAULT SYSTIMESTAMP
@@ -33,7 +65,10 @@ CREATE TABLE school_terms (
     school_year     VARCHAR2(20) NOT NULL,      -- e.g. '2025-2026'
     semester        VARCHAR2(20) NOT NULL,      -- e.g. '1st Semester'
     is_active       NUMBER(1) DEFAULT 0 CHECK (is_active IN (0,1)),
+<<<<<<< HEAD
     enlistment_open NUMBER(1) DEFAULT 0 NOT NULL CHECK(enlistment_open IN (0,1)),
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     created_at      TIMESTAMP DEFAULT SYSTIMESTAMP,
     CONSTRAINT uq_term UNIQUE (school_year, semester)
 );
@@ -42,21 +77,29 @@ CREATE TABLE school_terms (
 -- SUBJECTS  (subject catalog)
 --------------------------------------------------------------------------
 CREATE TABLE subjects (
+<<<<<<< HEAD
     catalog_folder_id NUMBER,
     subject_id      NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     subject_code    VARCHAR2(20)  NOT NULL,   -- e.g. CS101
+=======
+    subject_id      NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    subject_code    VARCHAR2(20)  NOT NULL UNIQUE,   -- e.g. CS101
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     subject_name    VARCHAR2(150) NOT NULL,
     units           NUMBER(3)     NOT NULL,
     year_level      VARCHAR2(20)  NOT NULL,          -- '1st Year' .. '4th Year'
     program              VARCHAR2(20),                -- e.g. 'BSCS'; NULL = shared/general education
     semester_offered     VARCHAR2(20),                -- e.g. '1st Semester'
     prerequisite_subject_id NUMBER REFERENCES subjects(subject_id) ON DELETE SET NULL,
+<<<<<<< HEAD
     lecture_units        NUMBER(3),
     lab_units            NUMBER(3),
     prerequisite_text    VARCHAR2(500),
     units_note           VARCHAR2(12),
     is_archived          NUMBER(1) DEFAULT 0 NOT NULL CHECK (is_archived IN (0,1)),
     CONSTRAINT uq_curriculum_subject UNIQUE (program, subject_code, subject_name),
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     created_at      TIMESTAMP DEFAULT SYSTIMESTAMP,
     updated_at      TIMESTAMP DEFAULT SYSTIMESTAMP
 );
@@ -67,7 +110,10 @@ CREATE TABLE subjects (
 CREATE TABLE teachers (
     teacher_id      NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     user_id         NUMBER NOT NULL UNIQUE REFERENCES users(user_id) ON DELETE CASCADE,
+<<<<<<< HEAD
     program VARCHAR2(20) CHECK(program IN ('BSDSA','BSCS','BSIT','BSIS','BLIS')),
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     faculty_code    VARCHAR2(20) NOT NULL UNIQUE,    -- e.g. TCH-104
     status          VARCHAR2(10) DEFAULT 'ACTIVE' CHECK (status IN ('ACTIVE','INACTIVE'))
 );
@@ -79,6 +125,7 @@ CREATE TABLE students (
     student_id      NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     user_id         NUMBER NOT NULL UNIQUE REFERENCES users(user_id) ON DELETE CASCADE,
     id_number       VARCHAR2(20)  NOT NULL UNIQUE,   -- e.g. CCT-22-0142
+<<<<<<< HEAD
     first_name      VARCHAR2(50),
     middle_name     VARCHAR2(50),
     last_name       VARCHAR2(50),
@@ -87,6 +134,11 @@ CREATE TABLE students (
     section         VARCHAR2(20)  NOT NULL,
     age NUMBER(3) CHECK(age BETWEEN 1 AND 120),
     progress_school_year NUMBER(4),
+=======
+    program         VARCHAR2(100) NOT NULL,          -- e.g. BS Computer Science
+    year_level      VARCHAR2(20)  NOT NULL,
+    section         VARCHAR2(20)  NOT NULL,
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     contact_number  VARCHAR2(30),
     sex             VARCHAR2(10) CHECK (sex IN ('MALE', 'FEMALE')),
     enrollment_type VARCHAR2(10) DEFAULT 'REGULAR' CHECK (enrollment_type IN ('REGULAR', 'IRREGULAR')),
@@ -98,6 +150,7 @@ CREATE TABLE students (
 --------------------------------------------------------------------------
 CREATE TABLE teacher_subjects (
     assignment_id   NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+<<<<<<< HEAD
     teacher_id      NUMBER REFERENCES teachers(teacher_id) ON DELETE CASCADE,
     subject_id      NUMBER NOT NULL REFERENCES subjects(subject_id) ON DELETE CASCADE,
     term_id         NUMBER NOT NULL REFERENCES school_terms(term_id) ON DELETE CASCADE,
@@ -107,6 +160,13 @@ CREATE TABLE teacher_subjects (
     rounding_rule   VARCHAR2(10) DEFAULT 'UNSET' NOT NULL CHECK (rounding_rule IN ('UNSET','HALF_UP','FLOOR')),
     grading_model VARCHAR2(12) DEFAULT 'FLEXIBLE' NOT NULL CHECK(grading_model IN ('LEGACY','FLEXIBLE')),
     revision        NUMBER DEFAULT 0 NOT NULL,
+=======
+    teacher_id      NUMBER NOT NULL REFERENCES teachers(teacher_id) ON DELETE CASCADE,
+    subject_id      NUMBER NOT NULL REFERENCES subjects(subject_id) ON DELETE CASCADE,
+    term_id         NUMBER NOT NULL REFERENCES school_terms(term_id) ON DELETE CASCADE,
+    section         VARCHAR2(20) NOT NULL,          -- e.g. BSCS 2A
+    status          VARCHAR2(20) DEFAULT 'DRAFT' CHECK (status IN ('DRAFT', 'IN_PROGRESS', 'PUBLISHED')),
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     join_code       VARCHAR2(10) UNIQUE,             -- student self-enrollment code, e.g. X7K2QP
     enrollment_open VARCHAR2(1) DEFAULT 'Y' CHECK (enrollment_open IN ('Y', 'N')),
     created_at      TIMESTAMP DEFAULT SYSTIMESTAMP,
@@ -147,9 +207,13 @@ CREATE TABLE grade_components (
     assignment_id   NUMBER NOT NULL REFERENCES teacher_subjects(assignment_id) ON DELETE CASCADE,
     component_name  VARCHAR2(50) NOT NULL,
     weight_percent  NUMBER(5,2) NOT NULL,             -- % within its category (or, if uncategorized, % of the final grade directly)
+<<<<<<< HEAD
     category_id     NUMBER REFERENCES grade_categories(category_id) ON DELETE CASCADE,
     maximum_score   NUMBER(8,2) CHECK (maximum_score>0),
     activity_date   DATE
+=======
+    category_id     NUMBER REFERENCES grade_categories(category_id) ON DELETE CASCADE
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 );
 
 --------------------------------------------------------------------------
@@ -194,6 +258,7 @@ CREATE INDEX idx_students_program   ON students(program);
 CREATE INDEX idx_students_year_sec  ON students(year_level, section);
 CREATE INDEX idx_subjects_year      ON subjects(year_level);
 CREATE INDEX idx_teacher_subj_term  ON teacher_subjects(term_id);
+<<<<<<< HEAD
 CREATE UNIQUE INDEX uq_class_subject_section ON teacher_subjects(subject_id,term_id,LOWER(TRIM(section)));
 CREATE INDEX idx_activity_created   ON activity_log(created_at);
 CREATE INDEX idx_notif_user_unread  ON notifications(user_id, is_read);
@@ -232,4 +297,9 @@ CREATE TABLE student_term_memberships (
     section_id NUMBER NOT NULL REFERENCES academic_sections(section_id),
     CONSTRAINT uq_student_term_member UNIQUE(student_id,term_id)
 );
+=======
+CREATE INDEX idx_activity_created   ON activity_log(created_at);
+CREATE INDEX idx_notif_user_unread  ON notifications(user_id, is_read);
+
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 COMMIT;

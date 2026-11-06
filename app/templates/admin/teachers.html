@@ -2,7 +2,11 @@
 {% set active_page = "teachers" %}
 {% from "_icons.html" import icon %}
 {% block title %}Teachers{% endblock %}
+<<<<<<< HEAD
 {% block page_title %}Faculty{% endblock %}
+=======
+{% block page_title %}Faculty Members{% endblock %}
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 
 {% block content %}
 <div class="action-bar">
@@ -11,7 +15,13 @@
     <input type="text" name="q" value="{{ q }}" placeholder="Search by faculty name">
   </form>
   <div style="display:flex;gap:12px;">
+<<<<<<< HEAD
     <a class="btn btn-outline" href="{{ url_for('admin.classes') }}">Create class</a>
+=======
+    <button class="btn btn-outline" onclick="document.getElementById('assignModal').classList.add('open')">
+      {{ icon('link') }} Assign Subject
+    </button>
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     <button class="btn btn-primary" onclick="document.getElementById('addTeacherModal').classList.add('open')">
       {{ icon('plus') }} Add Teacher
     </button>
@@ -22,10 +32,17 @@
   <table class="data-table">
     <thead>
       <tr>
+<<<<<<< HEAD
         <th style="width:100px;">Program</th>
         <th style="width:220px;">Full Name</th>
         <th style="width:200px;">Institutional Email</th>
         <th>Assigned Classes</th>
+=======
+        <th style="width:100px;">Faculty ID</th>
+        <th style="width:220px;">Full Name</th>
+        <th style="width:200px;">Institutional Email</th>
+        <th>Assigned Subjects</th>
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         <th style="width:100px;">Status</th>
         <th style="width:90px;text-align:right;">Actions</th>
       </tr>
@@ -33,6 +50,7 @@
     <tbody>
       {% for t in teachers %}
       <tr>
+<<<<<<< HEAD
         <td class="cell-strong">{{ t.program or 'Not assigned' }}</td>
         <td>{{ t.full_name }}</td>
         <td class="cell-muted">{{ t.email }}</td>
@@ -42,18 +60,38 @@
             <a class="text-action faculty-load-link" href="{{ url_for('admin.faculty_classes',teacher_id=t.teacher_id,term_filter=selected_term) }}" data-faculty-load aria-haspopup="dialog" aria-controls="faculty-load-panel" aria-label="View {{ t.class_count }} assigned classes for {{ t.full_name }}">{{ t.class_count }} {{ 'class' if t.class_count==1 else 'classes' }} · View</a>
           {% else %}
             <span class="cell-muted">No assigned classes</span><br><a class="text-action" href="{{ url_for('admin.classes',teacher_id=t.teacher_id,term_filter=selected_term) }}">Assign Class</a>
+=======
+        <td class="cell-strong">{{ t.faculty_code }}</td>
+        <td>{{ t.full_name }}</td>
+        <td class="cell-muted">{{ t.email }}</td>
+        <td>
+          {% if t.assigned_subjects %}
+            {% for subj in t.assigned_subjects.split(', ') %}
+              <span class="chip">{{ subj }}</span>
+            {% endfor %}
+          {% else %}
+            <span class="cell-muted">Unassigned</span>
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
           {% endif %}
         </td>
         <td><span class="badge {{ 'active' if t.status == 'ACTIVE' else 'inactive' }}">{{ t.status|title }}</span></td>
         <td>
           <div class="row-actions">
             <button class="icon-btn" title="Edit"
+<<<<<<< HEAD
               onclick='openEditTeacher({{ t.teacher_id }}, {{ t.full_name|tojson }}, {{ t.email|tojson }}, {{ t.status|tojson }}, {{ t.program|default(none)|tojson }})'>
               {{ icon('edit') }}
             </button>
             <form method="POST" action="{{ url_for('admin.delete_teacher', teacher_id=t.teacher_id) }}"
                   onsubmit="return confirm('Delete this faculty account? Their classes, student enrollments, and grades will be kept; the classes will await a new faculty assignment.');">
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+=======
+              onclick='openEditTeacher({{ t.teacher_id }}, {{ t.full_name|tojson }}, {{ t.email|tojson }}, {{ t.status|tojson }})'>
+              {{ icon('edit') }}
+            </button>
+            <form method="POST" action="{{ url_for('admin.delete_teacher', teacher_id=t.teacher_id) }}"
+                  onsubmit="return confirm('Remove this faculty member?');">
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
               <button class="icon-btn danger" title="Delete" type="submit">{{ icon('trash') }}</button>
             </form>
           </div>
@@ -66,11 +104,14 @@
   </table>
 </div>
 
+<<<<<<< HEAD
 <dialog id="faculty-load-panel" class="faculty-load-panel" aria-labelledby="faculty-load-title">
   <div class="faculty-load-header"><h2 id="faculty-load-title">Assigned classes</h2><button type="button" class="icon-btn" data-close-faculty-load aria-label="Close assigned classes" autofocus>{{ icon('x-circle') }}</button></div>
   <div id="faculty-load-content" class="faculty-load-content" aria-live="polite"></div>
 </dialog>
 
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 <!-- Add Teacher Modal -->
 <div class="modal-overlay" id="addTeacherModal">
   <div class="modal-card">
@@ -79,6 +120,7 @@
       <button class="modal-close" onclick="document.getElementById('addTeacherModal').classList.remove('open')">{{ icon('x-circle') }}</button>
     </div>
     <form method="POST" action="{{ url_for('admin.add_teacher') }}">
+<<<<<<< HEAD
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
       <div class="modal-body">
         <div class="field-group"><label class="field-label" for="teacher_first_name">First name</label><input class="field-input" id="teacher_first_name" name="first_name" maxlength="50" autocomplete="given-name" required></div>
@@ -88,6 +130,33 @@
         <div class="field-group"><label class="field-label" for="teacher_password">Password</label><input class="field-input" id="teacher_password" name="password" type="password" autocomplete="new-password" data-password-toggle="inside" data-random-password minlength="8" placeholder="Enter password" required>{% include '_password_requirements.html' %}</div>
         <div class="field-group"><label class="field-label" for="teacher_confirm_password">Confirm password</label><input class="field-input" id="teacher_confirm_password" name="confirm_password" type="password" autocomplete="new-password" data-password-toggle="inside" data-random-password minlength="8" placeholder="Re-enter password" required></div>
         <div class="field-group"><label for="teacher_program">Program</label><select id="teacher_program" name="program" class="field-input" required><option value="">Choose program</option>{% for code,name in curriculum_programs.items() %}<option value="{{ code }}">{{ code }} · {{ name }}</option>{% endfor %}</select></div><p class="cell-muted">Faculty sign in using their institutional email address.</p>
+=======
+      <div class="modal-body">
+        <div class="field-group">
+          <label class="field-label">Full Name</label>
+          <input class="field-input" name="full_name" placeholder="e.g. Prof. Juan Dela Cruz" required>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Faculty ID</label>
+            <input class="field-input" name="faculty_code" placeholder="e.g. TCH-145" required>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Institutional Email</label>
+            <input class="field-input" name="email" type="email" placeholder="name@cct.edu" required>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Username</label>
+            <input class="field-input" name="username" placeholder="auto from email if blank">
+          </div>
+          <div class="field-group">
+            <label class="field-label">Temporary Password</label>
+            <input class="field-input" name="password" placeholder="default: changeme123">
+          </div>
+        </div>
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline" onclick="document.getElementById('addTeacherModal').classList.remove('open')">Cancel</button>
@@ -105,13 +174,19 @@
       <button class="modal-close" onclick="document.getElementById('editTeacherModal').classList.remove('open')">{{ icon('x-circle') }}</button>
     </div>
     <form method="POST" id="editTeacherForm">
+<<<<<<< HEAD
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
       <div class="modal-body">
         <div class="field-group">
           <label class="field-label">Full Name</label>
           <input class="field-input" name="full_name" id="editTeacherName" required>
         </div>
+<<<<<<< HEAD
         <div class="field-group"><label for="editTeacherProgram">Program</label><select class="field-input" id="editTeacherProgram" name="program"><option value="">Not assigned</option>{% for code,name in curriculum_programs.items() %}<option value="{{ code }}">{{ code }} · {{ name }}</option>{% endfor %}</select></div>
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         <div class="field-row">
           <div class="field-group">
             <label class="field-label">Institutional Email</label>
@@ -125,7 +200,14 @@
             </select>
           </div>
         </div>
+<<<<<<< HEAD
 
+=======
+        <div class="field-group">
+          <label class="field-label">Reset Password (leave blank to keep current)</label>
+          <input class="field-input" type="password" name="new_password" id="editTeacherPassword" placeholder="••••••••" autocomplete="new-password">
+        </div>
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline" onclick="document.getElementById('editTeacherModal').classList.remove('open')">Cancel</button>
@@ -135,17 +217,65 @@
   </div>
 </div>
 
+<<<<<<< HEAD
 {% endblock %}
 
 {% block extra_scripts %}
 <script src="{{ url_for('static',filename='js/faculty-load.js') }}" defer></script>
 <script>
 function openEditTeacher(id, name, email, status, program) {
+=======
+<!-- Assign Subject Modal -->
+<div class="modal-overlay" id="assignModal">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3 class="modal-title">Assign Subject to Teacher</h3>
+      <button class="modal-close" onclick="document.getElementById('assignModal').classList.remove('open')">{{ icon('x-circle') }}</button>
+    </div>
+    <form method="POST" action="{{ url_for('admin.assign_subject') }}">
+      <div class="modal-body">
+        <div class="field-group">
+          <label class="field-label">Select Faculty Member</label>
+          <select class="field-input" name="teacher_id" required>
+            {% for t in all_teachers %}
+            <option value="{{ t.teacher_id }}">{{ t.full_name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Select Subject</label>
+          <select class="field-input" name="subject_id" required>
+            {% for s in all_subjects %}
+            <option value="{{ s.subject_id }}">{{ s.subject_name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Target Year &amp; Section</label>
+          <input class="field-input" name="section" placeholder="e.g. BSCS 2A" required>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" onclick="document.getElementById('assignModal').classList.remove('open')">Cancel</button>
+        <button type="submit" class="btn btn-primary">{{ icon('link') }} Assign Course Load</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+function openEditTeacher(id, name, email, status) {
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
   document.getElementById('editTeacherForm').action = "/admin/teachers/" + id + "/edit";
   document.getElementById('editTeacherName').value = name;
   document.getElementById('editTeacherEmail').value = email;
   document.getElementById('editTeacherStatus').value = status;
+<<<<<<< HEAD
   document.getElementById('editTeacherProgram').value = program || ''; 
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
   document.getElementById('editTeacherModal').classList.add('open');
 }
 </script>

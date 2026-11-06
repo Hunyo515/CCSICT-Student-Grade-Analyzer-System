@@ -1,8 +1,13 @@
 {% extends "faculty/_layout.html" %}
 {% set active_page = "grade_entry" %}
 {% from "_icons.html" import icon %}
+<<<<<<< HEAD
 {% block title %}Grade Weighting{% endblock %}
 {% block page_title %}Grade Weighting{% endblock %}
+=======
+{% block title %}Grade Weighting Configuration{% endblock %}
+{% block page_title %}Grade Weighting Configuration{% endblock %}
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 {% block header_extra %}
 {% if assignments %}
 <form method="GET" action="{{ url_for('faculty.grade_weighting') }}">
@@ -38,9 +43,13 @@
   </div>
 
   <form id="addCategoryForm" method="POST" action="{{ url_for('faculty.add_category') }}" class="add-activity-form" style="margin-top:16px;">
+<<<<<<< HEAD
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
     <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
 <input type="hidden" name="revision" value="{{ assignment.revision }}">
+=======
+    <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     <input class="field-input" name="category_name" placeholder="Category name (e.g. Lecture, Written Works)" required>
     <input class="field-input" name="weight_percent" type="number" min="0" max="100" step="0.5" placeholder="Weight % of final grade" style="width:190px;" required>
     <button type="submit" class="btn btn-primary btn-sm">Add</button>
@@ -67,18 +76,28 @@
   <div class="card" style="flex:1;min-width:280px;">
     <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
       <form method="POST" action="{{ url_for('faculty.edit_category', category_id=cat.category_id) }}" style="display:flex;gap:8px;align-items:center;flex:1;">
+<<<<<<< HEAD
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
 <input type="hidden" name="revision" value="{{ assignment.revision }}">
         <input class="field-input" name="category_name" value="{{ cat.category_name }}" style="font-weight:700;font-family:var(--font-ui);padding:8px 10px;">
+=======
+        <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
+        <input class="field-input" name="category_name" value="{{ cat.category_name }}" style="font-weight:700;font-family:'Lexend',sans-serif;padding:8px 10px;">
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         <input class="field-input" name="weight_percent" type="number" min="0" max="100" step="0.5" value="{{ cat.weight_percent|round(1) }}" style="width:80px;padding:8px 10px;" title="% of final grade">
         <button type="submit" class="icon-btn" title="Save changes">{{ icon('link') }}</button>
       </form>
       <form method="POST" action="{{ url_for('faculty.delete_category', category_id=cat.category_id) }}"
+<<<<<<< HEAD
             data-confirm="Delete the {{ cat.category_name }} category? Its components will be removed too.">
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
 <input type="hidden" name="revision" value="{{ assignment.revision }}">
+=======
+            onsubmit="return confirm('Delete the {{ cat.category_name }} category? Its components will be removed too.');">
+        <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         <button type="submit" class="icon-btn danger" title="Delete category">{{ icon('trash') }}</button>
       </form>
     </div>
@@ -91,9 +110,13 @@
         <div style="background:var(--bg);border-radius:6px;padding:8px 10px;width:70px;text-align:right;font-weight:700;font-size:13px;">{{ c.weight_percent|round(1) }}%</div>
         <div style="width:120px;font-size:11px;font-style:italic;color:var(--text-muted);">{{ c.final_contribution }}% of final grade</div>
         <form method="POST" action="{{ url_for('faculty.delete_component', component_id=c.component_id) }}" style="margin:0;">
+<<<<<<< HEAD
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
           <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
 <input type="hidden" name="revision" value="{{ assignment.revision }}">
+=======
+          <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
           <input type="hidden" name="redirect_to" value="grade_weighting">
           <button type="submit" class="icon-btn danger" title="Remove">{{ icon('trash') }}</button>
         </form>
@@ -112,9 +135,13 @@
       + Add Component
     </button>
     <form id="addForm-{{ cat.category_id }}" method="POST" action="{{ url_for('faculty.add_component') }}" class="add-activity-form">
+<<<<<<< HEAD
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
       <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
 <input type="hidden" name="revision" value="{{ assignment.revision }}">
+=======
+      <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
       <input type="hidden" name="category_id" value="{{ cat.category_id }}">
       <input type="hidden" name="redirect_to" value="grade_weighting">
       <input class="field-input" name="component_name" placeholder="Component name (e.g. Quizzes)" required>
@@ -139,9 +166,13 @@
       <div style="flex:1;background:var(--bg);border-radius:6px;padding:8px 12px;font-weight:600;font-size:13px;">{{ c.component_name }}</div>
       <div style="background:var(--bg);border-radius:6px;padding:8px 10px;width:70px;text-align:right;font-weight:700;font-size:13px;">{{ c.weight_percent|round(1) }}%</div>
       <form method="POST" action="{{ url_for('faculty.delete_component', component_id=c.component_id) }}" style="margin:0;">
+<<<<<<< HEAD
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
 <input type="hidden" name="revision" value="{{ assignment.revision }}">
+=======
+        <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         <input type="hidden" name="redirect_to" value="grade_weighting">
         <button type="submit" class="icon-btn danger" title="Remove">{{ icon('trash') }}</button>
       </form>
@@ -160,9 +191,13 @@
     + Add Component
   </button>
   <form id="addFlatForm" method="POST" action="{{ url_for('faculty.add_component') }}" class="add-activity-form">
+<<<<<<< HEAD
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
     <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
 <input type="hidden" name="revision" value="{{ assignment.revision }}">
+=======
+    <input type="hidden" name="assignment_id" value="{{ assignment.assignment_id }}">
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
     <input type="hidden" name="redirect_to" value="grade_weighting">
     <input class="field-input" name="component_name" placeholder="Component name (e.g. Quizzes)" required>
     <input class="field-input" name="weight_percent" type="number" min="0" max="100" step="0.5" placeholder="Weight %" style="width:110px;" required>

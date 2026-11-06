@@ -8,25 +8,41 @@
   </button>
   <div class="notif-dropdown" id="notifDropdown">
     <div class="notif-dropdown-header">
+<<<<<<< HEAD
       <span>Notifications</span>{% if nav_notifications %}<button type="button" class="notif-trash" aria-label="Select notifications to delete" aria-expanded="false">{{ icon('trash') }}</button>{% endif %}
       {% if nav_unread_count and nav_unread_count > 0 %}
       <form method="POST" action="{{ url_for('notifications.mark_all_read') }}">
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+=======
+      <span>Notifications</span>
+      {% if nav_unread_count and nav_unread_count > 0 %}
+      <form method="POST" action="{{ url_for('notifications.mark_all_read') }}">
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         <button type="submit" class="notif-mark-all">Mark all read</button>
       </form>
       {% endif %}
     </div>
+<<<<<<< HEAD
     <form id="notifDeleteForm" method="POST" action="{{ url_for('notifications.delete_selected') }}" data-confirm="Delete the selected notifications? This cannot be undone." hidden><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><label><input type="checkbox" id="notifSelectAll"> Select all shown</label><button type="submit" class="notif-delete-selected" disabled>Delete selected</button><button type="button" class="notif-cancel-select">Cancel</button></form>
     <div class="notif-list">
       {% for n in nav_notifications %}
       <div class="notif-entry"><label class="notif-select" hidden><input type="checkbox" form="notifDeleteForm" name="notification_id" value="{{ n.notification_id }}" aria-label="Select notification {{ loop.index }}"></label><form method="POST" action="{{ url_for('notifications.mark_read', notification_id=n.notification_id) }}">
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+=======
+    <div class="notif-list">
+      {% for n in nav_notifications %}
+      <form method="POST" action="{{ url_for('notifications.mark_read', notification_id=n.notification_id) }}">
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
         {% if n.link %}<input type="hidden" name="link" value="{{ n.link }}">{% endif %}
         <button type="submit" class="notif-item {{ 'unread' if n.is_read == 'N' }}">
           {% if n.is_read == 'N' %}<span class="notif-dot"></span>{% endif %}
           <span class="notif-message">{{ n.message }}</span>
         </button>
+<<<<<<< HEAD
       </form></div>
+=======
+      </form>
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
       {% else %}
       <div class="notif-empty">You're all caught up.</div>
       {% endfor %}
@@ -34,6 +50,7 @@
   </div>
 </div>
 <script>
+<<<<<<< HEAD
 (function(){
  const dd=document.getElementById('notifDropdown'),form=document.getElementById('notifDeleteForm');if(!form)return;
  const trash=dd.querySelector('.notif-trash');if(!trash)return;const all=document.getElementById('notifSelectAll'),items=[...dd.querySelectorAll('input[name=notification_id]')];
@@ -42,6 +59,8 @@
  trash.onclick=()=>mode(form.hidden);dd.querySelector('.notif-cancel-select').onclick=()=>mode(false);all.onchange=()=>{items.forEach(e=>e.checked=all.checked);update();};items.forEach(e=>e.onchange=update);
  dd.querySelectorAll('.notif-entry form').forEach(read=>read.addEventListener('submit',event=>{if(!form.hidden){event.preventDefault();event.stopPropagation();const box=read.closest('.notif-entry').querySelector('input[name=notification_id]');box.checked=!box.checked;update();}}));
 })();
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 document.addEventListener('click', function(e) {
   var dd = document.getElementById('notifDropdown');
   if (dd && !dd.contains(e.target)) dd.classList.remove('open');

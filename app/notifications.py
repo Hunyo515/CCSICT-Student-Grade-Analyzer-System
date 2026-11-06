@@ -3,7 +3,10 @@ Shared notification helpers used by all three portals (admin, faculty,
 student). A notification always belongs to one users.user_id row, so the
 same table and helpers work regardless of role.
 """
+<<<<<<< HEAD
 from flask import current_app
+=======
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 from .db import execute, query_all, query_one
 
 
@@ -16,10 +19,17 @@ def notify(user_id, message, link=None):
     try:
         execute(
             "INSERT INTO notifications (user_id, message, link) VALUES (:user_id, :msg, :link)",
+<<<<<<< HEAD
             {"user_id": user_id, "msg": message.encode("utf-8")[:255].decode("utf-8", errors="ignore"), "link": link},
         )
     except Exception as error:
         current_app.logger.warning("Notification could not be stored (%s)", type(error).__name__)
+=======
+            {"user_id": user_id, "msg": message[:255], "link": link},
+        )
+    except Exception:
+        pass
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
 
 
 def notify_many(user_ids, message, link=None):

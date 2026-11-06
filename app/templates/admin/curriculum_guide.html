@@ -1,5 +1,6 @@
 {% extends "admin/_layout.html" %}
 {% set active_page = "subjects" %}
+<<<<<<< HEAD
 {% block title %}{{ program_name }} Subjects{% endblock %}
 {% block page_title %}<a class="subject-crumb" href="{{ url_for('admin.subjects') }}">‹ Programs</a> / {{ program }}{% endblock %}
 {% block header_extra %}{% endblock %}
@@ -30,3 +31,218 @@
 </div></td></tr>{% endfor %}</tbody><tfoot><tr><th colspan="2">Total</th><td>{{ courses|sum(attribute='units') }}</td><td colspan="2"></td></tr></tfoot></table></div></details>{% endfor %}</section>
 {% else %}<div class="card"><p>{{ 'No archived subjects.' if archived else 'No subjects in this program yet.' }}</p></div>{% endfor %}
 </div>{% endblock %}{% block extra_scripts %}<script src="{{ url_for('static',filename='js/catalog-view.js') }}" defer></script>{% endblock %}
+=======
+{% from "_icons.html" import icon %}
+{% block title %}Curriculum Guide{% endblock %}
+{% block page_title %}Curriculum Guide{% endblock %}
+
+{% block content %}
+<a class="btn-back" href="{{ url_for('admin.subjects') }}">{{ icon('arrow-left') }} Back to Subjects</a>
+
+<div class="action-bar">
+  <div class="filters">
+    {% for p in programs %}
+    <a class="btn {{ 'btn-primary' if p == program else 'btn-outline' }} btn-sm"
+       href="{{ url_for('admin.curriculum_guide', program=p) }}">{{ p }}</a>
+    {% endfor %}
+  </div>
+  <button class="btn btn-primary" onclick="document.getElementById('addCurriculumModal').classList.add('open')">
+    {{ icon('plus') }} Add Subject
+  </button>
+</div>
+
+<div class="table-card">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th style="width:130px;">Subject Code</th>
+        <th>Subject Title</th>
+        <th style="width:90px;">Units</th>
+        <th style="width:130px;">Semester</th>
+        <th style="width:170px;">Prerequisite</th>
+        <th style="width:100px;text-align:center;">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for yl in year_order %}
+      <tr>
+        <td colspan="6" style="background:var(--accent-light);color:var(--accent);font-weight:700;font-family:'Lexend',sans-serif;padding:10px 24px;">{{ yl }}</td>
+      </tr>
+      {% for subj in grouped[yl] %}
+      <tr>
+        <td class="cell-strong">{{ subj.subject_code }}</td>
+        <td>{{ subj.subject_name }}{% if not subj.program %} <span class="badge brown" style="font-size:10px;">Shared</span>{% endif %}</td>
+        <td class="cell-muted">{{ subj.units }} Units</td>
+        <td class="cell-muted">{{ subj.semester_offered or '—' }}</td>
+        <td class="cell-muted">{{ subj.prerequisite_code or 'None' }}</td>
+        <td>
+          <div class="row-actions" style="justify-content:center;">
+            <button class="icon-btn" title="Edit"
+              onclick='openEditCurriculum({{ {
+                "subject_id": subj.subject_id, "subject_code": subj.subject_code, "subject_name": subj.subject_name,
+                "units": subj.units, "year_level": subj.year_level, "semester_offered": subj.semester_offered,
+                "prerequisite_subject_id": subj.prerequisite_subject_id, "shared": not subj.program
+              } | tojson }})'>{{ icon('edit') }}</button>
+            <form method="POST" action="{{ url_for('admin.delete_curriculum_subject', subject_id=subj.subject_id) }}"
+                  onsubmit="return confirm('Delete {{ subj.subject_code }} from the curriculum guide?');">
+              <input type="hidden" name="program" value="{{ program }}">
+              <button class="icon-btn danger" title="Delete">{{ icon('trash') }}</button>
+            </form>
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+      {% else %}
+      <tr><td colspan="6" class="cell-muted" style="text-align:center;padding:32px;">No subjects in the {{ program }} curriculum yet.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<p class="cell-muted" style="font-size:12px;">
+  "Shared" subjects appear under every program's tab (general education / common foundation courses).
+  Program-specific subjects only appear under their own tab.
+</p>
+
+<!-- Add Curriculum Subject Modal -->
+<div class="modal-overlay" id="addCurriculumModal">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3 class="modal-title">Add Subject to Curriculum</h3>
+      <button class="modal-close" onclick="document.getElementById('addCurriculumModal').classList.remove('open')">{{ icon('x-circle') }}</button>
+    </div>
+    <form method="POST" action="{{ url_for('admin.add_curriculum_subject') }}">
+      <input type="hidden" name="program" value="{{ program }}">
+      <div class="modal-body">
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Subject Code</label>
+            <input class="field-input" name="subject_code" placeholder="e.g. CS101" required>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Units</label>
+            <input class="field-input" name="units" type="number" min="1" max="6" value="3" required>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Subject Title</label>
+          <input class="field-input" name="subject_name" placeholder="e.g. Introduction to Programming" required>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Year Level</label>
+            <select class="field-input" name="year_level">
+              {% for yl in year_levels %}<option>{{ yl }}</option>{% endfor %}
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Semester Offered</label>
+            <select class="field-input" name="semester_offered">
+              <option value="">Not specified</option>
+              <option>1st Semester</option>
+              <option>2nd Semester</option>
+              <option>Summer</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Prerequisite</label>
+          <select class="field-input" name="prerequisite_subject_id">
+            <option value="">None</option>
+            {% for s in all_subjects %}
+            <option value="{{ s.subject_id }}">{{ s.subject_code }} - {{ s.subject_name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <label style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--text-muted);">
+          <input type="checkbox" name="shared">
+          Shared across all programs (general education / foundation course)
+        </label>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" onclick="document.getElementById('addCurriculumModal').classList.remove('open')">Cancel</button>
+        <button type="submit" class="btn btn-primary">Add Subject</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Edit Curriculum Subject Modal -->
+<div class="modal-overlay" id="editCurriculumModal">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3 class="modal-title">Edit Curriculum Entry</h3>
+      <button class="modal-close" onclick="document.getElementById('editCurriculumModal').classList.remove('open')">{{ icon('x-circle') }}</button>
+    </div>
+    <form method="POST" id="editCurriculumForm">
+      <input type="hidden" name="program" value="{{ program }}">
+      <div class="modal-body">
+        <div class="field-group">
+          <label class="field-label">Subject Code</label>
+          <input class="field-input" id="editCode" disabled style="opacity:0.6;">
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Subject Title</label>
+            <input class="field-input" name="subject_name" id="editName" required>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Units</label>
+            <input class="field-input" name="units" id="editUnits" type="number" min="1" max="6" required>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Year Level</label>
+            <select class="field-input" name="year_level" id="editYearLevel">
+              {% for yl in year_levels %}<option>{{ yl }}</option>{% endfor %}
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Semester Offered</label>
+            <select class="field-input" name="semester_offered" id="editSemester">
+              <option value="">Not specified</option>
+              <option>1st Semester</option>
+              <option>2nd Semester</option>
+              <option>Summer</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Prerequisite</label>
+          <select class="field-input" name="prerequisite_subject_id" id="editPrereq">
+            <option value="">None</option>
+            {% for s in all_subjects %}
+            <option value="{{ s.subject_id }}">{{ s.subject_code }} - {{ s.subject_name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <label style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--text-muted);">
+          <input type="checkbox" name="shared" id="editShared">
+          Shared across all programs (general education / foundation course)
+        </label>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" onclick="document.getElementById('editCurriculumModal').classList.remove('open')">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+function openEditCurriculum(subj) {
+  document.getElementById('editCurriculumForm').action = '/admin/subjects/curriculum/' + subj.subject_id + '/edit';
+  document.getElementById('editCode').value = subj.subject_code;
+  document.getElementById('editName').value = subj.subject_name;
+  document.getElementById('editUnits').value = subj.units;
+  document.getElementById('editYearLevel').value = subj.year_level;
+  document.getElementById('editSemester').value = subj.semester_offered || '';
+  document.getElementById('editPrereq').value = subj.prerequisite_subject_id || '';
+  document.getElementById('editShared').checked = !!subj.shared;
+  document.getElementById('editCurriculumModal').classList.add('open');
+}
+</script>
+{% endblock %}
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423

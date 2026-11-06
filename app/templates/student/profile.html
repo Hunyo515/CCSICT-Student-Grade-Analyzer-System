@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends 'student/_layout.html' %}
 {% set active_page='profile' %}
 {% block title %}My Profile{% endblock %}
@@ -16,3 +17,70 @@
 <dialog id="profilePhotoDialog" class="sheet-dialog" aria-labelledby="profilePhotoTitle"><div class="sheet-dialog-heading"><h2 id="profilePhotoTitle">Update profile picture</h2><button type="button" data-photo-cancel aria-label="Close photo dialog">×</button></div><form method="post" enctype="multipart/form-data" action="{{ url_for('student.profile_photo') }}" id="profilePhotoForm"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><div class="sheet-dialog-fields"><label class="btn btn-secondary photo-choose">Choose photo<input class="sr-only" type="file" name="profile_photo" accept="image/jpeg,image/png,image/webp" required></label><div class="photo-preview-circle"><img id="photoPreview" alt="New profile picture preview" hidden><span id="photoPreviewEmpty">Choose a photo to preview</span></div><label>Zoom<input id="photoZoom" type="range" min="1" max="3" step="0.05" value="1" disabled></label><p id="photoUploadStatus" role="status">JPG, PNG or WebP · up to 2 MB. Your photo changes only after you save.</p></div><div class="sheet-dialog-actions"><button type="button" class="btn btn-secondary" data-photo-cancel>Cancel</button><button type="button" class="btn btn-primary" id="saveProfilePhoto" disabled>Save picture</button></div></form></dialog>
 {% endblock %}
 {% block extra_scripts %}<script src="{{ url_for('static',filename='js/profile-photo.js') }}" defer></script>{% endblock %}
+=======
+{% extends "student/_layout.html" %}
+{% set active_page = "profile" %}
+{% from "_icons.html" import icon %}
+{% block title %}Profile{% endblock %}
+{% block page_title %}My Profile{% endblock %}
+
+{% block content %}
+<div style="display:flex;gap:24px;width:100%;align-items:flex-start;">
+  <div class="card" style="width:500px;flex-shrink:0;">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding-bottom:20px;border-bottom:1px solid var(--sidebar-border);">
+      <div style="width:80px;height:80px;border-radius:40px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Lexend',sans-serif;font-weight:700;font-size:28px;">
+        {{ student.full_name.split(' ')[0][0] }}{{ student.full_name.split(' ')[-1][0] }}
+      </div>
+      <div style="font-family:'Lexend',sans-serif;font-weight:700;font-size:20px;">{{ student.full_name }}</div>
+      <div class="cell-muted">Student ID: {{ student.id_number }}</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;padding-top:20px;font-size:13px;">
+      <div style="display:flex;justify-content:space-between;">
+        <span class="cell-muted" style="font-weight:600;">Program</span>
+        <span class="cell-strong">{{ student.program }}</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;">
+        <span class="cell-muted" style="font-weight:600;">Year Level</span>
+        <span class="cell-strong">{{ student.year_level }}</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;">
+        <span class="cell-muted" style="font-weight:600;">Section</span>
+        <span class="cell-strong">{{ student.section }}</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;">
+        <span class="cell-muted" style="font-weight:600;">Contact Number</span>
+        <span class="cell-strong">{{ student.contact_number or '—' }}</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;">
+        <span class="cell-muted" style="font-weight:600;">Email</span>
+        <span class="cell-strong">{{ student.email or '—' }}</span>
+      </div>
+    </div>
+    <div style="margin-top:20px;background:var(--success-light);border:1px solid var(--success);border-radius:12px;padding:16px;">
+      <div style="display:flex;align-items:center;gap:8px;color:var(--success);font-weight:700;font-size:14px;">
+        <span class="activity-dot" style="background:var(--success);"></span>
+        {{ 'Regular Student Status' if student.status == 'ACTIVE' else student.status|title ~ ' Status' }}
+      </div>
+      <p style="color:var(--success);font-size:12px;margin:8px 0 0;">
+        You are following the prescribed curriculum sequence for your program and year level.
+      </p>
+    </div>
+  </div>
+
+  <div class="card" style="flex:1;">
+    <div class="card-title">Enrolled Subjects This Term</div>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px;">
+      {% for e in enrollments %}
+      <div style="background:var(--bg);border:1px solid var(--sidebar-border);border-radius:12px;padding:16px;display:flex;align-items:center;gap:16px;">
+        <span class="chip">{{ e.subject_code }}</span>
+        <span class="cell-strong" style="flex:1;">{{ e.subject_name }}</span>
+        <span class="cell-muted" style="font-size:13px;">{{ e.units }}.0 Units</span>
+      </div>
+      {% else %}
+      <div class="cell-muted">Not enrolled in any subjects this term.</div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423

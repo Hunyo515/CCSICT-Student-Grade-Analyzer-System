@@ -1,5 +1,6 @@
 {% extends "admin/_layout.html" %}
 {% set active_page = "analytics" %}
+<<<<<<< HEAD
 {% from "_insight_ui.html" import metric, bar, empty, distribution, readiness, publication %}
 {% block title %}Analytics{% endblock %}
 {% block page_title %}Analytics{% endblock %}
@@ -24,3 +25,160 @@
 
 </div>
 {% endblock %}
+=======
+{% from "_icons.html" import icon %}
+{% block title %}Analytics{% endblock %}
+{% block page_title %}Performance Analytics{% endblock %}
+
+{% block content %}
+<div class="analytics-grid">
+  <!-- Enrollment by Program -->
+  <div class="card">
+    <div class="card-title">Enrollment by Program</div>
+    <div class="card-subtitle">Total active computing department enrollments</div>
+    <div style="margin-top:20px;">
+      {% for row in by_program %}
+      <div class="hbar-row">
+        <span class="hbar-label">{{ row.program }}</span>
+        <div class="hbar-track"><div class="hbar-fill" style="width:{{ (row.n / max_program * 100)|round(1) }}%"></div></div>
+        <span class="hbar-value">{{ row.n }}</span>
+      </div>
+      {% else %}
+      <div class="cell-muted">No active students yet.</div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Enrollment by Year Level -->
+  <div class="card" style="display:flex;flex-direction:column;">
+    <div class="card-title">Enrollment by Year Level</div>
+    <div class="card-subtitle">Student division across cohort milestones</div>
+    <div class="vbar-chart" style="margin-top:20px;flex:1;">
+      {% for row in by_year_level %}
+      <div class="vbar-col">
+        <span class="vbar-value">{{ row.n }}</span>
+        <div class="vbar-rect" style="height:{{ (row.n / max_year * 140)|round(0)|int }}px;"></div>
+        <span class="vbar-label">{{ row.year_level }}</span>
+      </div>
+      {% else %}
+      <div class="cell-muted">No active students yet.</div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<div style="display:flex;gap:24px;width:100%;align-items:stretch;">
+  <!-- Enrollment by Subject & Sex -->
+  <div class="card" style="flex:1.7;min-width:0;">
+    <div class="card-title">Enrollment by Subject &amp; Sex</div>
+    <div class="card-subtitle">Male vs Female student counts per subject</div>
+    <div class="legend-row" style="margin-top:16px;">
+      <span class="legend-item"><span class="legend-dot male"></span> Male</span>
+      <span class="legend-item"><span class="legend-dot female"></span> Female</span>
+    </div>
+    <div class="grouped-plot" style="margin-top:12px;">
+      <div class="grouped-bar-chart">
+        {% for row in by_subject_sex %}
+        <div class="grouped-bar-group">
+          <div class="grouped-bar-pair">
+            <div class="grouped-bar-rect-wrap">
+              <span class="grouped-bar-val">{{ row.male_count }}</span>
+              <div class="grouped-bar-rect male" style="height:{{ (row.male_count / max_subject_sex * 100)|round(0)|int }}px;"></div>
+            </div>
+            <div class="grouped-bar-rect-wrap">
+              <span class="grouped-bar-val">{{ row.female_count }}</span>
+              <div class="grouped-bar-rect female" style="height:{{ (row.female_count / max_subject_sex * 100)|round(0)|int }}px;"></div>
+            </div>
+          </div>
+          <span class="grouped-bar-label">{{ row.subject_name }}</span>
+        </div>
+        {% else %}
+        <div class="cell-muted">No enrollments yet this term.</div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Student Distribution by Sex -->
+  <div class="card" style="flex:1;min-width:0;">
+    <div class="card-title" style="font-size:18px;">Student Distribution by Sex</div>
+    <div class="card-subtitle">Male vs Female enrollment counts</div>
+    <hr class="sidebar-divider" style="margin:16px 0;">
+    {% if sex_total %}
+    <div style="display:flex;gap:24px;align-items:center;">
+      <div class="donut-wrap" style="background: conic-gradient(#3b82f6 0% {{ male_pct }}%, #f472b6 {{ male_pct }}% 100%);">
+        <div class="donut-hole">
+          <span class="donut-caption">Total</span>
+          <span class="donut-value">{{ "{:,}".format(sex_total) }}</span>
+        </div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span class="legend-item"><span class="legend-dot male"></span> Male</span>
+          <span><span class="cell-strong">{{ male_count }}</span> <span class="cell-muted">{{ male_pct }}%</span></span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span class="legend-item"><span class="legend-dot female"></span> Female</span>
+          <span><span class="cell-strong">{{ female_count }}</span> <span class="cell-muted">{{ female_pct }}%</span></span>
+        </div>
+      </div>
+    </div>
+    {% else %}
+    <div class="cell-muted">No sex data recorded for active students yet.</div>
+    {% endif %}
+  </div>
+</div>
+
+<div class="analytics-grid">
+  <!-- Regular vs Irregular Students -->
+  <div class="card">
+    <div style="display:flex;align-items:center;justify-content:space-between;">
+      <div>
+        <div class="card-title">Regular vs Irregular Students</div>
+        <div class="card-subtitle">Academic standing breakdown</div>
+      </div>
+      <div class="legend-row">
+        <span class="legend-item" style="font-size:11px;color:var(--text-muted);"><span class="legend-dot" style="background:#3b82f6;width:8px;height:8px;border-radius:50%;"></span> Reg ({{ regular_pct }}%)</span>
+        <span class="legend-item" style="font-size:11px;color:var(--text-muted);"><span class="legend-dot" style="background:#fb923c;width:8px;height:8px;border-radius:50%;"></span> Irreg ({{ irregular_pct }}%)</span>
+      </div>
+    </div>
+    <div style="display:flex;gap:24px;align-items:center;margin-top:16px;">
+      {% if standing_total %}
+      <div class="donut-wrap sm" style="background: conic-gradient(#fb923c 0% {{ irregular_pct }}%, #3b82f6 {{ irregular_pct }}% 100%);">
+        <div class="donut-hole">
+          <span class="donut-caption">Irregular</span>
+          <span class="donut-value">{{ irregular_pct }}%</span>
+        </div>
+      </div>
+      {% endif %}
+      <div class="irreg-table">
+        <div class="irreg-table-head"><span>Program</span><span>Irreg Count</span></div>
+        {% for row in irregular_by_program %}
+        <div class="irreg-table-row"><span class="prog">{{ row.program }}</span><span class="count">{{ row.n }}</span></div>
+        {% else %}
+        <div class="cell-muted" style="font-size:12px;">No irregular students recorded.</div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Class Average per Subject -->
+  <div class="card" style="display:flex;flex-direction:column;">
+    <div class="card-title">Class Average per Subject</div>
+    <div class="card-subtitle">Mean weighted grade across published subjects this term</div>
+    <div class="vbar-chart" style="margin-top:20px;flex:1;overflow-x:auto;">
+      {% for row in class_averages %}
+      <div class="vbar-col" style="width:70px;">
+        <span class="vbar-value">{{ row.avg }}%</span>
+        <div class="vbar-rect" style="width:24px;height:{{ (row.avg / max_class_avg * 130)|round(0)|int }}px;"></div>
+        <span class="vbar-label" style="font-size:10px;">{{ row.subject_name }}</span>
+      </div>
+      {% else %}
+      <div class="cell-muted">No published grades yet this term.</div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+>>>>>>> cbc75e39d66c03cb8a824f033eed3def1d11e423
